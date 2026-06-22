@@ -15,8 +15,21 @@ document.querySelectorAll('.shipping-toggle').forEach(function (toggle) {
         var fields = this.closest('form').querySelector('.shipping-fields');
         if (this.checked) {
             fields.classList.add('visible');
+            var pickup = this.closest('form').querySelector('.pickup-toggle');
+            if (pickup) pickup.checked = false;
         } else {
             fields.classList.remove('visible');
+        }
+    });
+});
+
+document.querySelectorAll('.pickup-toggle').forEach(function (toggle) {
+    toggle.addEventListener('change', function () {
+        if (this.checked) {
+            var shipping = this.closest('form').querySelector('.shipping-toggle');
+            if (shipping) shipping.checked = false;
+            var fields = this.closest('form').querySelector('.shipping-fields');
+            if (fields) fields.classList.remove('visible');
         }
     });
 });
@@ -26,6 +39,7 @@ document.getElementById('signForm').addEventListener('submit', function (e) {
 
     var besked = document.getElementById('besked').value.trim();
     var shippingChecked = this.querySelector('.shipping-toggle').checked;
+    var pickupChecked = this.querySelector('.pickup-toggle').checked;
 
     if (!besked) {
         alert('Udfyld venligst din besked.');
@@ -36,6 +50,9 @@ document.getElementById('signForm').addEventListener('submit', function (e) {
         'Besked: ' + besked + '\n' +
         'Pris: 199 kr.';
 
+    if (pickupChecked) {
+        bodyParts += '\n\nAfhentning: Dragør';
+    }
     if (shippingChecked) {
         var navn = document.getElementById('navn').value.trim();
         var adresse = document.getElementById('adresse').value.trim();
