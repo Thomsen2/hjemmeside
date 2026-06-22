@@ -115,21 +115,30 @@ h2::after {
     aspect-ratio: 1 / 1.1;
     clip-path: url(#heartClip);
     background:
+        linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px),
         repeating-linear-gradient(
-            135deg,
+            0deg,
             transparent,
-            transparent 1px,
-            rgba(180,140,90,0.05) 1px,
-            rgba(180,140,90,0.05) 2px
+            transparent 2px,
+            rgba(160,110,50,0.04) 2px,
+            rgba(160,110,50,0.04) 3px
         ),
         repeating-linear-gradient(
-            45deg,
+            0deg,
             transparent,
-            transparent 8px,
-            rgba(200,160,110,0.06) 8px,
-            rgba(200,160,110,0.06) 10px
+            transparent 6px,
+            rgba(180,130,70,0.05) 6px,
+            rgba(180,130,70,0.05) 8px
         ),
-        linear-gradient(145deg, #e8d3b5 0%, #ddd0ad 25%, #d4b88c 60%, #c9a87a 100%);
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 14px,
+            rgba(200,150,80,0.04) 14px,
+            rgba(200,150,80,0.04) 15px
+        ),
+        linear-gradient(180deg, #edd5b0 0%, #e0c395 20%, #dbb87a 45%, #d4a960 70%, #cfa050 100%),
+        radial-gradient(ellipse at 50% 30%, rgba(255,240,210,0.15) 0%, transparent 60%);
     box-shadow:
         0 12px 40px rgba(0,0,0,0.18),
         0 2px 8px rgba(0,0,0,0.08),
@@ -146,6 +155,34 @@ h2::after {
         0 20px 60px rgba(0,0,0,0.2),
         0 4px 12px rgba(0,0,0,0.08),
         inset 0 1px 2px rgba(255,255,255,0.3);
+}
+
+.sign-preview::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-radial-gradient(
+            ellipse at 50% 120%,
+            transparent 0px,
+            transparent 3px,
+            rgba(140,100,40,0.06) 3px,
+            rgba(140,100,40,0.06) 4px,
+            transparent 4px,
+            transparent 8px,
+            rgba(140,100,40,0.04) 8px,
+            rgba(140,100,40,0.04) 9px,
+            transparent 9px,
+            transparent 13px
+        ),
+        radial-gradient(
+            ellipse at 60% 40%,
+            transparent 40%,
+            rgba(200,160,110,0.06) 70%,
+            transparent 100%
+        );
+    pointer-events: none;
+    z-index: 0;
 }
 
 .sign-content {
