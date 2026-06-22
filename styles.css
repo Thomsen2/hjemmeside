@@ -113,7 +113,6 @@ h2::after {
     width: 100%;
     max-width: 370px;
     aspect-ratio: 1 / 1.1;
-    clip-path: url(#heartClip);
     background:
         linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px),
         repeating-linear-gradient(
