@@ -167,14 +167,46 @@
         </div>
     </section>
 
-    <section class="payment tab-section" id="version2">
+    <section class="builder tab-section" id="version2">
         <div class="container">
-            <h2>Betaling</h2>
-            <p>Betaling via MobilePay</p>
-            <div class="mobilepay">
-                <span class="mobilepay-number">12 34 56 78</span>
+            <h2>Amerikansk mørk valdnødfiner</h2>
+            <div class="builder-grid">
+                <div class="preview-area">
+                    <div class="sign-preview">
+                        <img src="amerikansk.jpg" alt="Amerikansk valdnødfiner" class="sign-photo">
+                    </div>
+                    <p class="sign-caption">Æresportskilt<br>Amerikansk mørk valdnødfiner (299 kr), Størrelse 31 x 33 cm &mdash; version 1</p>
+                </div>
+                <div class="form-area">
+                    <form class="sign-form">
+                        <div class="form-group">
+                            <label for="besked4">Indtast Navn, Datoer (2 stk), samt år</label>
+                            <textarea id="besked4" name="besked4" rows="3" placeholder="Skriv dine ønsker til skiltet her..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="navn4">Navn</label>
+                            <input type="text" id="navn4" name="navn4" placeholder="Dit fulde navn" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="adresse4">Adresse</label>
+                            <input type="text" id="adresse4" name="adresse4" placeholder="Din adresse" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mail4">Mail</label>
+                            <input type="email" id="mail4" name="mail4" placeholder="din@mail.dk" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobil4">Mobil nr</label>
+                            <input type="tel" id="mobil4" name="mobil4" placeholder="+45 12 34 56 78" required>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shipping" value="55">
+                            Skal sendes (55 kr)
+                        </label>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </div>
             </div>
-            <p class="payment-info">Du modtager en bekræftelse med betalingsoplysninger, når vi har behandlet din forespørgsel.</p>
         </div>
     </section>
 
