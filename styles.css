@@ -172,6 +172,7 @@ h2::after {
     font-size: 65px;
     font-weight: normal;
     opacity: 0.9;
+    margin-top: -1rem;
 }
 
 .sign-line-3 {
