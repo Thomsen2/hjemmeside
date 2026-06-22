@@ -40,6 +40,7 @@ document.getElementById('signForm').addEventListener('submit', function (e) {
     var besked = document.getElementById('besked').value.trim();
     var shippingChecked = this.querySelector('.shipping-toggle').checked;
     var pickupChecked = this.querySelector('.pickup-toggle').checked;
+    var mountingChecked = this.querySelector('.mounting-toggle').checked;
 
     if (!besked) {
         alert('Udfyld venligst din besked.');
@@ -50,6 +51,9 @@ document.getElementById('signForm').addEventListener('submit', function (e) {
         'Besked: ' + besked + '\n' +
         'Pris: 199 kr.';
 
+    if (mountingChecked) {
+        bodyParts += '\nMonteringskit: +20 kr.';
+    }
     if (pickupChecked) {
         bodyParts += '\n\nAfhentning: Dragør';
     }
