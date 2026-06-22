@@ -10,30 +10,46 @@ document.querySelectorAll('.nav-link').forEach(function (link) {
     });
 });
 
+document.querySelectorAll('.shipping-toggle').forEach(function (toggle) {
+    toggle.addEventListener('change', function () {
+        var fields = this.closest('form').querySelector('.shipping-fields');
+        if (this.checked) {
+            fields.classList.add('visible');
+        } else {
+            fields.classList.remove('visible');
+        }
+    });
+});
+
 document.getElementById('signForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
     var besked = document.getElementById('besked').value.trim();
-    var navn = document.getElementById('navn').value.trim();
-    var adresse = document.getElementById('adresse').value.trim();
-    var mail = document.getElementById('mail').value.trim();
-    var mobil = document.getElementById('mobil').value.trim();
+    var shippingChecked = this.querySelector('.shipping-toggle').checked;
 
-    if (!besked || !navn || !adresse || !mail || !mobil) {
-        alert('Udfyld venligst alle felter.');
+    if (!besked) {
+        alert('Udfyld venligst din besked.');
         return;
     }
 
-    var emne = encodeURIComponent('Ny forespørgsel: Æresportskilt');
-    var body = encodeURIComponent(
-        'Ny forespørgsel på æresportskilt\n\n' +
-        'Navn: ' + navn + '\n' +
-        'Adresse: ' + adresse + '\n' +
-        'Mail: ' + mail + '\n' +
-        'Mobil: ' + mobil + '\n' +
-        'Besked: ' + besked + '\n\n' +
-        'Pris: 199 kr.'
-    );
+    var bodyParts = 'Ny forespørgsel på æresportskilt\n\n' +
+        'Besked: ' + besked + '\n' +
+        'Pris: 199 kr.';
 
+    if (shippingChecked) {
+        var navn = document.getElementById('navn').value.trim();
+        var adresse = document.getElementById('adresse').value.trim();
+        var mail = document.getElementById('mail').value.trim();
+        var mobil = document.getElementById('mobil').value.trim();
+        bodyParts += '\n\n--- Levering ---\n' +
+            'Navn: ' + navn + '\n' +
+            'Adresse: ' + adresse + '\n' +
+            'Mail: ' + mail + '\n' +
+            'Mobil: ' + mobil + '\n' +
+            'Fragt: 55 kr.';
+    }
+
+    var emne = encodeURIComponent('Ny forespørgsel: Æresportskilt');
+    var body = encodeURIComponent(bodyParts);
     window.location.href = 'mailto:info@aeresportskilt.dk?subject=' + emne + '&body=' + body;
 });

@@ -342,6 +342,16 @@ h2::after {
     cursor: pointer;
 }
 
+.shipping-fields {
+    display: none;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.shipping-fields.visible {
+    display: flex;
+}
+
 /* Gallery */
 .gallery-grid {
     display: grid;
