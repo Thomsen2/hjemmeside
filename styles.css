@@ -169,7 +169,7 @@ h2::after {
 }
 
 .sign-line-2 {
-    font-size: 1.3rem;
+    font-size: 65px;
     font-weight: normal;
     opacity: 0.9;
 }
@@ -468,7 +468,7 @@ footer a:hover {
     }
 
     .sign-line-2 {
-        font-size: 1.05rem;
+        font-size: 42px;
     }
 
     .sign-line-3 {
