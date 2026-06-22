@@ -165,7 +165,7 @@ h2::after {
     font-size: 65px;
     font-weight: normal;
     letter-spacing: 0.5px;
-    margin-top: calc(-8rem + 1cm);
+    margin-top: calc(-8rem + 2.5cm);
 }
 
 .sign-line-2 {
