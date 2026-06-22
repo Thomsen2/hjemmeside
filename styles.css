@@ -177,27 +177,6 @@ h2::after {
     justify-content: center;
     align-items: center;
     min-height: 420px;
-    position: relative;
-}
-
-.preview-area::after {
-    content: '\1F342  \1F341  \1F342';
-    font-size: 1.3rem;
-    display: block;
-    text-align: center;
-    margin-top: 0.3rem;
-    letter-spacing: 1.2rem;
-    color: #8b6914;
-    opacity: 0.5;
-}
-
-.sign-beam {
-    width: 80%;
-    height: 10px;
-    background: linear-gradient(180deg, #c49a3c, #a07828, #8b6914);
-    border-radius: 3px;
-    margin-top: 0.5rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 .sign-preview {
