@@ -6,7 +6,7 @@ const signLine2 = document.getElementById('signLine2');
 const signLine3 = document.getElementById('signLine3');
 
 function updatePreview() {
-    signLine1.textContent = text1Input.value.trim() || 'Dit navn';
+    signLine1.textContent = text1Input.value.trim() || 'linie 1';
     signLine2.textContent = text2Input.value.trim() || 'dd. mmmm yyyy';
     signLine3.textContent = text3Input.value.trim() || '2024';
 }
