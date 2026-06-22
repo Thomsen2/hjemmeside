@@ -93,6 +93,15 @@ body {
     color: #1a1a2e;
 }
 
+.main-nav a.active {
+    color: #1a1a2e;
+    font-weight: 600;
+}
+
+.main-nav a.active::after {
+    width: 100%;
+}
+
 .main-nav a::after {
     content: '';
     position: absolute;
@@ -106,6 +115,14 @@ body {
 
 .main-nav a:hover::after {
     width: 100%;
+}
+
+.tab-section {
+    display: none;
+}
+
+.tab-section.active {
+    display: block;
 }
 
 /* Sections */
