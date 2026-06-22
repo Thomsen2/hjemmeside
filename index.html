@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Æresportskilt - Bestil dit personlige skilt</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <clipPath id="heartClip" clipPathUnits="objectBoundingBox">
+                <path d="M 0.5,0.85 C 0.5,0.85 0.03,0.45 0.03,0.2 C 0.03,0.02 0.2,-0.08 0.5,0.14 C 0.8,-0.08 0.97,0.02 0.97,0.2 C 0.97,0.45 0.5,0.85 0.5,0.85 Z" />
+            </clipPath>
+        </defs>
+    </svg>
+    <header class="hero">
+        <div class="container">
+            <h1>Æresportskilt</h1>
+            <p class="tagline">Et eksklusivt skilt til din bolig – personligt og tidløst</p>
+        </div>
+    </header>
+
+    <section class="intro">
+        <div class="container">
+            <h2>Gør din bolig unik</h2>
+            <p>Et æresportskilt er det perfekte supplement til din ejendom. Vælg selv 3 tekster – navn, dato og årstal – og få et smukt, holdbart skilt leveret til døren.</p>
+        </div>
+    </section>
+
+    <section class="builder" id="builder">
+        <div class="container">
+            <h2>Design dit skilt</h2>
+            <div class="builder-grid">
+                <div class="preview-area">
+                    <div class="sign-preview" id="signPreview">
+                        <div class="sign-content">
+                            <div class="sign-line sign-line-1" id="signLine1">Dit navn</div>
+                            <div class="sign-line sign-line-2" id="signLine2">dd. mmmm yyyy</div>
+                            <div class="sign-line sign-line-3" id="signLine3">2024</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-area">
+                    <form id="signForm" class="sign-form">
+                        <div class="form-group">
+                            <label for="text1">Navn</label>
+                            <input type="text" id="text1" name="text1" placeholder="F.eks. Anders Jensen" maxlength="40" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="text2">Dato</label>
+                            <input type="text" id="text2" name="text2" placeholder="F.eks. d. 15. juni 2024" maxlength="40" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="text3">Årstal</label>
+                            <input type="text" id="text3" name="text3" placeholder="F.eks. 2024" maxlength="10" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="antal">Antal skilte</label>
+                            <input type="number" id="antal" name="antal" value="1" min="1" max="50">
+                        </div>
+                        <div class="form-group">
+                            <label for="besked">Besked / bemærkning (valgfri)</label>
+                            <textarea id="besked" name="besked" rows="3" placeholder="Eventuelle ekstra ønsker..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2>Pris</h2>
+            <div class="price-card">
+                <div class="price">249 kr.</div>
+                <p>pr. skilt inkl. moms</p>
+                <p class="price-info">Fragt tilføjes ved bestilling</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="payment">
+        <div class="container">
+            <h2>Betaling</h2>
+            <p>Betaling via MobilePay</p>
+            <div class="mobilepay">
+                <span class="mobilepay-number">12 34 56 78</span>
+            </div>
+            <p class="payment-info">Du modtager en bekræftelse med betalingsoplysninger, når vi har behandlet din forespørgsel.</p>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <h2>Kontakt</h2>
+            <p>Har du spørgsmål? Kontakt os på:</p>
+            <p class="contact-detail">Mail: <a href="mailto:info@aeresportskilt.dk">info@aeresportskilt.dk</a></p>
+            <p class="contact-detail">Tlf: <a href="tel:+4512345678">+45 12 34 56 78</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Æresportskilt. Alle rettigheder forbeholdes. &mdash; <a href="https://github.com/Thomsen2" target="_blank" rel="noopener">GitHub</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
