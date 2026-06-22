@@ -7,7 +7,7 @@ const signLine3 = document.getElementById('signLine3');
 
 function updatePreview() {
     signLine1.textContent = text1Input.value.trim() || 'linie 1';
-    signLine2.textContent = text2Input.value.trim() || 'dd. mmmm yyyy';
+    signLine2.textContent = text2Input.value.trim() || 'Navn';
     signLine3.textContent = text3Input.value.trim() || '2024';
 }
 
@@ -25,15 +25,15 @@ document.getElementById('signForm').addEventListener('submit', function (e) {
     const besked = document.getElementById('besked').value.trim();
 
     if (!navn || !dato || !aarstal) {
-        alert('Udfyld venligst navn, dato og årstal.');
+        alert('Udfyld venligst alle felter.');
         return;
     }
 
     const emne = encodeURIComponent('Ny forespørgsel: Æresportskilt');
     const body = encodeURIComponent(
         'Ny forespørgsel på æresportskilt\n\n' +
-        'Navn: ' + navn + '\n' +
-        'Dato: ' + dato + '\n' +
+        'Linie 1: ' + navn + '\n' +
+        'Navn: ' + dato + '\n' +
         'Årstal: ' + aarstal + '\n' +
         'Antal: ' + antal + '\n' +
         'Besked: ' + (besked || '(ingen)') + '\n\n' +
