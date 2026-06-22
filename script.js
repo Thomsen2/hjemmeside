@@ -66,7 +66,7 @@ document.getElementById('signForm').addEventListener('submit', function (e) {
             'Fragt: 55 kr.';
     }
 
-    var emne = encodeURIComponent('Ny forespørgsel: Æresportskilt');
+    var emne = encodeURIComponent('Ny forespørgsel: Æresportskilt.dk');
     var body = encodeURIComponent(bodyParts);
     window.location.href = 'mailto:info@aeresportskilt.dk?subject=' + emne + '&body=' + body;
 });
