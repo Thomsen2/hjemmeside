@@ -308,6 +308,23 @@ h2::after {
     transform: translateY(0);
 }
 
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #555;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #c9a87a;
+    cursor: pointer;
+}
+
 /* Gallery */
 .gallery-grid {
     display: grid;
