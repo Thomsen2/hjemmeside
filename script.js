@@ -7,7 +7,7 @@ const signLine3 = document.getElementById('signLine3');
 
 function updatePreview() {
     signLine1.textContent = text1Input.value.trim() || 'Tillykke';
-    signLine2.textContent = text2Input.value.trim() || 'Navn';
+    signLine2.textContent = text2Input.value.trim() || 'linie 2';
     signLine3.textContent = text3Input.value.trim() || '2024';
 }
 
