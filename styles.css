@@ -110,6 +110,7 @@ h2::after {
 /* Sign Preview */
 .preview-area {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 420px;
@@ -133,6 +134,13 @@ h2::after {
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+.sign-caption {
+    text-align: center;
+    color: #888;
+    font-size: 0.88rem;
+    margin-top: 0.75rem;
 }
 
 .sign-preview:hover {
