@@ -36,41 +36,60 @@ document.querySelectorAll('.pickup-toggle').forEach(function (toggle) {
 
 document.getElementById('signForm').addEventListener('submit', function (e) {
     e.preventDefault();
+    handleFormSubmit(this);
+});
 
-    var besked = document.getElementById('besked').value.trim();
-    var shippingChecked = this.querySelector('.shipping-toggle').checked;
-    var pickupChecked = this.querySelector('.pickup-toggle').checked;
-    var mountingChecked = this.querySelector('.mounting-toggle').checked;
+document.querySelectorAll('.sign-form').forEach(function (form) {
+    if (form.id !== 'signForm') {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            handleFormSubmit(this);
+        });
+    }
+});
+
+function handleFormSubmit(form) {
+    var textarea = form.querySelector('textarea');
+    var besked = textarea ? textarea.value.trim() : '';
 
     if (!besked) {
         alert('Udfyld venligst din besked.');
         return;
     }
 
-    var bodyParts = 'Ny forespørgsel på æresportskilt\n\n' +
-        'Besked: ' + besked + '\n' +
-        'Pris: 199 kr.';
+    var shippingChecked = form.querySelector('.shipping-toggle').checked;
+    var pickupChecked = form.querySelector('.pickup-toggle').checked;
+    var mountingChecked = form.querySelector('.mounting-toggle').checked;
+    var testChecked = form.querySelector('input[name="test"]') ? form.querySelector('input[name="test"]').checked : false;
 
-    if (mountingChecked) {
-        bodyParts += '\nMonteringskit: +20 kr.';
-    }
-    if (pickupChecked) {
-        bodyParts += '\n\nAfhentning: Dragør';
-    }
+    var caption = form.closest('.builder-grid').querySelector('.sign-caption');
+    var captionText = caption ? caption.textContent.replace(/\s+/g, ' ').trim() : 'Æresportskilt';
+
+    var bodyParts = 'Ny forespørgsel på æresportskilt.dk\n\n' +
+        'Produkt: ' + captionText + '\n' +
+        'Besked: ' + besked;
+
+    var ekstra = [];
+    if (pickupChecked) ekstra.push('Afhentning i Dragør (gratis)');
+    if (shippingChecked) ekstra.push('Skal sendes (55 kr)');
+    if (mountingChecked) ekstra.push('Monteringskit (+20 kr)');
+    if (testChecked) ekstra.push('test');
+    if (ekstra.length > 0) bodyParts += '\n\nTilvalg: ' + ekstra.join(', ');
+
     if (shippingChecked) {
-        var navn = document.getElementById('navn').value.trim();
-        var adresse = document.getElementById('adresse').value.trim();
-        var mail = document.getElementById('mail').value.trim();
-        var mobil = document.getElementById('mobil').value.trim();
+        var fieldsContainer = form.querySelector('.shipping-fields');
+        var navn = fieldsContainer.querySelector('input[type="text"]:nth-of-type(1)').value.trim();
+        var adresse = fieldsContainer.querySelector('input[type="text"]:nth-of-type(2)').value.trim();
+        var mail = fieldsContainer.querySelector('input[type="email"]').value.trim();
+        var mobil = fieldsContainer.querySelector('input[type="tel"]').value.trim();
         bodyParts += '\n\n--- Levering ---\n' +
             'Navn: ' + navn + '\n' +
             'Adresse: ' + adresse + '\n' +
             'Mail: ' + mail + '\n' +
-            'Mobil: ' + mobil + '\n' +
-            'Fragt: 55 kr.';
+            'Mobil: ' + mobil;
     }
 
     var emne = encodeURIComponent('Ny forespørgsel: Æresportskilt.dk');
     var body = encodeURIComponent(bodyParts);
-    window.location.href = 'mailto:info@aeresportskilt.dk?subject=' + emne + '&body=' + body;
-});
+    window.location.href = 'mailto:Thomsen2@gmail.com?subject=' + emne + '&body=' + body;
+}
