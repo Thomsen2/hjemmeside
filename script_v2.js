@@ -65,13 +65,17 @@ function handleFormSubmit(form, e) {
 
     if (shippingChecked) {
         var fieldsContainer = form.querySelector('.shipping-fields');
-        var navn = fieldsContainer.querySelector('input[type="text"]:nth-of-type(1)').value.trim();
-        var adresse = fieldsContainer.querySelector('input[type="text"]:nth-of-type(2)').value.trim();
+        var navn = fieldsContainer.querySelectorAll('input[type="text"]')[0].value.trim();
+        var adresse = fieldsContainer.querySelectorAll('input[type="text"]')[1].value.trim();
+        var postnr = fieldsContainer.querySelector('.postnr-input').value.trim();
+        var by = fieldsContainer.querySelector('.by-input').value.trim();
         var mail = fieldsContainer.querySelector('input[type="email"]').value.trim();
         var mobil = fieldsContainer.querySelector('input[type="tel"]').value.trim();
         bodyParts += '\n\n--- Levering ---\n' +
             'Navn: ' + navn + '\n' +
             'Adresse: ' + adresse + '\n' +
+            'Post nr.: ' + postnr + '\n' +
+            'By: ' + by + '\n' +
             'Mail: ' + mail + '\n' +
             'Mobil: ' + mobil;
     }

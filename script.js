@@ -34,21 +34,9 @@ document.querySelectorAll('.pickup-toggle').forEach(function (toggle) {
     });
 });
 
-document.getElementById('signForm').addEventListener('submit', function (e) {
+function handleFormSubmit(form, e) {
     e.preventDefault();
-    handleFormSubmit(this);
-});
 
-document.querySelectorAll('.sign-form').forEach(function (form) {
-    if (form.id !== 'signForm') {
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            handleFormSubmit(this);
-        });
-    }
-});
-
-function handleFormSubmit(form) {
     var textarea = form.querySelector('textarea');
     var besked = textarea ? textarea.value.trim() : '';
 
@@ -65,8 +53,7 @@ function handleFormSubmit(form) {
     var caption = form.closest('.builder-grid').querySelector('.sign-caption');
     var captionText = caption ? caption.textContent.replace(/\s+/g, ' ').trim() : 'Æresportskilt';
 
-    var bodyParts = 'Ny forespørgsel på æresportskilt.dk\n\n' +
-        'Produkt: ' + captionText + '\n' +
+    var bodyParts = 'Produkt: ' + captionText + '\n\n' +
         'Besked: ' + besked;
 
     var ekstra = [];
@@ -78,18 +65,46 @@ function handleFormSubmit(form) {
 
     if (shippingChecked) {
         var fieldsContainer = form.querySelector('.shipping-fields');
-        var navn = fieldsContainer.querySelector('input[type="text"]:nth-of-type(1)').value.trim();
-        var adresse = fieldsContainer.querySelector('input[type="text"]:nth-of-type(2)').value.trim();
+        var navn = fieldsContainer.querySelectorAll('input[type="text"]')[0].value.trim();
+        var adresse = fieldsContainer.querySelectorAll('input[type="text"]')[1].value.trim();
+        var postnr = fieldsContainer.querySelector('.postnr-input').value.trim();
+        var by = fieldsContainer.querySelector('.by-input').value.trim();
         var mail = fieldsContainer.querySelector('input[type="email"]').value.trim();
         var mobil = fieldsContainer.querySelector('input[type="tel"]').value.trim();
         bodyParts += '\n\n--- Levering ---\n' +
             'Navn: ' + navn + '\n' +
             'Adresse: ' + adresse + '\n' +
+            'Post nr.: ' + postnr + '\n' +
+            'By: ' + by + '\n' +
             'Mail: ' + mail + '\n' +
             'Mobil: ' + mobil;
     }
 
-    var emne = encodeURIComponent('Ny forespørgsel: Æresportskilt.dk');
-    var body = encodeURIComponent(bodyParts);
-    window.location.href = 'mailto:Thomsen2@gmail.com?subject=' + emne + '&body=' + body;
+    var btn = form.querySelector('.btn-submit');
+    btn.textContent = 'Sender...';
+    btn.disabled = true;
+
+    fetch('/api/order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ product: captionText, body: bodyParts })
+    })
+    .then(function (res) {
+        if (res.ok) return res.text();
+        throw new Error('Fejl ved afsendelse');
+    })
+    .then(function (html) {
+        document.body.innerHTML = html;
+    })
+    .catch(function (err) {
+        alert('Kunne ikke sende. Prøv igen.');
+        btn.textContent = 'Send forespørgsel';
+        btn.disabled = false;
+    });
 }
+
+document.querySelectorAll('.sign-form').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+        handleFormSubmit(this, e);
+    });
+});
