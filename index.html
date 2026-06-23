@@ -19,7 +19,8 @@
     <header class="hero">
         <div class="container">
             <h1>Æresportskilt.dk</h1>
-            <p class="tagline">Et eksklusivt skilt til din bolig – personligt og tidløst</p>
+            <p class="tagline">Dit navn. Dit hjem. Din ære. Evigt indgraveret i træ.</p>
+            <p class="hero-desc">Håndlavede æresportskilte i nøje udvalgte træsorter – skabt til at ære og mindes med tidløs elegance.</p>
         </div>
     </header>
 
@@ -27,7 +28,7 @@
         <div class="container">
             <a href="#" data-section="birkefiner" class="nav-link active">Birkefiner</a>
             <a href="#" data-section="egetrae" class="nav-link">Egetræ</a>
-            <a href="#" data-section="version1" class="nav-link">Mørkbejdset valdnød finer</a>
+            <a href="#" data-section="version1" class="nav-link">Mørkbejdset valdnød</a>
             <a href="#" data-section="version2" class="nav-link">Amerikansk mørk valdnødfiner</a>
             <a href="#" data-section="bestil" class="nav-link">Bestil</a>
         </div>
@@ -36,7 +37,8 @@
     <!-- Birkefiner -->
     <section class="builder tab-section active" id="birkefiner">
         <div class="container">
-            <h2>Vælg dit skilt</h2>
+            <h2>Birkefiner</h2>
+            <p class="section-desc">Dette æresportskilt i ubehandlet birkefiner (31x33 cm) bringer naturens ro ind i hjemmet. Det lyse træ har en tidløs elegance, der passer perfekt til nordisk indretning. En smuk, alsidig base til personlig gravering eller dekoration. Pris: 199 kr.</p>
             <div class="builder-grid">
                 <div class="preview-area">
                     <div class="sign-preview" id="signPreview">
@@ -65,6 +67,10 @@
                         <label class="checkbox-label">
                             <input type="checkbox" name="test">
                             test
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="test2">
+                            test 2
                         </label>
                         <div class="shipping-fields">
                             <div class="form-group">
@@ -117,6 +123,10 @@
                             <input type="checkbox" name="test">
                             test
                         </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="test2">
+                            test 2
+                        </label>
                         <div class="shipping-fields">
                             <div class="form-group">
                                 <label for="navn5">Navn</label>
@@ -146,6 +156,7 @@
     <section class="builder tab-section" id="egetrae">
         <div class="container">
             <h2>Egetræ</h2>
+            <p class="section-desc">Dette æresportskilt i lys egetræ (31x33 cm) forener styrke og klassisk skønhed. Egetræets markante åretegning og robuste karakter gør det til et tidløst og elegant valg til at ære en særlig person. Perfekt til 249 kr.</p>
             <div class="builder-grid">
                 <div class="preview-area">
                     <div class="sign-preview">
@@ -174,6 +185,10 @@
                         <label class="checkbox-label">
                             <input type="checkbox" name="test">
                             test
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="test2">
+                            test 2
                         </label>
                         <div class="shipping-fields">
                             <div class="form-group">
@@ -226,6 +241,10 @@
                             <input type="checkbox" name="test">
                             test
                         </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="test2">
+                            test 2
+                        </label>
                         <div class="shipping-fields">
                             <div class="form-group">
                                 <label for="navn3">Navn</label>
@@ -251,14 +270,57 @@
         </div>
     </section>
 
-    <!-- Mørkbejdset valdnød finer / Version 1 -->
-    <section class="pricing tab-section" id="version1">
+    <!-- Mørkbejdset valdnød finer -->
+    <section class="builder tab-section" id="version1">
         <div class="container">
-            <h2>Pris</h2>
-            <div class="price-card">
-                <div class="price">249 kr.</div>
-                <p>pr. skilt inkl. moms</p>
-                <p class="price-info">Fragt tilføjes ved bestilling</p>
+            <h2>Mørkbejdset valdnød finer</h2>
+            <p class="section-desc">Dette æresportskilt i mørkbejdset valdnødfiner (31x33 cm) udstråler luksus og elegance. Den dybe, mørke farve giver et sofistikeret look, der løfter ethvert rum. Pris: 249 kr.</p>
+            <div class="builder-grid">
+                <div class="preview-area">
+                    <div class="sign-preview">
+                        <img src="version%202.JPG" alt="Mørkbejdset valdnød" class="sign-photo">
+                    </div>
+                    <p class="sign-caption">Æresportskilt<br>Mørkbejdset valdnødfiner (249 kr), Størrelse 31 x 33 cm</p>
+                </div>
+                <div class="form-area">
+                    <form class="sign-form">
+                        <div class="form-group">
+                            <label for="besked_v1">Indtast Navne, Datoer (2 stk), samt år</label>
+                            <textarea id="besked_v1" name="besked_v1" rows="3" placeholder="Skriv dine ønsker til skiltet her..."></textarea>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
+                            Afhentning i Dragør (gratis)
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
+                            Skal sendes (55 kr)
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="mounting" value="20" class="mounting-toggle">
+                            Tilføj monteringskit +20 kr
+                        </label>
+                        <div class="shipping-fields">
+                            <div class="form-group">
+                                <label for="navn_v1">Navn</label>
+                                <input type="text" id="navn_v1" name="navn_v1" placeholder="Dit fulde navn">
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse_v1">Adresse</label>
+                                <input type="text" id="adresse_v1" name="adresse_v1" placeholder="Din adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail_v1">Mail</label>
+                                <input type="email" id="mail_v1" name="mail_v1" placeholder="din@mail.dk">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobil_v1">Mobil nr</label>
+                                <input type="tel" id="mobil_v1" name="mobil_v1" placeholder="+45 12 34 56 78">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -267,6 +329,7 @@
     <section class="builder tab-section" id="version2">
         <div class="container">
             <h2>Amerikansk mørk valdnødfiner</h2>
+            <p class="section-desc">Dette æresportskilt i amerikansk mørk valnøddefiner (31x33 cm) udstråler eksklusivitet med sin rige, varme farve og dybe træstruktur. Perfekt til at fremhæve præstationer – en tidløs, elegant detalje til hjemmet eller kontoret. Pris: 299 kr.</p>
             <div class="builder-grid">
                 <div class="preview-area">
                     <div class="sign-preview">
@@ -296,6 +359,10 @@
                             <input type="checkbox" name="test">
                             test
                         </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="test2">
+                            test 2
+                        </label>
                         <div class="shipping-fields">
                             <div class="form-group">
                                 <label for="navn4">Navn</label>
@@ -321,9 +388,11 @@
         </div>
     </section>
 
-    <section class="contact tab-section" id="bestil">
+    <section class="about tab-section" id="bestil">
         <div class="container">
-            <h2>Kontakt</h2>
+            <h2>Om os</h2>
+            <p class="about-text">Hos Æresportskilt.dk skaber vi håndlavede æresportskilte med kærlighed til træhåndværket. Hvert skilt udføres i nøje udvalgte træsorter, hvor kvalitet og detaljer er i fokus. Vi tilbyder personlig service og skræddersyede løsninger, så dit skilt bliver unikt og holder i generationer.</p>
+            <h2 style="margin-top:2rem">Kontakt</h2>
             <p>Har du spørgsmål? Kontakt os på:</p>
             <p class="contact-detail">Mail: <a href="mailto:info@aeresportskilt.dk">info@aeresportskilt.dk</a></p>
             <p class="contact-detail">Tlf: <a href="tel:+4512345678">+45 12 34 56 78</a></p>
