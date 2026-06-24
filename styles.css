@@ -257,7 +257,8 @@ h2::after {
     text-align: center;
     color: #999;
     font-size: 0.82rem;
-    margin-bottom: 1.5rem;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
     font-style: italic;
 }
 
