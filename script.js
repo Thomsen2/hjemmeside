@@ -1,10 +1,3 @@
-document.querySelectorAll('.sign-photo').forEach(function (img) {
-    img.style.cursor = 'pointer';
-    img.addEventListener('click', function () {
-        window.open(this.src, '_blank');
-    });
-});
-
 document.querySelectorAll('.nav-link, .nav-sub-link').forEach(function (link) {
     link.addEventListener('click', function (e) {
         e.preventDefault();
