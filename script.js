@@ -22,8 +22,6 @@ document.querySelectorAll('.shipping-toggle').forEach(function (toggle) {
             fields.classList.add('visible');
             var pickup = this.closest('form').querySelector('.pickup-toggle');
             if (pickup) pickup.checked = false;
-            var pfields = this.closest('form').querySelector('.pickup-fields');
-            if (pfields) pfields.classList.remove('visible');
         } else {
             fields.classList.remove('visible');
         }
@@ -84,9 +82,7 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
         btn.textContent = 'Sender...';
         btn.disabled = true;
 
-        var SHEET_URL = '/send';
-
-        fetch(SHEET_URL, {
+        fetch('/send', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
@@ -107,13 +103,13 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
         .finally(function () {
             btn.textContent = 'Send forespørgsel';
             btn.disabled = false;
+        });
+    });
 });
 
 document.querySelectorAll('.sign-photo').forEach(function (img) {
     img.style.cursor = 'pointer';
     img.addEventListener('click', function () {
         window.open(this.src, '_blank');
-    });
-});
     });
 });
