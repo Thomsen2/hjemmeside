@@ -110,18 +110,10 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
 });
 
 document.querySelectorAll('.sign-photo').forEach(function (img) {
+    img.style.cursor = 'pointer';
     img.addEventListener('click', function () {
-        var lightbox = document.getElementById('lightbox');
-        var lightboxImg = document.getElementById('lightboxImg');
-        lightboxImg.src = this.src;
-        lightbox.classList.add('open');
+        window.open(this.src, '_blank');
     });
-});
-
-document.getElementById('lightbox').addEventListener('click', function (e) {
-    if (e.target === this || e.target.classList.contains('lightbox-close')) {
-        this.classList.remove('open');
-    }
 });
     });
 });
