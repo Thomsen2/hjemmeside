@@ -17,6 +17,8 @@ document.querySelectorAll('.shipping-toggle').forEach(function (toggle) {
             fields.classList.add('visible');
             var pickup = this.closest('form').querySelector('.pickup-toggle');
             if (pickup) pickup.checked = false;
+            var pfields = this.closest('form').querySelector('.pickup-fields');
+            if (pfields) pfields.classList.remove('visible');
         } else {
             fields.classList.remove('visible');
         }
@@ -25,86 +27,81 @@ document.querySelectorAll('.shipping-toggle').forEach(function (toggle) {
 
 document.querySelectorAll('.pickup-toggle').forEach(function (toggle) {
     toggle.addEventListener('change', function () {
+        var fields = this.closest('form').querySelector('.pickup-fields');
         if (this.checked) {
+            fields.classList.add('visible');
             var shipping = this.closest('form').querySelector('.shipping-toggle');
             if (shipping) shipping.checked = false;
-            var fields = this.closest('form').querySelector('.shipping-fields');
-            if (fields) fields.classList.remove('visible');
+            var sfields = this.closest('form').querySelector('.shipping-fields');
+            if (sfields) sfields.classList.remove('visible');
+        } else {
+            fields.classList.remove('visible');
         }
     });
 });
 
-function handleFormSubmit(form, e) {
-    e.preventDefault();
-
-    var textarea = form.querySelector('textarea');
-    var besked = textarea ? textarea.value.trim() : '';
-
-    if (!besked) {
-        alert('Udfyld venligst din besked.');
-        return;
-    }
-
-    var shippingChecked = form.querySelector('.shipping-toggle').checked;
-    var pickupChecked = form.querySelector('.pickup-toggle').checked;
-    var mountingChecked = form.querySelector('.mounting-toggle').checked;
-    var testChecked = form.querySelector('input[name="test"]') ? form.querySelector('input[name="test"]').checked : false;
-
-    var caption = form.closest('.builder-grid').querySelector('.sign-caption');
-    var captionText = caption ? caption.textContent.replace(/\s+/g, ' ').trim() : 'Æresportskilt';
-
-    var bodyParts = 'Produkt: ' + captionText + '\n\n' +
-        'Besked: ' + besked;
-
-    var ekstra = [];
-    if (pickupChecked) ekstra.push('Afhentning i Dragør (gratis)');
-    if (shippingChecked) ekstra.push('Skal sendes (55 kr)');
-    if (mountingChecked) ekstra.push('Monteringskit (+20 kr)');
-    if (testChecked) ekstra.push('test');
-    if (ekstra.length > 0) bodyParts += '\n\nTilvalg: ' + ekstra.join(', ');
-
-    if (shippingChecked) {
-        var fieldsContainer = form.querySelector('.shipping-fields');
-        var navn = fieldsContainer.querySelectorAll('input[type="text"]')[0].value.trim();
-        var adresse = fieldsContainer.querySelectorAll('input[type="text"]')[1].value.trim();
-        var postnr = fieldsContainer.querySelector('.postnr-input').value.trim();
-        var by = fieldsContainer.querySelector('.by-input').value.trim();
-        var mail = fieldsContainer.querySelector('input[type="email"]').value.trim();
-        var mobil = fieldsContainer.querySelector('input[type="tel"]').value.trim();
-        bodyParts += '\n\n--- Levering ---\n' +
-            'Navn: ' + navn + '\n' +
-            'Adresse: ' + adresse + '\n' +
-            'Post nr.: ' + postnr + '\n' +
-            'By: ' + by + '\n' +
-            'Mail: ' + mail + '\n' +
-            'Mobil: ' + mobil;
-    }
-
-    var btn = form.querySelector('.btn-submit');
-    btn.textContent = 'Sender...';
-    btn.disabled = true;
-
-    fetch('/api/order', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ product: captionText, body: bodyParts })
-    })
-    .then(function (res) {
-        if (res.ok) return res.text();
-        throw new Error('Fejl ved afsendelse');
-    })
-    .then(function (html) {
-        document.body.innerHTML = html;
-    })
-    .catch(function (err) {
-        alert('Kunne ikke sende. Prøv igen.');
-        btn.textContent = 'Send forespørgsel';
-        btn.disabled = false;
-    });
-}
-
 document.querySelectorAll('.sign-form').forEach(function (form) {
     form.addEventListener('submit', function (e) {
-        handleFormSubmit(this, e);
+        e.preventDefault();
+
+        var besked = this.querySelector('textarea').value.trim();
+        var shippingChecked = this.querySelector('.shipping-toggle').checked;
+        var pickupChecked = this.querySelector('.pickup-toggle').checked;
+        var mountingChecked = this.querySelector('.mounting-toggle').checked;
+
+        if (!besked) {
+            alert('Udfyld venligst din besked.');
+            return;
+        }
+
+        var sectionTitle = this.closest('section').querySelector('h2').textContent.trim();
+
+        var payload = {
+            produkt: sectionTitle,
+            besked: besked,
+            shipping: shippingChecked,
+            pickup: pickupChecked,
+            mounting: mountingChecked
+        };
+
+        if (pickupChecked) {
+            payload.pickupEmail = this.querySelector('.pickup-email').value.trim();
+        }
+
+        if (shippingChecked) {
+            payload.navn = this.querySelector('.shipping-fields input[id*="navn"]').value.trim();
+            payload.adresse = this.querySelector('.shipping-fields input[id*="adresse"]').value.trim();
+            payload.mail = this.querySelector('.shipping-fields input[id*="mail"]').value.trim();
+            payload.mobil = this.querySelector('.shipping-fields input[id*="mobil"]').value.trim();
+        }
+
+        var btn = this.querySelector('.btn-submit');
+        btn.textContent = 'Sender...';
+        btn.disabled = true;
+
+        var SHEET_URL = '/send';
+
+        fetch(SHEET_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        })
+        .then(function (resp) { return resp.json(); })
+        .then(function (data) {
+            if (data.success) {
+                alert('Tak! Din forespørgsel er gemt.');
+                btn.closest('form').querySelectorAll('textarea, input[type="text"], input[type="email"], input[type="tel"]').forEach(function (el) { el.value = ''; });
+                btn.closest('form').querySelectorAll('input[type="checkbox"]').forEach(function (el) { el.checked = false; });
+            } else {
+                alert('Fejl: ' + data.error);
+            }
+        })
+        .catch(function (err) {
+            alert('Der opstod en fejl: ' + err.message);
+        })
+        .finally(function () {
+            btn.textContent = 'Send forespørgsel';
+            btn.disabled = false;
+        });
     });
 });

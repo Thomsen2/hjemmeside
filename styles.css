@@ -370,6 +370,16 @@ h2::after {
     display: flex;
 }
 
+.pickup-fields {
+    display: none;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.pickup-fields.visible {
+    display: flex;
+}
+
 /* Gallery */
 .gallery-grid {
     display: grid;
