@@ -1,9 +1,14 @@
-document.querySelectorAll('.nav-link').forEach(function (link) {
+document.querySelectorAll('.nav-link, .nav-sub-link').forEach(function (link) {
     link.addEventListener('click', function (e) {
         e.preventDefault();
         var sectionId = this.getAttribute('data-section');
         document.querySelectorAll('.nav-link').forEach(function (l) { l.classList.remove('active'); });
-        this.classList.add('active');
+        var dropdown = this.closest('.nav-dropdown');
+        if (dropdown) {
+            dropdown.querySelector('.nav-link').classList.add('active');
+        } else {
+            this.classList.add('active');
+        }
         document.querySelectorAll('.tab-section').forEach(function (s) { s.classList.remove('active'); });
         var section = document.getElementById(sectionId);
         if (section) section.classList.add('active');
