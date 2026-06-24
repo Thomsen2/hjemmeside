@@ -24,7 +24,13 @@
 
     <nav class="main-nav">
         <div class="container">
-            <a href="#" data-section="birkefiner" class="nav-link active">Birkefiner</a>
+            <div class="nav-dropdown">
+                <a href="#" data-section="birkefiner" class="nav-link active">Birkefiner</a>
+                <div class="nav-submenu">
+                    <a href="#" data-section="birkefiner" class="nav-sub-link">Skilte</a>
+                    <a href="#" data-section="vaabenskjold" class="nav-sub-link">Våbenskjold</a>
+                </div>
+            </div>
             <a href="#" data-section="egetrae" class="nav-link">Egetræ</a>
             <a href="#" data-section="version1" class="nav-link">Mørkbejdset valdnød</a>
             <a href="#" data-section="version2" class="nav-link">Amerikansk mørk valdnødfiner</a>
@@ -136,6 +142,68 @@
                             <div class="form-group">
                                 <label for="mobil5">Mobil nr</label>
                                 <input type="tel" id="mobil5" name="mobil5" placeholder="+45 12 34 56 78">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Våbenskjold -->
+    <section class="builder tab-section" id="vaabenskjold">
+        <div class="container">
+            <h2>Våbenskjold</h2>
+            <div class="builder-grid">
+                <div class="preview-area">
+                    <div class="sign-preview">
+                        <img src="hjerte%20ren%20birkefiner.png" alt="Våbenskjold" class="sign-photo">
+                    </div>
+                    <p class="sign-caption">Æresportskilt<br>Våbenskjold i birkefiner (249 kr), Størrelse 31 x 33 cm</p>
+                </div>
+                <div class="form-area">
+                    <form class="sign-form">
+                        <div class="form-group">
+                            <label for="besked_vs">Indtast Navne, Datoer (2 stk), samt år</label>
+                            <textarea id="besked_vs" name="besked_vs" rows="3" placeholder="Skriv dine ønsker til skiltet her..."></textarea>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
+                            Afhentning i Dragør (gratis)
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
+                            Skal sendes (55 kr)
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="mounting" value="20" class="mounting-toggle">
+                            Tilføj monteringskit +20 kr
+                        </label>
+                        <div class="shipping-fields">
+                            <div class="form-group">
+                                <label for="navn_vs">Navn</label>
+                                <input type="text" id="navn_vs" name="navn_vs" placeholder="Dit fulde navn">
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse_vs">Adresse</label>
+                                <input type="text" id="adresse_vs" name="adresse_vs" placeholder="Din adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail_vs">Mail</label>
+                                <input type="email" id="mail_vs" name="mail_vs" placeholder="din@mail.dk">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobil_vs">Mobil nr</label>
+                                <input type="tel" id="mobil_vs" name="mobil_vs" placeholder="+45 12 34 56 78">
+                            </div>
+                            <div class="form-group">
+                                <label for="postnr_vs">Post nr.</label>
+                                <input type="text" class="postnr-input" placeholder="1234">
+                            </div>
+                            <div class="form-group">
+                                <label for="by_vs">By</label>
+                                <input type="text" class="by-input" placeholder="By">
                             </div>
                         </div>
                         <button type="submit" class="btn-submit">Send forespørgsel</button>

@@ -111,6 +111,42 @@ body {
     width: 100%;
 }
 
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #e8e5df;
+    border-radius: 8px;
+    min-width: 140px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    z-index: 200;
+    overflow: hidden;
+}
+
+.nav-dropdown:hover .nav-submenu {
+    display: block;
+}
+
+.nav-sub-link {
+    display: block;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    color: #555;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+
+.nav-sub-link:hover {
+    background: #f5f3ef;
+    color: #1a1a2e;
+}
+
 .main-nav a::after {
     content: '';
     position: absolute;
