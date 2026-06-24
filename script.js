@@ -107,6 +107,21 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
         .finally(function () {
             btn.textContent = 'Send forespørgsel';
             btn.disabled = false;
-        });
+});
+
+document.querySelectorAll('.sign-photo').forEach(function (img) {
+    img.addEventListener('click', function () {
+        var lightbox = document.getElementById('lightbox');
+        var lightboxImg = document.getElementById('lightboxImg');
+        lightboxImg.src = this.src;
+        lightbox.classList.add('open');
+    });
+});
+
+document.getElementById('lightbox').addEventListener('click', function (e) {
+    if (e.target === this || e.target.classList.contains('lightbox-close')) {
+        this.classList.remove('open');
+    }
+});
     });
 });
