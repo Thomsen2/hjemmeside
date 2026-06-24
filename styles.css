@@ -199,6 +199,10 @@ h2::after {
     border-radius: 2px;
 }
 
+h2.no-divider::after {
+    display: none;
+}
+
 .intro p {
     text-align: center;
     max-width: 560px;
