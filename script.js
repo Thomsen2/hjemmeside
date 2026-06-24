@@ -1,3 +1,10 @@
+document.querySelectorAll('.sign-photo').forEach(function (img) {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', function () {
+        window.open(this.src, '_blank');
+    });
+});
+
 document.querySelectorAll('.nav-link, .nav-sub-link').forEach(function (link) {
     link.addEventListener('click', function (e) {
         e.preventDefault();
@@ -22,6 +29,8 @@ document.querySelectorAll('.shipping-toggle').forEach(function (toggle) {
             fields.classList.add('visible');
             var pickup = this.closest('form').querySelector('.pickup-toggle');
             if (pickup) pickup.checked = false;
+            var pfields = this.closest('form').querySelector('.pickup-fields');
+            if (pfields) pfields.classList.remove('visible');
         } else {
             fields.classList.remove('visible');
         }
@@ -104,12 +113,5 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
             btn.textContent = 'Send forespørgsel';
             btn.disabled = false;
         });
-    });
-});
-
-document.querySelectorAll('.sign-photo').forEach(function (img) {
-    img.style.cursor = 'pointer';
-    img.addEventListener('click', function () {
-        window.open(this.src, '_blank');
     });
 });
