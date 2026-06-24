@@ -277,11 +277,6 @@ h2.no-divider::after {
     font-size: 0.88rem;
     margin-top: 0.75rem;
 }
-    text-align: center;
-    color: #888;
-    font-size: 0.88rem;
-    margin-top: 0.75rem;
-}
 
 .sign-preview:hover {
     transform: scale(2.2);
