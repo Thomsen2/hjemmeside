@@ -246,7 +246,7 @@ h2.no-divider::after {
 .sign-preview {
     position: relative;
     width: 100%;
-    max-width: 260px;
+    max-width: 400px;
     aspect-ratio: 1 / 1.1;
     filter: drop-shadow(0 8px 24px rgba(0,0,0,0.25));
     display: flex;
@@ -682,7 +682,7 @@ footer a:hover {
     }
 
     .sign-preview {
-        max-width: 200px;
+        max-width: 280px;
     }
 
     .sign-line {
