@@ -714,7 +714,15 @@
                     </form>
                 </div>
             </div>
-            <div class="builder-grid" style="margin-top:3rem">
+            </div>
+        </div>
+    </section>
+
+    <section class="builder tab-section" id="version1_v2">
+        <div class="container">
+            <h2 class="no-divider">Våbenskjold – Finer i bejdset valnød</h2>
+            <p class="wood-note">Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ</p>
+            <div class="builder-grid">
                 <div class="preview-area">
                     <div class="sign-preview">
                         <img src="vaabenskjold_bejdset.JPG" alt="Våbenskjold bejdset valnød" class="sign-photo">
@@ -845,20 +853,157 @@
     <section class="pricing tab-section" id="gavekort">
         <div class="container">
             <h2>Penge gavekort</h2>
-            <div style="text-align:center; margin-bottom:2rem">
-                <img src="hestesho.JPG" alt="Hestesko gavekort" style="max-width:300px; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.1); margin:0 0.5rem">
-                <img src="invistering.JPG" alt="Invistering gavekort" style="max-width:300px; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.1); margin:0 0.5rem">
-                <img src="controller.JPG" alt="Controller gavekort" style="max-width:300px; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.1); margin:0 0.5rem">
-            </div>
-            <div class="price-card">
-                <div class="price">200 kr.</div>
-                <p>Gavekort til æresportskilt</p>
-                <p class="price-info">Overfør beløbet via MobilePay</p>
-                <div class="mobilepay">
-                    <span class="mobilepay-number">+45 12 34 56 78</span>
+
+            <div class="builder-grid" style="margin-top:2rem">
+                <div class="preview-area">
+                    <div class="sign-preview">
+                        <img src="hestesho.JPG" alt="Hestesko gavekort" class="sign-photo">
+                    </div>
+                    <p class="sign-caption">Gavekort – Hestesko (200 kr)</p>
                 </div>
-                <p class="payment-info">Skriv "Gavekort" i kommentarfeltet ved overførsel</p>
+                <div class="form-area">
+                    <form class="sign-form">
+                        <div class="form-group">
+                            <label for="besked_gk1">Indtast navn(e)</label>
+                            <textarea id="besked_gk1" name="besked_gk1" rows="2" placeholder="Skriv navn(e) til gavekortet..."></textarea>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
+                            Afhentning i Dragør (gratis)
+                        </label>
+                        <div class="pickup-fields">
+                            <div class="form-group">
+                                <label>Email til afhentningsinfo</label>
+                                <input type="email" class="pickup-email" placeholder="din@mail.dk">
+                            </div>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
+                            Skal sendes (55 kr)
+                        </label>
+                        <div class="shipping-fields">
+                            <div class="form-group">
+                                <label for="navn_gk1">Navn</label>
+                                <input type="text" id="navn_gk1" name="navn_gk1" placeholder="Dit fulde navn">
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse_gk1">Adresse</label>
+                                <input type="text" id="adresse_gk1" name="adresse_gk1" placeholder="Din adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail_gk1">Mail</label>
+                                <input type="email" id="mail_gk1" name="mail_gk1" placeholder="din@mail.dk">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobil_gk1">Mobil nr</label>
+                                <input type="tel" id="mobil_gk1" name="mobil_gk1" placeholder="+45 12 34 56 78">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </div>
             </div>
+
+            <div class="builder-grid" style="margin-top:3rem">
+                <div class="preview-area">
+                    <div class="sign-preview">
+                        <img src="invistering.JPG" alt="Invistering gavekort" class="sign-photo">
+                    </div>
+                    <p class="sign-caption">Gavekort – Investering (200 kr)</p>
+                </div>
+                <div class="form-area">
+                    <form class="sign-form">
+                        <div class="form-group">
+                            <label for="besked_gk2">Indtast navn(e)</label>
+                            <textarea id="besked_gk2" name="besked_gk2" rows="2" placeholder="Skriv navn(e) til gavekortet..."></textarea>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
+                            Afhentning i Dragør (gratis)
+                        </label>
+                        <div class="pickup-fields">
+                            <div class="form-group">
+                                <label>Email til afhentningsinfo</label>
+                                <input type="email" class="pickup-email" placeholder="din@mail.dk">
+                            </div>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
+                            Skal sendes (55 kr)
+                        </label>
+                        <div class="shipping-fields">
+                            <div class="form-group">
+                                <label for="navn_gk2">Navn</label>
+                                <input type="text" id="navn_gk2" name="navn_gk2" placeholder="Dit fulde navn">
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse_gk2">Adresse</label>
+                                <input type="text" id="adresse_gk2" name="adresse_gk2" placeholder="Din adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail_gk2">Mail</label>
+                                <input type="email" id="mail_gk2" name="mail_gk2" placeholder="din@mail.dk">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobil_gk2">Mobil nr</label>
+                                <input type="tel" id="mobil_gk2" name="mobil_gk2" placeholder="+45 12 34 56 78">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="builder-grid" style="margin-top:3rem">
+                <div class="preview-area">
+                    <div class="sign-preview">
+                        <img src="controller.JPG" alt="Controller gavekort" class="sign-photo">
+                    </div>
+                    <p class="sign-caption">Gavekort – Controller (200 kr)</p>
+                </div>
+                <div class="form-area">
+                    <form class="sign-form">
+                        <div class="form-group">
+                            <label for="besked_gk3">Indtast navn(e)</label>
+                            <textarea id="besked_gk3" name="besked_gk3" rows="2" placeholder="Skriv navn(e) til gavekortet..."></textarea>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
+                            Afhentning i Dragør (gratis)
+                        </label>
+                        <div class="pickup-fields">
+                            <div class="form-group">
+                                <label>Email til afhentningsinfo</label>
+                                <input type="email" class="pickup-email" placeholder="din@mail.dk">
+                            </div>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
+                            Skal sendes (55 kr)
+                        </label>
+                        <div class="shipping-fields">
+                            <div class="form-group">
+                                <label for="navn_gk3">Navn</label>
+                                <input type="text" id="navn_gk3" name="navn_gk3" placeholder="Dit fulde navn">
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse_gk3">Adresse</label>
+                                <input type="text" id="adresse_gk3" name="adresse_gk3" placeholder="Din adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail_gk3">Mail</label>
+                                <input type="email" id="mail_gk3" name="mail_gk3" placeholder="din@mail.dk">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobil_gk3">Mobil nr</label>
+                                <input type="tel" id="mobil_gk3" name="mobil_gk3" placeholder="+45 12 34 56 78">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -866,18 +1011,257 @@
         <div class="container">
             <h2>Bordkort</h2>
             <p class="section-desc">Personlige bordkort i udvalgte træsorter – perfekt til bryllupper, fester og events.</p>
-            <div style="text-align:center; margin-bottom:2rem">
-                <img src="bordkort%20cute.JPG" alt="Bordkort" style="max-width:300px; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.1); margin:0 0.5rem">
-                <img src="fodbold%20bordkort.JPG" alt="Fodbold bordkort" style="max-width:300px; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.1); margin:0 0.5rem">
-                <img src="wanted.JPG" alt="Wanted bordkort" style="max-width:300px; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.1); margin:0 0.5rem">
-                <img src="Hat.JPG" alt="Hat bordkort" style="max-width:300px; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.1); margin:0 0.5rem">
-                <img src="stovler.JPG" alt="Støvler bordkort" style="max-width:300px; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.1); margin:0 0.5rem">
+
+            <div class="builder-grid">
+                <div class="preview-area">
+                    <div class="sign-preview">
+                        <img src="bordkort%20cute.JPG" alt="Bordkort cute" class="sign-photo">
+                    </div>
+                    <p class="sign-caption">Bordkort – Cute (50 kr)</p>
+                </div>
+                <div class="form-area">
+                    <form class="sign-form">
+                        <div class="form-group">
+                            <label for="besked_bk1">Indtast navn(e)</label>
+                            <textarea id="besked_bk1" name="besked_bk1" rows="2" placeholder="Skriv navn(e) til bordkortet..."></textarea>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
+                            Afhentning i Dragør (gratis)
+                        </label>
+                        <div class="pickup-fields">
+                            <div class="form-group">
+                                <label>Email til afhentningsinfo</label>
+                                <input type="email" class="pickup-email" placeholder="din@mail.dk">
+                            </div>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
+                            Skal sendes (55 kr)
+                        </label>
+                        <div class="shipping-fields">
+                            <div class="form-group">
+                                <label for="navn_bk1">Navn</label>
+                                <input type="text" id="navn_bk1" name="navn_bk1" placeholder="Dit fulde navn">
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse_bk1">Adresse</label>
+                                <input type="text" id="adresse_bk1" name="adresse_bk1" placeholder="Din adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail_bk1">Mail</label>
+                                <input type="email" id="mail_bk1" name="mail_bk1" placeholder="din@mail.dk">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobil_bk1">Mobil nr</label>
+                                <input type="tel" id="mobil_bk1" name="mobil_bk1" placeholder="+45 12 34 56 78">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </div>
             </div>
-            <div class="price-card" style="margin-top:2rem">
-                <div class="price">50 kr.</div>
-                <p>pr. stk inkl. moms</p>
-                <p class="price-info">Kontakt os for bestilling</p>
+
+            <div class="builder-grid" style="margin-top:3rem">
+                <div class="preview-area">
+                    <div class="sign-preview">
+                        <img src="fodbold%20bordkort.JPG" alt="Fodbold bordkort" class="sign-photo">
+                    </div>
+                    <p class="sign-caption">Bordkort – Fodbold (50 kr)</p>
+                </div>
+                <div class="form-area">
+                    <form class="sign-form">
+                        <div class="form-group">
+                            <label for="besked_bk2">Indtast navn(e)</label>
+                            <textarea id="besked_bk2" name="besked_bk2" rows="2" placeholder="Skriv navn(e) til bordkortet..."></textarea>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
+                            Afhentning i Dragør (gratis)
+                        </label>
+                        <div class="pickup-fields">
+                            <div class="form-group">
+                                <label>Email til afhentningsinfo</label>
+                                <input type="email" class="pickup-email" placeholder="din@mail.dk">
+                            </div>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
+                            Skal sendes (55 kr)
+                        </label>
+                        <div class="shipping-fields">
+                            <div class="form-group">
+                                <label for="navn_bk2">Navn</label>
+                                <input type="text" id="navn_bk2" name="navn_bk2" placeholder="Dit fulde navn">
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse_bk2">Adresse</label>
+                                <input type="text" id="adresse_bk2" name="adresse_bk2" placeholder="Din adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail_bk2">Mail</label>
+                                <input type="email" id="mail_bk2" name="mail_bk2" placeholder="din@mail.dk">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobil_bk2">Mobil nr</label>
+                                <input type="tel" id="mobil_bk2" name="mobil_bk2" placeholder="+45 12 34 56 78">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </div>
             </div>
+
+            <div class="builder-grid" style="margin-top:3rem">
+                <div class="preview-area">
+                    <div class="sign-preview">
+                        <img src="wanted.JPG" alt="Wanted bordkort" class="sign-photo">
+                    </div>
+                    <p class="sign-caption">Bordkort – Wanted (50 kr)</p>
+                </div>
+                <div class="form-area">
+                    <form class="sign-form">
+                        <div class="form-group">
+                            <label for="besked_bk3">Indtast navn(e)</label>
+                            <textarea id="besked_bk3" name="besked_bk3" rows="2" placeholder="Skriv navn(e) til bordkortet..."></textarea>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
+                            Afhentning i Dragør (gratis)
+                        </label>
+                        <div class="pickup-fields">
+                            <div class="form-group">
+                                <label>Email til afhentningsinfo</label>
+                                <input type="email" class="pickup-email" placeholder="din@mail.dk">
+                            </div>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
+                            Skal sendes (55 kr)
+                        </label>
+                        <div class="shipping-fields">
+                            <div class="form-group">
+                                <label for="navn_bk3">Navn</label>
+                                <input type="text" id="navn_bk3" name="navn_bk3" placeholder="Dit fulde navn">
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse_bk3">Adresse</label>
+                                <input type="text" id="adresse_bk3" name="adresse_bk3" placeholder="Din adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail_bk3">Mail</label>
+                                <input type="email" id="mail_bk3" name="mail_bk3" placeholder="din@mail.dk">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobil_bk3">Mobil nr</label>
+                                <input type="tel" id="mobil_bk3" name="mobil_bk3" placeholder="+45 12 34 56 78">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="builder-grid" style="margin-top:3rem">
+                <div class="preview-area">
+                    <div class="sign-preview">
+                        <img src="Hat.JPG" alt="Hat bordkort" class="sign-photo">
+                    </div>
+                    <p class="sign-caption">Bordkort – Hat (50 kr)</p>
+                </div>
+                <div class="form-area">
+                    <form class="sign-form">
+                        <div class="form-group">
+                            <label for="besked_bk4">Indtast navn(e)</label>
+                            <textarea id="besked_bk4" name="besked_bk4" rows="2" placeholder="Skriv navn(e) til bordkortet..."></textarea>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
+                            Afhentning i Dragør (gratis)
+                        </label>
+                        <div class="pickup-fields">
+                            <div class="form-group">
+                                <label>Email til afhentningsinfo</label>
+                                <input type="email" class="pickup-email" placeholder="din@mail.dk">
+                            </div>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
+                            Skal sendes (55 kr)
+                        </label>
+                        <div class="shipping-fields">
+                            <div class="form-group">
+                                <label for="navn_bk4">Navn</label>
+                                <input type="text" id="navn_bk4" name="navn_bk4" placeholder="Dit fulde navn">
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse_bk4">Adresse</label>
+                                <input type="text" id="adresse_bk4" name="adresse_bk4" placeholder="Din adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail_bk4">Mail</label>
+                                <input type="email" id="mail_bk4" name="mail_bk4" placeholder="din@mail.dk">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobil_bk4">Mobil nr</label>
+                                <input type="tel" id="mobil_bk4" name="mobil_bk4" placeholder="+45 12 34 56 78">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="builder-grid" style="margin-top:3rem">
+                <div class="preview-area">
+                    <div class="sign-preview">
+                        <img src="stovler.JPG" alt="Støvler bordkort" class="sign-photo">
+                    </div>
+                    <p class="sign-caption">Bordkort – Støvler (50 kr)</p>
+                </div>
+                <div class="form-area">
+                    <form class="sign-form">
+                        <div class="form-group">
+                            <label for="besked_bk5">Indtast navn(e)</label>
+                            <textarea id="besked_bk5" name="besked_bk5" rows="2" placeholder="Skriv navn(e) til bordkortet..."></textarea>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
+                            Afhentning i Dragør (gratis)
+                        </label>
+                        <div class="pickup-fields">
+                            <div class="form-group">
+                                <label>Email til afhentningsinfo</label>
+                                <input type="email" class="pickup-email" placeholder="din@mail.dk">
+                            </div>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
+                            Skal sendes (55 kr)
+                        </label>
+                        <div class="shipping-fields">
+                            <div class="form-group">
+                                <label for="navn_bk5">Navn</label>
+                                <input type="text" id="navn_bk5" name="navn_bk5" placeholder="Dit fulde navn">
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse_bk5">Adresse</label>
+                                <input type="text" id="adresse_bk5" name="adresse_bk5" placeholder="Din adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail_bk5">Mail</label>
+                                <input type="email" id="mail_bk5" name="mail_bk5" placeholder="din@mail.dk">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobil_bk5">Mobil nr</label>
+                                <input type="tel" id="mobil_bk5" name="mobil_bk5" placeholder="+45 12 34 56 78">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </div>
+            </div>
+
         </div>
     </section>
 
