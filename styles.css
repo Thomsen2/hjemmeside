@@ -49,7 +49,7 @@ body {
 
 .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3.2rem;
+    font-size: 3.84rem;
     font-weight: 600;
     letter-spacing: 1px;
     margin-bottom: 0.75rem;
@@ -668,7 +668,7 @@ footer a:hover {
     }
 
     .hero h1 {
-        font-size: 2.4rem;
+        font-size: 2.88rem;
     }
 
     .builder-grid {
