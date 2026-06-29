@@ -663,63 +663,38 @@ footer a:hover {
 
 /* Responsive */
 @media (max-width: 700px) {
-    .hero {
-        padding: 3.5rem 0 3rem;
-    }
+    .container { padding: 0 1rem; }
 
-    .hero h1 {
-        font-size: 3.6rem;
-    }
+    .hero { padding: 2.5rem 0 2rem; }
+    .hero h1 { font-size: 2.2rem; }
 
-    .builder-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
+    .builder-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .preview-area { order: -1; min-height: auto; padding: 0; }
+    .sign-preview { max-width: 220px; }
+    .sign-preview:hover { transform: scale(1.15); }
 
-    .preview-area {
-        order: -1;
-        min-height: 340px;
-    }
+    .main-nav .container { gap: 0.5rem; flex-wrap: wrap; justify-content: center; padding: 0.5rem; }
+    .main-nav a { font-size: 0.7rem; }
+    .nav-dropdown { position: static; }
+    .nav-submenu { left: auto; right: 0; min-width: 120px; }
+    .nav-sub-link { font-size: 0.75rem; padding: 0.5rem 0.75rem; }
 
-    .sign-preview {
-        max-width: 280px;
-    }
+    h2 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+    h2::after { margin: 0.5rem auto 1rem; }
 
-    .sign-line {
-        max-width: 210px;
-    }
+    section { padding: 2.5rem 0; }
+    section:nth-child(even) { padding: 2.5rem 0; }
 
-    .sign-line-1 {
-        font-size: 42px;
-    }
+    .sign-caption { font-size: 0.78rem; margin-top: 0.5rem; }
+    .wood-note { font-size: 0.72rem; margin-bottom: 1rem; }
 
-    .sign-line-2 {
-        font-size: 42px;
-    }
+    .form-area { padding: 0.8rem; border-radius: 12px; }
+    .btn-submit { padding: 0.6rem 1rem; font-size: 0.8rem; }
 
-    .sign-line-3 {
-        font-size: 1.2rem;
-    }
+    .contact-detail { font-size: 0.9rem; }
 
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        max-width: 340px;
-        margin: 0 auto;
-    }
+    .gallery-grid { grid-template-columns: 1fr; max-width: 280px; margin: 0 auto; }
 
-    h2 {
-        font-size: 1.8rem;
-    }
-
-    section {
-        padding: 3.5rem 0;
-    }
-
-    .main-nav .container {
-        gap: 1rem;
-    }
-
-    .main-nav a {
-        font-size: 0.8rem;
-    }
+    #bordkort .sign-photo { width: auto !important; max-width: 100% !important; }
+    #andre_skilte .sign-photo { width: 90% !important; }
 }
