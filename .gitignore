@@ -1,5 +1,5 @@
 server.ps1
-billeder/
 start.bat
 opencode.json
 server.py
+__pycache__/
