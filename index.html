@@ -956,6 +956,18 @@
         #bordkort .sign-photo { cursor: pointer; }
         #bordkort .sign-preview:hover { transform: scale(1.5); z-index: 999; }
         </style>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('#bordkort .sign-photo').forEach(function(img) {
+                img.addEventListener('click', function() {
+                    var ov = document.getElementById('imgOverlay');
+                    var oi = document.getElementById('imgOverlayImg');
+                    oi.src = this.src;
+                    ov.style.display = 'flex';
+                });
+            });
+        });
+        </script>
         <div class="container">
             <h2>Bordkort</h2>
             <p class="section-desc">Personlige bordkort i udvalgte træsorter – perfekt til bryllupper, fester og events.</p>
@@ -1805,5 +1817,5 @@
         <span class="lightbox-close">&times;</span>
         <img class="lightbox-img" id="lightboxImg" src="" alt="">
     </div>
-</body>
+<div id="imgOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;justify-content:center;align-items:center;cursor:pointer;" onclick="this.style.display='none'"><img id="imgOverlayImg" src="" alt="" style="max-width:90vw;max-height:90vh;object-fit:contain;"></div></body>
 </html>
