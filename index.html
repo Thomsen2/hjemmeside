@@ -954,16 +954,8 @@
     <section class="builder tab-section" id="bordkort">
         <style>
         #bordkort .sign-photo { cursor: pointer; }
+        #bordkort .sign-preview:hover { transform: scale(1.5); z-index: 999; }
         </style>
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('#bordkort .sign-photo').forEach(function(img) {
-                img.addEventListener('click', function() {
-                    window.open(this.src, '_blank');
-                });
-            });
-        });
-        </script>
         <div class="container">
             <h2>Bordkort</h2>
             <p class="section-desc">Personlige bordkort i udvalgte træsorter – perfekt til bryllupper, fester og events.</p>
