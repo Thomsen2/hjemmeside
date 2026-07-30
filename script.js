@@ -81,10 +81,11 @@
         }
     });
 
-    // Boblende hjerter ved hover på "Hjerte"-menuen
+    // Boblende ikoner ved hover på Hjerte / Våbenskjold
     document.querySelectorAll('.nav-dropdown').forEach(function (dropdown) {
         var link = dropdown.querySelector('.nav-link');
-        if (!link || !link.querySelector('.nav-icon--heart')) return;
+        if (!link) return;
+        if (!link.querySelector('.nav-icon--heart, .nav-icon--shield')) return;
         dropdown.addEventListener('mouseenter', function () {
             link.classList.add('is-bubbling');
         });

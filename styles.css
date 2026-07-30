@@ -260,7 +260,8 @@ body {
     transition: transform 0.25s var(--ease), filter 0.25s;
 }
 
-.nav-icon--heart {
+.nav-icon--heart,
+.nav-icon--shield {
     position: relative;
     overflow: visible;
 }
@@ -272,7 +273,8 @@ body {
     z-index: 1;
 }
 
-.heart-bubbles {
+.heart-bubbles,
+.shield-bubbles {
     position: absolute;
     left: 50%;
     top: 0;
@@ -283,22 +285,34 @@ body {
     overflow: visible;
 }
 
-.heart-bubbles .hb {
+.heart-bubbles .hb,
+.shield-bubbles .sb {
     position: absolute;
     left: 0;
     top: 0;
     font-size: 11px;
     line-height: 1;
-    color: #d94a5b;
     opacity: 0;
     pointer-events: none;
-    text-shadow: 0 1px 2px rgba(217, 74, 91, 0.35);
     will-change: transform, opacity;
+}
+
+.heart-bubbles .hb {
+    color: #d94a5b;
+    text-shadow: 0 1px 2px rgba(217, 74, 91, 0.35);
+}
+
+.shield-bubbles .sb {
+    color: #9a6b3f;
+    filter: drop-shadow(0 1px 1px rgba(154, 107, 63, 0.35));
+    font-size: 10px;
 }
 
 .nav-icon--shield svg {
     stroke-dasharray: 64;
     stroke-dashoffset: 0;
+    position: relative;
+    z-index: 1;
 }
 
 .nav-link:hover .nav-icon,
@@ -312,15 +326,25 @@ body {
     animation: heartBob 0.7s ease-in-out infinite;
 }
 
+.nav-link.is-bubbling .nav-icon--shield,
+.nav-dropdown:hover > .nav-link .nav-icon--shield {
+    color: #7a522e;
+    animation: heartBob 0.7s ease-in-out infinite;
+}
+
 .nav-link.is-bubbling .heart-bubbles .hb,
-.nav-dropdown:hover > .nav-link .heart-bubbles .hb {
+.nav-dropdown:hover > .nav-link .heart-bubbles .hb,
+.nav-link.is-bubbling .shield-bubbles .sb,
+.nav-dropdown:hover > .nav-link .shield-bubbles .sb {
     animation-name: heartFloat;
     animation-timing-function: ease-out;
     animation-iteration-count: infinite;
 }
 
 .nav-link.is-bubbling .heart-bubbles .hb:nth-child(1),
-.nav-dropdown:hover > .nav-link .heart-bubbles .hb:nth-child(1) {
+.nav-dropdown:hover > .nav-link .heart-bubbles .hb:nth-child(1),
+.nav-link.is-bubbling .shield-bubbles .sb:nth-child(1),
+.nav-dropdown:hover > .nav-link .shield-bubbles .sb:nth-child(1) {
     animation-duration: 1.1s;
     animation-delay: 0s;
     font-size: 12px;
@@ -328,7 +352,9 @@ body {
 }
 
 .nav-link.is-bubbling .heart-bubbles .hb:nth-child(2),
-.nav-dropdown:hover > .nav-link .heart-bubbles .hb:nth-child(2) {
+.nav-dropdown:hover > .nav-link .heart-bubbles .hb:nth-child(2),
+.nav-link.is-bubbling .shield-bubbles .sb:nth-child(2),
+.nav-dropdown:hover > .nav-link .shield-bubbles .sb:nth-child(2) {
     animation-duration: 1.25s;
     animation-delay: 0.15s;
     font-size: 9px;
@@ -336,7 +362,9 @@ body {
 }
 
 .nav-link.is-bubbling .heart-bubbles .hb:nth-child(3),
-.nav-dropdown:hover > .nav-link .heart-bubbles .hb:nth-child(3) {
+.nav-dropdown:hover > .nav-link .heart-bubbles .hb:nth-child(3),
+.nav-link.is-bubbling .shield-bubbles .sb:nth-child(3),
+.nav-dropdown:hover > .nav-link .shield-bubbles .sb:nth-child(3) {
     animation-duration: 1s;
     animation-delay: 0.3s;
     font-size: 14px;
@@ -344,7 +372,9 @@ body {
 }
 
 .nav-link.is-bubbling .heart-bubbles .hb:nth-child(4),
-.nav-dropdown:hover > .nav-link .heart-bubbles .hb:nth-child(4) {
+.nav-dropdown:hover > .nav-link .heart-bubbles .hb:nth-child(4),
+.nav-link.is-bubbling .shield-bubbles .sb:nth-child(4),
+.nav-dropdown:hover > .nav-link .shield-bubbles .sb:nth-child(4) {
     animation-duration: 1.35s;
     animation-delay: 0.45s;
     font-size: 8px;
@@ -352,15 +382,13 @@ body {
 }
 
 .nav-link.is-bubbling .heart-bubbles .hb:nth-child(5),
-.nav-dropdown:hover > .nav-link .heart-bubbles .hb:nth-child(5) {
+.nav-dropdown:hover > .nav-link .heart-bubbles .hb:nth-child(5),
+.nav-link.is-bubbling .shield-bubbles .sb:nth-child(5),
+.nav-dropdown:hover > .nav-link .shield-bubbles .sb:nth-child(5) {
     animation-duration: 1.15s;
     animation-delay: 0.6s;
     font-size: 11px;
     left: -14px;
-}
-
-.nav-link:hover .nav-icon--shield svg {
-    animation: shieldDraw 0.85s var(--ease);
 }
 
 .nav-link:hover .nav-icon--gift {
@@ -383,7 +411,7 @@ body {
     animation: sparkBurst 0.8s var(--ease);
 }
 
-.nav-link:hover .nav-icon:not(.nav-icon--heart) {
+.nav-link:hover .nav-icon:not(.nav-icon--heart):not(.nav-icon--shield) {
     transform: translateY(-1px) scale(1.15);
 }
 
@@ -896,11 +924,16 @@ footer a:hover {
     }
 }
 
-.heart-bubbles .hb:nth-child(1) { --drift: -8px; }
-.heart-bubbles .hb:nth-child(2) { --drift: 10px; }
-.heart-bubbles .hb:nth-child(3) { --drift: 0px; }
-.heart-bubbles .hb:nth-child(4) { --drift: 14px; }
-.heart-bubbles .hb:nth-child(5) { --drift: -12px; }
+.heart-bubbles .hb:nth-child(1),
+.shield-bubbles .sb:nth-child(1) { --drift: -8px; }
+.heart-bubbles .hb:nth-child(2),
+.shield-bubbles .sb:nth-child(2) { --drift: 10px; }
+.heart-bubbles .hb:nth-child(3),
+.shield-bubbles .sb:nth-child(3) { --drift: 0px; }
+.heart-bubbles .hb:nth-child(4),
+.shield-bubbles .sb:nth-child(4) { --drift: 14px; }
+.heart-bubbles .hb:nth-child(5),
+.shield-bubbles .sb:nth-child(5) { --drift: -12px; }
 
 @keyframes shieldDraw {
     0% { stroke-dashoffset: 64; opacity: 0.4; transform: scale(0.85); }
@@ -942,9 +975,9 @@ footer a:hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    *:not(.hb):not(.nav-icon--heart):not(.heart-bubbles),
-    *:not(.hb):not(.nav-icon--heart)::before,
-    *:not(.hb):not(.nav-icon--heart)::after {
+    *:not(.hb):not(.sb):not(.nav-icon--heart):not(.nav-icon--shield):not(.heart-bubbles):not(.shield-bubbles),
+    *:not(.hb):not(.sb):not(.nav-icon--heart):not(.nav-icon--shield)::before,
+    *:not(.hb):not(.sb):not(.nav-icon--heart):not(.nav-icon--shield)::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
@@ -952,8 +985,12 @@ footer a:hover {
 
     .nav-link.is-bubbling .heart-bubbles .hb,
     .nav-dropdown:hover > .nav-link .heart-bubbles .hb,
+    .nav-link.is-bubbling .shield-bubbles .sb,
+    .nav-dropdown:hover > .nav-link .shield-bubbles .sb,
     .nav-link.is-bubbling .nav-icon--heart,
-    .nav-dropdown:hover > .nav-link .nav-icon--heart {
+    .nav-dropdown:hover > .nav-link .nav-icon--heart,
+    .nav-link.is-bubbling .nav-icon--shield,
+    .nav-dropdown:hover > .nav-link .nav-icon--shield {
         animation-duration: 1.1s !important;
         animation-iteration-count: infinite !important;
     }
