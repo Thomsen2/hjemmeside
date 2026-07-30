@@ -80,6 +80,24 @@
             closeNav();
         }
     });
+
+    // Boblende hjerter ved hover på "Hjerte"-menuen
+    document.querySelectorAll('.nav-dropdown').forEach(function (dropdown) {
+        var link = dropdown.querySelector('.nav-link');
+        if (!link || !link.querySelector('.nav-icon--heart')) return;
+        dropdown.addEventListener('mouseenter', function () {
+            link.classList.add('is-bubbling');
+        });
+        dropdown.addEventListener('mouseleave', function () {
+            link.classList.remove('is-bubbling');
+        });
+        link.addEventListener('focus', function () {
+            link.classList.add('is-bubbling');
+        });
+        link.addEventListener('blur', function () {
+            link.classList.remove('is-bubbling');
+        });
+    });
 })();
 
 document.querySelectorAll('.shipping-toggle').forEach(function (toggle) {
