@@ -4,41 +4,31 @@ import smtplib
 import sys
 import os
 from email.message import EmailMessage
+from pathlib import Path
 
-PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8080
+PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 5500
 GMAIL_USER = "Thomsen2@gmail.com"
-GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD", "")
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+SCRIPT_DIR = Path(__file__).resolve().parent
 os.chdir(SCRIPT_DIR)
 
-HTML = """<!DOCTYPE html>
-<html lang="da">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ordre bekræftet</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter,sans-serif;background:#f7f5f2;display:flex;justify-content:center;align-items:center;min-height:100vh}
-.card{background:#fff;border-radius:16px;padding:2.5rem;max-width:420px;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,0.08)}
-h1{font-size:1.5rem;color:#1a1a2e;margin-bottom:0.75rem}
-p{color:#555;font-size:0.95rem;line-height:1.6}
-a{color:#1a1a2e}
-</style>
-</head>
-<body>
-<div class="card">
-<h1>Tak for din forespørgsel</h1>
-<p>Vi har modtaget din besked og vender tilbage hurtigst muligt.</p>
-<p style="margin-top:1rem"><a href="/">Tilbage til forsiden</a></p>
-</div>
-</body>
-</html>"""
+def load_env():
+    env_path = SCRIPT_DIR / ".env"
+    if not env_path.exists():
+        return
+    for line in env_path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
+
+load_env()
+GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD", "").replace(" ", "")
 
 def send_email(subject, body):
     if not GMAIL_APP_PASSWORD:
-        print("[ERROR] GMAIL_APP_PASSWORD ikke sat")
-        return False
+        print("[ERROR] GMAIL_APP_PASSWORD ikke sat i .env")
+        return False, "GMAIL_APP_PASSWORD mangler"
     try:
         msg = EmailMessage()
         msg["Subject"] = subject
@@ -50,32 +40,68 @@ def send_email(subject, body):
             srv.login(GMAIL_USER, GMAIL_APP_PASSWORD)
             srv.send_message(msg)
         print("[OK] Email sendt")
-        return True
+        return True, None
     except Exception as e:
         print(f"[ERROR] {e}")
-        return False
+        return False, str(e)
+
+def format_order(data):
+    lines = [
+        f"Produkt: {data.get('produkt', '')}",
+        f"Besked: {data.get('besked', '')}",
+        f"Afhentning: {'Ja (Dragør)' if data.get('pickup') else 'Nej'}",
+        f"Forsendelse: {'Ja (55 kr)' if data.get('shipping') else 'Nej'}",
+        f"Monteringskit: {'Ja (+20 kr)' if data.get('mounting') else 'Nej'}",
+    ]
+    if data.get("pickup"):
+        lines.append(f"Afhentnings-email: {data.get('pickupEmail', '')}")
+    if data.get("shipping"):
+        lines.extend([
+            f"Navn: {data.get('navn', '')}",
+            f"Adresse: {data.get('adresse', '')}",
+            f"Mail: {data.get('mail', '')}",
+            f"Mobil: {data.get('mobil', '')}",
+        ])
+    return "\n".join(lines)
 
 class Handler(http.server.SimpleHTTPRequestHandler):
-    def do_POST(self):
-        if self.path == "/api/order":
-            try:
-                length = int(self.headers.get("Content-Length", 0))
-                data = json.loads(self.rfile.read(length))
-            except:
-                self.send_response(400)
-                self.end_headers()
-                return
-            subject = data.get("product", "Ny forespørgsel")
-            body = data.get("body", "")
-            sent = send_email(subject, body)
-            self.send_response(200 if sent else 500)
-            self.send_header("Content-Type", "text/html; charset=utf-8")
-            self.end_headers()
-            self.wfile.write(HTML.encode("utf-8"))
-        else:
-            self.send_response(404)
-            self.end_headers()
+    def end_headers(self):
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Cache-Control", "no-cache")
+        super().end_headers()
 
-print(f"Starting server on http://localhost:{PORT}")
-httpd = http.server.HTTPServer(("localhost", PORT), Handler)
+    def do_OPTIONS(self):
+        self.send_response(204)
+        self.send_header("Access-Control-Allow-Methods", "POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.end_headers()
+
+    def do_POST(self):
+        if self.path not in ("/send", "/api/order"):
+            self.send_response(404)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.end_headers()
+            self.wfile.write(b'{"success":false,"error":"Not found"}')
+            return
+        try:
+            length = int(self.headers.get("Content-Length", 0))
+            data = json.loads(self.rfile.read(length).decode("utf-8"))
+        except Exception:
+            self.send_response(400)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.end_headers()
+            self.wfile.write(b'{"success":false,"error":"Ugyldig JSON"}')
+            return
+
+        produkt = data.get("produkt") or data.get("product") or "Ny forespørgsel"
+        body = data.get("body") or format_order(data)
+        sent, err = send_email(f"Ny forespørgsel: {produkt}", body)
+        payload = {"success": sent, "error": err}
+        self.send_response(200 if sent else 500)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.end_headers()
+        self.wfile.write(json.dumps(payload).encode("utf-8"))
+
+print(f"Starting server on http://127.0.0.1:{PORT}")
+httpd = http.server.HTTPServer(("127.0.0.1", PORT), Handler)
 httpd.serve_forever()

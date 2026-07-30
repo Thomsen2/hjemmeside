@@ -1,19 +1,86 @@
-document.querySelectorAll('.nav-link, .nav-sub-link').forEach(function (link) {
-    link.addEventListener('click', function (e) {
-        e.preventDefault();
-        var sectionId = this.getAttribute('data-section');
-        document.querySelectorAll('.nav-link').forEach(function (l) { l.classList.remove('active'); });
-        var dropdown = this.closest('.nav-dropdown');
-        if (dropdown) {
-            dropdown.querySelector('.nav-link').classList.add('active');
+(function () {
+    var nav = document.getElementById('mainNav');
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+
+    function closeNav() {
+        if (!nav) return;
+        nav.classList.remove('is-open');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        document.querySelectorAll('.nav-dropdown.is-open').forEach(function (d) {
+            d.classList.remove('is-open');
+        });
+    }
+
+    if (toggle && nav) {
+        toggle.addEventListener('click', function () {
+            var open = nav.classList.toggle('is-open');
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+    }
+
+    function activateSection(sectionId) {
+        if (!sectionId) return;
+        document.querySelectorAll('.nav-link').forEach(function (l) {
+            l.classList.remove('active');
+        });
+        var matching = document.querySelector('.nav-link[data-section="' + sectionId + '"]');
+        if (matching) {
+            var dropdown = matching.closest('.nav-dropdown');
+            if (dropdown) {
+                dropdown.querySelector('.nav-link').classList.add('active');
+            } else {
+                matching.classList.add('active');
+            }
         } else {
-            this.classList.add('active');
+            document.querySelectorAll('.nav-link').forEach(function (link) {
+                var dd = link.closest('.nav-dropdown');
+                if (!dd) return;
+                var sub = dd.querySelector('.nav-sub-link[data-section="' + sectionId + '"]');
+                if (sub) link.classList.add('active');
+            });
         }
-        document.querySelectorAll('.tab-section').forEach(function (s) { s.classList.remove('active'); });
+        document.querySelectorAll('.tab-section').forEach(function (s) {
+            s.classList.remove('active');
+        });
         var section = document.getElementById(sectionId);
-        if (section) section.classList.add('active');
+        if (section) {
+            section.classList.add('active');
+            window.scrollTo({ top: nav ? nav.offsetTop : 0, behavior: 'smooth' });
+        }
+        closeNav();
+    }
+
+    document.querySelectorAll('.nav-link, .nav-sub-link, .btn-hero').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            var sectionId = this.getAttribute('data-section');
+            if (!sectionId) return;
+            e.preventDefault();
+
+            if (this.classList.contains('nav-link') && this.closest('.nav-dropdown') && window.matchMedia('(max-width: 780px)').matches) {
+                var dd = this.closest('.nav-dropdown');
+                if (!e.target.closest('.nav-sub-link')) {
+                    var already = dd.classList.contains('is-open');
+                    document.querySelectorAll('.nav-dropdown.is-open').forEach(function (d) {
+                        d.classList.remove('is-open');
+                    });
+                    if (!already) {
+                        dd.classList.add('is-open');
+                        return;
+                    }
+                }
+            }
+
+            activateSection(sectionId);
+        });
     });
-});
+
+    document.addEventListener('click', function (e) {
+        if (nav && nav.classList.contains('is-open') && !nav.contains(e.target)) {
+            closeNav();
+        }
+    });
+})();
 
 document.querySelectorAll('.shipping-toggle').forEach(function (toggle) {
     toggle.addEventListener('change', function () {
@@ -52,7 +119,8 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
         var besked = this.querySelector('textarea').value.trim();
         var shippingChecked = this.querySelector('.shipping-toggle').checked;
         var pickupChecked = this.querySelector('.pickup-toggle').checked;
-        var mountingChecked = this.querySelector('.mounting-toggle').checked;
+        var mountingEl = this.querySelector('.mounting-toggle');
+        var mountingChecked = mountingEl ? mountingEl.checked : false;
 
         if (!besked) {
             alert('Udfyld venligst din besked.');
@@ -60,9 +128,15 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
         }
 
         var sectionTitle = this.closest('section').querySelector('h2').textContent.trim();
+        var captionEl = this.closest('.builder-grid');
+        captionEl = captionEl ? captionEl.querySelector('.sign-caption') : null;
+        var beskrivelse = captionEl
+            ? captionEl.innerText.replace(/\s+/g, ' ').trim()
+            : '';
 
         var payload = {
             produkt: sectionTitle,
+            beskrivelse: beskrivelse,
             besked: besked,
             shipping: shippingChecked,
             pickup: pickupChecked,
@@ -74,29 +148,58 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
         }
 
         if (shippingChecked) {
-            payload.navn = this.querySelector('.shipping-fields input[id*="navn"]').value.trim();
-            payload.adresse = this.querySelector('.shipping-fields input[id*="adresse"]').value.trim();
-            payload.mail = this.querySelector('.shipping-fields input[id*="mail"]').value.trim();
-            payload.mobil = this.querySelector('.shipping-fields input[id*="mobil"]').value.trim();
+            var navnEl = this.querySelector('.shipping-fields input[id*="navn"]') || this.querySelector('.shipping-fields input[type="text"]');
+            var adresseEl = this.querySelector('.shipping-fields input[id*="adresse"]');
+            var mailEl = this.querySelector('.shipping-fields input[id*="mail"], .shipping-fields input[type="email"]');
+            var mobilEl = this.querySelector('.shipping-fields input[id*="mobil"], .shipping-fields input[type="tel"]');
+            payload.navn = navnEl ? navnEl.value.trim() : '';
+            payload.adresse = adresseEl ? adresseEl.value.trim() : '';
+            payload.mail = mailEl ? mailEl.value.trim() : '';
+            payload.mobil = mobilEl ? mobilEl.value.trim() : '';
         }
 
         var btn = this.querySelector('.btn-submit');
         btn.textContent = 'Sender...';
         btn.disabled = true;
 
-        fetch('/send', {
+        var emailBody = {
+            _subject: 'Ny forespørgsel: ' + (beskrivelse || sectionTitle),
+            _template: 'table',
+            Produkt: sectionTitle,
+            Beskrivelse: beskrivelse || sectionTitle,
+            Besked: besked,
+            Afhentning: pickupChecked ? 'Ja (Dragør)' : 'Nej',
+            Forsendelse: shippingChecked ? 'Ja (55 kr)' : 'Nej',
+            Monteringskit: mountingChecked ? 'Ja (+20 kr)' : 'Nej'
+        };
+
+        if (pickupChecked) {
+            emailBody['Afhentnings-email'] = payload.pickupEmail || '';
+        }
+        if (shippingChecked) {
+            emailBody.Navn = payload.navn || '';
+            emailBody.Adresse = payload.adresse || '';
+            emailBody.Mail = payload.mail || '';
+            emailBody.Mobil = payload.mobil || '';
+        }
+
+        fetch('https://formsubmit.co/ajax/Thomsen2@gmail.com', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(emailBody)
         })
-        .then(function (resp) { return resp.json(); })
-        .then(function (data) {
-            if (data.success) {
-                alert('Tak! Din forespørgsel er gemt.');
+        .then(function (resp) { return resp.json().then(function (data) { return { ok: resp.ok, data: data }; }); })
+        .then(function (result) {
+            if (result.ok && !result.data.error) {
+                alert('Tak! Din forespørgsel er sendt.');
                 btn.closest('form').querySelectorAll('textarea, input[type="text"], input[type="email"], input[type="tel"]').forEach(function (el) { el.value = ''; });
                 btn.closest('form').querySelectorAll('input[type="checkbox"]').forEach(function (el) { el.checked = false; });
+                btn.closest('form').querySelectorAll('.shipping-fields, .pickup-fields').forEach(function (el) { el.classList.remove('visible'); });
             } else {
-                alert('Fejl: ' + data.error);
+                alert('Fejl: ' + (result.data.message || result.data.error || 'Kunne ikke sende.'));
             }
         })
         .catch(function (err) {
