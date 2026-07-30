@@ -4,3 +4,22 @@ opencode.json
 server.py
 __pycache__/
 hentede billder/
+.env
+.env.*
+_r2_creds.tmp
+_r2_migrate.py
+
+# Local Netlify folder
+.netlify
+
+# Images hosted on Cloudflare R2 — keep out of Git/Netlify
+*.png
+*.jpg
+*.jpeg
+*.JPG
+*.JPEG
+*.gif
+*.webp
+*.zip
+*.pdf
+billeder/
