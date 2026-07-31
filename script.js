@@ -99,6 +99,32 @@
             link.classList.remove('is-bubbling');
         });
     });
+
+    // Klik-zoom: 200% af hover-størrelse (hover 1.35 → klik 2.7)
+    document.querySelectorAll('.sign-preview--click-zoom').forEach(function (preview) {
+        preview.addEventListener('click', function (e) {
+            e.stopPropagation();
+            var open = preview.classList.toggle('is-zoomed');
+            if (open) {
+                document.querySelectorAll('.sign-preview--click-zoom.is-zoomed').forEach(function (other) {
+                    if (other !== preview) other.classList.remove('is-zoomed');
+                });
+            }
+        });
+    });
+    document.addEventListener('click', function (e) {
+        if (e.target.closest('.sign-preview--click-zoom')) return;
+        document.querySelectorAll('.sign-preview--click-zoom.is-zoomed').forEach(function (el) {
+            el.classList.remove('is-zoomed');
+        });
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.sign-preview--click-zoom.is-zoomed').forEach(function (el) {
+                el.classList.remove('is-zoomed');
+            });
+        }
+    });
 })();
 
 document.querySelectorAll('.shipping-toggle').forEach(function (toggle) {
