@@ -531,12 +531,22 @@ h2.no-divider::after {
     z-index: 999;
 }
 
-.sign-preview.sign-preview--click-zoom.is-zoomed,
-.sign-preview.sign-preview--click-zoom.is-zoomed:hover {
+.sign-preview.is-zoomed,
+.sign-preview.is-zoomed:hover {
     transform: scale(4.05);
     filter: drop-shadow(0 28px 60px rgba(26, 21, 16, 0.4));
     z-index: 1000;
     cursor: zoom-out;
+}
+
+#bordkort .sign-preview.is-zoomed,
+#bordkort .sign-preview.is-zoomed:hover {
+    transform: scale(4.5);
+}
+
+#andre_skilte .sign-preview.is-zoomed,
+#andre_skilte .sign-preview.is-zoomed:hover {
+    transform: scale(7.5);
 }
 
 .lightbox {
@@ -1024,9 +1034,19 @@ footer a:hover {
         transform: scale(1.12);
     }
 
-    .sign-preview.sign-preview--click-zoom.is-zoomed,
-    .sign-preview.sign-preview--click-zoom.is-zoomed:hover {
+    .sign-preview.is-zoomed,
+    .sign-preview.is-zoomed:hover {
         transform: scale(3.36);
+    }
+
+    #bordkort .sign-preview.is-zoomed,
+    #bordkort .sign-preview.is-zoomed:hover {
+        transform: scale(4.5);
+    }
+
+    #andre_skilte .sign-preview.is-zoomed,
+    #andre_skilte .sign-preview.is-zoomed:hover {
+        transform: scale(7.5);
     }
 }
 

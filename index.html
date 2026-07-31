@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Håndlavede æresportskilte i træ">
     <title>Æresportskilt.dk - Bestil dit personlige skilt</title>
-    <link rel="stylesheet" href="styles.css?v=19">
+    <link rel="stylesheet" href="styles.css?v=20">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -936,7 +936,7 @@
 
             <div class="builder-grid" style="margin-top:3rem">
                 <div class="preview-area">
-                    <div class="sign-preview sign-preview--click-zoom" data-zoom-scale="4.05">
+                    <div class="sign-preview">
                         <img src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/controller.JPG" alt="Controller gavekort" class="sign-photo">
                     </div>
                     <p class="sign-caption">Gavekort – Controller (75 kr)</p>
@@ -989,21 +989,9 @@
 
     <section class="builder tab-section" id="bordkort">
         <style>
-        #bordkort .sign-photo { cursor: pointer; }
+        #bordkort .sign-photo { cursor: zoom-in; }
         #bordkort .sign-preview:hover { transform: scale(1.5); z-index: 999; }
         </style>
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('#bordkort .sign-photo').forEach(function(img) {
-                img.addEventListener('click', function() {
-                    var ov = document.getElementById('imgOverlay');
-                    var oi = document.getElementById('imgOverlayImg');
-                    oi.src = this.src;
-                    ov.style.display = 'flex';
-                });
-            });
-        });
-        </script>
         <div class="container">
             <h2>Bordkort</h2>
             <p class="section-desc">Personlige bordkort i udvalgte træsorter – perfekt til bryllupper, fester og events.</p>
@@ -1847,7 +1835,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=15"></script>
+    <script src="script.js?v=16"></script>
 
     <div class="lightbox" id="lightbox" style="display:none">
         <span class="lightbox-close">&times;</span>

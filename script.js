@@ -100,27 +100,27 @@
         });
     });
 
-    // Klik-zoom: 300% af hover-størrelse (hover 1.35 → klik 4.05)
-    document.querySelectorAll('.sign-preview--click-zoom').forEach(function (preview) {
+    // Klik-zoom på alle produktbilleder: 300% af sektionens hover-størrelse
+    document.querySelectorAll('.sign-preview').forEach(function (preview) {
         preview.addEventListener('click', function (e) {
             e.stopPropagation();
             var open = preview.classList.toggle('is-zoomed');
             if (open) {
-                document.querySelectorAll('.sign-preview--click-zoom.is-zoomed').forEach(function (other) {
+                document.querySelectorAll('.sign-preview.is-zoomed').forEach(function (other) {
                     if (other !== preview) other.classList.remove('is-zoomed');
                 });
             }
         });
     });
     document.addEventListener('click', function (e) {
-        if (e.target.closest('.sign-preview--click-zoom')) return;
-        document.querySelectorAll('.sign-preview--click-zoom.is-zoomed').forEach(function (el) {
+        if (e.target.closest('.sign-preview')) return;
+        document.querySelectorAll('.sign-preview.is-zoomed').forEach(function (el) {
             el.classList.remove('is-zoomed');
         });
     });
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
-            document.querySelectorAll('.sign-preview--click-zoom.is-zoomed').forEach(function (el) {
+            document.querySelectorAll('.sign-preview.is-zoomed').forEach(function (el) {
                 el.classList.remove('is-zoomed');
             });
         }
