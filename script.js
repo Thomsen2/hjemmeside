@@ -100,7 +100,7 @@
         });
     });
 
-    // Klik-zoom: 200% af hover-størrelse (hover 1.35 → klik 2.7)
+    // Klik-zoom: 300% af hover-størrelse (hover 1.35 → klik 4.05)
     document.querySelectorAll('.sign-preview--click-zoom').forEach(function (preview) {
         preview.addEventListener('click', function (e) {
             e.stopPropagation();

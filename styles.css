@@ -533,7 +533,7 @@ h2.no-divider::after {
 
 .sign-preview.sign-preview--click-zoom.is-zoomed,
 .sign-preview.sign-preview--click-zoom.is-zoomed:hover {
-    transform: scale(2.7);
+    transform: scale(4.05);
     filter: drop-shadow(0 28px 60px rgba(26, 21, 16, 0.4));
     z-index: 1000;
     cursor: zoom-out;
@@ -1026,7 +1026,7 @@ footer a:hover {
 
     .sign-preview.sign-preview--click-zoom.is-zoomed,
     .sign-preview.sign-preview--click-zoom.is-zoomed:hover {
-        transform: scale(2.24);
+        transform: scale(3.36);
     }
 }
 
