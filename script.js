@@ -173,11 +173,17 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
         }
 
         var sectionTitle = this.closest('section').querySelector('h2').textContent.trim();
-        var captionEl = this.closest('.builder-grid');
-        captionEl = captionEl ? captionEl.querySelector('.sign-caption') : null;
+        var grid = this.closest('.builder-grid');
+        var captionEl = grid ? grid.querySelector('.sign-caption') : null;
         var beskrivelse = captionEl
             ? captionEl.innerText.replace(/\s+/g, ' ').trim()
             : '';
+        var imgEl = grid ? grid.querySelector('.sign-photo') : null;
+        var billedeUrl = '';
+        if (imgEl && imgEl.src) {
+            try { billedeUrl = new URL(imgEl.getAttribute('src'), window.location.href).href; }
+            catch (err) { billedeUrl = imgEl.src; }
+        }
 
         var payload = {
             produkt: sectionTitle,
@@ -214,6 +220,7 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
             Produkt: sectionTitle,
             Beskrivelse: beskrivelse || sectionTitle,
             Besked: besked,
+            'Billede-eksempel': billedeUrl,
             Afhentning: pickupChecked ? 'Ja (Dragør)' : 'Nej',
             Forsendelse: shippingChecked ? 'Ja (55 kr)' : 'Nej',
             Monteringskit: mountingChecked ? 'Ja (+20 kr)' : 'Nej',
@@ -224,27 +231,58 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
             Mobil: shippingChecked ? (payload.mobil || '') : ''
         };
 
-        fetch('/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(emailBody).toString()
-        })
-        .then(function (resp) {
-            if (resp.ok) {
-                alert('Tak! Din forespørgsel er sendt.');
-                btn.closest('form').querySelectorAll('textarea, input[type="text"], input[type="email"], input[type="tel"]').forEach(function (el) { el.value = ''; });
-                btn.closest('form').querySelectorAll('input[type="checkbox"]').forEach(function (el) { el.checked = false; });
-                btn.closest('form').querySelectorAll('.shipping-fields, .pickup-fields').forEach(function (el) { el.classList.remove('visible'); });
-            } else {
-                alert('Fejl: Kunne ikke sende forespørgslen. Prøv igen.');
+        function sendForm(body) {
+            var opts = { method: 'POST', body: body };
+            if (!(body instanceof FormData)) {
+                opts.headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
             }
-        })
-        .catch(function (err) {
-            alert('Der opstod en fejl: ' + err.message);
-        })
-        .finally(function () {
+            return fetch('/', opts);
+        }
+
+        function onSuccess() {
+            alert('Tak! Din forespørgsel er sendt. Hold øje med din mail, for bekræftelse af design og betaling');
+            btn.closest('form').querySelectorAll('textarea, input[type="text"], input[type="email"], input[type="tel"]').forEach(function (el) { el.value = ''; });
+            btn.closest('form').querySelectorAll('input[type="checkbox"]').forEach(function (el) { el.checked = false; });
+            btn.closest('form').querySelectorAll('.shipping-fields, .pickup-fields').forEach(function (el) { el.classList.remove('visible'); });
+        }
+
+        function onFail(msg) {
+            alert(msg || 'Fejl: Kunne ikke sende forespørgslen. Prøv igen.');
+        }
+
+        function finish() {
             btn.textContent = 'Send forespørgsel';
             btn.disabled = false;
-        });
+        }
+
+        // Prøv at vedhæfte billede-eksemplet; ellers send med billed-URL
+        var attachPromise = Promise.resolve(null);
+        if (billedeUrl) {
+            attachPromise = fetch(billedeUrl)
+                .then(function (r) { return r.ok ? r.blob() : null; })
+                .catch(function () { return null; });
+        }
+
+        attachPromise.then(function (blob) {
+            var body;
+            if (blob && blob.size) {
+                var fd = new FormData();
+                Object.keys(emailBody).forEach(function (key) { fd.append(key, emailBody[key]); });
+                var ext = (blob.type && blob.type.split('/')[1]) || 'jpg';
+                fd.append('billede', blob, 'eksempel.' + ext);
+                body = fd;
+            } else {
+                body = new URLSearchParams(emailBody).toString();
+            }
+            return sendForm(body);
+        })
+        .then(function (resp) {
+            if (resp && resp.ok) onSuccess();
+            else onFail();
+        })
+        .catch(function (err) {
+            onFail('Der opstod en fejl: ' + err.message);
+        })
+        .finally(finish);
     });
 });
