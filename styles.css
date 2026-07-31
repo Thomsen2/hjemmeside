@@ -85,11 +85,6 @@ body {
     color: #fff;
 }
 
-.hero-wreath {
-    display: block;
-    margin: 0 auto 0.75rem;
-}
-
 /* ——— Nav ——— */
 .main-nav {
     background: rgba(248, 245, 239, 0.86);
