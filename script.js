@@ -208,43 +208,35 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
         btn.disabled = true;
 
         var emailBody = {
-            _subject: 'Ny forespørgsel: ' + (beskrivelse || sectionTitle),
-            _template: 'table',
+            'form-name': 'bestilling',
+            'bot-field': '',
+            subject: 'Ny forespørgsel: ' + (beskrivelse || sectionTitle),
             Produkt: sectionTitle,
             Beskrivelse: beskrivelse || sectionTitle,
             Besked: besked,
             Afhentning: pickupChecked ? 'Ja (Dragør)' : 'Nej',
             Forsendelse: shippingChecked ? 'Ja (55 kr)' : 'Nej',
-            Monteringskit: mountingChecked ? 'Ja (+20 kr)' : 'Nej'
+            Monteringskit: mountingChecked ? 'Ja (+20 kr)' : 'Nej',
+            'Afhentnings-email': pickupChecked ? (payload.pickupEmail || '') : '',
+            Navn: shippingChecked ? (payload.navn || '') : '',
+            Adresse: shippingChecked ? (payload.adresse || '') : '',
+            Mail: shippingChecked ? (payload.mail || '') : '',
+            Mobil: shippingChecked ? (payload.mobil || '') : ''
         };
 
-        if (pickupChecked) {
-            emailBody['Afhentnings-email'] = payload.pickupEmail || '';
-        }
-        if (shippingChecked) {
-            emailBody.Navn = payload.navn || '';
-            emailBody.Adresse = payload.adresse || '';
-            emailBody.Mail = payload.mail || '';
-            emailBody.Mobil = payload.mobil || '';
-        }
-
-        fetch('https://formsubmit.co/ajax/Thomsen2@gmail.com', {
+        fetch('/', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(emailBody)
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(emailBody).toString()
         })
-        .then(function (resp) { return resp.json().then(function (data) { return { ok: resp.ok, data: data }; }); })
-        .then(function (result) {
-            if (result.ok && !result.data.error) {
+        .then(function (resp) {
+            if (resp.ok) {
                 alert('Tak! Din forespørgsel er sendt.');
                 btn.closest('form').querySelectorAll('textarea, input[type="text"], input[type="email"], input[type="tel"]').forEach(function (el) { el.value = ''; });
                 btn.closest('form').querySelectorAll('input[type="checkbox"]').forEach(function (el) { el.checked = false; });
                 btn.closest('form').querySelectorAll('.shipping-fields, .pickup-fields').forEach(function (el) { el.classList.remove('visible'); });
             } else {
-                alert('Fejl: ' + (result.data.message || result.data.error || 'Kunne ikke sende.'));
+                alert('Fejl: Kunne ikke sende forespørgslen. Prøv igen.');
             }
         })
         .catch(function (err) {

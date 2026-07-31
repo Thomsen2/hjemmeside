@@ -1807,7 +1807,25 @@
         </div>
     </footer>
 
-    <script src="script.js?v=16"></script>
+    <!-- Netlify Forms: skjult skabelon så felter registreres ved deploy -->
+    <form name="bestilling" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden aria-hidden="true">
+        <input type="text" name="bot-field">
+        <input type="hidden" name="form-name" value="bestilling">
+        <input type="text" name="subject">
+        <input type="text" name="Produkt">
+        <input type="text" name="Beskrivelse">
+        <input type="text" name="Besked">
+        <input type="text" name="Afhentning">
+        <input type="text" name="Forsendelse">
+        <input type="text" name="Monteringskit">
+        <input type="email" name="Afhentnings-email">
+        <input type="text" name="Navn">
+        <input type="text" name="Adresse">
+        <input type="email" name="Mail">
+        <input type="tel" name="Mobil">
+    </form>
+
+    <script src="script.js?v=17"></script>
 
     <div class="lightbox" id="lightbox" style="display:none">
         <span class="lightbox-close">&times;</span>
