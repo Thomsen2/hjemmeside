@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Håndlavede æresportskilte i træ">
     <title>Æresportskilt.dk - Bestil dit personlige skilt</title>
-    <link rel="stylesheet" href="styles.css?v=20">
+    <link rel="stylesheet" href="styles.css?v=23">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -78,8 +78,17 @@
                     Om os
                 </a>
                 <a href="#" data-section="gavekort" class="nav-link">
-                    <span class="nav-icon nav-icon--gift" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="11" rx="1.5"/><path d="M3 14h18M12 10v11M8.5 7.5C8.5 5.6 9.6 4 12 4s3.5 1.6 3.5 3.5c0 1.4-1 2.5-3.5 2.5S8.5 8.9 8.5 7.5z"/></svg></span>
-                    Gavekort
+                    <span class="nav-icon nav-icon--gift" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="11" rx="1.5"/><path d="M3 14h18M12 10v11M8.5 7.5C8.5 5.6 9.6 4 12 4s3.5 1.6 3.5 3.5c0 1.4-1 2.5-3.5 2.5S8.5 8.9 8.5 7.5z"/></svg>
+                        <span class="gift-bubbles" aria-hidden="true">
+                            <span class="gb">$</span>
+                            <span class="gb">$</span>
+                            <span class="gb">$</span>
+                            <span class="gb">$</span>
+                            <span class="gb">$</span>
+                        </span>
+                    </span>
+                    Gavekort i træ
                 </a>
                 <a href="#" data-section="bordkort" class="nav-link">
                     <span class="nav-icon nav-icon--card" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 10h8M8 14h5"/></svg></span>
@@ -839,13 +848,13 @@
                     <div class="sign-preview">
                         <img src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/hestesho.JPG" alt="Hestesko gavekort" class="sign-photo">
                     </div>
-                    <p class="sign-caption">Gavekort – Hestesko (75 kr)</p>
+                    <p class="sign-caption">Gavekort - Hestesko , mål ca. 10 x 13 cm i 3mm Birkefiner (75kr)</p>
                 </div>
                 <div class="form-area">
                     <form class="sign-form">
                         <div class="form-group">
-                            <label for="besked_gk1">Indtast navn(e)</label>
-                            <textarea id="besked_gk1" name="besked_gk1" rows="2" placeholder="Skriv navn(e) til gavekortet..."></textarea>
+                            <label for="besked_gk1">Indtast tekst til gavekortet</label>
+                            <textarea id="besked_gk1" name="besked_gk1" rows="2" placeholder="Indtast tekst til gavekortet..."></textarea>
                         </div>
                         <label class="checkbox-label">
                             <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
@@ -886,10 +895,10 @@
 
             <div class="builder-grid" style="margin-top:3rem">
                 <div class="preview-area">
-                    <div class="sign-preview">
+                    <div class="sign-preview" style="aspect-ratio:20/7;">
                         <img src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/invistering.JPG" alt="Invistering gavekort" class="sign-photo">
                     </div>
-                    <p class="sign-caption">Gavekort – Investering (75 kr)</p>
+                    <p class="sign-caption">Gavekort - Investering mål ca. 7 x 20 cm i 3mm Birkefiner (75kr)</p>
                 </div>
                 <div class="form-area">
                     <form class="sign-form">
@@ -936,10 +945,10 @@
 
             <div class="builder-grid" style="margin-top:3rem">
                 <div class="preview-area">
-                    <div class="sign-preview">
-                        <img src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/controller.JPG" alt="Controller gavekort" class="sign-photo">
+                    <div class="sign-preview" style="aspect-ratio:15/9.5;">
+                        <img src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/controller.png" alt="Controller gavekort" class="sign-photo">
                     </div>
-                    <p class="sign-caption">Gavekort – Controller (75 kr)</p>
+                    <p class="sign-caption">Gavekort - Controller mål. 15 x 9,5 cm i 3mm Birkefiner (75kr)</p>
                 </div>
                 <div class="form-area">
                     <form class="sign-form">
@@ -977,6 +986,106 @@
                             <div class="form-group">
                                 <label for="mobil_gk3">Mobil nr</label>
                                 <input type="tel" id="mobil_gk3" name="mobil_gk3" placeholder="+45 12 34 56 78">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="builder-grid" style="margin-top:3rem">
+                <div class="preview-area">
+                    <div class="sign-preview" style="aspect-ratio:15/10;">
+                        <img src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/scooter.png" alt="Scooter gavekort" class="sign-photo">
+                    </div>
+                    <p class="sign-caption">Gavekort - scooter. 15 x 10 cm i 3mm Birkefiner (75kr)</p>
+                </div>
+                <div class="form-area">
+                    <form class="sign-form">
+                        <div class="form-group">
+                            <label for="besked_gk4">Indtast tekst til gavekortet</label>
+                            <textarea id="besked_gk4" name="besked_gk4" rows="2" placeholder="Indtast tekst til gavekortet..."></textarea>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
+                            Afhentning i Dragør (gratis)
+                        </label>
+                        <div class="pickup-fields">
+                            <div class="form-group">
+                                <label>Email til afhentningsinfo</label>
+                                <input type="email" class="pickup-email" placeholder="din@mail.dk">
+                            </div>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
+                            Skal sendes (55 kr)
+                        </label>
+                        <div class="shipping-fields">
+                            <div class="form-group">
+                                <label for="navn_gk4">Navn</label>
+                                <input type="text" id="navn_gk4" name="navn_gk4" placeholder="Dit fulde navn">
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse_gk4">Adresse</label>
+                                <input type="text" id="adresse_gk4" name="adresse_gk4" placeholder="Din adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail_gk4">Mail</label>
+                                <input type="email" id="mail_gk4" name="mail_gk4" placeholder="din@mail.dk">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobil_gk4">Mobil nr</label>
+                                <input type="tel" id="mobil_gk4" name="mobil_gk4" placeholder="+45 12 34 56 78">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="builder-grid" style="margin-top:3rem">
+                <div class="preview-area">
+                    <div class="sign-preview" style="aspect-ratio:11.5/13;">
+                        <img src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/dametaske.png" alt="Dametaske gavekort" class="sign-photo">
+                    </div>
+                    <p class="sign-caption">Gavekort - Dametaske 11.5 x 13 cm i 3mm Birkefiner (75kr)</p>
+                </div>
+                <div class="form-area">
+                    <form class="sign-form">
+                        <div class="form-group">
+                            <label for="besked_gk5">Indtast tekst til gavekortet</label>
+                            <textarea id="besked_gk5" name="besked_gk5" rows="2" placeholder="Indtast tekst til gavekortet..."></textarea>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
+                            Afhentning i Dragør (gratis)
+                        </label>
+                        <div class="pickup-fields">
+                            <div class="form-group">
+                                <label>Email til afhentningsinfo</label>
+                                <input type="email" class="pickup-email" placeholder="din@mail.dk">
+                            </div>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
+                            Skal sendes (55 kr)
+                        </label>
+                        <div class="shipping-fields">
+                            <div class="form-group">
+                                <label for="navn_gk5">Navn</label>
+                                <input type="text" id="navn_gk5" name="navn_gk5" placeholder="Dit fulde navn">
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse_gk5">Adresse</label>
+                                <input type="text" id="adresse_gk5" name="adresse_gk5" placeholder="Din adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail_gk5">Mail</label>
+                                <input type="email" id="mail_gk5" name="mail_gk5" placeholder="din@mail.dk">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobil_gk5">Mobil nr</label>
+                                <input type="tel" id="mobil_gk5" name="mobil_gk5" placeholder="+45 12 34 56 78">
                             </div>
                         </div>
                         <button type="submit" class="btn-submit">Send forespørgsel</button>
@@ -1826,7 +1935,7 @@
         <input type="tel" name="Mobil">
     </form>
 
-    <script src="script.js?v=19"></script>
+    <script src="script.js?v=20"></script>
 
     <div class="lightbox" id="lightbox" style="display:none">
         <span class="lightbox-close">&times;</span>

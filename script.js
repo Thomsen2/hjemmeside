@@ -81,15 +81,13 @@
         }
     });
 
-    // Boblende ikoner ved hover på Hjerte / Våbenskjold
-    document.querySelectorAll('.nav-dropdown').forEach(function (dropdown) {
-        var link = dropdown.querySelector('.nav-link');
+    // Boblende ikoner ved hover på Hjerte / Våbenskjold / Gavekort
+    function bindBubbling(host, link) {
         if (!link) return;
-        if (!link.querySelector('.nav-icon--heart, .nav-icon--shield')) return;
-        dropdown.addEventListener('mouseenter', function () {
+        host.addEventListener('mouseenter', function () {
             link.classList.add('is-bubbling');
         });
-        dropdown.addEventListener('mouseleave', function () {
+        host.addEventListener('mouseleave', function () {
             link.classList.remove('is-bubbling');
         });
         link.addEventListener('focus', function () {
@@ -98,6 +96,19 @@
         link.addEventListener('blur', function () {
             link.classList.remove('is-bubbling');
         });
+    }
+
+    document.querySelectorAll('.nav-dropdown').forEach(function (dropdown) {
+        var link = dropdown.querySelector('.nav-link');
+        if (!link) return;
+        if (!link.querySelector('.nav-icon--heart, .nav-icon--shield')) return;
+        bindBubbling(dropdown, link);
+    });
+
+    document.querySelectorAll('.nav-link').forEach(function (link) {
+        if (!link.querySelector('.nav-icon--gift')) return;
+        if (link.closest('.nav-dropdown')) return;
+        bindBubbling(link, link);
     });
 
     // Klik-zoom på alle produktbilleder: 300% af sektionens hover-størrelse
