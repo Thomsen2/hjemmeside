@@ -204,10 +204,26 @@ body {
     overflow: visible;
 }
 
+.nav-dropdown::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 14px;
+    display: none;
+    z-index: 199;
+}
+
+.nav-dropdown:hover::after,
+.nav-dropdown:focus-within::after {
+    display: block;
+}
+
 .nav-submenu {
     display: none;
     position: absolute;
-    top: calc(100% + 6px);
+    top: calc(100% + 4px);
     left: 0;
     background: var(--surface);
     border: 1px solid var(--line);
@@ -262,7 +278,9 @@ body {
 
 .nav-icon--heart,
 .nav-icon--shield,
-.nav-icon--gift {
+.nav-icon--gift,
+.nav-icon--pram,
+.nav-icon--card {
     position: relative;
     overflow: visible;
     width: 1.55rem;
@@ -278,7 +296,9 @@ body {
 
 .heart-bubbles,
 .shield-bubbles,
-.gift-bubbles {
+.gift-bubbles,
+.pram-bubbles,
+.name-bubbles {
     position: absolute;
     left: 50%;
     top: 0;
@@ -291,7 +311,9 @@ body {
 
 .heart-bubbles .hb,
 .shield-bubbles .sb,
-.gift-bubbles .gb {
+.gift-bubbles .gb,
+.pram-bubbles .pb,
+.name-bubbles .nb {
     position: absolute;
     left: 0;
     top: 0;
@@ -312,10 +334,19 @@ body {
 }
 
 .shield-bubbles .sb {
-    color: #8b5a2b;
-    filter: drop-shadow(0 1px 2px rgba(139, 90, 43, 0.55));
-    font-size: 15px;
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.85);
+    color: #6b3f1f;
+    font-size: 18px;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.95))
+            drop-shadow(0 2px 4px rgba(107, 63, 31, 0.65))
+            drop-shadow(0 4px 10px rgba(107, 63, 31, 0.4));
+}
+
+.shield-bubbles .sb svg {
+    width: 1em;
+    height: 1em;
+    display: block;
+    fill: currentColor;
+    stroke: none;
 }
 
 .gift-bubbles .gb {
@@ -327,14 +358,54 @@ body {
         0 2px 8px rgba(21, 128, 61, 0.35);
 }
 
-.nav-icon--shield svg {
+.pram-bubbles .pb {
+    color: #db6b8a;
+    filter: drop-shadow(0 1px 2px rgba(219, 107, 138, 0.55));
+}
+
+.pram-bubbles .pb svg {
+    width: 1em;
+    height: 1em;
+    display: block;
+    fill: currentColor;
+    stroke: none;
+}
+
+.name-bubbles .nb {
+    color: #9a6b3f;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    text-shadow:
+        0 0 1px rgba(255, 255, 255, 0.9),
+        0 1px 3px rgba(154, 107, 63, 0.45),
+        0 2px 8px rgba(154, 107, 63, 0.3);
+}
+
+.nav-icon--shield > svg {
     stroke-dasharray: 64;
     stroke-dashoffset: 0;
     position: relative;
     z-index: 1;
 }
 
-.nav-icon--gift svg {
+.nav-link.is-bubbling .nav-icon--shield > svg,
+.nav-dropdown:hover > .nav-link .nav-icon--shield > svg {
+    fill: currentColor;
+    stroke: none;
+}
+
+.nav-icon--gift svg,
+.nav-icon--pram > svg {
+    position: relative;
+    z-index: 1;
+    fill: currentColor;
+    stroke: none;
+}
+
+.nav-icon--card > svg {
     position: relative;
     z-index: 1;
 }
@@ -352,7 +423,7 @@ body {
 
 .nav-link.is-bubbling .nav-icon--shield,
 .nav-dropdown:hover > .nav-link .nav-icon--shield {
-    color: #7a522e;
+    color: #6b3f1f;
     animation: heartBob 0.7s ease-in-out infinite;
 }
 
@@ -362,12 +433,30 @@ body {
     animation: heartBob 0.7s ease-in-out infinite;
 }
 
+.nav-link.is-bubbling .nav-icon--pram,
+.nav-link:hover .nav-icon--pram {
+    color: #c45c7a;
+    animation: heartBob 0.7s ease-in-out infinite;
+}
+
+.nav-link.is-bubbling .nav-icon--card,
+.nav-dropdown:hover > .nav-link .nav-icon--card,
+.nav-link:hover .nav-icon--card {
+    color: #8b5a2b;
+    animation: heartBob 0.7s ease-in-out infinite;
+}
+
 .nav-link.is-bubbling .heart-bubbles .hb,
 .nav-dropdown:hover > .nav-link .heart-bubbles .hb,
 .nav-link.is-bubbling .shield-bubbles .sb,
 .nav-dropdown:hover > .nav-link .shield-bubbles .sb,
 .nav-link.is-bubbling .gift-bubbles .gb,
-.nav-link:hover .gift-bubbles .gb {
+.nav-link:hover .gift-bubbles .gb,
+.nav-link.is-bubbling .pram-bubbles .pb,
+.nav-link:hover .pram-bubbles .pb,
+.nav-link.is-bubbling .name-bubbles .nb,
+.nav-dropdown:hover > .nav-link .name-bubbles .nb,
+.nav-link:hover .name-bubbles .nb {
     animation-name: heartFloat;
     animation-timing-function: ease-out;
     animation-iteration-count: infinite;
@@ -378,11 +467,27 @@ body {
 .nav-link.is-bubbling .shield-bubbles .sb:nth-child(1),
 .nav-dropdown:hover > .nav-link .shield-bubbles .sb:nth-child(1),
 .nav-link.is-bubbling .gift-bubbles .gb:nth-child(1),
-.nav-link:hover .gift-bubbles .gb:nth-child(1) {
+.nav-link:hover .gift-bubbles .gb:nth-child(1),
+.nav-link.is-bubbling .pram-bubbles .pb:nth-child(1),
+.nav-link:hover .pram-bubbles .pb:nth-child(1),
+.nav-link.is-bubbling .name-bubbles .nb:nth-child(1),
+.nav-dropdown:hover > .nav-link .name-bubbles .nb:nth-child(1),
+.nav-link:hover .name-bubbles .nb:nth-child(1) {
     animation-duration: 1.15s;
     animation-delay: 0s;
     font-size: 17px;
     left: -12px;
+}
+
+.nav-link.is-bubbling .shield-bubbles .sb:nth-child(1),
+.nav-dropdown:hover > .nav-link .shield-bubbles .sb:nth-child(1) {
+    font-size: 20px;
+}
+
+.nav-link.is-bubbling .name-bubbles .nb:nth-child(1),
+.nav-dropdown:hover > .nav-link .name-bubbles .nb:nth-child(1),
+.nav-link:hover .name-bubbles .nb:nth-child(1) {
+    font-size: 13px;
 }
 
 .nav-link.is-bubbling .heart-bubbles .hb:nth-child(2),
@@ -390,11 +495,27 @@ body {
 .nav-link.is-bubbling .shield-bubbles .sb:nth-child(2),
 .nav-dropdown:hover > .nav-link .shield-bubbles .sb:nth-child(2),
 .nav-link.is-bubbling .gift-bubbles .gb:nth-child(2),
-.nav-link:hover .gift-bubbles .gb:nth-child(2) {
+.nav-link:hover .gift-bubbles .gb:nth-child(2),
+.nav-link.is-bubbling .pram-bubbles .pb:nth-child(2),
+.nav-link:hover .pram-bubbles .pb:nth-child(2),
+.nav-link.is-bubbling .name-bubbles .nb:nth-child(2),
+.nav-dropdown:hover > .nav-link .name-bubbles .nb:nth-child(2),
+.nav-link:hover .name-bubbles .nb:nth-child(2) {
     animation-duration: 1.3s;
     animation-delay: 0.12s;
     font-size: 14px;
     left: 6px;
+}
+
+.nav-link.is-bubbling .shield-bubbles .sb:nth-child(2),
+.nav-dropdown:hover > .nav-link .shield-bubbles .sb:nth-child(2) {
+    font-size: 17px;
+}
+
+.nav-link.is-bubbling .name-bubbles .nb:nth-child(2),
+.nav-dropdown:hover > .nav-link .name-bubbles .nb:nth-child(2),
+.nav-link:hover .name-bubbles .nb:nth-child(2) {
+    font-size: 12px;
 }
 
 .nav-link.is-bubbling .heart-bubbles .hb:nth-child(3),
@@ -402,11 +523,27 @@ body {
 .nav-link.is-bubbling .shield-bubbles .sb:nth-child(3),
 .nav-dropdown:hover > .nav-link .shield-bubbles .sb:nth-child(3),
 .nav-link.is-bubbling .gift-bubbles .gb:nth-child(3),
-.nav-link:hover .gift-bubbles .gb:nth-child(3) {
+.nav-link:hover .gift-bubbles .gb:nth-child(3),
+.nav-link.is-bubbling .pram-bubbles .pb:nth-child(3),
+.nav-link:hover .pram-bubbles .pb:nth-child(3),
+.nav-link.is-bubbling .name-bubbles .nb:nth-child(3),
+.nav-dropdown:hover > .nav-link .name-bubbles .nb:nth-child(3),
+.nav-link:hover .name-bubbles .nb:nth-child(3) {
     animation-duration: 1.05s;
     animation-delay: 0.24s;
     font-size: 20px;
     left: -2px;
+}
+
+.nav-link.is-bubbling .shield-bubbles .sb:nth-child(3),
+.nav-dropdown:hover > .nav-link .shield-bubbles .sb:nth-child(3) {
+    font-size: 24px;
+}
+
+.nav-link.is-bubbling .name-bubbles .nb:nth-child(3),
+.nav-dropdown:hover > .nav-link .name-bubbles .nb:nth-child(3),
+.nav-link:hover .name-bubbles .nb:nth-child(3) {
+    font-size: 14px;
 }
 
 .nav-link.is-bubbling .heart-bubbles .hb:nth-child(4),
@@ -414,11 +551,27 @@ body {
 .nav-link.is-bubbling .shield-bubbles .sb:nth-child(4),
 .nav-dropdown:hover > .nav-link .shield-bubbles .sb:nth-child(4),
 .nav-link.is-bubbling .gift-bubbles .gb:nth-child(4),
-.nav-link:hover .gift-bubbles .gb:nth-child(4) {
+.nav-link:hover .gift-bubbles .gb:nth-child(4),
+.nav-link.is-bubbling .pram-bubbles .pb:nth-child(4),
+.nav-link:hover .pram-bubbles .pb:nth-child(4),
+.nav-link.is-bubbling .name-bubbles .nb:nth-child(4),
+.nav-dropdown:hover > .nav-link .name-bubbles .nb:nth-child(4),
+.nav-link:hover .name-bubbles .nb:nth-child(4) {
     animation-duration: 1.4s;
     animation-delay: 0.36s;
     font-size: 13px;
     left: 12px;
+}
+
+.nav-link.is-bubbling .shield-bubbles .sb:nth-child(4),
+.nav-dropdown:hover > .nav-link .shield-bubbles .sb:nth-child(4) {
+    font-size: 16px;
+}
+
+.nav-link.is-bubbling .name-bubbles .nb:nth-child(4),
+.nav-dropdown:hover > .nav-link .name-bubbles .nb:nth-child(4),
+.nav-link:hover .name-bubbles .nb:nth-child(4) {
+    font-size: 11px;
 }
 
 .nav-link.is-bubbling .heart-bubbles .hb:nth-child(5),
@@ -426,30 +579,38 @@ body {
 .nav-link.is-bubbling .shield-bubbles .sb:nth-child(5),
 .nav-dropdown:hover > .nav-link .shield-bubbles .sb:nth-child(5),
 .nav-link.is-bubbling .gift-bubbles .gb:nth-child(5),
-.nav-link:hover .gift-bubbles .gb:nth-child(5) {
+.nav-link:hover .gift-bubbles .gb:nth-child(5),
+.nav-link.is-bubbling .pram-bubbles .pb:nth-child(5),
+.nav-link:hover .pram-bubbles .pb:nth-child(5),
+.nav-link.is-bubbling .name-bubbles .nb:nth-child(5),
+.nav-dropdown:hover > .nav-link .name-bubbles .nb:nth-child(5),
+.nav-link:hover .name-bubbles .nb:nth-child(5) {
     animation-duration: 1.2s;
     animation-delay: 0.48s;
     font-size: 16px;
     left: -16px;
 }
 
+.nav-link.is-bubbling .shield-bubbles .sb:nth-child(5),
+.nav-dropdown:hover > .nav-link .shield-bubbles .sb:nth-child(5) {
+    font-size: 19px;
+}
+
+.nav-link.is-bubbling .name-bubbles .nb:nth-child(5),
+.nav-dropdown:hover > .nav-link .name-bubbles .nb:nth-child(5),
+.nav-link:hover .name-bubbles .nb:nth-child(5) {
+    font-size: 12px;
+}
+
 .nav-link:hover .nav-icon--info svg {
     animation: infoPop 0.55s var(--ease);
-}
-
-.nav-link:hover .nav-icon--card {
-    animation: cardFlip 0.65s var(--ease);
-}
-
-.nav-link:hover .nav-icon--star {
-    animation: starSpin 0.7s var(--ease);
 }
 
 .nav-link:hover .nav-icon--spark {
     animation: sparkBurst 0.8s var(--ease);
 }
 
-.nav-link:hover .nav-icon:not(.nav-icon--heart):not(.nav-icon--shield):not(.nav-icon--gift) {
+.nav-link:hover .nav-icon:not(.nav-icon--heart):not(.nav-icon--shield):not(.nav-icon--gift):not(.nav-icon--pram):not(.nav-icon--card) {
     transform: translateY(-1px) scale(1.15);
 }
 
@@ -577,8 +738,10 @@ h2.no-divider::after {
     cursor: zoom-out;
 }
 
-#bordkort .sign-preview.is-zoomed,
-#bordkort .sign-preview.is-zoomed:hover {
+#bordkort_navne .sign-preview.is-zoomed,
+#bordkort_navne .sign-preview.is-zoomed:hover,
+#bordkort_speciale .sign-preview.is-zoomed,
+#bordkort_speciale .sign-preview.is-zoomed:hover {
     transform: scale(4.5);
 }
 
@@ -986,19 +1149,29 @@ footer a:hover {
 
 .heart-bubbles .hb:nth-child(1),
 .shield-bubbles .sb:nth-child(1),
-.gift-bubbles .gb:nth-child(1) { --drift: -8px; }
+.gift-bubbles .gb:nth-child(1),
+.pram-bubbles .pb:nth-child(1),
+.name-bubbles .nb:nth-child(1) { --drift: -8px; }
 .heart-bubbles .hb:nth-child(2),
 .shield-bubbles .sb:nth-child(2),
-.gift-bubbles .gb:nth-child(2) { --drift: 10px; }
+.gift-bubbles .gb:nth-child(2),
+.pram-bubbles .pb:nth-child(2),
+.name-bubbles .nb:nth-child(2) { --drift: 10px; }
 .heart-bubbles .hb:nth-child(3),
 .shield-bubbles .sb:nth-child(3),
-.gift-bubbles .gb:nth-child(3) { --drift: 0px; }
+.gift-bubbles .gb:nth-child(3),
+.pram-bubbles .pb:nth-child(3),
+.name-bubbles .nb:nth-child(3) { --drift: 0px; }
 .heart-bubbles .hb:nth-child(4),
 .shield-bubbles .sb:nth-child(4),
-.gift-bubbles .gb:nth-child(4) { --drift: 14px; }
+.gift-bubbles .gb:nth-child(4),
+.pram-bubbles .pb:nth-child(4),
+.name-bubbles .nb:nth-child(4) { --drift: 14px; }
 .heart-bubbles .hb:nth-child(5),
 .shield-bubbles .sb:nth-child(5),
-.gift-bubbles .gb:nth-child(5) { --drift: -12px; }
+.gift-bubbles .gb:nth-child(5),
+.pram-bubbles .pb:nth-child(5),
+.name-bubbles .nb:nth-child(5) { --drift: -12px; }
 
 @keyframes shieldDraw {
     0% { stroke-dashoffset: 64; opacity: 0.4; transform: scale(0.85); }
@@ -1040,9 +1213,9 @@ footer a:hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    *:not(.hb):not(.sb):not(.gb):not(.nav-icon--heart):not(.nav-icon--shield):not(.nav-icon--gift):not(.heart-bubbles):not(.shield-bubbles):not(.gift-bubbles),
-    *:not(.hb):not(.sb):not(.gb):not(.nav-icon--heart):not(.nav-icon--shield):not(.nav-icon--gift)::before,
-    *:not(.hb):not(.sb):not(.gb):not(.nav-icon--heart):not(.nav-icon--shield):not(.nav-icon--gift)::after {
+    *:not(.hb):not(.sb):not(.gb):not(.pb):not(.nb):not(.nav-icon--heart):not(.nav-icon--shield):not(.nav-icon--gift):not(.nav-icon--pram):not(.nav-icon--card):not(.heart-bubbles):not(.shield-bubbles):not(.gift-bubbles):not(.pram-bubbles):not(.name-bubbles),
+    *:not(.hb):not(.sb):not(.gb):not(.pb):not(.nb):not(.nav-icon--heart):not(.nav-icon--shield):not(.nav-icon--gift):not(.nav-icon--pram):not(.nav-icon--card)::before,
+    *:not(.hb):not(.sb):not(.gb):not(.pb):not(.nb):not(.nav-icon--heart):not(.nav-icon--shield):not(.nav-icon--gift):not(.nav-icon--pram):not(.nav-icon--card)::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
@@ -1054,12 +1227,22 @@ footer a:hover {
     .nav-dropdown:hover > .nav-link .shield-bubbles .sb,
     .nav-link.is-bubbling .gift-bubbles .gb,
     .nav-link:hover .gift-bubbles .gb,
+    .nav-link.is-bubbling .pram-bubbles .pb,
+    .nav-link:hover .pram-bubbles .pb,
+    .nav-link.is-bubbling .name-bubbles .nb,
+    .nav-dropdown:hover > .nav-link .name-bubbles .nb,
+    .nav-link:hover .name-bubbles .nb,
     .nav-link.is-bubbling .nav-icon--heart,
     .nav-dropdown:hover > .nav-link .nav-icon--heart,
     .nav-link.is-bubbling .nav-icon--shield,
     .nav-dropdown:hover > .nav-link .nav-icon--shield,
     .nav-link.is-bubbling .nav-icon--gift,
-    .nav-link:hover .nav-icon--gift {
+    .nav-link:hover .nav-icon--gift,
+    .nav-link.is-bubbling .nav-icon--pram,
+    .nav-link:hover .nav-icon--pram,
+    .nav-link.is-bubbling .nav-icon--card,
+    .nav-dropdown:hover > .nav-link .nav-icon--card,
+    .nav-link:hover .nav-icon--card {
         animation-duration: 1.1s !important;
         animation-iteration-count: infinite !important;
     }
@@ -1090,8 +1273,10 @@ footer a:hover {
         transform: scale(3.36);
     }
 
-    #bordkort .sign-preview.is-zoomed,
-    #bordkort .sign-preview.is-zoomed:hover {
+    #bordkort_navne .sign-preview.is-zoomed,
+    #bordkort_navne .sign-preview.is-zoomed:hover,
+    #bordkort_speciale .sign-preview.is-zoomed,
+    #bordkort_speciale .sign-preview.is-zoomed:hover {
         transform: scale(4.5);
     }
 
@@ -1183,7 +1368,8 @@ footer a:hover {
         margin: 0 auto;
     }
 
-    #bordkort .sign-photo { width: auto !important; max-width: 100% !important; }
+    #bordkort_navne .sign-photo,
+    #bordkort_speciale .sign-photo { width: auto !important; max-width: 100% !important; }
     #andre_skilte .sign-photo { width: 90% !important; }
 }
 

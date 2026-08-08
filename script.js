@@ -72,8 +72,19 @@
             }
 
             activateSection(sectionId);
+            if (history.replaceState) {
+                history.replaceState(null, '', '#' + sectionId);
+            } else {
+                location.hash = sectionId;
+            }
         });
     });
+
+    var hashId = (location.hash || '').replace(/^#/, '');
+    if (hashId === 'bordkort') hashId = 'bordkort_speciale';
+    if (hashId && document.getElementById(hashId)) {
+        activateSection(hashId);
+    }
 
     document.addEventListener('click', function (e) {
         if (nav && nav.classList.contains('is-open') && !nav.contains(e.target)) {
@@ -81,7 +92,7 @@
         }
     });
 
-    // Boblende ikoner ved hover på Hjerte / Våbenskjold / Gavekort
+    // Boblende ikoner ved hover på Hjerte / Våbenskjold / Gavekort / Bordkort / Fødselstavle
     function bindBubbling(host, link) {
         if (!link) return;
         host.addEventListener('mouseenter', function () {
@@ -101,12 +112,12 @@
     document.querySelectorAll('.nav-dropdown').forEach(function (dropdown) {
         var link = dropdown.querySelector('.nav-link');
         if (!link) return;
-        if (!link.querySelector('.nav-icon--heart, .nav-icon--shield')) return;
+        if (!link.querySelector('.nav-icon--heart, .nav-icon--shield, .nav-icon--card')) return;
         bindBubbling(dropdown, link);
     });
 
     document.querySelectorAll('.nav-link').forEach(function (link) {
-        if (!link.querySelector('.nav-icon--gift')) return;
+        if (!link.querySelector('.nav-icon--gift, .nav-icon--pram')) return;
         if (link.closest('.nav-dropdown')) return;
         bindBubbling(link, link);
     });
