@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://æresportskilt.dk/sitemap.xml
+Sitemap: https://xn--resportskilt-5cb.dk/sitemap.xml
