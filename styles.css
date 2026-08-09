@@ -659,6 +659,10 @@ h2.no-divider::after {
     display: none;
 }
 
+.intro {
+    padding: 2.25rem 0 0.5rem;
+}
+
 .intro p,
 .section-desc {
     text-align: center;
@@ -666,6 +670,15 @@ h2.no-divider::after {
     margin: -0.25rem auto 2.5rem;
     font-size: 1rem;
     color: var(--muted);
+}
+
+.intro p {
+    max-width: 640px;
+    margin: 0 auto 1rem;
+}
+
+.intro p:last-child {
+    margin-bottom: 0;
 }
 
 .wood-note {
