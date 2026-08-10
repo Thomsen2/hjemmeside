@@ -48,6 +48,17 @@
             section.classList.add('active');
             window.scrollTo({ top: nav ? nav.offsetTop : 0, behavior: 'smooth' });
         }
+        var aesportMenus = {
+            birkefiner: true,
+            egetrae: true,
+            version1: true,
+            version2: true,
+            vaabenskjold: true,
+            egetrae_v2: true,
+            version1_v2: true,
+            version2_v2: true
+        };
+        document.body.classList.toggle('hide-aesport-intro', !aesportMenus[sectionId]);
         closeNav();
     }
 
@@ -184,8 +195,10 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
         e.preventDefault();
 
         var besked = this.querySelector('textarea').value.trim();
-        var shippingChecked = this.querySelector('.shipping-toggle').checked;
-        var pickupChecked = this.querySelector('.pickup-toggle').checked;
+        var shippingToggle = this.querySelector('.shipping-toggle');
+        var pickupToggle = this.querySelector('.pickup-toggle');
+        var shippingChecked = shippingToggle ? shippingToggle.checked : false;
+        var pickupChecked = pickupToggle ? pickupToggle.checked : false;
         var mountingEl = this.querySelector('.mounting-toggle');
         var mountingChecked = mountingEl ? mountingEl.checked : false;
 
@@ -217,14 +230,17 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
         };
 
         if (pickupChecked) {
-            payload.pickupEmail = this.querySelector('.pickup-email').value.trim();
+            var pickupEmailEl = this.querySelector('.pickup-email');
+            payload.pickupEmail = pickupEmailEl ? pickupEmailEl.value.trim() : '';
         }
 
-        if (shippingChecked) {
-            var navnEl = this.querySelector('.shipping-fields input[id*="navn"]') || this.querySelector('.shipping-fields input[type="text"]');
-            var adresseEl = this.querySelector('.shipping-fields input[id*="adresse"]');
-            var mailEl = this.querySelector('.shipping-fields input[id*="mail"], .shipping-fields input[type="email"]');
-            var mobilEl = this.querySelector('.shipping-fields input[id*="mobil"], .shipping-fields input[type="tel"]');
+        var navnEl = this.querySelector('.shipping-fields input[id*="navn"]') || this.querySelector('input[id*="navn"]');
+        var adresseEl = this.querySelector('.shipping-fields input[id*="adresse"]') || this.querySelector('input[id*="adresse"]');
+        var mailEl = this.querySelector('.shipping-fields input[id*="mail"], .shipping-fields input[type="email"]') || this.querySelector('input[id*="mail"], input[type="email"]:not(.pickup-email)');
+        var mobilEl = this.querySelector('.shipping-fields input[id*="mobil"], .shipping-fields input[type="tel"]') || this.querySelector('input[id*="mobil"], input[type="tel"]');
+        var hasContactFields = !!(navnEl || mailEl || mobilEl);
+
+        if (shippingChecked || hasContactFields) {
             payload.navn = navnEl ? navnEl.value.trim() : '';
             payload.adresse = adresseEl ? adresseEl.value.trim() : '';
             payload.mail = mailEl ? mailEl.value.trim() : '';
@@ -247,10 +263,10 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
             Forsendelse: shippingChecked ? 'Ja (55 kr)' : 'Nej',
             Monteringskit: mountingChecked ? 'Ja (+20 kr)' : 'Nej',
             'Afhentnings-email': pickupChecked ? (payload.pickupEmail || '') : '',
-            Navn: shippingChecked ? (payload.navn || '') : '',
-            Adresse: shippingChecked ? (payload.adresse || '') : '',
-            Mail: shippingChecked ? (payload.mail || '') : '',
-            Mobil: shippingChecked ? (payload.mobil || '') : ''
+            Navn: payload.navn || '',
+            Adresse: payload.adresse || '',
+            Mail: payload.mail || '',
+            Mobil: payload.mobil || ''
         };
 
         fetch('/', {
