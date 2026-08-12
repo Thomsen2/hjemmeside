@@ -283,7 +283,8 @@ body {
 .nav-icon--shield,
 .nav-icon--gift,
 .nav-icon--pram,
-.nav-icon--card {
+.nav-icon--card,
+.nav-icon--rings {
     position: relative;
     overflow: visible;
     width: 1.55rem;
@@ -301,7 +302,8 @@ body {
 .shield-bubbles,
 .gift-bubbles,
 .pram-bubbles,
-.name-bubbles {
+.name-bubbles,
+.ring-bubbles {
     position: absolute;
     left: 50%;
     top: 0;
@@ -316,7 +318,8 @@ body {
 .shield-bubbles .sb,
 .gift-bubbles .gb,
 .pram-bubbles .pb,
-.name-bubbles .nb {
+.name-bubbles .nb,
+.ring-bubbles .rb {
     position: absolute;
     left: 0;
     top: 0;
@@ -374,6 +377,23 @@ body {
     stroke: none;
 }
 
+.ring-bubbles .rb {
+    color: #c4a35a;
+    font-size: 18px;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.95))
+            drop-shadow(0 2px 4px rgba(196, 163, 90, 0.55))
+            drop-shadow(0 4px 10px rgba(196, 163, 90, 0.35));
+}
+
+.ring-bubbles .rb svg {
+    width: 1em;
+    height: 1em;
+    display: block;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+}
+
 .name-bubbles .nb {
     color: #9a6b3f;
     font-family: var(--font-display);
@@ -401,11 +421,18 @@ body {
 }
 
 .nav-icon--gift svg,
-.nav-icon--pram > svg {
+.nav-icon--pram > svg,
+.nav-icon--rings > svg {
     position: relative;
     z-index: 1;
     fill: currentColor;
     stroke: none;
+}
+
+.nav-icon--rings > svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
 }
 
 .nav-icon--card > svg {
@@ -442,6 +469,12 @@ body {
     animation: heartBob 0.7s ease-in-out infinite;
 }
 
+.nav-link.is-bubbling .nav-icon--rings,
+.nav-link:hover .nav-icon--rings {
+    color: #c4a35a;
+    animation: heartBob 0.7s ease-in-out infinite;
+}
+
 .nav-link.is-bubbling .nav-icon--card,
 .nav-dropdown:hover > .nav-link .nav-icon--card,
 .nav-link:hover .nav-icon--card {
@@ -457,6 +490,8 @@ body {
 .nav-link:hover .gift-bubbles .gb,
 .nav-link.is-bubbling .pram-bubbles .pb,
 .nav-link:hover .pram-bubbles .pb,
+.nav-link.is-bubbling .ring-bubbles .rb,
+.nav-link:hover .ring-bubbles .rb,
 .nav-link.is-bubbling .name-bubbles .nb,
 .nav-dropdown:hover > .nav-link .name-bubbles .nb,
 .nav-link:hover .name-bubbles .nb {
@@ -473,6 +508,8 @@ body {
 .nav-link:hover .gift-bubbles .gb:nth-child(1),
 .nav-link.is-bubbling .pram-bubbles .pb:nth-child(1),
 .nav-link:hover .pram-bubbles .pb:nth-child(1),
+.nav-link.is-bubbling .ring-bubbles .rb:nth-child(1),
+.nav-link:hover .ring-bubbles .rb:nth-child(1),
 .nav-link.is-bubbling .name-bubbles .nb:nth-child(1),
 .nav-dropdown:hover > .nav-link .name-bubbles .nb:nth-child(1),
 .nav-link:hover .name-bubbles .nb:nth-child(1) {
@@ -501,6 +538,8 @@ body {
 .nav-link:hover .gift-bubbles .gb:nth-child(2),
 .nav-link.is-bubbling .pram-bubbles .pb:nth-child(2),
 .nav-link:hover .pram-bubbles .pb:nth-child(2),
+.nav-link.is-bubbling .ring-bubbles .rb:nth-child(2),
+.nav-link:hover .ring-bubbles .rb:nth-child(2),
 .nav-link.is-bubbling .name-bubbles .nb:nth-child(2),
 .nav-dropdown:hover > .nav-link .name-bubbles .nb:nth-child(2),
 .nav-link:hover .name-bubbles .nb:nth-child(2) {
@@ -529,6 +568,8 @@ body {
 .nav-link:hover .gift-bubbles .gb:nth-child(3),
 .nav-link.is-bubbling .pram-bubbles .pb:nth-child(3),
 .nav-link:hover .pram-bubbles .pb:nth-child(3),
+.nav-link.is-bubbling .ring-bubbles .rb:nth-child(3),
+.nav-link:hover .ring-bubbles .rb:nth-child(3),
 .nav-link.is-bubbling .name-bubbles .nb:nth-child(3),
 .nav-dropdown:hover > .nav-link .name-bubbles .nb:nth-child(3),
 .nav-link:hover .name-bubbles .nb:nth-child(3) {
@@ -557,6 +598,8 @@ body {
 .nav-link:hover .gift-bubbles .gb:nth-child(4),
 .nav-link.is-bubbling .pram-bubbles .pb:nth-child(4),
 .nav-link:hover .pram-bubbles .pb:nth-child(4),
+.nav-link.is-bubbling .ring-bubbles .rb:nth-child(4),
+.nav-link:hover .ring-bubbles .rb:nth-child(4),
 .nav-link.is-bubbling .name-bubbles .nb:nth-child(4),
 .nav-dropdown:hover > .nav-link .name-bubbles .nb:nth-child(4),
 .nav-link:hover .name-bubbles .nb:nth-child(4) {
@@ -585,6 +628,8 @@ body {
 .nav-link:hover .gift-bubbles .gb:nth-child(5),
 .nav-link.is-bubbling .pram-bubbles .pb:nth-child(5),
 .nav-link:hover .pram-bubbles .pb:nth-child(5),
+.nav-link.is-bubbling .ring-bubbles .rb:nth-child(5),
+.nav-link:hover .ring-bubbles .rb:nth-child(5),
 .nav-link.is-bubbling .name-bubbles .nb:nth-child(5),
 .nav-dropdown:hover > .nav-link .name-bubbles .nb:nth-child(5),
 .nav-link:hover .name-bubbles .nb:nth-child(5) {
@@ -613,7 +658,8 @@ body {
     animation: sparkBurst 0.8s var(--ease);
 }
 
-.nav-link:hover .nav-icon:not(.nav-icon--heart):not(.nav-icon--shield):not(.nav-icon--gift):not(.nav-icon--pram):not(.nav-icon--card) {
+
+.nav-link:hover .nav-icon:not(.nav-icon--heart):not(.nav-icon--shield):not(.nav-icon--gift):not(.nav-icon--pram):not(.nav-icon--card):not(.nav-icon--rings) {
     transform: translateY(-1px) scale(1.15);
 }
 
@@ -1212,26 +1258,31 @@ footer a:hover {
 .shield-bubbles .sb:nth-child(1),
 .gift-bubbles .gb:nth-child(1),
 .pram-bubbles .pb:nth-child(1),
+.ring-bubbles .rb:nth-child(1),
 .name-bubbles .nb:nth-child(1) { --drift: -8px; }
 .heart-bubbles .hb:nth-child(2),
 .shield-bubbles .sb:nth-child(2),
 .gift-bubbles .gb:nth-child(2),
 .pram-bubbles .pb:nth-child(2),
+.ring-bubbles .rb:nth-child(2),
 .name-bubbles .nb:nth-child(2) { --drift: 10px; }
 .heart-bubbles .hb:nth-child(3),
 .shield-bubbles .sb:nth-child(3),
 .gift-bubbles .gb:nth-child(3),
 .pram-bubbles .pb:nth-child(3),
+.ring-bubbles .rb:nth-child(3),
 .name-bubbles .nb:nth-child(3) { --drift: 0px; }
 .heart-bubbles .hb:nth-child(4),
 .shield-bubbles .sb:nth-child(4),
 .gift-bubbles .gb:nth-child(4),
 .pram-bubbles .pb:nth-child(4),
+.ring-bubbles .rb:nth-child(4),
 .name-bubbles .nb:nth-child(4) { --drift: 14px; }
 .heart-bubbles .hb:nth-child(5),
 .shield-bubbles .sb:nth-child(5),
 .gift-bubbles .gb:nth-child(5),
 .pram-bubbles .pb:nth-child(5),
+.ring-bubbles .rb:nth-child(5),
 .name-bubbles .nb:nth-child(5) { --drift: -12px; }
 
 @keyframes shieldDraw {
@@ -1274,9 +1325,9 @@ footer a:hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    *:not(.hb):not(.sb):not(.gb):not(.pb):not(.nb):not(.nav-icon--heart):not(.nav-icon--shield):not(.nav-icon--gift):not(.nav-icon--pram):not(.nav-icon--card):not(.heart-bubbles):not(.shield-bubbles):not(.gift-bubbles):not(.pram-bubbles):not(.name-bubbles),
-    *:not(.hb):not(.sb):not(.gb):not(.pb):not(.nb):not(.nav-icon--heart):not(.nav-icon--shield):not(.nav-icon--gift):not(.nav-icon--pram):not(.nav-icon--card)::before,
-    *:not(.hb):not(.sb):not(.gb):not(.pb):not(.nb):not(.nav-icon--heart):not(.nav-icon--shield):not(.nav-icon--gift):not(.nav-icon--pram):not(.nav-icon--card)::after {
+    *:not(.hb):not(.sb):not(.gb):not(.pb):not(.nb):not(.rb):not(.nav-icon--heart):not(.nav-icon--shield):not(.nav-icon--gift):not(.nav-icon--pram):not(.nav-icon--card):not(.nav-icon--rings):not(.heart-bubbles):not(.shield-bubbles):not(.gift-bubbles):not(.pram-bubbles):not(.name-bubbles):not(.ring-bubbles),
+    *:not(.hb):not(.sb):not(.gb):not(.pb):not(.nb):not(.rb):not(.nav-icon--heart):not(.nav-icon--shield):not(.nav-icon--gift):not(.nav-icon--pram):not(.nav-icon--card):not(.nav-icon--rings)::before,
+    *:not(.hb):not(.sb):not(.gb):not(.pb):not(.nb):not(.rb):not(.nav-icon--heart):not(.nav-icon--shield):not(.nav-icon--gift):not(.nav-icon--pram):not(.nav-icon--card):not(.nav-icon--rings)::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
@@ -1290,6 +1341,8 @@ footer a:hover {
     .nav-link:hover .gift-bubbles .gb,
     .nav-link.is-bubbling .pram-bubbles .pb,
     .nav-link:hover .pram-bubbles .pb,
+    .nav-link.is-bubbling .ring-bubbles .rb,
+    .nav-link:hover .ring-bubbles .rb,
     .nav-link.is-bubbling .name-bubbles .nb,
     .nav-dropdown:hover > .nav-link .name-bubbles .nb,
     .nav-link:hover .name-bubbles .nb,
@@ -1301,6 +1354,8 @@ footer a:hover {
     .nav-link:hover .nav-icon--gift,
     .nav-link.is-bubbling .nav-icon--pram,
     .nav-link:hover .nav-icon--pram,
+    .nav-link.is-bubbling .nav-icon--rings,
+    .nav-link:hover .nav-icon--rings,
     .nav-link.is-bubbling .nav-icon--card,
     .nav-dropdown:hover > .nav-link .nav-icon--card,
     .nav-link:hover .nav-icon--card {

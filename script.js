@@ -103,7 +103,7 @@
         }
     });
 
-    // Boblende ikoner ved hover på Hjerte / Våbenskjold / Gavekort / Bordkort / Fødselstavle
+    // Boblende ikoner ved hover på Hjerte / Våbenskjold / Gavekort / Bordkort / Fødselstavle / Bryllup
     function bindBubbling(host, link) {
         if (!link) return;
         host.addEventListener('mouseenter', function () {
@@ -128,7 +128,7 @@
     });
 
     document.querySelectorAll('.nav-link').forEach(function (link) {
-        if (!link.querySelector('.nav-icon--gift, .nav-icon--pram')) return;
+        if (!link.querySelector('.nav-icon--gift, .nav-icon--pram, .nav-icon--rings')) return;
         if (link.closest('.nav-dropdown')) return;
         bindBubbling(link, link);
     });
