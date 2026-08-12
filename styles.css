@@ -716,6 +716,10 @@ body.hide-aesport-intro .intro {
     display: none;
 }
 
+body.hide-aesport-intro .faq-section {
+    display: none;
+}
+
 .intro h2 {
     font-size: clamp(1.35rem, 2.8vw, 1.85rem);
     margin-bottom: 0.15rem;
@@ -759,6 +763,39 @@ body.hide-aesport-intro .intro {
 
 .intro p:last-child {
     margin-bottom: 0;
+}
+
+.faq-section {
+    padding: 2rem 0 1.25rem;
+}
+
+.faq-section h2 {
+    font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+    text-align: center;
+    margin-bottom: 0.15rem;
+}
+
+.faq-section h2::after {
+    margin: 0.45rem auto 1.25rem;
+}
+
+.faq-section h3 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-align: center;
+    max-width: 720px;
+    margin: 1.35rem auto 0.35rem;
+}
+
+.faq-section p {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--muted);
 }
 
 .section-intro p {
