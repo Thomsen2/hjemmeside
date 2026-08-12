@@ -62,7 +62,7 @@
         closeNav();
     }
 
-    document.querySelectorAll('.nav-link, .nav-sub-link, .btn-hero').forEach(function (link) {
+    document.querySelectorAll('.nav-link, .nav-sub-link, .btn-hero, .footer-om-os').forEach(function (link) {
         link.addEventListener('click', function (e) {
             var sectionId = this.getAttribute('data-section');
             if (!sectionId) return;
@@ -122,9 +122,14 @@
 
     document.querySelectorAll('.nav-dropdown').forEach(function (dropdown) {
         var link = dropdown.querySelector('.nav-link');
-        if (!link) return;
-        if (!link.querySelector('.nav-icon--heart, .nav-icon--shield, .nav-icon--card')) return;
-        bindBubbling(dropdown, link);
+        if (link && link.querySelector('.nav-icon--heart, .nav-icon--shield, .nav-icon--card')) {
+            bindBubbling(dropdown, link);
+        }
+        dropdown.addEventListener('mouseleave', function () {
+            var focused = dropdown.querySelector(':focus');
+            if (focused) focused.blur();
+            dropdown.classList.remove('is-open');
+        });
     });
 
     document.querySelectorAll('.nav-link').forEach(function (link) {
@@ -134,9 +139,25 @@
     });
 
     // Klik-zoom på alle produktbilleder: 300% af sektionens hover-størrelse
+    // Specielle bordkort: vis miljøbillede (tallerken) i overlay
     document.querySelectorAll('.sign-preview').forEach(function (preview) {
         preview.addEventListener('click', function (e) {
             e.stopPropagation();
+
+            if (preview.classList.contains('product-card__media')) {
+                var altImg = preview.querySelector('.product-card__img--alt');
+                var mainImg = preview.querySelector('.product-card__img:not(.product-card__img--alt)');
+                var showImg = altImg || mainImg;
+                var overlay = document.getElementById('imgOverlay');
+                var overlayImg = document.getElementById('imgOverlayImg');
+                if (showImg && overlay && overlayImg) {
+                    overlayImg.src = showImg.currentSrc || showImg.src;
+                    overlayImg.alt = showImg.alt || '';
+                    overlay.style.display = 'flex';
+                }
+                return;
+            }
+
             var open = preview.classList.toggle('is-zoomed');
             if (open) {
                 document.querySelectorAll('.sign-preview.is-zoomed').forEach(function (other) {
@@ -156,6 +177,8 @@
             document.querySelectorAll('.sign-preview.is-zoomed').forEach(function (el) {
                 el.classList.remove('is-zoomed');
             });
+            var overlay = document.getElementById('imgOverlay');
+            if (overlay) overlay.style.display = 'none';
         }
     });
 })();
@@ -208,12 +231,27 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
         }
 
         var sectionTitle = this.closest('section').querySelector('h2').textContent.trim();
+        var card = this.closest('.product-card');
         var grid = this.closest('.builder-grid');
-        var captionEl = grid ? grid.querySelector('.sign-caption') : null;
-        var beskrivelse = captionEl
-            ? captionEl.innerText.replace(/\s+/g, ' ').trim()
-            : '';
-        var imgEl = grid ? grid.querySelector('.sign-photo') : null;
+        var beskrivelse = '';
+        var imgEl = null;
+        if (card) {
+            beskrivelse = (card.getAttribute('data-beskrivelse') || '').trim();
+            if (!beskrivelse) {
+                var t = card.querySelector('.product-card__title');
+                var p = card.querySelector('.product-card__price');
+                var s = card.querySelector('.product-card__size');
+                beskrivelse = [t && t.textContent, p && p.textContent, s && s.textContent]
+                    .filter(Boolean).join(' ').replace(/\s+/g, ' ').trim();
+            }
+            imgEl = card.querySelector('.product-card__img:not(.product-card__img--alt)') || card.querySelector('.sign-photo');
+        } else if (grid) {
+            var captionEl = grid.querySelector('.sign-caption');
+            beskrivelse = captionEl
+                ? captionEl.innerText.replace(/\s+/g, ' ').trim()
+                : '';
+            imgEl = grid.querySelector('.sign-photo');
+        }
         var billedeUrl = '';
         if (imgEl && imgEl.src) {
             try { billedeUrl = new URL(imgEl.getAttribute('src'), window.location.href).href; }
