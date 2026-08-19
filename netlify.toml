@@ -1,0 +1,24 @@
+# Host-rewrite skal force=true, ellers vinder root index.html (æresportskilt).
+[[redirects]]
+  from = "https://bordkort.dk/"
+  to = "/bordkort-site/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.bordkort.dk/"
+  to = "/bordkort-site/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/index.html"
+  to = "/bordkort-site/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.bordkort.dk/index.html"
+  to = "/bordkort-site/index.html"
+  status = 200
+  force = true

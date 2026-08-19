@@ -1,5 +1,7 @@
-# Bordkort.dk viser sin egen forside (samme stil, andet fokus)
-https://bordkort.dk/                 /bordkort-site/index.html    200
-https://www.bordkort.dk/             /bordkort-site/index.html    200
-https://bordkort.dk/index.html       /bordkort-site/index.html    200
-https://www.bordkort.dk/index.html   /bordkort-site/index.html    200
+# Bordkort.dk viser sin egen forside (samme stil, andet fokus).
+# 200! er påkrævet: uden force serverer Netlify den eksisterende /index.html
+# (æresportskilt-forsiden) og ignorerer rewriten.
+https://bordkort.dk/                 /bordkort-site/index.html    200!
+https://www.bordkort.dk/             /bordkort-site/index.html    200!
+https://bordkort.dk/index.html       /bordkort-site/index.html    200!
+https://www.bordkort.dk/index.html   /bordkort-site/index.html    200!
