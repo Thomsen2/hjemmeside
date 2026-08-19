@@ -1,0 +1,1564 @@
+{
+  "sections": {
+    "birkefiner": {
+      "id": "birkefiner",
+      "h2": "Birkefiner",
+      "note": "Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ",
+      "intro": [],
+      "class": "builder tab-section active"
+    },
+    "vaabenskjold": {
+      "id": "vaabenskjold",
+      "h2": "Våbenskjold",
+      "note": "Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ",
+      "intro": [],
+      "class": "builder tab-section"
+    },
+    "egetrae": {
+      "id": "egetrae",
+      "h2": "Egetræ",
+      "note": "Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ",
+      "intro": [],
+      "class": "builder tab-section"
+    },
+    "egetrae_v2": {
+      "id": "egetrae_v2",
+      "h2": "Egetræ — Våbenskjold",
+      "note": "Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ",
+      "intro": [],
+      "class": "builder tab-section"
+    },
+    "version1": {
+      "id": "version1",
+      "h2": "Finer i bejdset valnød",
+      "note": "Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ",
+      "intro": [],
+      "class": "builder tab-section"
+    },
+    "version1_v2": {
+      "id": "version1_v2",
+      "h2": "Våbenskjold – Finer i bejdset valnød",
+      "note": "Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ",
+      "intro": [],
+      "class": "builder tab-section"
+    },
+    "version2": {
+      "id": "version2",
+      "h2": "Amerikansk mørk valnødfiner",
+      "note": "Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ",
+      "intro": [],
+      "class": "builder tab-section"
+    },
+    "gavekort": {
+      "id": "gavekort",
+      "h2": "Personligt gavekort i træ",
+      "note": "",
+      "intro": [],
+      "class": "pricing tab-section"
+    },
+    "bordkort_navne": {
+      "id": "bordkort_navne",
+      "h2": "Personlige navne bordkort i træ",
+      "note": "",
+      "intro": [],
+      "class": "builder tab-section"
+    },
+    "bordkort_speciale": {
+      "id": "bordkort_speciale",
+      "h2": "Specielle bordkort i træ",
+      "note": "",
+      "intro": [],
+      "class": "builder tab-section"
+    },
+    "fodselstavle": {
+      "id": "fodselstavle",
+      "h2": "Fødselstavle",
+      "note": "",
+      "intro": [
+        "Smukke fødselstavler i træ – en tidløs gave til den nyfødte og familien."
+      ],
+      "class": "builder tab-section"
+    },
+    "bryllup": {
+      "id": "bryllup",
+      "h2": "Bryllup",
+      "note": "",
+      "intro": [
+        "Skilte og dekoration til bryllup – send en forespørgsel, så finder vi den rigtige løsning til jeres fest."
+      ],
+      "class": "builder tab-section"
+    },
+    "eget_design": {
+      "id": "eget_design",
+      "h2": "Få lavet dit helt eget design",
+      "note": "",
+      "intro": [],
+      "class": "builder tab-section"
+    },
+    "andre_skilte": {
+      "id": "andre_skilte",
+      "h2": "Andre skilte",
+      "note": "",
+      "intro": [
+        "Har du en idé til et andet skilt i træ? Vi laver også skræddersyede skilte efter dine ønsker."
+      ],
+      "class": "builder tab-section"
+    },
+    "velkomst_skilt": {
+      "id": "velkomst_skilt",
+      "h2": "Velkomst skilt",
+      "note": "",
+      "intro": [
+        "Personlige velkomstskilte i træ til fødselsdag, jubilæum og andre fester."
+      ],
+      "class": "builder tab-section"
+    },
+    "bestil": {
+      "id": "bestil",
+      "h2": "Kontakt",
+      "note": "",
+      "intro": [],
+      "class": "about tab-section"
+    }
+  },
+  "products": [
+    {
+      "section": "birkefiner",
+      "description": "Æresportskilt hjerte i Ubehandlet birkefiner (199 kr), Størrelse 31 x 33 cm — version 1",
+      "title": "Æresportskilt hjerte i Ubehandlet birkefiner",
+      "size": "Størrelse 31 x 33 cm — version 1",
+      "price": "199,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/Joan%20%26%20Jesper.JPG",
+          "alt": "Personligt æresportskilt i birkefiner",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": true,
+      "id": "aeresportskilt-hjerte-i-ubehandlet-birkefiner",
+      "form": "hjerte",
+      "wood": "birkefiner",
+      "occasions": []
+    },
+    {
+      "section": "birkefiner",
+      "description": "Æresportskilt hjerte i Ubehandlet birkefiner (199 kr), Størrelse 31 x 33 cm — version 2",
+      "title": "Æresportskilt hjerte i Ubehandlet birkefiner",
+      "size": "Størrelse 31 x 33 cm — version 2",
+      "price": "199,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/Birkefiner%20version%202%20.jpg",
+          "alt": "Æresportskilt hjerte i ubehandlet birkefiner",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": true,
+      "id": "aeresportskilt-hjerte-i-ubehandlet-birkefiner-2",
+      "form": "hjerte",
+      "wood": "birkefiner",
+      "occasions": []
+    },
+    {
+      "section": "birkefiner",
+      "description": "Æresportskilt hjerte i Ubehandlet birkefiner (199 kr), Størrelse 31 x 33 cm — version 3",
+      "title": "Æresportskilt hjerte i Ubehandlet birkefiner",
+      "size": "Størrelse 31 x 33 cm — version 3",
+      "price": "199,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/diamant-bryllup.png",
+          "alt": "Hjerteformet skilt til æresport i birkefiner",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": true,
+      "id": "aeresportskilt-hjerte-i-ubehandlet-birkefiner-3",
+      "form": "hjerte",
+      "wood": "birkefiner",
+      "occasions": []
+    },
+    {
+      "section": "birkefiner",
+      "description": "Æresportskilt hjerte i Ubehandlet birkefiner \"mal selv\" (kan også laves HELT blankt) (175 kr), Størrelse 31 x 33 cm — version 4",
+      "title": "Æresportskilt hjerte i Ubehandlet birkefiner \"mal selv\" (kan også laves HELT blankt)",
+      "size": "Størrelse 31 x 33 cm — version 4",
+      "price": "175,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/hjerte-ren-birkefiner.png",
+          "alt": "Blankt hjerte i birkefiner til mal-selv",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": true,
+      "id": "aeresportskilt-hjerte-i-ubehandlet-birkefiner-mal-selv-kan-o",
+      "form": "hjerte",
+      "wood": "birkefiner",
+      "occasions": []
+    },
+    {
+      "section": "birkefiner",
+      "description": "Æresportskilt hjerte Halv hjerte i birkefiner (150 kr), Størrelse 31 x 33 cm",
+      "title": "Æresportskilt hjerte Halv hjerte i birkefiner",
+      "size": "Størrelse 31 x 33 cm",
+      "price": "150,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/halv%20hjerte.jpeg",
+          "alt": "Halvt hjerte skilt i birkefiner",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": true,
+      "id": "aeresportskilt-hjerte-halv-hjerte-i-birkefiner",
+      "form": "hjerte",
+      "wood": "birkefiner",
+      "occasions": []
+    },
+    {
+      "section": "vaabenskjold",
+      "description": "Våbenskjold i birkefiner (199 kr), Størrelse 31 x 33 cm",
+      "title": "Våbenskjold i birkefiner",
+      "size": "Størrelse 31 x 33 cm",
+      "price": "199,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/finer_vaabenskjold.JPG",
+          "alt": "Våbenskjold i birkefiner",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": true,
+      "id": "vaabenskjold-i-birkefiner",
+      "form": "vaabenskjold",
+      "wood": "birkefiner",
+      "occasions": []
+    },
+    {
+      "section": "vaabenskjold",
+      "description": "Våbenskjold i birkefiner til konfirmanten (199 kr), Størrelse 31 x 33 cm",
+      "title": "Våbenskjold i birkefiner til konfirmanten",
+      "size": "Størrelse 31 x 33 cm",
+      "price": "199,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/konfirmation-vaabenskjold.png",
+          "alt": "Våbenskjold i birkefiner til konfirmation",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": true,
+      "id": "vaabenskjold-i-birkefiner-til-konfirmanten",
+      "form": "vaabenskjold",
+      "wood": "birkefiner",
+      "occasions": [
+        "konfirmation"
+      ]
+    },
+    {
+      "section": "vaabenskjold",
+      "description": "Æresportskilt (halvt skilt til Kobber bryllup) i birkefiner (150 kr), Størrelse 31 x 33 cm",
+      "title": "Æresportskilt (halvt skilt til Kobber bryllup) i birkefiner",
+      "size": "Størrelse 31 x 33 cm",
+      "price": "150,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/kobber%20bryllup%20halvt%20v%C3%A5ben%20birkefiner.JPG",
+          "alt": "Halvt våbenskjold til kobberbryllup i birkefiner",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": true,
+      "id": "aeresportskilt-halvt-skilt-til-kobber-bryllup-i-birkefiner",
+      "form": "vaabenskjold",
+      "wood": "birkefiner",
+      "occasions": [
+        "kobberbryllup",
+        "bryllup"
+      ]
+    },
+    {
+      "section": "egetrae",
+      "description": "Æresportskilt hjerte i Lys egetræ (249 kr), Størrelse 31 x 33 cm — version 1",
+      "title": "Æresportskilt hjerte i Lys egetræ",
+      "size": "Størrelse 31 x 33 cm — version 1",
+      "price": "249,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/egetrae-med-blomster-v2.png",
+          "alt": "Personligt æresportskilt i lyst egetræ",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": true,
+      "id": "aeresportskilt-hjerte-i-lys-egetrae",
+      "form": "hjerte",
+      "wood": "egetrae",
+      "occasions": []
+    },
+    {
+      "section": "egetrae",
+      "description": "Æresportskilt hjerte i Lys egetræ (249 kr), Størrelse 31 x 33 cm — version 2",
+      "title": "Æresportskilt hjerte i Lys egetræ",
+      "size": "Størrelse 31 x 33 cm — version 2",
+      "price": "249,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/version%202.JPG",
+          "alt": "Æresportskilt hjerte i egetræ",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": true,
+      "id": "aeresportskilt-hjerte-i-lys-egetrae-2",
+      "form": "hjerte",
+      "wood": "egetrae",
+      "occasions": []
+    },
+    {
+      "section": "egetrae",
+      "description": "Æresportskilt hjerte Egetræfiner uden dato (249 kr), Størrelse 31 x 33 cm",
+      "title": "Æresportskilt hjerte Egetræfiner uden dato",
+      "size": "Størrelse 31 x 33 cm",
+      "price": "249,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/hjerte%20uden%20dato%20i%20egetr%C3%A6.JPG",
+          "alt": "Hjerte i egetræfiner uden dato",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": true,
+      "id": "aeresportskilt-hjerte-egetraefiner-uden-dato",
+      "form": "hjerte",
+      "wood": "egetrae",
+      "occasions": []
+    },
+    {
+      "section": "egetrae",
+      "description": "Æresportskilt hjerte Bryllups hjerte i egetræ (249 kr), Størrelse 31 x 33 cm",
+      "title": "Æresportskilt hjerte Bryllups hjerte i egetræ",
+      "size": "Størrelse 31 x 33 cm",
+      "price": "249,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/bryllurp%20hjerte.JPG",
+          "alt": "Bryllupshjerte i egetræ",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/bryllup-hjerte.png",
+          "alt": "Bryllupshjerte i egetræ i æresport",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": true,
+      "id": "aeresportskilt-hjerte-bryllups-hjerte-i-egetrae",
+      "form": "hjerte",
+      "wood": "egetrae",
+      "occasions": [
+        "bryllup"
+      ]
+    },
+    {
+      "section": "egetrae",
+      "description": "Æresportskilt hjerte i egetræ \"mal selv\" / blankt (249 kr), Størrelse 31 x 33 cm",
+      "title": "Æresportskilt hjerte i egetræ \"mal selv\" / blankt",
+      "size": "Størrelse 31 x 33 cm",
+      "price": "249,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/hjerte-blank-egetrae.png",
+          "alt": "Blankt hjerte i egetræ til mal-selv",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": true,
+      "id": "aeresportskilt-hjerte-i-egetrae-mal-selv-blankt",
+      "form": "hjerte",
+      "wood": "egetrae",
+      "occasions": []
+    },
+    {
+      "section": "egetrae_v2",
+      "description": "Æresportskilt Våbenskjold i egetræ (249 kr), Størrelse 31 x 33 cm — version 1",
+      "title": "Æresportskilt Våbenskjold i egetræ",
+      "size": "Størrelse 31 x 33 cm — version 1",
+      "price": "249,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/Pia%20%26%20Klaus.JPG",
+          "alt": "Våbenskjold i egetræ",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": true,
+      "id": "aeresportskilt-vaabenskjold-i-egetrae",
+      "form": "vaabenskjold",
+      "wood": "egetrae",
+      "occasions": []
+    },
+    {
+      "section": "egetrae_v2",
+      "description": "Æresportskilt Våbenskjold i egetræ (249 kr), Størrelse 31 x 33 cm — version 2",
+      "title": "Æresportskilt Våbenskjold i egetræ",
+      "size": "Størrelse 31 x 33 cm — version 2",
+      "price": "249,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/lily%20og%20harald%20egetr%C3%A6.png",
+          "alt": "Skilt til æresport som våbenskjold i egetræ",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": true,
+      "id": "aeresportskilt-vaabenskjold-i-egetrae-2",
+      "form": "vaabenskjold",
+      "wood": "egetrae",
+      "occasions": []
+    },
+    {
+      "section": "version1",
+      "description": "Æresportskilt hjerte i bejdset Valnød (249 kr), Størrelse 31 x 33 cm",
+      "title": "Æresportskilt hjerte i bejdset Valnød",
+      "size": "Størrelse 31 x 33 cm",
+      "price": "249,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/m%C3%B8rkbejdset%20valdn%C3%B8dfiner.JPG",
+          "alt": "Æresportskilt hjerte i bejdset valnød",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": true,
+      "id": "aeresportskilt-hjerte-i-bejdset-valnoed",
+      "form": "hjerte",
+      "wood": "valnod",
+      "occasions": []
+    },
+    {
+      "section": "version1_v2",
+      "description": "Våbenskjold i bejdset Valnød (249 kr), Størrelse 31 x 33 cm",
+      "title": "Våbenskjold i bejdset Valnød",
+      "size": "Størrelse 31 x 33 cm",
+      "price": "249,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/vaabenskjold_bejdset.JPG",
+          "alt": "Våbenskjold i bejdset valnød",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": true,
+      "id": "vaabenskjold-i-bejdset-valnoed",
+      "form": "vaabenskjold",
+      "wood": "valnod",
+      "occasions": []
+    },
+    {
+      "section": "version2",
+      "description": "Æresportskilt hjerte i Amerikansk mørk valnødfiner (399 kr), Størrelse 31 x 33 cm — version 1",
+      "title": "Æresportskilt hjerte i Amerikansk mørk valnødfiner",
+      "size": "Størrelse 31 x 33 cm — version 1",
+      "price": "399,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/amerikansk.jpg",
+          "alt": "Æresportskilt i amerikansk mørk valnødfiner",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": true,
+      "id": "aeresportskilt-hjerte-i-amerikansk-moerk-valnoedfiner",
+      "form": "hjerte",
+      "wood": "valnod",
+      "occasions": []
+    },
+    {
+      "section": "gavekort",
+      "description": "Gavekort - Hestesko , mål ca. 10 x 13 cm i 3mm Birkefiner (75kr)",
+      "title": "Gavekort - Hestesko",
+      "size": "mål ca. 10 x 13 cm i 3mm Birkefiner",
+      "price": "75,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/hestesho.JPG",
+          "alt": "Gavekort i træ formet som hestesko",
+          "hidden": false
+        }
+      ],
+      "form_label": "Indtast tekst til gavekortet",
+      "mounting": false,
+      "id": "gavekort-hestesko",
+      "form": "andet",
+      "wood": "birkefiner",
+      "occasions": []
+    },
+    {
+      "section": "gavekort",
+      "description": "Gavekort - Investering mål ca. 7 x 20 cm i 3mm Birkefiner (75kr)",
+      "title": "Gavekort - Investering",
+      "size": "mål ca. 7 x 20 cm i 3mm Birkefiner",
+      "price": "75,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/invistering.JPG",
+          "alt": "Gavekort i træ – investeringsdesign",
+          "hidden": false
+        }
+      ],
+      "form_label": "Indtast tekst til gavekortet",
+      "mounting": false,
+      "id": "gavekort-investering",
+      "form": "andet",
+      "wood": "birkefiner",
+      "occasions": []
+    },
+    {
+      "section": "gavekort",
+      "description": "Gavekort - Controller mål. 15 x 9,5 cm i 3mm Birkefiner (75kr)",
+      "title": "Gavekort - Controller",
+      "size": "mål. 15 x 9,5 cm i 3mm Birkefiner",
+      "price": "75,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/controller.png",
+          "alt": "Gavekort i træ formet som controller",
+          "hidden": false
+        }
+      ],
+      "form_label": "Indtast tekst til gavekortet",
+      "mounting": false,
+      "id": "gavekort-controller",
+      "form": "andet",
+      "wood": "birkefiner",
+      "occasions": []
+    },
+    {
+      "section": "gavekort",
+      "description": "Gavekort - scooter. 15 x 10 cm i 3mm Birkefiner (75kr)",
+      "title": "Gavekort - scooter. 15 x 10 cm i 3mm Birkefiner",
+      "size": "",
+      "price": "75,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/scooter.png",
+          "alt": "Gavekort i træ formet som scooter",
+          "hidden": false
+        }
+      ],
+      "form_label": "Indtast tekst til gavekortet",
+      "mounting": false,
+      "id": "gavekort-scooter-15-x-10-cm-i-3mm-birkefiner",
+      "form": "andet",
+      "wood": "birkefiner",
+      "occasions": []
+    },
+    {
+      "section": "gavekort",
+      "description": "Gavekort - Dametaske 11.5 x 13 cm i 3mm Birkefiner (75kr)",
+      "title": "Gavekort - Dametaske 11.5 x 13 cm i 3mm Birkefiner",
+      "size": "",
+      "price": "75,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/dametaske.png",
+          "alt": "Gavekort i træ formet som dametaske",
+          "hidden": false
+        }
+      ],
+      "form_label": "Indtast tekst til gavekortet",
+      "mounting": false,
+      "id": "gavekort-dametaske-11-5-x-13-cm-i-3mm-birkefiner",
+      "form": "andet",
+      "wood": "birkefiner",
+      "occasions": []
+    },
+    {
+      "section": "gavekort",
+      "description": "Gavekort - Just Married bil 15.5 x 13 cm i 3mm Birkefiner (75kr)",
+      "title": "Gavekort - Just Married bil 15.5 x 13 cm i 3mm Birkefiner",
+      "size": "15.5 x 13 cm i 3mm Birkefiner",
+      "price": "75,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/just-married-bil.png",
+          "alt": "Gavekort i træ formet som Just Married bil",
+          "hidden": false
+        }
+      ],
+      "form_label": "Indtast tekst til gavekortet",
+      "mounting": false,
+      "id": "gavekort-just-married-bil-15-5-x-13-cm-i-3mm-birkefiner",
+      "form": "andet",
+      "wood": "birkefiner",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_navne",
+      "description": "Bordkort – Cute (10 kr stk i Birkefiner) (mål: 3,2 cm i højden 3mm tykke)",
+      "title": "Bordkort – Cute",
+      "size": "mål: 3,2 cm i højden 3mm tykke",
+      "price": "10,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute.jpeg",
+          "alt": "Navne bordkort i birkefiner",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png",
+          "alt": "Navne bordkort i træ på borddækning",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-cute",
+      "form": "andet",
+      "wood": "birkefiner",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_navne",
+      "description": "Bordkort – Milk (10 kr stk i Birkefiner) (mål: 3,2 cm i højden 3mm tykke)",
+      "title": "Bordkort – Milk",
+      "size": "mål: 3,2 cm i højden 3mm tykke",
+      "price": "10,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/milk.jpeg",
+          "alt": "Navne bordkort i birkefiner",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/milk%20chat.png",
+          "alt": "Navne bordkort i træ på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-milk",
+      "form": "andet",
+      "wood": "birkefiner",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_navne",
+      "description": "Bordkort – Cute (15 kr stk) – fås i flere farver (mål: 3,2 cm i højden 3mm tykke)",
+      "title": "Bordkort – Cute",
+      "size": "mål: 3,2 cm i højden 3mm tykke",
+      "price": "15,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/navneskrift.png",
+          "alt": "Personligt navne bordkort i træ",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/navneskrift%20chat.png",
+          "alt": "Personligt navne bordkort på borddækning",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-cute-2",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_navne",
+      "description": "Bordkort – Cute (15 kr stk) – fås i flere farver (mål: 3,2 cm i højden 3mm tykke)",
+      "title": "Bordkort – Cute",
+      "size": "mål: 3,2 cm i højden 3mm tykke",
+      "price": "15,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/navneskrift%20pastel.png",
+          "alt": "Farvet navne bordkort i træ",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/navneskrift%20pastel%20chat.png",
+          "alt": "Farvet navne bordkort på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-cute-3",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_navne",
+      "description": "Bordkort – 3D printet (13 kr stk) – fås i flere farver (mål: 3,2cm i højden 3mm tykke)",
+      "title": "Bordkort – 3D printet",
+      "size": "mål: 3,2cm i højden 3mm tykke",
+      "price": "13,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/3d-printet-bordkort.png",
+          "alt": "3D-printet navne bordkort",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-3d-printet",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Headset (12 kr stk) (mål: 6 x 6 cm)",
+      "title": "Bordkort – Headset",
+      "size": "mål: 6 x 6 cm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/headset.jpeg",
+          "alt": "Bordkort i træ med headset",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/headset%20chat.png",
+          "alt": "Bordkort med headset på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-headset",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Controller (12 kr stk) (mål: 7,5 x 4,5 cm)",
+      "title": "Bordkort – Controller",
+      "size": "mål: 7,5 x 4,5 cm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/Controller.jpeg",
+          "alt": "Bordkort i træ med controller",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/Controller%20chat.png",
+          "alt": "Bordkort med controller på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-controller",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Fodbold (12 kr stk) (ca. mål ø.54mm)",
+      "title": "Bordkort – Fodbold",
+      "size": "ca. mål ø.54mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/fodbold.jpeg",
+          "alt": "Bordkort i træ med fodbold",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/fodbold%20chat.png",
+          "alt": "Bordkort med fodbold på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-fodbold",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Fodboldtrøje (12 kr stk) (mål ca. 6.5 x 8 cm)",
+      "title": "Bordkort – Fodboldtrøje",
+      "size": "mål ca. 6.5 x 8 cm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/fodboldtroeje.png",
+          "alt": "Bordkort i træ med fodboldtrøje",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/fodboldtroeje-chat.png",
+          "alt": "Bordkort med fodboldtrøje på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-fodboldtroeje",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Wanted (12 kr stk) (ca. mål 48x69mm)",
+      "title": "Bordkort – Wanted",
+      "size": "ca. mål 48x69mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/wanted.jpeg",
+          "alt": "Bordkort i træ med Wanted-design",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/wanted%20chat.png",
+          "alt": "Bordkort med Wanted-design på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-wanted",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Cowboy hat (12 kr stk) (ca. mål 42x78mm)",
+      "title": "Bordkort – Cowboy hat",
+      "size": "ca. mål 42x78mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cowboyhat.jpeg",
+          "alt": "Bordkort i træ med cowboyhat",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cowboyhat%20chat.png",
+          "alt": "Bordkort med cowboyhat på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-cowboy-hat",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – fodboldstøvle (10 kr stk) (ca. 60 x 25 mm)",
+      "title": "Bordkort – fodboldstøvle",
+      "size": "ca. 60 x 25 mm",
+      "price": "10,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/st%C3%B8vle.jpeg",
+          "alt": "Bordkort i træ med fodboldstøvle",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/St%C3%B8vle%20chat.png",
+          "alt": "Bordkort med fodboldstøvle på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-fodboldstoevle",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Amerikansk fodbold (12 kr stk) (ca. mål 45x75mm)",
+      "title": "Bordkort – Amerikansk fodbold",
+      "size": "ca. mål 45x75mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/Amerikansk%20fodbold.jpeg",
+          "alt": "Bordkort i træ med amerikansk fodbold",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/Amerikansk%20fodbold%20chat.png",
+          "alt": "Bordkort med amerikansk fodbold på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-amerikansk-fodbold",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Babytrøje (12 kr stk) (ca. mål 50x61mm)",
+      "title": "Bordkort – Babytrøje",
+      "size": "ca. mål 50x61mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/babytr%C3%B8je.jpeg",
+          "alt": "Bordkort i træ med babytrøje",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/babytr%C3%B8je%20chat.png",
+          "alt": "Bordkort med babytrøje på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-babytroeje",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Basket net (13 kr stk) (ca. mål 60x53mm)",
+      "title": "Bordkort – Basket net",
+      "size": "ca. mål 60x53mm",
+      "price": "13,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/basket%20net.jpeg",
+          "alt": "Bordkort i træ med basketnet",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/basket%20net%20chat.png",
+          "alt": "Bordkort med basketnet på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-basket-net",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Basketball (12 kr stk) (ca. mål ø.54mm)",
+      "title": "Bordkort – Basketball",
+      "size": "ca. mål ø.54mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/basketball%202.jpeg",
+          "alt": "Bordkort i træ med basketball",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/basketball%202%20chat.png",
+          "alt": "Bordkort med basketball på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-basketball",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Hestehjerte (12 kr stk) (ca. mål 54x61mm)",
+      "title": "Bordkort – Hestehjerte",
+      "size": "ca. mål 54x61mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/hestehjerte%20version%201.jpeg",
+          "alt": "Bordkort i træ med hestehjerte",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/hestehjerte%20version%201.png",
+          "alt": "Bordkort med hestehjerte på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-hestehjerte",
+      "form": "hjerte",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Fod (12 kr stk) (ca. mål 61x36mm)",
+      "title": "Bordkort – Fod",
+      "size": "ca. mål 61x36mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/fod.jpeg",
+          "alt": "Bordkort i træ med fod",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/fod%20chat.png",
+          "alt": "Bordkort med fod på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-fod",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Håndbold (12 kr stk) (ca. mål ø.54mm)",
+      "title": "Bordkort – Håndbold",
+      "size": "ca. mål ø.54mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/h%C3%A5ndbold.jpeg",
+          "alt": "Bordkort i træ med håndbold",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/h%C3%A5ndbold%20chat.png",
+          "alt": "Bordkort med håndbold på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-haandbold",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Sut (12 kr stk) (ca. mål 51x40mm)",
+      "title": "Bordkort – Sut",
+      "size": "ca. mål 51x40mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/sut2.jpeg",
+          "alt": "Bordkort i træ med sut",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/sut%20chat.png",
+          "alt": "Bordkort med sut på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-sut",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Hockey (12 kr stk) (ca. mål 66x62mm)",
+      "title": "Bordkort – Hockey",
+      "size": "ca. mål 66x62mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/hockey.jpeg",
+          "alt": "Bordkort i træ med hockey",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/hockey%20chat.png",
+          "alt": "Bordkort med hockey på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-hockey",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Krondyr (12 kr stk) (ca. mål 78x54mm)",
+      "title": "Bordkort – Krondyr",
+      "size": "ca. mål 78x54mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/krondyr.jpeg",
+          "alt": "Bordkort i træ med krondyr",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/krondyr%20chat.png",
+          "alt": "Bordkort med krondyr på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-krondyr",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Skytte (12 kr stk) (ca. mål 59x97mm)",
+      "title": "Bordkort – Skytte",
+      "size": "ca. mål 59x97mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/skytte.jpeg",
+          "alt": "Bordkort i træ med skytte",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/skytte%20chat.png",
+          "alt": "Bordkort med skytte på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-skytte",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Roblox (12 kr stk) (ca. mål 64x70mm)",
+      "title": "Bordkort – Roblox",
+      "size": "ca. mål 64x70mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/roblox.jpeg",
+          "alt": "Bordkort i træ med Roblox-figur",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/roblox%20chat.png",
+          "alt": "Bordkort med Roblox-figur på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-roblox",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Knallert (12 kr stk) (ca. mål 72x42mm)",
+      "title": "Bordkort – Knallert",
+      "size": "ca. mål 72x42mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/knallert.jpeg",
+          "alt": "Bordkort i træ med knallert",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/knallert%20chat.png",
+          "alt": "Bordkort med knallert på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-knallert",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Scooter (12 kr stk) (ca. mål 45x65mm)",
+      "title": "Bordkort – Scooter",
+      "size": "ca. mål 45x65mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/scooter.jpeg",
+          "alt": "Bordkort i træ med scooter",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/scooter%20chat.png",
+          "alt": "Bordkort med scooter på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-scooter",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Heste hjerte version 2 (12 kr stk) (ca. mål 54x61mm)",
+      "title": "Bordkort – Heste hjerte version 2",
+      "size": "ca. mål 54x61mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/heste%20hjerte%20version%202.jpeg",
+          "alt": "Bordkort i træ med hestehjerte",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/heste%20hjerte%20version%202.png",
+          "alt": "Bordkort med hestehjerte på bord",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-heste-hjerte-version-2",
+      "form": "hjerte",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "fodselstavle",
+      "description": "Fødselstavle – Bodystocking i Egetræfiner (249 kr) (mål: 27.5 x 22 cm)",
+      "title": "Fødselstavle – Bodystocking i Egetræfiner",
+      "size": "mål: 27.5 x 22 cm",
+      "price": "249,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/bodystocking.png",
+          "alt": "Fødselstavle i egetræfiner",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/bodystocking%20chat.png",
+          "alt": "Fødselstavle i egetræfiner",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "foedselstavle-bodystocking-i-egetraefiner",
+      "form": "andet",
+      "wood": "egetrae",
+      "occasions": []
+    },
+    {
+      "section": "bryllup",
+      "description": "Velkomstskilt til bryllup i Egetræfiner (350 kr), mål ca. 78 x 45 cm",
+      "title": "Velkomstskilt til bryllup i Egetræfiner",
+      "size": "mål ca. 78 x 45 cm",
+      "price": "350,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/velkommen-bryllup.png",
+          "alt": "Velkomstskilt til bryllup i egetræfiner",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "velkomstskilt-til-bryllup-i-egetraefiner",
+      "form": "andet",
+      "wood": "egetrae",
+      "occasions": [
+        "bryllup"
+      ]
+    },
+    {
+      "section": "bryllup",
+      "description": "Æresportskilt hjerte Bryllups hjerte i egetræ (249 kr), Størrelse 31 x 33 cm",
+      "title": "Æresportskilt hjerte Bryllups hjerte i egetræ",
+      "size": "Størrelse 31 x 33 cm",
+      "price": "249,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/bryllurp%20hjerte.JPG",
+          "alt": "Bryllupshjerte i egetræ",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/bryllup-hjerte.png",
+          "alt": "Bryllupshjerte i egetræ i æresport",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": true,
+      "id": "aeresportskilt-hjerte-bryllups-hjerte-i-egetrae-2",
+      "form": "hjerte",
+      "wood": "egetrae",
+      "occasions": [
+        "bryllup"
+      ]
+    },
+    {
+      "section": "bryllup",
+      "description": "Bryllupsskilt hjerte \"Er du klar Far?\" i Birkefiner (125 kr), mål ca. 38 x 39 cm",
+      "title": "Bryllupsskilt hjerte \"Er du klar Far?\" i Birkefiner",
+      "size": "mål ca. 38 x 39 cm",
+      "price": "125,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/er-du-klar-far.png",
+          "alt": "Hjerte i birkefiner til bryllup",
+          "hidden": false
+        }
+      ],
+      "form_label": "Indtast tekst / ønsker",
+      "mounting": false,
+      "id": "bryllupsskilt-hjerte-er-du-klar-far-i-birkefiner",
+      "form": "hjerte",
+      "wood": "birkefiner",
+      "occasions": [
+        "bryllup"
+      ]
+    },
+    {
+      "section": "andre_skilte",
+      "description": "Kaffebar skilt i birkefiner, str. 30x5.5 cm, inkl. 2 kaffekopper, monteres med dobbelt klæbende tape, som sidder på bagsiden pris 85 kr pr sæt",
+      "title": "Kaffebar skilt i birkefiner, str. 30x5.5 cm, inkl. 2 kaffekopper, monteres med dobbelt klæbende tape, som sidder på bagsiden pris 85 kr pr sæt",
+      "size": "",
+      "price": "",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/kaffebar%20birkefiner.jpg",
+          "alt": "Kaffebar-skilt i birkefiner",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "kaffebar-skilt-i-birkefiner-str-30x5-5-cm-inkl-2-kaffekopper",
+      "form": "andet",
+      "wood": "birkefiner",
+      "occasions": []
+    },
+    {
+      "section": "andre_skilte",
+      "description": "Kaffebar skilt i egetræ finer, Str. 30 x 5,5cm inkl. 2 kaffekopper, monteres med dobbelt klæbende tape, som sidder på bagsiden pris 125 kr pr sæt",
+      "title": "Kaffebar skilt i egetræ finer, Str. 30 x 5,5cm inkl. 2 kaffekopper, monteres med dobbelt klæbende tape, som sidder på bagsiden pris 125 kr pr sæt",
+      "size": "",
+      "price": "",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/kaffebar%20egetrae.jpg",
+          "alt": "Kaffebar-skilt i egetræfiner",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "kaffebar-skilt-i-egetrae-finer-str-30-x-5-5cm-inkl-2-kaffeko",
+      "form": "andet",
+      "wood": "egetrae",
+      "occasions": []
+    },
+    {
+      "section": "andre_skilte",
+      "description": "Kaffebar skilt i mørktbejdset finer, Str. 30 x 5.5 cm, monteres med dobbelt klæbende tape, som sidder på bagsiden pris 60 kr pr stk",
+      "title": "Kaffebar skilt i mørktbejdset finer, Str. 30 x 5.5 cm, monteres med dobbelt klæbende tape, som sidder på bagsiden pris 60 kr pr stk",
+      "size": "",
+      "price": "",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/kaffebar%20moerk.jpg",
+          "alt": "Kaffebar-skilt i mørkbejdsede finer",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "kaffebar-skilt-i-moerktbejdset-finer-str-30-x-5-5-cm-montere",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "andre_skilte",
+      "description": "Linus toilet figur, i sort lamineret mdf, inkl dobbelt klæbende tape på bagsiden pris 75 kr pr stk",
+      "title": "Linus toilet figur, i sort lamineret mdf, inkl dobbelt klæbende tape på bagsiden pris 75 kr pr stk",
+      "size": "",
+      "price": "",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/linus%20toilet%20sort.jpg",
+          "alt": "Toiletfigur i sort MDF",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "linus-toilet-figur-i-sort-lamineret-mdf-inkl-dobbelt-klaeben",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "andre_skilte",
+      "description": "Linus toilet figur, i maghoni lamineret mdf, inkl dobbelt klæbende tape på bagsiden pris 75 kr pr stk",
+      "title": "Linus toilet figur, i maghoni lamineret mdf, inkl dobbelt klæbende tape på bagsiden pris 75 kr pr stk",
+      "size": "",
+      "price": "",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/linus%20toilet%20brun.jpg",
+          "alt": "Toiletfigur i mahogni-MDF",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "linus-toilet-figur-i-maghoni-lamineret-mdf-inkl-dobbelt-klae",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "andre_skilte",
+      "description": "Linus toilet figur, i hvid lamineret mdf, inkl dobbelt klæbende tape på bagsiden pris 75 kr pr stk",
+      "title": "Linus toilet figur, i hvid lamineret mdf, inkl dobbelt klæbende tape på bagsiden pris 75 kr pr stk",
+      "size": "",
+      "price": "",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/linus%20toilet%20hvid.jpg",
+          "alt": "Toiletfigur i hvid MDF",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "linus-toilet-figur-i-hvid-lamineret-mdf-inkl-dobbelt-klaeben",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "andre_skilte",
+      "description": "Linus toilet figur, i egetræ lamineret mdf, inkl dobbelt klæbende tape på bagsiden pris 75 kr pr stk",
+      "title": "Linus toilet figur, i egetræ lamineret mdf, inkl dobbelt klæbende tape på bagsiden pris 75 kr pr stk",
+      "size": "",
+      "price": "",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/linus%20egetrae.jpg",
+          "alt": "Toiletfigur i egetræ-MDF",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "linus-toilet-figur-i-egetrae-lamineret-mdf-inkl-dobbelt-klae",
+      "form": "andet",
+      "wood": "egetrae",
+      "occasions": []
+    },
+    {
+      "section": "andre_skilte",
+      "description": "Vin bar skilt i Egetræfiner, monteres med dobbelt klæbende tape, som sidder på bagsiden pris 90 kr, (mål ca. 39.5 x 8.5cm)",
+      "title": "Vin bar skilt i Egetræfiner, monteres med dobbelt klæbende tape, som sidder på bagsiden pris 90 kr, (mål ca. 39.5 x 8.5cm)",
+      "size": "",
+      "price": "",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/vin-bar.png",
+          "alt": "Vinbar-skilt i egetræfiner",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "vin-bar-skilt-i-egetraefiner-monteres-med-dobbelt-klaebende-",
+      "form": "andet",
+      "wood": "egetrae",
+      "occasions": []
+    },
+    {
+      "section": "velkomst_skilt",
+      "description": "Velkomstskilt i Egetræfiner (350 kr), mål ca. 78 x 45 cm",
+      "title": "Velkomstskilt i Egetræfiner",
+      "size": "mål ca. 78 x 45 cm",
+      "price": "350,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/velkomst-skilt.png",
+          "alt": "Velkomstskilt i egetræfiner",
+          "hidden": false
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "velkomstskilt-i-egetraefiner",
+      "form": "andet",
+      "wood": "egetrae",
+      "occasions": []
+    }
+  ]
+}

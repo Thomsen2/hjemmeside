@@ -19,8 +19,40 @@
         });
     }
 
+    var aesportMenus = {
+        birkefiner: true,
+        egetrae: true,
+        version1: true,
+        version2: true,
+        vaabenskjold: true,
+        egetrae_v2: true,
+        version1_v2: true,
+        version2_v2: true
+    };
+
+    function scrollToFaq() {
+        var el = document.getElementById('faq');
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
     function activateSection(sectionId) {
         if (!sectionId) return;
+
+        if (sectionId === 'faq') {
+            if (document.getElementById('faq')) {
+                var current = document.querySelector('.tab-section.active');
+                var currentId = current && current.id;
+                if (currentId && !aesportMenus[currentId] && document.getElementById('birkefiner')) {
+                    activateSection('birkefiner');
+                } else {
+                    document.body.classList.remove('hide-aesport-intro');
+                    closeNav();
+                }
+                setTimeout(scrollToFaq, 50);
+                return;
+            }
+        }
+
         document.querySelectorAll('.nav-link').forEach(function (l) {
             l.classList.remove('active');
         });
@@ -48,25 +80,15 @@
             section.classList.add('active');
             window.scrollTo({ top: nav ? nav.offsetTop : 0, behavior: 'smooth' });
         }
-        var aesportMenus = {
-            birkefiner: true,
-            egetrae: true,
-            version1: true,
-            version2: true,
-            vaabenskjold: true,
-            egetrae_v2: true,
-            version1_v2: true,
-            version2_v2: true
-        };
         document.body.classList.toggle('hide-aesport-intro', !aesportMenus[sectionId]);
         closeNav();
     }
 
     document.querySelectorAll('.nav-link, .nav-sub-link, .btn-hero, .footer-om-os').forEach(function (link) {
         link.addEventListener('click', function (e) {
-            var sectionId = this.getAttribute('data-section');
-            if (!sectionId) return;
-            e.preventDefault();
+            var href = this.getAttribute('href') || '';
+            var path = href.split('#')[0];
+            var isSeoPath = /^\/[a-z0-9-]+\/?$/.test(path);
 
             if (this.classList.contains('nav-link') && this.closest('.nav-dropdown') && window.matchMedia('(max-width: 780px)').matches) {
                 var dd = this.closest('.nav-dropdown');
@@ -76,11 +98,23 @@
                         d.classList.remove('is-open');
                     });
                     if (!already) {
+                        e.preventDefault();
                         dd.classList.add('is-open');
                         return;
                     }
                 }
             }
+
+            if (isSeoPath) return;
+
+            var sectionId = this.getAttribute('data-section');
+            if (!sectionId) return;
+
+            if (sectionId !== 'faq' && !document.getElementById(sectionId)) {
+                window.location.href = '/#' + sectionId;
+                return;
+            }
+            e.preventDefault();
 
             activateSection(sectionId);
             if (history.replaceState) {
@@ -91,8 +125,28 @@
         });
     });
 
+    var hashPages = {
+        gavekort: '/gavekort/',
+        bordkort: '/bordkort/',
+        bordkort_navne: '/bordkort/',
+        bordkort_speciale: '/bordkort/',
+        fodselstavle: '/fodselstavle/',
+        andre_skilte: '/andre-skilte/',
+        velkomst_skilt: '/velkomst-skilt/',
+        eget_design: '/eget-design/',
+        bestil: '/om-os/',
+        vaabenskjold: '/vaabenskjold/',
+        birkefiner: '/hjerte/',
+        egetrae: '/egetrae/',
+        bryllup: '/bryllup/'
+    };
+
     var hashId = (location.hash || '').replace(/^#/, '');
     if (hashId === 'bordkort') hashId = 'bordkort_speciale';
+    if (hashId && hashPages[hashId]) {
+        location.replace(hashPages[hashId]);
+        return;
+    }
     if (hashId && document.getElementById(hashId)) {
         activateSection(hashId);
     }
@@ -122,7 +176,7 @@
 
     document.querySelectorAll('.nav-dropdown').forEach(function (dropdown) {
         var link = dropdown.querySelector('.nav-link');
-        if (link && link.querySelector('.nav-icon--heart, .nav-icon--shield, .nav-icon--card')) {
+        if (link && link.querySelector('.nav-icon--heart, .nav-icon--shield, .nav-icon--card, .nav-icon--rings')) {
             bindBubbling(dropdown, link);
         }
         dropdown.addEventListener('mouseleave', function () {
@@ -133,7 +187,7 @@
     });
 
     document.querySelectorAll('.nav-link').forEach(function (link) {
-        if (!link.querySelector('.nav-icon--gift, .nav-icon--pram, .nav-icon--rings')) return;
+        if (!link.querySelector('.nav-icon--gift, .nav-icon--pram')) return;
         if (link.closest('.nav-dropdown')) return;
         bindBubbling(link, link);
     });

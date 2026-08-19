@@ -85,6 +85,56 @@ body {
     color: #fff;
 }
 
+.site-header h1 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.site-kicker {
+    position: relative;
+    margin: 0 0 0.45rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.site-kicker a {
+    color: rgba(255, 255, 255, 0.82);
+    text-decoration: none;
+}
+
+.site-kicker a:hover {
+    color: #fff;
+}
+
+.page-breadcrumb {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--muted);
+    padding: 1rem 0 0;
+}
+
+.page-breadcrumb a {
+    color: var(--oak-deep);
+}
+
+.shop-mount {
+    min-height: 8rem;
+}
+
+.shop-mount__status {
+    text-align: center;
+    color: var(--muted);
+    padding: 2rem 1rem;
+}
+
+.shop-mount .builder,
+.shop-mount .pricing {
+    display: block;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
 /* ——— Nav ——— */
 .main-nav {
     background: rgba(248, 245, 239, 0.86);
@@ -671,8 +721,8 @@ body {
     animation: sectionIn 0.45s var(--ease);
 }
 
-#faq.tab-section {
-    padding: 0 0 2rem;
+#faq {
+    scroll-margin-top: 5.5rem;
 }
 
 section {
