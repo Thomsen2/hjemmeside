@@ -25,24 +25,24 @@
 
 [[redirects]]
   from = "https://bordkort.dk/favicon.svg"
-  to = "/favicon-bordkort.png"
+  to = "/favicon-bordkort.ico"
   status = 200
   force = true
 
 [[redirects]]
   from = "https://www.bordkort.dk/favicon.svg"
-  to = "/favicon-bordkort.png"
+  to = "/favicon-bordkort.ico"
   status = 200
   force = true
 
 [[redirects]]
   from = "https://bordkort.dk/favicon.ico"
-  to = "/favicon-bordkort.png"
+  to = "/favicon-bordkort.ico"
   status = 200
   force = true
 
 [[redirects]]
   from = "https://www.bordkort.dk/favicon.ico"
-  to = "/favicon-bordkort.png"
+  to = "/favicon-bordkort.ico"
   status = 200
   force = true

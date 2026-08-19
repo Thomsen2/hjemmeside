@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=110"
+ASSET_CSS = "/styles.css?v=111"
 ASSET_JS = "/script.js?v=38"
 
 
@@ -406,10 +406,14 @@ def page_shell(*, slug, title, description, h1, canonical, kicker, crumb, intro_
     if faq:
         schemas.append(f'    <script type="application/ld+json">\n{faq_jsonld(faq)}\n    </script>')
     schema_html = "\n".join(schemas)
-    icon_type = "image/png" if favicon.endswith(".png") else "image/svg+xml"
-    icon_links = f'    <link rel="icon" href="{esc(favicon)}" type="{icon_type}">'
-    if favicon.endswith(".png"):
-        icon_links += '\n    <link rel="apple-touch-icon" href="/apple-touch-icon-bordkort.png">'
+    icon_links = ""
+    if "bordkort" in favicon:
+        icon_links = """    <link rel="icon" href="/favicon-bordkort.ico?v=2" sizes="any">
+    <link rel="icon" href="/favicon-bordkort.png?v=2" type="image/png" sizes="128x128">
+    <link rel="apple-touch-icon" href="/apple-touch-icon-bordkort.png?v=2">"""
+    else:
+        icon_type = "image/png" if favicon.endswith(".png") else "image/svg+xml"
+        icon_links = f'    <link rel="icon" href="{esc(favicon)}" type="{icon_type}">'
     return f"""<!DOCTYPE html>
 <html lang="da">
 <head>
@@ -702,7 +706,7 @@ def main():
         site_name="Bordkort.dk",
         nav=nav_html_bordkort,
         footer=BORDKORT_FOOTER,
-        favicon="/favicon-bordkort.png",
+        favicon="/favicon-bordkort.ico?v=2",
     )
     write_page("bordkort-site/index.html", bordkort_home)
 
