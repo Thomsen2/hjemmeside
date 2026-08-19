@@ -92,7 +92,7 @@
 
             if (this.classList.contains('nav-link') && this.closest('.nav-dropdown') && window.matchMedia('(max-width: 780px)').matches) {
                 var dd = this.closest('.nav-dropdown');
-                if (!e.target.closest('.nav-sub-link')) {
+                if (dd.querySelector('.nav-submenu') && !e.target.closest('.nav-sub-link')) {
                     var already = dd.classList.contains('is-open');
                     document.querySelectorAll('.nav-dropdown.is-open').forEach(function (d) {
                         d.classList.remove('is-open');
@@ -187,7 +187,7 @@
     });
 
     document.querySelectorAll('.nav-link').forEach(function (link) {
-        if (!link.querySelector('.nav-icon--gift, .nav-icon--pram')) return;
+        if (!link.querySelector('.nav-icon--gift, .nav-icon--pram, .nav-icon--card, .nav-icon--rings')) return;
         if (link.closest('.nav-dropdown')) return;
         bindBubbling(link, link);
     });

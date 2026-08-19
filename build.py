@@ -10,8 +10,8 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=102"
-ASSET_JS = "/script.js?v=36"
+ASSET_CSS = "/styles.css?v=107"
+ASSET_JS = "/script.js?v=38"
 
 
 def esc(value) -> str:
@@ -186,50 +186,96 @@ def nav_html(active: str) -> str:
                     <a href="/hjerte/" class="{cls('hjerte')}">
                         <span class="nav-icon nav-icon--heart" aria-hidden="true">
                             <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.5-8.2C.7 9.8 2.2 6 5.6 6c1.9 0 3.2 1.1 4 2.2C10.4 7.1 11.7 6 13.6 6c3.4 0 4.9 3.8 3.1 6.8C19 16.6 12 21 12 21z"/></svg>
+                            <span class="heart-bubbles" aria-hidden="true">
+                                <span class="hb">♥</span>
+                                <span class="hb">♥</span>
+                                <span class="hb">♥</span>
+                                <span class="hb">♥</span>
+                                <span class="hb">♥</span>
+                            </span>
                         </span>
                         Hjerte
                     </a>
-                    <div class="nav-submenu">
-                        <a href="/egetrae/" class="{cls('egetrae', 'sub')}">Egetræ</a>
-                        <a href="/hjerte/" class="nav-sub-link">Birkefiner</a>
-                        <a href="/hjerte/" class="nav-sub-link">Valnød</a>
-                    </div>
                 </div>
                 <div class="nav-dropdown">
                     <a href="/vaabenskjold/" class="{cls('vaabenskjold')}">
                         <span class="nav-icon nav-icon--shield" aria-hidden="true">
                             <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.4 8.4-8 9.5C7.4 20.4 4 17 4 12V6l8-3z"/></svg>
+                            <span class="shield-bubbles" aria-hidden="true">
+                                <span class="sb"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.4 8.4-8 9.5C7.4 20.4 4 17 4 12V6l8-3z"/></svg></span>
+                                <span class="sb"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.4 8.4-8 9.5C7.4 20.4 4 17 4 12V6l8-3z"/></svg></span>
+                                <span class="sb"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.4 8.4-8 9.5C7.4 20.4 4 17 4 12V6l8-3z"/></svg></span>
+                                <span class="sb"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.4 8.4-8 9.5C7.4 20.4 4 17 4 12V6l8-3z"/></svg></span>
+                                <span class="sb"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.4 8.4-8 9.5C7.4 20.4 4 17 4 12V6l8-3z"/></svg></span>
+                            </span>
                         </span>
                         Våbenskjold
                     </a>
-                    <div class="nav-submenu">
-                        <a href="/egetrae/" class="nav-sub-link">Egetræ</a>
-                        <a href="/vaabenskjold/" class="nav-sub-link">Birkefiner</a>
-                    </div>
                 </div>
-                <a href="/gavekort/" class="{cls('gavekort')}">Gavekort i træ</a>
-                <a href="/bordkort/" class="{cls('bordkort')}">Bordkort</a>
-                <a href="/fodselstavle/" class="{cls('fodselstavle')}">Fødselstavle</a>
-                <div class="nav-dropdown">
-                    <a href="/andre-skilte/" class="{cls('andre-skilte')}">Andre skilte</a>
-                    <div class="nav-submenu">
-                        <a href="/andre-skilte/" class="nav-sub-link">Andre skilte</a>
-                        <a href="/velkomst-skilt/" class="nav-sub-link">Velkomst skilt</a>
-                    </div>
-                </div>
-                <div class="nav-dropdown">
-                    <a href="/bryllup/" class="{cls('bryllup') if active in ('bryllup','kobberbryllup','soelvbryllup','guldbryllup') else 'nav-link'}">
-                        Bryllup
-                    </a>
-                    <div class="nav-submenu">
-                        <a href="/bryllup/" class="nav-sub-link">Bryllup</a>
-                        <a href="/kobberbryllup/" class="nav-sub-link">Kobberbryllup</a>
-                        <a href="/soelvbryllup/" class="nav-sub-link">Sølvbryllup</a>
-                        <a href="/guldbryllup/" class="nav-sub-link">Guldbryllup</a>
-                    </div>
-                </div>
-                <a href="/eget-design/" class="{cls('eget-design')}">Få lavet dit helt eget design</a>
-                <a href="#faq" class="nav-link">Ofte stillede spørgsmål</a>
+                <a href="/gavekort/" class="{cls('gavekort')}">
+                    <span class="nav-icon nav-icon--gift" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="11" rx="1.5"/><path d="M3 14h18M12 10v11M8.5 7.5C8.5 5.6 9.6 4 12 4s3.5 1.6 3.5 3.5c0 1.4-1 2.5-3.5 2.5S8.5 8.9 8.5 7.5z"/></svg>
+                        <span class="gift-bubbles" aria-hidden="true">
+                            <span class="gb">$</span>
+                            <span class="gb">$</span>
+                            <span class="gb">$</span>
+                            <span class="gb">$</span>
+                            <span class="gb">$</span>
+                        </span>
+                    </span>
+                    Gavekort i træ
+                </a>
+                <a href="/bordkort/" class="{cls('bordkort')}">
+                    <span class="nav-icon nav-icon--card" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 10h8M8 14h5"/></svg>
+                        <span class="name-bubbles" aria-hidden="true">
+                            <span class="nb">Mia</span>
+                            <span class="nb">Leo</span>
+                            <span class="nb">Ida</span>
+                            <span class="nb">Bo</span>
+                            <span class="nb">Ava</span>
+                        </span>
+                    </span>
+                    Bordkort
+                </a>
+                <a href="/fodselstavle/" class="{cls('fodselstavle')}">
+                    <span class="nav-icon nav-icon--pram" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M7 18.5a1.75 1.75 0 1 1-3.5 0 1.75 1.75 0 0 1 3.5 0zm13 0a1.75 1.75 0 1 1-3.5 0 1.75 1.75 0 0 1 3.5 0zM18.5 16H6.2l-.7-3.2h11.3c1.1 0 1.9.7 2.1 1.6l.6 1.6zM8.5 4.5h4.2c1.8 0 3.3 1.3 3.6 3.1l.5 2.2H7.8l.7-5.3zM8.5 4.5V3h3"/></svg>
+                        <span class="pram-bubbles" aria-hidden="true">
+                            <span class="pb"><svg viewBox="0 0 24 24"><path d="M7 18.5a1.75 1.75 0 1 1-3.5 0 1.75 1.75 0 0 1 3.5 0zm13 0a1.75 1.75 0 1 1-3.5 0 1.75 1.75 0 0 1 3.5 0zM18.5 16H6.2l-.7-3.2h11.3c1.1 0 1.9.7 2.1 1.6l.6 1.6zM8.5 4.5h4.2c1.8 0 3.3 1.3 3.6 3.1l.5 2.2H7.8l.7-5.3zM8.5 4.5V3h3"/></svg></span>
+                            <span class="pb"><svg viewBox="0 0 24 24"><path d="M7 18.5a1.75 1.75 0 1 1-3.5 0 1.75 1.75 0 0 1 3.5 0zm13 0a1.75 1.75 0 1 1-3.5 0 1.75 1.75 0 0 1 3.5 0zM18.5 16H6.2l-.7-3.2h11.3c1.1 0 1.9.7 2.1 1.6l.6 1.6zM8.5 4.5h4.2c1.8 0 3.3 1.3 3.6 3.1l.5 2.2H7.8l.7-5.3zM8.5 4.5V3h3"/></svg></span>
+                            <span class="pb"><svg viewBox="0 0 24 24"><path d="M7 18.5a1.75 1.75 0 1 1-3.5 0 1.75 1.75 0 0 1 3.5 0zm13 0a1.75 1.75 0 1 1-3.5 0 1.75 1.75 0 0 1 3.5 0zM18.5 16H6.2l-.7-3.2h11.3c1.1 0 1.9.7 2.1 1.6l.6 1.6zM8.5 4.5h4.2c1.8 0 3.3 1.3 3.6 3.1l.5 2.2H7.8l.7-5.3zM8.5 4.5V3h3"/></svg></span>
+                            <span class="pb"><svg viewBox="0 0 24 24"><path d="M7 18.5a1.75 1.75 0 1 1-3.5 0 1.75 1.75 0 0 1 3.5 0zm13 0a1.75 1.75 0 1 1-3.5 0 1.75 1.75 0 0 1 3.5 0zM18.5 16H6.2l-.7-3.2h11.3c1.1 0 1.9.7 2.1 1.6l.6 1.6zM8.5 4.5h4.2c1.8 0 3.3 1.3 3.6 3.1l.5 2.2H7.8l.7-5.3zM8.5 4.5V3h3"/></svg></span>
+                            <span class="pb"><svg viewBox="0 0 24 24"><path d="M7 18.5a1.75 1.75 0 1 1-3.5 0 1.75 1.75 0 0 1 3.5 0zm13 0a1.75 1.75 0 1 1-3.5 0 1.75 1.75 0 0 1 3.5 0zM18.5 16H6.2l-.7-3.2h11.3c1.1 0 1.9.7 2.1 1.6l.6 1.6zM8.5 4.5h4.2c1.8 0 3.3 1.3 3.6 3.1l.5 2.2H7.8l.7-5.3zM8.5 4.5V3h3"/></svg></span>
+                        </span>
+                    </span>
+                    Fødselstavle
+                </a>
+                <a href="/andre-skilte/" class="{cls('andre-skilte')}">
+                    <span class="nav-icon nav-icon--spark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></span>
+                    Andre skilte
+                </a>
+                <a href="/bryllup/" class="{cls('bryllup') if active in ('bryllup','kobberbryllup','soelvbryllup','guldbryllup') else 'nav-link'}">
+                    <span class="nav-icon nav-icon--rings" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><circle cx="9" cy="13" r="5.5"/><circle cx="15" cy="11" r="5.5"/></svg>
+                        <span class="ring-bubbles" aria-hidden="true">
+                            <span class="rb"><svg viewBox="0 0 24 24"><circle cx="9" cy="13" r="5.5"/><circle cx="15" cy="11" r="5.5"/></svg></span>
+                            <span class="rb"><svg viewBox="0 0 24 24"><circle cx="9" cy="13" r="5.5"/><circle cx="15" cy="11" r="5.5"/></svg></span>
+                            <span class="rb"><svg viewBox="0 0 24 24"><circle cx="9" cy="13" r="5.5"/><circle cx="15" cy="11" r="5.5"/></svg></span>
+                            <span class="rb"><svg viewBox="0 0 24 24"><circle cx="9" cy="13" r="5.5"/><circle cx="15" cy="11" r="5.5"/></svg></span>
+                            <span class="rb"><svg viewBox="0 0 24 24"><circle cx="9" cy="13" r="5.5"/><circle cx="15" cy="11" r="5.5"/></svg></span>
+                        </span>
+                    </span>
+                    Bryllup
+                </a>
+                <a href="/eget-design/" class="{cls('eget-design')}">
+                    <span class="nav-icon nav-icon--spark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.5 5.5L19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5L12 3zM18.5 15.5l.8 2.7 2.7.8-2.7.8-.8 2.7-.8-2.7-2.7-.8 2.7-.8.8-2.7zM5.5 16.5l.6 2 2 .6-2 .6-.6 2-.6-2-2-.6 2-.6.6-2z"/></svg></span>
+                    Få lavet dit helt eget design
+                </a>
+                <a href="#faq" class="nav-link">
+                    <span class="nav-icon nav-icon--faq" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.4 2.3c-.7.3-1.4.9-1.4 1.7V14M12 17h.01"/></svg></span>
+                    Ofte stillede spørgsmål
+                </a>
             </div>
         </div>
     </nav>"""
@@ -440,8 +486,8 @@ def main():
         dict(slug="fodselstavle", path="fodselstavle/index.html", title="Fødselstavle i træ",
              description="Fødselstavle i træ – en tidløs gave til den nyfødte og familien.",
              h1="Fødselstavle", canonical="https://æresportskilt.dk/fodselstavle/", kicker=True, crumb="Fødselstavle",
-             intro_h2="Fødselstavle i træ",
-             intro=["En fødselstavle med navn og dato er en gave, der bliver hængende."],
+             intro_h2="",
+             intro=[],
              products=filter_products(lambda p: p["section"] == "fodselstavle"), faq=[]),
         dict(slug="andre-skilte", path="andre-skilte/index.html", title="Andre skilte i træ",
              description="Skræddersyede skilte i træ – kaffebar, velkomst og andre designs efter ønske.",
