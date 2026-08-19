@@ -15,7 +15,7 @@
     <link rel="icon" href="/favicon-bordkort.ico?v=3" sizes="any">
     <link rel="icon" href="/favicon-bordkort.png?v=3" type="image/png" sizes="128x128">
     <link rel="apple-touch-icon" href="/apple-touch-icon-bordkort.png?v=3">
-    <link rel="stylesheet" href="/styles.css?v=134">
+    <link rel="stylesheet" href="/styles.css?v=137">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -60,11 +60,11 @@
 }
     </script>
 </head>
-<body>
+<body class="page-bordkort">
     <header class="site-header">
         <div class="container">
             
-            <h1><a href="/">Bordkort i træ til fest og bryllup</a></h1>
+            <h1><a href="#forside">Bordkort i træ til fest og bryllup</a></h1>
         </div>
     </header>
     <nav class="main-nav" id="mainNav">
@@ -73,7 +73,13 @@
                 <span></span><span></span><span></span>
             </button>
             <div class="nav-links" id="navLinks">
-                <a href="/" class="nav-link active">
+                <a href="#forside" class="nav-link active">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M4 10.5L12 4l8 6.5V19a1.5 1.5 0 0 1-1.5 1.5H15v-5.5H9V20.5H5.5A1.5 1.5 0 0 1 4 19V10.5z"/></svg>
+                    </span>
+                    Forside
+                </a>
+                <a href="#navne" class="nav-link">
                     <span class="nav-icon nav-icon--card" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 10h8M8 14h5"/></svg>
                         <span class="name-bubbles" aria-hidden="true">
@@ -83,12 +89,6 @@
                             <span class="nb">Bo</span>
                             <span class="nb">Ava</span>
                         </span>
-                    </span>
-                    Forside
-                </a>
-                <a href="#navne" class="nav-link">
-                    <span class="nav-icon nav-icon--card" aria-hidden="true">
-                        <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 10h8M8 14h5"/></svg>
                     </span>
                     Navne bordkort
                 </a>
@@ -113,8 +113,64 @@
             </div>
         </div>
     </nav>
+
+    <section class="front-hero bordkort-forside" id="forside">
+        <div class="container">
+            <figure class="front-hero__figure">
+                <img src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png" alt="Personlige bordkort i træ på borddækning" class="front-hero__img">
+            </figure>
+        </div>
+    </section>
+    <section class="intro bordkort-forside">
+        <div class="container">
+            <h2>Personlige bordkort i træ</h2>
+            <p>Hos Bordkort.dk laver vi personlige bordkort i træ til bryllup, konfirmation, fødselsdag og fest.</p>
+            <p>Vælg klassiske navnebordkort eller specielle motiver – fodbold, heste, gaming og meget mere. Hvert bordkort fremstilles på bestilling.</p>
+            <p>Afhentning i Dragør eller forsendelse. Se også æresportskilte på Æresportskilt.dk, hvis I skal have skilt til æresporten.</p>
+        </div>
+    </section>
+    <section class="faq-section bordkort-forside" id="faq">
+        <div class="container">
+            <h2>Ofte stillede spørgsmål</h2>
+            <h3>Hvad er et bordkort i træ?</h3>
+            <p>Et bordkort i træ er et lille, personligt skilt med gæstens navn – eller et motiv – som står ved kuverten. Det gør borddækningen mere personlig og er et minde, gæsterne kan tage med hjem.</p>
+            <h3>Hvad koster bordkort?</h3>
+            <p>Klassiske navnebordkort starter ved 10 kr. stykket. Specielle motiver koster typisk 12 kr. stykket. Prisen står ved hver model.</p>
+            <h3>Kan I lave et særligt motiv?</h3>
+            <p>Ja. Har I et tema til festen – sport, dyr, gaming eller noget helt andet – så skriv det i formularen under eget design, så laver vi et forslag.</p>
+            <h3>Hvordan bestiller jeg?</h3>
+            <p>Vælg en model, skriv navnene og send forespørgslen. I kan afhente i Dragør eller få bordkortene sendt.</p>
+        </div>
+    </section>
+    <section class="builder" id="eget-design">
+        <div class="container">
+            <h2 class="no-divider">Få lavet dit helt eget design</h2>
+            <p class="section-desc">Har I et tema, et logo eller et motiv, I ikke finder her? Beskriv ønsket, så laver vi et forslag og en pris.</p>
+            <div class="form-area" style="max-width:520px;margin:0 auto">
+                <form class="sign-form">
+                    <div class="form-group">
+                        <label for="besked_eget_design_bordkort">Beskriv dit design / ønsker</label>
+                        <textarea id="besked_eget_design_bordkort" name="besked_eget_design_bordkort" rows="5" placeholder="Beskriv gerne motiv, navne, antal, størrelse og anledning..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="navn_eget_design_bordkort">Navn</label>
+                        <input type="text" id="navn_eget_design_bordkort" name="navn_eget_design_bordkort" placeholder="Dit fulde navn">
+                    </div>
+                    <div class="form-group">
+                        <label for="mail_eget_design_bordkort">Mail</label>
+                        <input type="email" id="mail_eget_design_bordkort" name="mail_eget_design_bordkort" placeholder="din@mail.dk">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobil_eget_design_bordkort">Mobil nr</label>
+                        <input type="tel" id="mobil_eget_design_bordkort" name="mobil_eget_design_bordkort" placeholder="+45 12 34 56 78">
+                    </div>
+                    <button type="submit" class="btn-submit">Send forespørgsel</button>
+                </form>
+            </div>
+        </div>
+    </section>
     
-    <section class="builder" id="navne">
+    <section class="builder tab-section" id="navne">
         <div class="container">
             <h2 class="no-divider">Personlige navne bordkort i træ</h2>
             
@@ -377,7 +433,7 @@
             </div>
         </div>
     </section>
-    <section class="builder" id="speciale">
+    <section class="builder tab-section" id="speciale">
         <div class="container">
             <h2 class="no-divider">Specielle bordkort i træ</h2>
             
@@ -1508,53 +1564,6 @@
             </div>
         </div>
     </section>
-    <section class="intro">
-        <div class="container">
-            <h2>Personlige bordkort i træ</h2>
-            <p>Hos Bordkort.dk laver vi personlige bordkort i træ til bryllup, konfirmation, fødselsdag og fest.</p>
-            <p>Vælg klassiske navnebordkort eller specielle motiver – fodbold, heste, gaming og meget mere. Hvert bordkort fremstilles på bestilling.</p>
-            <p>Afhentning i Dragør eller forsendelse. Se også æresportskilte på Æresportskilt.dk, hvis I skal have skilt til æresporten.</p>
-        </div>
-    </section>
-    <section class="faq-section" id="faq">
-        <div class="container">
-            <h2>Ofte stillede spørgsmål</h2>
-            <h3>Hvad er et bordkort i træ?</h3>
-            <p>Et bordkort i træ er et lille, personligt skilt med gæstens navn – eller et motiv – som står ved kuverten. Det gør borddækningen mere personlig og er et minde, gæsterne kan tage med hjem.</p>
-            <h3>Hvad koster bordkort?</h3>
-            <p>Klassiske navnebordkort starter ved 10 kr. stykket. Specielle motiver koster typisk 12 kr. stykket. Prisen står ved hver model.</p>
-            <h3>Kan I lave et særligt motiv?</h3>
-            <p>Ja. Har I et tema til festen – sport, dyr, gaming eller noget helt andet – så skriv det i formularen under eget design, så laver vi et forslag.</p>
-            <h3>Hvordan bestiller jeg?</h3>
-            <p>Vælg en model, skriv navnene og send forespørgslen. I kan afhente i Dragør eller få bordkortene sendt.</p>
-        </div>
-    </section>    <section class="builder" id="eget-design">
-        <div class="container">
-            <h2 class="no-divider">Få lavet dit helt eget design</h2>
-            <p class="section-desc">Har I et tema, et logo eller et motiv, I ikke finder her? Beskriv ønsket, så laver vi et forslag og en pris.</p>
-            <div class="form-area" style="max-width:520px;margin:0 auto">
-                <form class="sign-form">
-                    <div class="form-group">
-                        <label for="besked_eget_design_bordkort">Beskriv dit design / ønsker</label>
-                        <textarea id="besked_eget_design_bordkort" name="besked_eget_design_bordkort" rows="5" placeholder="Beskriv gerne motiv, navne, antal, størrelse og anledning..."></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="navn_eget_design_bordkort">Navn</label>
-                        <input type="text" id="navn_eget_design_bordkort" name="navn_eget_design_bordkort" placeholder="Dit fulde navn">
-                    </div>
-                    <div class="form-group">
-                        <label for="mail_eget_design_bordkort">Mail</label>
-                        <input type="email" id="mail_eget_design_bordkort" name="mail_eget_design_bordkort" placeholder="din@mail.dk">
-                    </div>
-                    <div class="form-group">
-                        <label for="mobil_eget_design_bordkort">Mobil nr</label>
-                        <input type="tel" id="mobil_eget_design_bordkort" name="mobil_eget_design_bordkort" placeholder="+45 12 34 56 78">
-                    </div>
-                    <button type="submit" class="btn-submit">Send forespørgsel</button>
-                </form>
-            </div>
-        </div>
-    </section>
     <footer>
         <div class="container">
             <p>&copy; 2026 Bordkort.dk. Alle rettigheder forbeholdes. &mdash; <a href="#navne">Navne bordkort</a> &mdash; <a href="#speciale">Specielle motiver</a> &mdash; <a href="https://æresportskilt.dk/">Æresportskilte</a> &mdash; <a href="https://æresportskilt.dk/om-os/">Om os</a></p>
@@ -1577,7 +1586,7 @@
         <input type="email" name="Mail">
         <input type="tel" name="Mobil">
     </form>
-    <script src="/script.js?v=48"></script>
+    <script src="/script.js?v=50"></script>
     <div class="lightbox" id="lightbox" style="display:none">
         <span class="lightbox-close">&times;</span>
         <img class="lightbox-img" id="lightboxImg" src="" alt="">

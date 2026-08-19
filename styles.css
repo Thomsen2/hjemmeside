@@ -720,6 +720,31 @@ body {
     display: none !important;
 }
 
+.page-bordkort:not(.bordkort-view-catalog) .bordkort-forside {
+    display: block !important;
+}
+
+.page-bordkort:not(.bordkort-view-catalog) .tab-section {
+    display: none !important;
+}
+
+.page-bordkort .bordkort-forside {
+    scroll-margin-top: 5.5rem;
+}
+
+.page-bordkort #eget-design {
+    display: none !important;
+    scroll-margin-top: 5.5rem;
+}
+
+.page-bordkort.bordkort-view-eget-design #eget-design {
+    display: block !important;
+}
+
+.page-bordkort.bordkort-view-eget-design .bordkort-forside {
+    display: none !important;
+}
+
 .page-aesport-home.aesport-view-catalog .aesport-forside {
     display: none !important;
 }

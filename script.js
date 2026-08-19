@@ -36,7 +36,7 @@
     }
 
     function activateSection(sectionId) {
-        if (!sectionId || document.body.classList.contains('page-aesport-home')) return;
+        if (!sectionId || document.body.classList.contains('page-aesport-home') || document.body.classList.contains('page-bordkort')) return;
 
         if (sectionId === 'faq') {
             if (document.getElementById('faq')) {
@@ -154,8 +154,16 @@
         bryllup: true,
         vaabenskjold: true
     };
+    var bordkortHomeHashes = {
+        forside: true,
+        faq: true,
+        'eget-design': true,
+        navne: true,
+        speciale: true
+    };
     var onAesportHome = document.body.classList.contains('page-aesport-home');
-    if (hashId && hashPages[hashId] && !(onAesportHome && aesportHomeHashes[hashId])) {
+    var onBordkortHome = document.body.classList.contains('page-bordkort');
+    if (hashId && hashPages[hashId] && !(onAesportHome && aesportHomeHashes[hashId]) && !(onBordkortHome && bordkortHomeHashes[hashId])) {
         location.replace(hashPages[hashId]);
         return;
     }
@@ -250,7 +258,78 @@
 
     var bordkortNavne = document.getElementById('navne');
     var bordkortSpeciale = document.getElementById('speciale');
-    if (bordkortNavne && bordkortSpeciale && bordkortNavne.classList.contains('tab-section')) {
+    if (onBordkortHome && bordkortNavne && bordkortSpeciale && bordkortNavne.classList.contains('tab-section')) {
+        function getBordkortHash() {
+            var hash = (location.hash || '#forside').replace(/^#/, '');
+            return hash || 'forside';
+        }
+
+        function syncBordkortHomeCatalog() {
+            var hash = getBordkortHash();
+            var isCatalog = hash === 'navne' || hash === 'speciale';
+            var isEgetDesign = hash === 'eget-design';
+
+            document.body.classList.toggle('bordkort-view-catalog', isCatalog);
+            document.body.classList.toggle('bordkort-view-eget-design', isEgetDesign);
+            bordkortNavne.classList.toggle('active', hash === 'navne');
+            bordkortSpeciale.classList.toggle('active', hash === 'speciale');
+
+            document.querySelectorAll('#navLinks .nav-link[href^="#"], header h1 a[href^="#"]').forEach(function (link) {
+                var target = (link.getAttribute('href') || '#forside').slice(1);
+                link.classList.toggle('active', target === hash);
+            });
+
+            closeNav();
+
+            requestAnimationFrame(function () {
+                if (isCatalog) {
+                    window.scrollTo({ top: nav ? nav.offsetTop : 0, behavior: 'smooth' });
+                    return;
+                }
+                var scrollTarget = document.getElementById(hash);
+                if (scrollTarget) {
+                    scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    window.scrollTo({ top: nav ? nav.offsetTop : 0, behavior: 'smooth' });
+                }
+            });
+        }
+
+        function navigateBordkortHome(hash) {
+            var target = '#' + hash;
+            if (location.hash === target) {
+                syncBordkortHomeCatalog();
+            } else {
+                location.hash = hash;
+            }
+        }
+
+        document.addEventListener('click', function (e) {
+            var link = e.target.closest('a[href^="#"]');
+            if (!link || !document.body.contains(link)) return;
+            var href = link.getAttribute('href') || '';
+            if (href === '#') return;
+            var hash = href.slice(1);
+            if (bordkortHomeHashes[hash] || document.getElementById(hash)) {
+                e.preventDefault();
+                navigateBordkortHome(hash);
+            }
+        }, true);
+
+        window.addEventListener('hashchange', syncBordkortHomeCatalog);
+        window.addEventListener('popstate', syncBordkortHomeCatalog);
+        window.addEventListener('pageshow', function (e) {
+            syncBordkortHomeCatalog();
+            if (e.persisted) {
+                requestAnimationFrame(syncBordkortHomeCatalog);
+            }
+        });
+
+        if (!location.hash || location.hash === '#') {
+            history.replaceState(null, '', '#forside');
+        }
+        syncBordkortHomeCatalog();
+    } else if (bordkortNavne && bordkortSpeciale && bordkortNavne.classList.contains('tab-section')) {
         function syncBordkortCatalog() {
             var hash = (location.hash || '#forside').replace(/^#/, '');
             var isCatalog = hash === 'navne' || hash === 'speciale';

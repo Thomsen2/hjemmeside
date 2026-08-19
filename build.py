@@ -301,7 +301,13 @@ def nav_html_bordkort(active: str) -> str:
                 <span></span><span></span><span></span>
             </button>
             <div class="nav-links" id="navLinks">
-                <a href="/" class="{cls('home')}">
+                <a href="#forside" class="{cls('home')}">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M4 10.5L12 4l8 6.5V19a1.5 1.5 0 0 1-1.5 1.5H15v-5.5H9V20.5H5.5A1.5 1.5 0 0 1 4 19V10.5z"/></svg>
+                    </span>
+                    Forside
+                </a>
+                <a href="#navne" class="nav-link">
                     <span class="nav-icon nav-icon--card" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 10h8M8 14h5"/></svg>
                         <span class="name-bubbles" aria-hidden="true">
@@ -311,12 +317,6 @@ def nav_html_bordkort(active: str) -> str:
                             <span class="nb">Bo</span>
                             <span class="nb">Ava</span>
                         </span>
-                    </span>
-                    Forside
-                </a>
-                <a href="#navne" class="nav-link">
-                    <span class="nav-icon nav-icon--card" aria-hidden="true">
-                        <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 10h8M8 14h5"/></svg>
                     </span>
                     Navne bordkort
                 </a>
@@ -676,7 +676,7 @@ def main():
         slug="home",
         title="Bordkort i træ – personlige navne og motiver til festen",
         description="Personlige bordkort i træ til bryllup, konfirmation og fest. Navnebordkort fra 10 kr. og specielle motiver. Håndlavet i Dragør.",
-        h1='<a href="/">Bordkort i træ til fest og bryllup</a>',
+        h1='<a href="#forside">Bordkort i træ til fest og bryllup</a>',
         canonical="https://bordkort.dk/",
         kicker=False,
         crumb="",
@@ -721,6 +721,9 @@ def main():
         favicon="/favicon-bordkort.ico?v=3",
     )
     write_page("bordkort-site/index.html", bordkort_home)
+    import subprocess
+    import sys
+    subprocess.run([sys.executable, str(ROOT / "_restructure_bordkort_home.py")], check=True)
 
     urls = [
         "https://æresportskilt.dk/",
