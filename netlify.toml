@@ -1,12 +1,19 @@
-# Host-rewrite skal force=true, ellers vinder root index.html (æresportskilt).
+# www → non-www (undgår duplicate content)
 [[redirects]]
-  from = "https://bordkort.dk/"
-  to = "/bordkort-site/index.html"
-  status = 200
+  from = "https://www.bordkort.dk/*"
+  to = "https://bordkort.dk/:splat"
+  status = 301
   force = true
 
 [[redirects]]
-  from = "https://www.bordkort.dk/"
+  from = "https://www.bordkort.dk"
+  to = "https://bordkort.dk/"
+  status = 301
+  force = true
+
+# Host-rewrite skal force=true, ellers vinder root index.html (æresportskilt).
+[[redirects]]
+  from = "https://bordkort.dk/"
   to = "/bordkort-site/index.html"
   status = 200
   force = true
@@ -18,31 +25,13 @@
   force = true
 
 [[redirects]]
-  from = "https://www.bordkort.dk/index.html"
-  to = "/bordkort-site/index.html"
-  status = 200
-  force = true
-
-[[redirects]]
   from = "https://bordkort.dk/favicon.svg"
   to = "/favicon-bordkort.ico"
   status = 200
   force = true
 
 [[redirects]]
-  from = "https://www.bordkort.dk/favicon.svg"
-  to = "/favicon-bordkort.ico"
-  status = 200
-  force = true
-
-[[redirects]]
   from = "https://bordkort.dk/favicon.ico"
-  to = "/favicon-bordkort.ico"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "https://www.bordkort.dk/favicon.ico"
   to = "/favicon-bordkort.ico"
   status = 200
   force = true

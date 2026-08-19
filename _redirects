@@ -1,11 +1,11 @@
+# www → non-www (undgår duplicate content)
+https://www.bordkort.dk/*             https://bordkort.dk/:splat    301!
+https://www.bordkort.dk                 https://bordkort.dk/          301!
+
 # Bordkort.dk viser sin egen forside (samme stil, andet fokus).
 # 200! er påkrævet: uden force serverer Netlify den eksisterende /index.html
 # (æresportskilt-forsiden) og ignorerer rewriten.
 https://bordkort.dk/                 /bordkort-site/index.html    200!
-https://www.bordkort.dk/             /bordkort-site/index.html    200!
 https://bordkort.dk/index.html       /bordkort-site/index.html    200!
-https://www.bordkort.dk/index.html   /bordkort-site/index.html    200!
 https://bordkort.dk/favicon.svg      /favicon-bordkort.ico        200!
-https://www.bordkort.dk/favicon.svg  /favicon-bordkort.ico        200!
 https://bordkort.dk/favicon.ico      /favicon-bordkort.ico        200!
-https://www.bordkort.dk/favicon.ico  /favicon-bordkort.ico        200!

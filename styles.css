@@ -1443,6 +1443,17 @@ footer a:hover {
     color: #fff;
 }
 
+.footer-contact {
+    margin-bottom: 0.75rem;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.6;
+}
+
+.footer-contact a {
+    color: rgba(255, 255, 255, 0.88);
+    font-weight: 500;
+}
+
 /* ——— Motion ——— */
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
