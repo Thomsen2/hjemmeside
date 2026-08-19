@@ -22,3 +22,27 @@
   to = "/bordkort-site/index.html"
   status = 200
   force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/favicon.svg"
+  to = "/favicon-bordkort.png"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.bordkort.dk/favicon.svg"
+  to = "/favicon-bordkort.png"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/favicon.ico"
+  to = "/favicon-bordkort.png"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.bordkort.dk/favicon.ico"
+  to = "/favicon-bordkort.png"
+  status = 200
+  force = true
