@@ -24,6 +24,18 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "https://bordkort.dk/om-os/"
+  to = "/bordkort-site/om-os/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/om-os"
+  to = "/bordkort-site/om-os/index.html"
+  status = 200
+  force = true
+
 # Host-rewrite skal force=true, ellers vinder root index.html (æresportskilt).
 [[redirects]]
   from = "https://bordkort.dk/"

@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=134"
+ASSET_CSS = "/styles.css?v=139"
 ASSET_JS = "/script.js?v=48"
 
 
@@ -291,9 +291,11 @@ def nav_html(active: str) -> str:
     </nav>"""
 
 
-def nav_html_bordkort(active: str) -> str:
+def nav_html_bordkort(active: str, prefix: str = "") -> str:
     def cls(slug):
         return "nav-link active" if active == slug else "nav-link"
+
+    p = prefix
 
     return f"""    <nav class="main-nav" id="mainNav">
         <div class="container nav-bar">
@@ -301,13 +303,13 @@ def nav_html_bordkort(active: str) -> str:
                 <span></span><span></span><span></span>
             </button>
             <div class="nav-links" id="navLinks">
-                <a href="#forside" class="{cls('home')}">
+                <a href="{p}#forside" class="{cls('home')}">
                     <span class="nav-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><path d="M4 10.5L12 4l8 6.5V19a1.5 1.5 0 0 1-1.5 1.5H15v-5.5H9V20.5H5.5A1.5 1.5 0 0 1 4 19V10.5z"/></svg>
                     </span>
                     Forside
                 </a>
-                <a href="#navne" class="nav-link">
+                <a href="{p}#navne" class="nav-link">
                     <span class="nav-icon nav-icon--card" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 10h8M8 14h5"/></svg>
                         <span class="name-bubbles" aria-hidden="true">
@@ -320,15 +322,15 @@ def nav_html_bordkort(active: str) -> str:
                     </span>
                     Navne bordkort
                 </a>
-                <a href="#speciale" class="nav-link">
+                <a href="{p}#speciale" class="nav-link">
                     <span class="nav-icon nav-icon--spark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></span>
                     Specielle motiver
                 </a>
-                <a href="#eget-design" class="{cls('eget-design')}">
+                <a href="{p}#eget-design" class="{cls('eget-design')}">
                     <span class="nav-icon nav-icon--spark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.5 5.5L19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5L12 3zM18.5 15.5l.8 2.7 2.7.8-2.7.8-.8 2.7-.8-2.7-2.7-.8 2.7-.8.8-2.7zM5.5 16.5l.6 2 2 .6-2 .6-.6 2-.6-2-2-.6 2-.6.6-2z"/></svg></span>
                     Få lavet dit eget design
                 </a>
-                <a href="#faq" class="nav-link">
+                <a href="{p}#faq" class="nav-link">
                     <span class="nav-icon nav-icon--faq" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.4 2.3c-.7.3-1.4.9-1.4 1.7V14M12 17h.01"/></svg></span>
                     Ofte stillede spørgsmål
                 </a>
@@ -360,15 +362,37 @@ def faq_jsonld(items: list[tuple[str, str]]) -> str:
     return json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": entities}, ensure_ascii=False, indent=2)
 
 
-FOOTER = """    <footer>
+CONTACT_FOOTER = """            <p class="footer-contact">Bo Thomsen &middot; Ulspilsager 23, 2791 Dragør &middot; <a href="tel:+4520264102">Mobil 20 26 41 02</a></p>"""
+
+CONTACT_ABOUT = """            <p class="contact-detail">Bo Thomsen</p>
+            <p class="contact-detail">Ulspilsager 23, 2791 Dragør</p>
+            <p class="contact-detail">Mobil: <a href="tel:+4520264102">20 26 41 02</a></p>"""
+
+ABOUT_AESPORT = "Hos Æresportskilt.dk skaber vi håndlavede æresportskilte med kærlighed til træhåndværket. Hvert skilt udføres i nøje udvalgte træsorter, hvor kvalitet og detaljer er i fokus. Vi tilbyder personlig service og skræddersyede løsninger, så dit skilt bliver unikt og holder i generationer."
+
+ABOUT_BORDKORT = "Hos Bordkort.dk laver vi personlige bordkort i træ til bryllup, konfirmation og fest. Hvert bordkort fremstilles på bestilling med fokus på kvalitet og detaljer. Vi tilbyder personlig service – og laver også æresportskilte på Æresportskilt.dk."
+
+def about_section(about_text: str) -> str:
+    return f"""    <section class="about">
         <div class="container">
-            <p>&copy; 2026 Æresportskilt.dk. Alle rettigheder forbeholdes. &mdash; <a href="/hjerte/">Hjerte</a> &mdash; <a href="/vaabenskjold/">Våbenskjold</a> &mdash; <a href="/egetrae/">Egetræ</a> &mdash; <a href="/bryllup/">Bryllup</a> &mdash; <a href="/gavekort/">Gavekort</a> &mdash; <a href="/bordkort/">Bordkort</a> &mdash; <a href="/om-os/">Om os</a></p>
+            <p class="about-text">{about_text}</p>
+            <h2 style="margin-top:2rem">Kontakt</h2>
+            <p>Har du spørgsmål? Kontakt os på:</p>
+{CONTACT_ABOUT}
+        </div>
+    </section>"""
+
+FOOTER = f"""    <footer>
+        <div class="container">
+{CONTACT_FOOTER}
+            <p>&copy; 2026 Æresportskilt.dk. Alle rettigheder forbeholdes. &mdash; <a href="/hjerte/">Hjerte</a> &mdash; <a href="/vaabenskjold/">Våbenskjold</a> &mdash; <a href="/egetrae/">Egetræ</a> &mdash; <a href="/bryllup/">Bryllup</a> &mdash; <a href="/gavekort/">Gavekort</a> &mdash; <a href="https://bordkort.dk/">Bordkort</a> &mdash; <a href="/om-os/">Om os</a></p>
         </div>
     </footer>"""
 
-BORDKORT_FOOTER = """    <footer>
+BORDKORT_FOOTER = f"""    <footer>
         <div class="container">
-            <p>&copy; 2026 Bordkort.dk. Alle rettigheder forbeholdes. &mdash; <a href="#navne">Navne bordkort</a> &mdash; <a href="#speciale">Specielle motiver</a> &mdash; <a href="https://æresportskilt.dk/">Æresportskilte</a> &mdash; <a href="https://æresportskilt.dk/om-os/">Om os</a></p>
+{CONTACT_FOOTER}
+            <p>&copy; 2026 Bordkort.dk. Alle rettigheder forbeholdes. &mdash; <a href="/#navne">Navne bordkort</a> &mdash; <a href="/#speciale">Specielle motiver</a> &mdash; <a href="https://æresportskilt.dk/">Æresportskilte</a> &mdash; <a href="om-os/">Om os</a></p>
         </div>
     </footer>"""
 
@@ -660,17 +684,30 @@ def main():
         intro=[],
         products_html="",
         faq=[],
-        extra_body="""    <section class="about">
-        <div class="container">
-            <p class="about-text">Hos Æresportskilt.dk skaber vi håndlavede æresportskilte med kærlighed til træhåndværket. Hvert skilt udføres i nøje udvalgte træsorter, hvor kvalitet og detaljer er i fokus. Vi tilbyder personlig service og skræddersyede løsninger, så dit skilt bliver unikt og holder i generationer.</p>
-            <h2 style="margin-top:2rem">Kontakt</h2>
-            <p>Har du spørgsmål? Kontakt os på:</p>
-            <p class="contact-detail">Mail: <a href="mailto:Thomsen2@gmail.com">Thomsen2@gmail.com</a></p>
-            <p class="contact-detail">Tlf: <a href="tel:+4512345678">+45 12 34 56 78</a></p>
-        </div>
-    </section>""",
+        extra_body=about_section(ABOUT_AESPORT),
     )
     write_page("om-os/index.html", omos)
+
+    bordkort_omos = page_shell(
+        slug="om-os",
+        title="Om os – Bordkort.dk",
+        description="Hos Bordkort.dk laver vi personlige bordkort i træ. Personlig service og afhentning i Dragør.",
+        h1="Om os",
+        canonical="https://bordkort.dk/om-os/",
+        kicker=True,
+        kicker_brand="Bordkort.dk",
+        crumb="Om os",
+        intro_h2="",
+        intro=[],
+        products_html="",
+        faq=[],
+        extra_body=about_section(ABOUT_BORDKORT),
+        site_name="Bordkort.dk",
+        nav=lambda slug: nav_html_bordkort(slug, prefix="/"),
+        footer=BORDKORT_FOOTER,
+        favicon="/favicon-bordkort.ico?v=3",
+    )
+    write_page("bordkort-site/om-os/index.html", bordkort_omos)
 
     bordkort_home = page_shell(
         slug="home",
@@ -742,6 +779,7 @@ def main():
         "https://æresportskilt.dk/eget-design/",
         "https://æresportskilt.dk/om-os/",
         "https://bordkort.dk/",
+        "https://bordkort.dk/om-os/",
     ]
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for i, loc in enumerate(urls):
