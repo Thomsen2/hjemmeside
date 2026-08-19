@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=107"
+ASSET_CSS = "/styles.css?v=108"
 ASSET_JS = "/script.js?v=38"
 
 
@@ -156,8 +156,10 @@ def render_grids(products: list[dict], group=True) -> str:
         intro_html = "".join(f"<p class=\"section-desc\">{esc(t)}</p>" for t in intro)
         cards = [render_card(p, first=(first_page and i == 0)) for i, p in enumerate(items)]
         first_page = False
+        anchor = {"bordkort_navne": "navne", "bordkort_speciale": "speciale"}.get(sid)
+        id_attr = f' id="{anchor}"' if anchor else ""
         blocks.append(
-            f"""    <section class="builder">
+            f"""    <section class="builder"{id_attr}>
         <div class="container">
             <h2 class="no-divider">{esc(h2)}</h2>
             {note_html}
@@ -281,6 +283,58 @@ def nav_html(active: str) -> str:
     </nav>"""
 
 
+def nav_html_bordkort(active: str) -> str:
+    def cls(slug):
+        return "nav-link active" if active == slug else "nav-link"
+
+    return f"""    <nav class="main-nav" id="mainNav">
+        <div class="container nav-bar">
+            <button class="nav-toggle" id="navToggle" aria-label="Åbn menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="/" class="{cls('home')}">
+                    <span class="nav-icon nav-icon--card" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 10h8M8 14h5"/></svg>
+                        <span class="name-bubbles" aria-hidden="true">
+                            <span class="nb">Mia</span>
+                            <span class="nb">Leo</span>
+                            <span class="nb">Ida</span>
+                            <span class="nb">Bo</span>
+                            <span class="nb">Ava</span>
+                        </span>
+                    </span>
+                    Forside
+                </a>
+                <a href="#navne" class="nav-link">
+                    <span class="nav-icon nav-icon--card" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 10h8M8 14h5"/></svg>
+                    </span>
+                    Navne bordkort
+                </a>
+                <a href="#speciale" class="nav-link">
+                    <span class="nav-icon nav-icon--spark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></span>
+                    Specielle motiver
+                </a>
+                <a href="#eget-design" class="{cls('eget-design')}">
+                    <span class="nav-icon nav-icon--spark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.5 5.5L19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5L12 3zM18.5 15.5l.8 2.7 2.7.8-2.7.8-.8 2.7-.8-2.7-2.7-.8 2.7-.8.8-2.7zM5.5 16.5l.6 2 2 .6-2 .6-.6 2-.6-2-2-.6 2-.6.6-2z"/></svg></span>
+                    Få lavet dit eget design
+                </a>
+                <a href="#faq" class="nav-link">
+                    <span class="nav-icon nav-icon--faq" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.4 2.3c-.7.3-1.4.9-1.4 1.7V14M12 17h.01"/></svg></span>
+                    Ofte stillede spørgsmål
+                </a>
+                <a href="https://æresportskilt.dk/" class="nav-link">
+                    <span class="nav-icon nav-icon--heart" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.5-8.2C.7 9.8 2.2 6 5.6 6c1.9 0 3.2 1.1 4 2.2C10.4 7.1 11.7 6 13.6 6c3.4 0 4.9 3.8 3.1 6.8C19 16.6 12 21 12 21z"/></svg>
+                    </span>
+                    Æresportskilte
+                </a>
+            </div>
+        </div>
+    </nav>"""
+
+
 def faq_block(items: list[tuple[str, str]]) -> str:
     parts = ['    <section class="faq-section" id="faq">', '        <div class="container">', "            <h2>Ofte stillede spørgsmål</h2>"]
     for q, a in items:
@@ -304,6 +358,12 @@ FOOTER = """    <footer>
         </div>
     </footer>"""
 
+BORDKORT_FOOTER = """    <footer>
+        <div class="container">
+            <p>&copy; 2026 Bordkort.dk. Alle rettigheder forbeholdes. &mdash; <a href="#navne">Navne bordkort</a> &mdash; <a href="#speciale">Specielle motiver</a> &mdash; <a href="https://æresportskilt.dk/">Æresportskilte</a> &mdash; <a href="https://æresportskilt.dk/om-os/">Om os</a></p>
+        </div>
+    </footer>"""
+
 NETLIFY_FORM = """    <form name="bestilling" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden aria-hidden="true">
         <input type="text" name="bot-field">
         <input type="hidden" name="form-name" value="bestilling">
@@ -323,13 +383,15 @@ NETLIFY_FORM = """    <form name="bestilling" method="POST" data-netlify="true" 
     </form>"""
 
 
-def page_shell(*, slug, title, description, h1, canonical, kicker, crumb, intro_h2, intro, products_html, faq, extra_body=""):
+def page_shell(*, slug, title, description, h1, canonical, kicker, crumb, intro_h2, intro, products_html, faq, extra_body="", site_name="Æresportskilt.dk", kicker_brand="Æresportskilt.dk", nav=None, footer=None):
     url = canonical
     breadcrumb = ""
     if crumb:
         breadcrumb = f'<p class="page-breadcrumb"><a href="/">Forside</a> / {esc(crumb)}</p>'
-    kicker_html = f'<p class="site-kicker"><a href="/">Æresportskilt.dk</a></p>' if kicker else ""
+    kicker_html = f'<p class="site-kicker"><a href="/">{esc(kicker_brand)}</a></p>' if kicker else ""
     h1_html = f"<h1>{h1}</h1>" if slug == "home" else f"<h1>{esc(h1)}</h1>"
+    nav_block = nav(slug) if nav else nav_html(slug)
+    footer_block = footer if footer is not None else FOOTER
     intro_html = ""
     if intro:
         paras = "\n".join(f"            <p>{esc(p)}</p>" for p in intro)
@@ -354,7 +416,7 @@ def page_shell(*, slug, title, description, h1, canonical, kicker, crumb, intro_
     <link rel="canonical" href="{esc(url)}">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="da_DK">
-    <meta property="og:site_name" content="Æresportskilt.dk">
+    <meta property="og:site_name" content="{esc(site_name)}">
     <meta property="og:url" content="{esc(url)}">
     <meta property="og:title" content="{esc(title)}">
     <meta property="og:description" content="{esc(description)}">
@@ -372,13 +434,13 @@ def page_shell(*, slug, title, description, h1, canonical, kicker, crumb, intro_
             {h1_html}
         </div>
     </header>
-{nav_html(slug)}
+{nav_block}
     {breadcrumb}
 {products_html}
 {intro_html}
 {faq_html}
 {extra_body}
-{FOOTER}
+{footer_block}
 {NETLIFY_FORM}
     <script src="{ASSET_JS}"></script>
     <div class="lightbox" id="lightbox" style="display:none">
@@ -395,6 +457,13 @@ AESPORT_FAQ = [
     ("Hvad er et æresportskilt?", "Et æresportskilt er et personligt skilt i træ, der hænges op som en del af æresporten – typisk ved indgangen til festen. Det viser navne og dato og gør porten mere personlig."),
     ("Hvad kan der stå på et æresportskilt?", "I kan typisk få navne, datoer og år på skiltet efter jeres ønsker. På forespørgselsformularerne skriver I den tekst, I gerne vil have på skiltet."),
     ("Hvordan bestiller jeg et æresportskilt?", "Vælg en model, udfyld formularen og send forespørgslen. I kan vælge afhentning i Dragør eller forsendelse."),
+]
+
+BORDKORT_FAQ = [
+    ("Hvad er et bordkort i træ?", "Et bordkort i træ er et lille, personligt skilt med gæstens navn – eller et motiv – som står ved kuverten. Det gør borddækningen mere personlig og er et minde, gæsterne kan tage med hjem."),
+    ("Hvad koster bordkort?", "Klassiske navnebordkort starter ved 10 kr. stykket. Specielle motiver koster typisk 12 kr. stykket. Prisen står ved hver model."),
+    ("Kan I lave et særligt motiv?", "Ja. Har I et tema til festen – sport, dyr, gaming eller noget helt andet – så skriv det i formularen under eget design, så laver vi et forslag."),
+    ("Hvordan bestiller jeg?", "Vælg en model, skriv navnene og send forespørgslen. I kan afhente i Dragør eller få bordkortene sendt."),
 ]
 
 
@@ -583,6 +652,55 @@ def main():
     )
     write_page("om-os/index.html", omos)
 
+    bordkort_home = page_shell(
+        slug="home",
+        title="Bordkort i træ – personlige navne og motiver til festen",
+        description="Personlige bordkort i træ til bryllup, konfirmation og fest. Navnebordkort fra 10 kr. og specielle motiver. Håndlavet i Dragør.",
+        h1='<a href="/">Bordkort i træ til fest og bryllup</a>',
+        canonical="https://bordkort.dk/",
+        kicker=False,
+        crumb="",
+        intro_h2="Personlige bordkort i træ",
+        intro=[
+            "Hos Bordkort.dk laver vi personlige bordkort i træ til bryllup, konfirmation, fødselsdag og fest.",
+            "Vælg klassiske navnebordkort eller specielle motiver – fodbold, heste, gaming og meget mere. Hvert bordkort fremstilles på bestilling.",
+            "Afhentning i Dragør eller forsendelse. Se også æresportskilte på Æresportskilt.dk, hvis I skal have skilt til æresporten.",
+        ],
+        products_html=render_grids(filter_products(lambda p: p["section"].startswith("bordkort"))),
+        faq=BORDKORT_FAQ,
+        extra_body="""    <section class="builder" id="eget-design">
+        <div class="container">
+            <h2 class="no-divider">Få lavet dit helt eget design</h2>
+            <p class="section-desc">Har I et tema, et logo eller et motiv, I ikke finder her? Beskriv ønsket, så laver vi et forslag og en pris.</p>
+            <div class="form-area" style="max-width:520px;margin:0 auto">
+                <form class="sign-form">
+                    <div class="form-group">
+                        <label for="besked_eget_design_bordkort">Beskriv dit design / ønsker</label>
+                        <textarea id="besked_eget_design_bordkort" name="besked_eget_design_bordkort" rows="5" placeholder="Beskriv gerne motiv, navne, antal, størrelse og anledning..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="navn_eget_design_bordkort">Navn</label>
+                        <input type="text" id="navn_eget_design_bordkort" name="navn_eget_design_bordkort" placeholder="Dit fulde navn">
+                    </div>
+                    <div class="form-group">
+                        <label for="mail_eget_design_bordkort">Mail</label>
+                        <input type="email" id="mail_eget_design_bordkort" name="mail_eget_design_bordkort" placeholder="din@mail.dk">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobil_eget_design_bordkort">Mobil nr</label>
+                        <input type="tel" id="mobil_eget_design_bordkort" name="mobil_eget_design_bordkort" placeholder="+45 12 34 56 78">
+                    </div>
+                    <button type="submit" class="btn-submit">Send forespørgsel</button>
+                </form>
+            </div>
+        </div>
+    </section>""",
+        site_name="Bordkort.dk",
+        nav=nav_html_bordkort,
+        footer=BORDKORT_FOOTER,
+    )
+    write_page("bordkort-site/index.html", bordkort_home)
+
     urls = [
         "https://æresportskilt.dk/",
         "https://æresportskilt.dk/hjerte/",
@@ -599,6 +717,7 @@ def main():
         "https://æresportskilt.dk/velkomst-skilt/",
         "https://æresportskilt.dk/eget-design/",
         "https://æresportskilt.dk/om-os/",
+        "https://bordkort.dk/",
     ]
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for i, loc in enumerate(urls):

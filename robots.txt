@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://æresportskilt.dk/sitemap.xml
+Sitemap: https://bordkort.dk/
