@@ -15,7 +15,7 @@
     <meta property="og:image" content="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/Joan%20%26%20Jesper.JPG">
     <meta property="og:image:alt" content="Personligt æresportskilt i træ til bryllup">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="/styles.css?v=115">
+    <link rel="stylesheet" href="/styles.css?v=133">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -81,11 +81,11 @@
 }
     </script>
 </head>
-<body>
+<body class="page-aesport-home">
     <header class="site-header">
         <div class="container">
             
-            <h1><a href="/">Æresportskilt til bryllup og fest</a></h1>
+            <h1><a href="#forside">Æresportskilt til bryllup og fest</a></h1>
         </div>
     </header>
     <nav class="main-nav" id="mainNav">
@@ -94,8 +94,14 @@
                 <span></span><span></span><span></span>
             </button>
             <div class="nav-links" id="navLinks">
+                <a href="#forside" class="nav-link active">
+                    <span class="nav-icon nav-icon--heart" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.5-8.2C.7 9.8 2.2 6 5.6 6c1.9 0 3.2 1.1 4 2.2C10.4 7.1 11.7 6 13.6 6c3.4 0 4.9 3.8 3.1 6.8C19 16.6 12 21 12 21z"/></svg>
+                    </span>
+                    Forside
+                </a>
                 <div class="nav-dropdown">
-                    <a href="/hjerte/" class="nav-link">
+                    <a href="#birkefiner" class="nav-link">
                         <span class="nav-icon nav-icon--heart" aria-hidden="true">
                             <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.5-8.2C.7 9.8 2.2 6 5.6 6c1.9 0 3.2 1.1 4 2.2C10.4 7.1 11.7 6 13.6 6c3.4 0 4.9 3.8 3.1 6.8C19 16.6 12 21 12 21z"/></svg>
                             <span class="heart-bubbles" aria-hidden="true">
@@ -110,7 +116,7 @@
                     </a>
                 </div>
                 <div class="nav-dropdown">
-                    <a href="/vaabenskjold/" class="nav-link">
+                    <a href="#vaabenskjold" class="nav-link">
                         <span class="nav-icon nav-icon--shield" aria-hidden="true">
                             <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.4 8.4-8 9.5C7.4 20.4 4 17 4 12V6l8-3z"/></svg>
                             <span class="shield-bubbles" aria-hidden="true">
@@ -167,7 +173,7 @@
                     <span class="nav-icon nav-icon--spark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></span>
                     Andre skilte
                 </a>
-                <a href="/bryllup/" class="nav-link">
+                <a href="#bryllup" class="nav-link">
                     <span class="nav-icon nav-icon--rings" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><circle cx="9" cy="13" r="5.5"/><circle cx="15" cy="11" r="5.5"/></svg>
                         <span class="ring-bubbles" aria-hidden="true">
@@ -180,7 +186,7 @@
                     </span>
                     Bryllup
                 </a>
-                <a href="/eget-design/" class="nav-link">
+                <a href="#eget-design" class="nav-link">
                     <span class="nav-icon nav-icon--spark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.5 5.5L19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5L12 3zM18.5 15.5l.8 2.7 2.7.8-2.7.8-.8 2.7-.8-2.7-2.7-.8 2.7-.8.8-2.7zM5.5 16.5l.6 2 2 .6-2 .6-.6 2-.6-2-2-.6 2-.6.6-2z"/></svg></span>
                     Få lavet dit helt eget design
                 </a>
@@ -191,8 +197,62 @@
             </div>
         </div>
     </nav>
-    
-    <section class="builder">
+     <section class="front-hero aesport-forside" id="forside">
+        <div class="container">
+            <figure class="front-hero__figure">
+                <img src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/Joan%20%26%20Jesper.JPG" alt="Personligt æresportskilt i træ til bryllup" class="front-hero__img">
+            </figure>
+        </div>
+    </section>
+    <section class="intro aesport-forside">
+        <div class="container">
+            <h2>Personlige æresportskilte i træ</h2>
+            <p>Hos Æresportskilt.dk laver vi personlige æresportskilte i træ til bryllup, kobberbryllup, sølvbryllup og guldbryllup — håndlavet i Dragør på Amager.</p>
+            <p>Vælg mellem hjerte eller våbenskjold i birkefiner, egetræ eller valnød, og få et personligt æresportskilt med jeres navne og dato.</p>
+            <p>Alle skilte fremstilles på bestilling. Gratis afhentning i Dragør efter aftale, eller levering i hele Danmark. Se også undersiderne til hjerte, våbenskjold og de enkelte anledninger — og <a href="https://bordkort.dk/">bordkort i træ på Bordkort.dk</a>.</p>
+        </div>
+    </section>
+    <section class="faq-section aesport-forside" id="faq">
+        <div class="container">
+            <h2>Ofte stillede spørgsmål</h2>
+            <h3>Hvad er et æresportskilt?</h3>
+            <p>Et æresportskilt er et personligt skilt i træ, der hænges op som en del af æresporten – typisk ved indgangen til festen. Det viser navne og dato og gør porten mere personlig.</p>
+            <h3>Hvad kan der stå på et æresportskilt?</h3>
+            <p>I kan typisk få navne, datoer og år på skiltet efter jeres ønsker. På forespørgselsformularerne skriver I den tekst, I gerne vil have på skiltet.</p>
+            <h3>Hvordan bestiller jeg et æresportskilt?</h3>
+            <p>Vælg en model, udfyld formularen og send forespørgslen. I kan vælge afhentning i Dragør eller forsendelse.</p>
+        </div>
+    </section>
+
+    <section class="builder aesport-forside" id="eget-design">
+        <div class="container">
+            <h2 class="no-divider">Få lavet dit helt eget design</h2>
+            <p class="section-desc">Har du en idé til et unikt skilt i træ? Fortæl os form, tekst, anledning og træsort – så laver vi et designforslag.</p>
+            <div class="form-area" style="max-width:520px;margin:0 auto">
+                <form class="sign-form">
+                    <div class="form-group">
+                        <label for="besked_eget_design">Beskriv dit design / ønsker</label>
+                        <textarea id="besked_eget_design" name="besked_eget_design" rows="5" placeholder="Beskriv gerne form, tekst, størrelse, træsort og anledning..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="navn_eget_design">Navn</label>
+                        <input type="text" id="navn_eget_design" name="navn_eget_design" placeholder="Dit fulde navn">
+                    </div>
+                    <div class="form-group">
+                        <label for="mail_eget_design">Mail</label>
+                        <input type="email" id="mail_eget_design" name="mail_eget_design" placeholder="din@mail.dk">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobil_eget_design">Mobil nr</label>
+                        <input type="tel" id="mobil_eget_design" name="mobil_eget_design" placeholder="+45 12 34 56 78">
+                    </div>
+                    <button type="submit" class="btn-submit">Send forespørgsel</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="builder tab-section" id="birkefiner">
         <div class="container">
             <h2 class="no-divider">Æresportskilt – hjerte i birkefiner</h2>
             <p class="wood-note">Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ</p>
@@ -471,7 +531,7 @@
             </div>
         </div>
     </section>
-    <section class="builder">
+    <section class="builder tab-section" id="egetrae">
         <div class="container">
             <h2 class="no-divider">Æresportskilt – hjerte i egetræ</h2>
             <p class="wood-note">Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ</p>
@@ -751,7 +811,7 @@
             </div>
         </div>
     </section>
-    <section class="builder">
+    <section class="builder tab-section" id="version1">
         <div class="container">
             <h2 class="no-divider">Æresportskilt – hjerte i bejdset valnød</h2>
             <p class="wood-note">Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ</p>
@@ -814,7 +874,7 @@
             </div>
         </div>
     </section>
-    <section class="builder">
+    <section class="builder tab-section" id="version2">
         <div class="container">
             <h2 class="no-divider">Æresportskilt – hjerte i amerikansk valnød</h2>
             <p class="wood-note">Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ</p>
@@ -877,123 +937,62 @@
             </div>
         </div>
     </section>
-    <section class="builder" id="speciale">
-        <div class="container">
-            <h2 class="no-divider">Specielle bordkort i træ</h2>
-            
-            
-            <div class="product-grid">
-            <article class="product-card" data-beskrivelse="Bordkort – Hestehjerte (12 kr stk) (ca. mål 54x61mm)">
-                <div class="product-card__media sign-preview">
-                    <img loading="lazy" src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/hestehjerte%20version%201.jpeg" alt="Bordkort i træ med hestehjerte" class="product-card__img sign-photo">
-                    <img loading="lazy" src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/hestehjerte%20version%201.png" alt="Bordkort med hestehjerte på bord" class="product-card__img sign-photo product-card__img--alt product-card__img--alt" hidden>
-                </div>
-                <h3 class="product-card__title">Bordkort – Hestehjerte</h3>
-                <p class="product-card__size">ca. mål 54x61mm</p>
-                <p class="product-card__price">12,00 kr.</p>
-                <details class="product-card__order">
-                    <summary>Bestil</summary>
-                    <form class="sign-form">
-                        <div class="form-group">
-                            <label for="besked_bordkort-hestehjerte">Indtast navn</label>
-                            <textarea id="besked_bordkort-hestehjerte" name="besked_bordkort-hestehjerte" rows="3" placeholder="Skriv dine ønsker til skiltet her..."></textarea>
-                        </div>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
-                            Afhentning i Dragør (gratis)
-                        </label>
-                        <div class="pickup-fields">
-                            <div class="form-group">
-                                <label>Email til afhentningsinfo</label>
-                                <input type="email" class="pickup-email" placeholder="din@mail.dk">
-                            </div>
-                        </div>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
-                            Skal sendes (55 kr)
-                        </label>
-                        <div class="shipping-fields">
-                            <div class="form-group">
-                                <label for="navn_bordkort-hestehjerte">Navn</label>
-                                <input type="text" id="navn_bordkort-hestehjerte" name="navn_bordkort-hestehjerte" placeholder="Dit fulde navn">
-                            </div>
-                            <div class="form-group">
-                                <label for="adresse_bordkort-hestehjerte">Adresse</label>
-                                <input type="text" id="adresse_bordkort-hestehjerte" name="adresse_bordkort-hestehjerte" placeholder="Din adresse">
-                            </div>
-                            <div class="form-group">
-                                <label for="mail_bordkort-hestehjerte">Mail</label>
-                                <input type="email" id="mail_bordkort-hestehjerte" name="mail_bordkort-hestehjerte" placeholder="din@mail.dk">
-                            </div>
-                            <div class="form-group">
-                                <label for="mobil_bordkort-hestehjerte">Mobil nr</label>
-                                <input type="tel" id="mobil_bordkort-hestehjerte" name="mobil_bordkort-hestehjerte" placeholder="+45 12 34 56 78">
-                            </div>
-                        </div>
-                        <button type="submit" class="btn-submit">Send forespørgsel</button>
-                    </form>
-                </details>
-            </article>
-            <article class="product-card" data-beskrivelse="Bordkort – Heste hjerte version 2 (12 kr stk) (ca. mål 54x61mm)">
-                <div class="product-card__media sign-preview">
-                    <img loading="lazy" src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/heste%20hjerte%20version%202.jpeg" alt="Bordkort i træ med hestehjerte" class="product-card__img sign-photo">
-                    <img loading="lazy" src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/heste%20hjerte%20version%202.png" alt="Bordkort med hestehjerte på bord" class="product-card__img sign-photo product-card__img--alt product-card__img--alt" hidden>
-                </div>
-                <h3 class="product-card__title">Bordkort – Heste hjerte version 2</h3>
-                <p class="product-card__size">ca. mål 54x61mm</p>
-                <p class="product-card__price">12,00 kr.</p>
-                <details class="product-card__order">
-                    <summary>Bestil</summary>
-                    <form class="sign-form">
-                        <div class="form-group">
-                            <label for="besked_bordkort-heste-hjerte-version-2">Indtast navn</label>
-                            <textarea id="besked_bordkort-heste-hjerte-version-2" name="besked_bordkort-heste-hjerte-version-2" rows="3" placeholder="Skriv dine ønsker til skiltet her..."></textarea>
-                        </div>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
-                            Afhentning i Dragør (gratis)
-                        </label>
-                        <div class="pickup-fields">
-                            <div class="form-group">
-                                <label>Email til afhentningsinfo</label>
-                                <input type="email" class="pickup-email" placeholder="din@mail.dk">
-                            </div>
-                        </div>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
-                            Skal sendes (55 kr)
-                        </label>
-                        <div class="shipping-fields">
-                            <div class="form-group">
-                                <label for="navn_bordkort-heste-hjerte-version-2">Navn</label>
-                                <input type="text" id="navn_bordkort-heste-hjerte-version-2" name="navn_bordkort-heste-hjerte-version-2" placeholder="Dit fulde navn">
-                            </div>
-                            <div class="form-group">
-                                <label for="adresse_bordkort-heste-hjerte-version-2">Adresse</label>
-                                <input type="text" id="adresse_bordkort-heste-hjerte-version-2" name="adresse_bordkort-heste-hjerte-version-2" placeholder="Din adresse">
-                            </div>
-                            <div class="form-group">
-                                <label for="mail_bordkort-heste-hjerte-version-2">Mail</label>
-                                <input type="email" id="mail_bordkort-heste-hjerte-version-2" name="mail_bordkort-heste-hjerte-version-2" placeholder="din@mail.dk">
-                            </div>
-                            <div class="form-group">
-                                <label for="mobil_bordkort-heste-hjerte-version-2">Mobil nr</label>
-                                <input type="tel" id="mobil_bordkort-heste-hjerte-version-2" name="mobil_bordkort-heste-hjerte-version-2" placeholder="+45 12 34 56 78">
-                            </div>
-                        </div>
-                        <button type="submit" class="btn-submit">Send forespørgsel</button>
-                    </form>
-                </details>
-            </article>
-            </div>
-        </div>
-    </section>
-    <section class="builder">
+    <section class="builder tab-section" id="bryllup">
         <div class="container">
             <h2 class="no-divider">Skilte og dekoration til bryllup</h2>
             
             <p class="section-desc">Skilte og dekoration til bryllup – send en forespørgsel, så finder vi den rigtige løsning til jeres fest.</p>
             <div class="product-grid">
+            <article class="product-card" data-beskrivelse="Velkomstskilt i egetræ (400 kr), Egetræ">
+                <div class="product-card__media sign-preview">
+                    <img loading="lazy" src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/velkomstskilt-egetrae-bryllup.png?v=2" alt="Velkomstskilt i egetræ til bryllup" class="product-card__img sign-photo">
+                </div>
+                <h3 class="product-card__title">Velkomstskilt i egetræ</h3>
+                <p class="product-card__size">Egetræ</p>
+                <p class="product-card__price">400,00 kr.</p>
+                <details class="product-card__order">
+                    <summary>Bestil</summary>
+                    <form class="sign-form">
+                        <div class="form-group">
+                            <label for="besked_velkomstskilt-i-egetrae-bryllup">Indtast tekst til velkomstskiltet</label>
+                            <textarea id="besked_velkomstskilt-i-egetrae-bryllup" name="besked_velkomstskilt-i-egetrae-bryllup" rows="3" placeholder="Skriv dine ønsker til skiltet her..."></textarea>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
+                            Afhentning i Dragør (gratis)
+                        </label>
+                        <div class="pickup-fields">
+                            <div class="form-group">
+                                <label>Email til afhentningsinfo</label>
+                                <input type="email" class="pickup-email" placeholder="din@mail.dk">
+                            </div>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
+                            Skal sendes (55 kr)
+                        </label>
+                        <div class="shipping-fields">
+                            <div class="form-group">
+                                <label for="navn_velkomstskilt-i-egetrae-bryllup">Navn</label>
+                                <input type="text" id="navn_velkomstskilt-i-egetrae-bryllup" name="navn_velkomstskilt-i-egetrae-bryllup" placeholder="Dit fulde navn">
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse_velkomstskilt-i-egetrae-bryllup">Adresse</label>
+                                <input type="text" id="adresse_velkomstskilt-i-egetrae-bryllup" name="adresse_velkomstskilt-i-egetrae-bryllup" placeholder="Din adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail_velkomstskilt-i-egetrae-bryllup">Mail</label>
+                                <input type="email" id="mail_velkomstskilt-i-egetrae-bryllup" name="mail_velkomstskilt-i-egetrae-bryllup" placeholder="din@mail.dk">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobil_velkomstskilt-i-egetrae-bryllup">Mobil nr</label>
+                                <input type="tel" id="mobil_velkomstskilt-i-egetrae-bryllup" name="mobil_velkomstskilt-i-egetrae-bryllup" placeholder="+45 12 34 56 78">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </details>
+            </article>
             <article class="product-card" data-beskrivelse="Æresportskilt hjerte Bryllups hjerte i egetræ (249 kr), Størrelse 31 x 33 cm">
                 <div class="product-card__media sign-preview">
                     <img loading="lazy" src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/bryllurp%20hjerte.JPG" alt="Bryllupshjerte i egetræ" class="product-card__img sign-photo">
@@ -1102,26 +1101,351 @@
             </div>
         </div>
     </section>
-    <section class="intro">
+    <section class="builder tab-section" id="vaabenskjold">
         <div class="container">
-            <h2>Personlige æresportskilte i træ</h2>
-            <p>Hos Æresportskilt.dk laver vi personlige æresportskilte i træ til bryllup, kobberbryllup, sølvbryllup og guldbryllup — håndlavet i Dragør på Amager.</p>
-            <p>Vælg mellem hjerte eller våbenskjold i birkefiner, egetræ eller valnød, og få et personligt æresportskilt med jeres navne og dato.</p>
-            <p>Alle skilte fremstilles på bestilling. Gratis afhentning i Dragør efter aftale, eller levering i hele Danmark. Se også undersiderne til hjerte, våbenskjold og de enkelte anledninger.</p>
-        </div>
-    </section>
-    <section class="faq-section" id="faq">
-        <div class="container">
-            <h2>Ofte stillede spørgsmål</h2>
-            <h3>Hvad er et æresportskilt?</h3>
-            <p>Et æresportskilt er et personligt skilt i træ, der hænges op som en del af æresporten – typisk ved indgangen til festen. Det viser navne og dato og gør porten mere personlig.</p>
-            <h3>Hvad kan der stå på et æresportskilt?</h3>
-            <p>I kan typisk få navne, datoer og år på skiltet efter jeres ønsker. På forespørgselsformularerne skriver I den tekst, I gerne vil have på skiltet.</p>
-            <h3>Hvordan bestiller jeg et æresportskilt?</h3>
-            <p>Vælg en model, udfyld formularen og send forespørgslen. I kan vælge afhentning i Dragør eller forsendelse.</p>
-        </div>
-    </section>
+            <h2 class="no-divider">Æresportskilt – våbenskjold i birkefiner</h2>
+            <p class="wood-note">Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ</p>
+            
+            <div class="product-grid">
+            <article class="product-card" data-beskrivelse="Våbenskjold i birkefiner (199 kr), Størrelse 31 x 33 cm">
+                <div class="product-card__media sign-preview">
+                    <img src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/finer_vaabenskjold.JPG" alt="Våbenskjold i birkefiner" class="product-card__img sign-photo">
+                </div>
+                <h3 class="product-card__title">Våbenskjold i birkefiner</h3>
+                <p class="product-card__size">Størrelse 31 x 33 cm</p>
+                <p class="product-card__price">199,00 kr.</p>
+                <details class="product-card__order">
+                    <summary>Bestil</summary>
+                    <form class="sign-form">
+                        <div class="form-group">
+                            <label for="besked_vaabenskjold-i-birkefiner">Indtast Navne, Datoer (2 stk), samt år</label>
+                            <textarea id="besked_vaabenskjold-i-birkefiner" name="besked_vaabenskjold-i-birkefiner" rows="3" placeholder="Skriv dine ønsker til skiltet her..."></textarea>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
+                            Afhentning i Dragør (gratis)
+                        </label>
+                        <div class="pickup-fields">
+                            <div class="form-group">
+                                <label>Email til afhentningsinfo</label>
+                                <input type="email" class="pickup-email" placeholder="din@mail.dk">
+                            </div>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
+                            Skal sendes (55 kr)
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="mounting" value="20" class="mounting-toggle">
+                            Tilføj monteringskit +20 kr (indeholder 2 klæbepuder + 2 strips)
+                        </label>
+                        <div class="shipping-fields">
+                            <div class="form-group">
+                                <label for="navn_vaabenskjold-i-birkefiner">Navn</label>
+                                <input type="text" id="navn_vaabenskjold-i-birkefiner" name="navn_vaabenskjold-i-birkefiner" placeholder="Dit fulde navn">
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse_vaabenskjold-i-birkefiner">Adresse</label>
+                                <input type="text" id="adresse_vaabenskjold-i-birkefiner" name="adresse_vaabenskjold-i-birkefiner" placeholder="Din adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail_vaabenskjold-i-birkefiner">Mail</label>
+                                <input type="email" id="mail_vaabenskjold-i-birkefiner" name="mail_vaabenskjold-i-birkefiner" placeholder="din@mail.dk">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobil_vaabenskjold-i-birkefiner">Mobil nr</label>
+                                <input type="tel" id="mobil_vaabenskjold-i-birkefiner" name="mobil_vaabenskjold-i-birkefiner" placeholder="+45 12 34 56 78">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </details>
+            </article>
+            <article class="product-card" data-beskrivelse="Våbenskjold i birkefiner til konfirmanten (199 kr), Størrelse 31 x 33 cm">
+                <div class="product-card__media sign-preview">
+                    <img loading="lazy" src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/konfirmation-vaabenskjold.png" alt="Våbenskjold i birkefiner til konfirmation" class="product-card__img sign-photo">
+                </div>
+                <h3 class="product-card__title">Våbenskjold i birkefiner til konfirmanten</h3>
+                <p class="product-card__size">Størrelse 31 x 33 cm</p>
+                <p class="product-card__price">199,00 kr.</p>
+                <details class="product-card__order">
+                    <summary>Bestil</summary>
+                    <form class="sign-form">
+                        <div class="form-group">
+                            <label for="besked_vaabenskjold-i-birkefiner-til-konfirmanten">Indtast Navne, Datoer (2 stk), samt år</label>
+                            <textarea id="besked_vaabenskjold-i-birkefiner-til-konfirmanten" name="besked_vaabenskjold-i-birkefiner-til-konfirmanten" rows="3" placeholder="Skriv dine ønsker til skiltet her..."></textarea>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
+                            Afhentning i Dragør (gratis)
+                        </label>
+                        <div class="pickup-fields">
+                            <div class="form-group">
+                                <label>Email til afhentningsinfo</label>
+                                <input type="email" class="pickup-email" placeholder="din@mail.dk">
+                            </div>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
+                            Skal sendes (55 kr)
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="mounting" value="20" class="mounting-toggle">
+                            Tilføj monteringskit +20 kr (indeholder 2 klæbepuder + 2 strips)
+                        </label>
+                        <div class="shipping-fields">
+                            <div class="form-group">
+                                <label for="navn_vaabenskjold-i-birkefiner-til-konfirmanten">Navn</label>
+                                <input type="text" id="navn_vaabenskjold-i-birkefiner-til-konfirmanten" name="navn_vaabenskjold-i-birkefiner-til-konfirmanten" placeholder="Dit fulde navn">
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse_vaabenskjold-i-birkefiner-til-konfirmanten">Adresse</label>
+                                <input type="text" id="adresse_vaabenskjold-i-birkefiner-til-konfirmanten" name="adresse_vaabenskjold-i-birkefiner-til-konfirmanten" placeholder="Din adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail_vaabenskjold-i-birkefiner-til-konfirmanten">Mail</label>
+                                <input type="email" id="mail_vaabenskjold-i-birkefiner-til-konfirmanten" name="mail_vaabenskjold-i-birkefiner-til-konfirmanten" placeholder="din@mail.dk">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobil_vaabenskjold-i-birkefiner-til-konfirmanten">Mobil nr</label>
+                                <input type="tel" id="mobil_vaabenskjold-i-birkefiner-til-konfirmanten" name="mobil_vaabenskjold-i-birkefiner-til-konfirmanten" placeholder="+45 12 34 56 78">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </details>
+            </article>
+            <article class="product-card" data-beskrivelse="Æresportskilt (halvt skilt til Kobber bryllup) i birkefiner (150 kr), Størrelse 31 x 33 cm">
+                <div class="product-card__media sign-preview">
+                    <img loading="lazy" src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/kobber%20bryllup%20halvt%20v%C3%A5ben%20birkefiner.JPG" alt="Halvt våbenskjold til kobberbryllup i birkefiner" class="product-card__img sign-photo">
+                </div>
+                <h3 class="product-card__title">Æresportskilt (halvt skilt til Kobber bryllup) i birkefiner</h3>
+                <p class="product-card__size">Størrelse 31 x 33 cm</p>
+                <p class="product-card__price">150,00 kr.</p>
+                <details class="product-card__order">
+                    <summary>Bestil</summary>
+                    <form class="sign-form">
+                        <div class="form-group">
+                            <label for="besked_aeresportskilt-halvt-skilt-til-kobber-bryllup-i-birkefiner">Indtast Navne, Datoer (2 stk), samt år</label>
+                            <textarea id="besked_aeresportskilt-halvt-skilt-til-kobber-bryllup-i-birkefiner" name="besked_aeresportskilt-halvt-skilt-til-kobber-bryllup-i-birkefiner" rows="3" placeholder="Skriv dine ønsker til skiltet her..."></textarea>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
+                            Afhentning i Dragør (gratis)
+                        </label>
+                        <div class="pickup-fields">
+                            <div class="form-group">
+                                <label>Email til afhentningsinfo</label>
+                                <input type="email" class="pickup-email" placeholder="din@mail.dk">
+                            </div>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
+                            Skal sendes (55 kr)
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="mounting" value="20" class="mounting-toggle">
+                            Tilføj monteringskit +20 kr (indeholder 2 klæbepuder + 2 strips)
+                        </label>
+                        <div class="shipping-fields">
+                            <div class="form-group">
+                                <label for="navn_aeresportskilt-halvt-skilt-til-kobber-bryllup-i-birkefiner">Navn</label>
+                                <input type="text" id="navn_aeresportskilt-halvt-skilt-til-kobber-bryllup-i-birkefiner" name="navn_aeresportskilt-halvt-skilt-til-kobber-bryllup-i-birkefiner" placeholder="Dit fulde navn">
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse_aeresportskilt-halvt-skilt-til-kobber-bryllup-i-birkefiner">Adresse</label>
+                                <input type="text" id="adresse_aeresportskilt-halvt-skilt-til-kobber-bryllup-i-birkefiner" name="adresse_aeresportskilt-halvt-skilt-til-kobber-bryllup-i-birkefiner" placeholder="Din adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail_aeresportskilt-halvt-skilt-til-kobber-bryllup-i-birkefiner">Mail</label>
+                                <input type="email" id="mail_aeresportskilt-halvt-skilt-til-kobber-bryllup-i-birkefiner" name="mail_aeresportskilt-halvt-skilt-til-kobber-bryllup-i-birkefiner" placeholder="din@mail.dk">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobil_aeresportskilt-halvt-skilt-til-kobber-bryllup-i-birkefiner">Mobil nr</label>
+                                <input type="tel" id="mobil_aeresportskilt-halvt-skilt-til-kobber-bryllup-i-birkefiner" name="mobil_aeresportskilt-halvt-skilt-til-kobber-bryllup-i-birkefiner" placeholder="+45 12 34 56 78">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </details>
+            </article>
+            </div>
 
+            <h2 class="no-divider">Æresportskilt – våbenskjold i egetræ</h2>
+            <p class="wood-note">Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ</p>
+            
+            <div class="product-grid">
+            <article class="product-card" data-beskrivelse="Æresportskilt Våbenskjold i egetræ (249 kr), Størrelse 31 x 33 cm — version 1">
+                <div class="product-card__media sign-preview">
+                    <img loading="lazy" src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/Pia%20%26%20Klaus.JPG" alt="Våbenskjold i egetræ" class="product-card__img sign-photo">
+                </div>
+                <h3 class="product-card__title">Æresportskilt Våbenskjold i egetræ</h3>
+                <p class="product-card__size">Størrelse 31 x 33 cm — version 1</p>
+                <p class="product-card__price">249,00 kr.</p>
+                <details class="product-card__order">
+                    <summary>Bestil</summary>
+                    <form class="sign-form">
+                        <div class="form-group">
+                            <label for="besked_aeresportskilt-vaabenskjold-i-egetrae">Indtast Navne, Datoer (2 stk), samt år</label>
+                            <textarea id="besked_aeresportskilt-vaabenskjold-i-egetrae" name="besked_aeresportskilt-vaabenskjold-i-egetrae" rows="3" placeholder="Skriv dine ønsker til skiltet her..."></textarea>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
+                            Afhentning i Dragør (gratis)
+                        </label>
+                        <div class="pickup-fields">
+                            <div class="form-group">
+                                <label>Email til afhentningsinfo</label>
+                                <input type="email" class="pickup-email" placeholder="din@mail.dk">
+                            </div>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
+                            Skal sendes (55 kr)
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="mounting" value="20" class="mounting-toggle">
+                            Tilføj monteringskit +20 kr (indeholder 2 klæbepuder + 2 strips)
+                        </label>
+                        <div class="shipping-fields">
+                            <div class="form-group">
+                                <label for="navn_aeresportskilt-vaabenskjold-i-egetrae">Navn</label>
+                                <input type="text" id="navn_aeresportskilt-vaabenskjold-i-egetrae" name="navn_aeresportskilt-vaabenskjold-i-egetrae" placeholder="Dit fulde navn">
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse_aeresportskilt-vaabenskjold-i-egetrae">Adresse</label>
+                                <input type="text" id="adresse_aeresportskilt-vaabenskjold-i-egetrae" name="adresse_aeresportskilt-vaabenskjold-i-egetrae" placeholder="Din adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail_aeresportskilt-vaabenskjold-i-egetrae">Mail</label>
+                                <input type="email" id="mail_aeresportskilt-vaabenskjold-i-egetrae" name="mail_aeresportskilt-vaabenskjold-i-egetrae" placeholder="din@mail.dk">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobil_aeresportskilt-vaabenskjold-i-egetrae">Mobil nr</label>
+                                <input type="tel" id="mobil_aeresportskilt-vaabenskjold-i-egetrae" name="mobil_aeresportskilt-vaabenskjold-i-egetrae" placeholder="+45 12 34 56 78">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </details>
+            </article>
+            <article class="product-card" data-beskrivelse="Æresportskilt Våbenskjold i egetræ (249 kr), Størrelse 31 x 33 cm — version 2">
+                <div class="product-card__media sign-preview">
+                    <img loading="lazy" src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/lily%20og%20harald%20egetr%C3%A6.png" alt="Skilt til æresport som våbenskjold i egetræ" class="product-card__img sign-photo">
+                </div>
+                <h3 class="product-card__title">Æresportskilt Våbenskjold i egetræ</h3>
+                <p class="product-card__size">Størrelse 31 x 33 cm — version 2</p>
+                <p class="product-card__price">249,00 kr.</p>
+                <details class="product-card__order">
+                    <summary>Bestil</summary>
+                    <form class="sign-form">
+                        <div class="form-group">
+                            <label for="besked_aeresportskilt-vaabenskjold-i-egetrae-2">Indtast Navne, Datoer (2 stk), samt år</label>
+                            <textarea id="besked_aeresportskilt-vaabenskjold-i-egetrae-2" name="besked_aeresportskilt-vaabenskjold-i-egetrae-2" rows="3" placeholder="Skriv dine ønsker til skiltet her..."></textarea>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
+                            Afhentning i Dragør (gratis)
+                        </label>
+                        <div class="pickup-fields">
+                            <div class="form-group">
+                                <label>Email til afhentningsinfo</label>
+                                <input type="email" class="pickup-email" placeholder="din@mail.dk">
+                            </div>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
+                            Skal sendes (55 kr)
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="mounting" value="20" class="mounting-toggle">
+                            Tilføj monteringskit +20 kr (indeholder 2 klæbepuder + 2 strips)
+                        </label>
+                        <div class="shipping-fields">
+                            <div class="form-group">
+                                <label for="navn_aeresportskilt-vaabenskjold-i-egetrae-2">Navn</label>
+                                <input type="text" id="navn_aeresportskilt-vaabenskjold-i-egetrae-2" name="navn_aeresportskilt-vaabenskjold-i-egetrae-2" placeholder="Dit fulde navn">
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse_aeresportskilt-vaabenskjold-i-egetrae-2">Adresse</label>
+                                <input type="text" id="adresse_aeresportskilt-vaabenskjold-i-egetrae-2" name="adresse_aeresportskilt-vaabenskjold-i-egetrae-2" placeholder="Din adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail_aeresportskilt-vaabenskjold-i-egetrae-2">Mail</label>
+                                <input type="email" id="mail_aeresportskilt-vaabenskjold-i-egetrae-2" name="mail_aeresportskilt-vaabenskjold-i-egetrae-2" placeholder="din@mail.dk">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobil_aeresportskilt-vaabenskjold-i-egetrae-2">Mobil nr</label>
+                                <input type="tel" id="mobil_aeresportskilt-vaabenskjold-i-egetrae-2" name="mobil_aeresportskilt-vaabenskjold-i-egetrae-2" placeholder="+45 12 34 56 78">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </details>
+            </article>
+            </div>
+
+            <h2 class="no-divider">Æresportskilt – våbenskjold i bejdset valnød</h2>
+            <p class="wood-note">Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ</p>
+            
+            <div class="product-grid">
+            <article class="product-card" data-beskrivelse="Våbenskjold i bejdset Valnød (249 kr), Størrelse 31 x 33 cm">
+                <div class="product-card__media sign-preview">
+                    <img loading="lazy" src="https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/vaabenskjold_bejdset.JPG" alt="Våbenskjold i bejdset valnød" class="product-card__img sign-photo">
+                </div>
+                <h3 class="product-card__title">Våbenskjold i bejdset Valnød</h3>
+                <p class="product-card__size">Størrelse 31 x 33 cm</p>
+                <p class="product-card__price">249,00 kr.</p>
+                <details class="product-card__order">
+                    <summary>Bestil</summary>
+                    <form class="sign-form">
+                        <div class="form-group">
+                            <label for="besked_vaabenskjold-i-bejdset-valnoed">Indtast Navne, Datoer (2 stk), samt år</label>
+                            <textarea id="besked_vaabenskjold-i-bejdset-valnoed" name="besked_vaabenskjold-i-bejdset-valnoed" rows="3" placeholder="Skriv dine ønsker til skiltet her..."></textarea>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
+                            Afhentning i Dragør (gratis)
+                        </label>
+                        <div class="pickup-fields">
+                            <div class="form-group">
+                                <label>Email til afhentningsinfo</label>
+                                <input type="email" class="pickup-email" placeholder="din@mail.dk">
+                            </div>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shipping" value="55" class="shipping-toggle">
+                            Skal sendes (55 kr)
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="mounting" value="20" class="mounting-toggle">
+                            Tilføj monteringskit +20 kr (indeholder 2 klæbepuder + 2 strips)
+                        </label>
+                        <div class="shipping-fields">
+                            <div class="form-group">
+                                <label for="navn_vaabenskjold-i-bejdset-valnoed">Navn</label>
+                                <input type="text" id="navn_vaabenskjold-i-bejdset-valnoed" name="navn_vaabenskjold-i-bejdset-valnoed" placeholder="Dit fulde navn">
+                            </div>
+                            <div class="form-group">
+                                <label for="adresse_vaabenskjold-i-bejdset-valnoed">Adresse</label>
+                                <input type="text" id="adresse_vaabenskjold-i-bejdset-valnoed" name="adresse_vaabenskjold-i-bejdset-valnoed" placeholder="Din adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail_vaabenskjold-i-bejdset-valnoed">Mail</label>
+                                <input type="email" id="mail_vaabenskjold-i-bejdset-valnoed" name="mail_vaabenskjold-i-bejdset-valnoed" placeholder="din@mail.dk">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobil_vaabenskjold-i-bejdset-valnoed">Mobil nr</label>
+                                <input type="tel" id="mobil_vaabenskjold-i-bejdset-valnoed" name="mobil_vaabenskjold-i-bejdset-valnoed" placeholder="+45 12 34 56 78">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Send forespørgsel</button>
+                    </form>
+                </details>
+            </article>
+            </div>
+        </div>
+    </section>
     <footer>
         <div class="container">
             <p class="footer-contact">Bo Thomsen &middot; Ulspilsager 23, 2791 Dragør &middot; <a href="tel:+4520264102">Mobil 20 26 41 02</a></p>
@@ -1145,7 +1469,7 @@
         <input type="email" name="Mail">
         <input type="tel" name="Mobil">
     </form>
-    <script src="/script.js?v=38"></script>
+    <script src="/script.js?v=48"></script>
     <div class="lightbox" id="lightbox" style="display:none">
         <span class="lightbox-close">&times;</span>
         <img class="lightbox-img" id="lightboxImg" src="" alt="">

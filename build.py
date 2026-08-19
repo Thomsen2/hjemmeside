@@ -10,8 +10,8 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=112"
-ASSET_JS = "/script.js?v=38"
+ASSET_CSS = "/styles.css?v=133"
+ASSET_JS = "/script.js?v=48"
 
 
 def esc(value) -> str:
@@ -131,7 +131,7 @@ HEADING_MAP = {
 }
 
 
-def render_grids(products: list[dict], group=True) -> str:
+def render_grids(products: list[dict], group=True, hide_headings: set[str] | None = None) -> str:
     if not products:
         return '<p class="shop-mount__status">Ingen modeller på denne side endnu.</p>'
     if not group:
@@ -158,11 +158,13 @@ def render_grids(products: list[dict], group=True) -> str:
         first_page = False
         anchor = {"bordkort_navne": "navne", "bordkort_speciale": "speciale"}.get(sid)
         id_attr = f' id="{anchor}"' if anchor else ""
+        h2_html = ""
+        if not (hide_headings and sid in hide_headings):
+            h2_html = f'<h2 class="no-divider">{esc(h2)}</h2>\n            '
         blocks.append(
             f"""    <section class="builder"{id_attr}>
         <div class="container">
-            <h2 class="no-divider">{esc(h2)}</h2>
-            {note_html}
+            {h2_html}{note_html}
             {intro_html}
             <div class="product-grid">
 {chr(10).join(cards)}
@@ -184,8 +186,14 @@ def nav_html(active: str) -> str:
                 <span></span><span></span><span></span>
             </button>
             <div class="nav-links" id="navLinks">
+                <a href="/#forside" class="nav-link">
+                    <span class="nav-icon nav-icon--heart" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.5-8.2C.7 9.8 2.2 6 5.6 6c1.9 0 3.2 1.1 4 2.2C10.4 7.1 11.7 6 13.6 6c3.4 0 4.9 3.8 3.1 6.8C19 16.6 12 21 12 21z"/></svg>
+                    </span>
+                    Forside
+                </a>
                 <div class="nav-dropdown">
-                    <a href="/hjerte/" class="{cls('hjerte')}">
+                    <a href="/#birkefiner" class="{cls('hjerte')}">
                         <span class="nav-icon nav-icon--heart" aria-hidden="true">
                             <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.5-8.2C.7 9.8 2.2 6 5.6 6c1.9 0 3.2 1.1 4 2.2C10.4 7.1 11.7 6 13.6 6c3.4 0 4.9 3.8 3.1 6.8C19 16.6 12 21 12 21z"/></svg>
                             <span class="heart-bubbles" aria-hidden="true">
@@ -200,7 +208,7 @@ def nav_html(active: str) -> str:
                     </a>
                 </div>
                 <div class="nav-dropdown">
-                    <a href="/vaabenskjold/" class="{cls('vaabenskjold')}">
+                    <a href="/#vaabenskjold" class="{cls('vaabenskjold')}">
                         <span class="nav-icon nav-icon--shield" aria-hidden="true">
                             <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.4 8.4-8 9.5C7.4 20.4 4 17 4 12V6l8-3z"/></svg>
                             <span class="shield-bubbles" aria-hidden="true">
@@ -227,7 +235,7 @@ def nav_html(active: str) -> str:
                     </span>
                     Gavekort i træ
                 </a>
-                <a href="/bordkort/" class="{cls('bordkort')}">
+                <a href="https://bordkort.dk/" class="{cls('bordkort')}">
                     <span class="nav-icon nav-icon--card" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 10h8M8 14h5"/></svg>
                         <span class="name-bubbles" aria-hidden="true">
@@ -257,7 +265,7 @@ def nav_html(active: str) -> str:
                     <span class="nav-icon nav-icon--spark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></span>
                     Andre skilte
                 </a>
-                <a href="/bryllup/" class="{cls('bryllup') if active in ('bryllup','kobberbryllup','soelvbryllup','guldbryllup') else 'nav-link'}">
+                <a href="/#bryllup" class="{cls('bryllup') if active in ('bryllup','kobberbryllup','soelvbryllup','guldbryllup') else 'nav-link'}">
                     <span class="nav-icon nav-icon--rings" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><circle cx="9" cy="13" r="5.5"/><circle cx="15" cy="11" r="5.5"/></svg>
                         <span class="ring-bubbles" aria-hidden="true">
@@ -270,11 +278,11 @@ def nav_html(active: str) -> str:
                     </span>
                     Bryllup
                 </a>
-                <a href="/eget-design/" class="{cls('eget-design')}">
+                <a href="/#eget-design" class="{cls('eget-design')}">
                     <span class="nav-icon nav-icon--spark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.5 5.5L19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5L12 3zM18.5 15.5l.8 2.7 2.7.8-2.7.8-.8 2.7-.8-2.7-2.7-.8 2.7-.8.8-2.7zM5.5 16.5l.6 2 2 .6-2 .6-.6 2-.6-2-2-.6 2-.6.6-2z"/></svg></span>
                     Få lavet dit helt eget design
                 </a>
-                <a href="#faq" class="nav-link">
+                <a href="/#faq" class="nav-link">
                     <span class="nav-icon nav-icon--faq" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.4 2.3c-.7.3-1.4.9-1.4 1.7V14M12 17h.01"/></svg></span>
                     Ofte stillede spørgsmål
                 </a>
@@ -383,22 +391,22 @@ NETLIFY_FORM = """    <form name="bestilling" method="POST" data-netlify="true" 
     </form>"""
 
 
-def page_shell(*, slug, title, description, h1, canonical, kicker, crumb, intro_h2, intro, products_html, faq, extra_body="", site_name="Æresportskilt.dk", kicker_brand="Æresportskilt.dk", nav=None, footer=None, favicon="/favicon.svg"):
+def page_shell(*, slug, title, description, h1, canonical, kicker, crumb, intro_h2, intro, products_html, faq, extra_body="", site_name="Æresportskilt.dk", kicker_brand="Æresportskilt.dk", nav=None, footer=None, favicon="/favicon.svg", intro_before=False):
     url = canonical
     breadcrumb = ""
     if crumb:
-        breadcrumb = f'<p class="page-breadcrumb"><a href="/">Forside</a> / {esc(crumb)}</p>'
-    kicker_html = f'<p class="site-kicker"><a href="/">{esc(kicker_brand)}</a></p>' if kicker else ""
+        breadcrumb = f'<p class="page-breadcrumb"><a href="/#forside">Forside</a> / {esc(crumb)}</p>'
+    kicker_html = f'<p class="site-kicker"><a href="/#forside">{esc(kicker_brand)}</a></p>' if kicker else ""
     h1_html = f"<h1>{h1}</h1>" if slug == "home" else f"<h1>{esc(h1)}</h1>"
     nav_block = nav(slug) if nav else nav_html(slug)
     footer_block = footer if footer is not None else FOOTER
     intro_html = ""
     if intro:
         paras = "\n".join(f"            <p>{esc(p)}</p>" for p in intro)
+        heading = f"            <h2>{esc(intro_h2)}</h2>\n" if intro_h2 else ""
         intro_html = f"""    <section class="intro">
         <div class="container">
-            <h2>{esc(intro_h2)}</h2>
-{paras}
+{heading}{paras}
         </div>
     </section>"""
     faq_html = faq_block(faq) if faq else ""
@@ -414,6 +422,10 @@ def page_shell(*, slug, title, description, h1, canonical, kicker, crumb, intro_
     else:
         icon_type = "image/png" if favicon.endswith(".png") else "image/svg+xml"
         icon_links = f'    <link rel="icon" href="{esc(favicon)}" type="{icon_type}">'
+    if intro_before:
+        body_middle = f"{intro_html}\n{products_html}\n{faq_html}"
+    else:
+        body_middle = f"{products_html}\n{intro_html}\n{faq_html}"
     return f"""<!DOCTYPE html>
 <html lang="da">
 <head>
@@ -444,10 +456,7 @@ def page_shell(*, slug, title, description, h1, canonical, kicker, crumb, intro_
     </header>
 {nav_block}
     {breadcrumb}
-{products_html}
-{intro_html}
-{faq_html}
-{extra_body}
+{body_middle}{extra_body}
 {footer_block}
 {NETLIFY_FORM}
     <script src="{ASSET_JS}"></script>
@@ -483,7 +492,7 @@ def write_page(rel_path: str, content: str):
 
 
 def main():
-    hearts = filter_products(lambda p: p["form"] == "hjerte")
+    hearts = filter_products(lambda p: p["form"] == "hjerte" and not p["section"].startswith("bordkort"))
     shields = filter_products(lambda p: p["form"] == "vaabenskjold")
     oak = filter_products(lambda p: p["wood"] == "egetrae" and p["form"] in ("hjerte", "vaabenskjold"))
     signs = filter_products(lambda p: p["form"] in ("hjerte", "vaabenskjold"))
@@ -551,8 +560,8 @@ def main():
         dict(slug="gavekort", path="gavekort/index.html", title="Gavekort i træ – personlig pengegave",
              description="Personligt gavekort i træ til bryllup, konfirmation og fødselsdag. Håndlavet i Dragør.",
              h1="Gavekort i træ", canonical="https://æresportskilt.dk/gavekort/", kicker=True, crumb="Gavekort",
-             intro_h2="Personligt gavekort i træ",
-             intro=["Et gavekort i træ er en anderledes måde at give en pengegave på. Selve skiltet bliver en del af gaven."],
+             intro_h2="",
+             intro=[],
              products=filter_products(lambda p: p["section"] == "gavekort"), faq=[]),
         dict(slug="bordkort", path="bordkort/index.html", title="Bordkort i træ – navne og specielle designs",
              description="Personlige bordkort i træ med navn eller tema. Navne bordkort og specielle bordkort til festen.",
@@ -581,6 +590,8 @@ def main():
     ]
 
     for p in pages:
+        if p["slug"] == "home":
+            continue
         html_out = page_shell(
             slug=p["slug"],
             title=p["title"],
@@ -591,7 +602,8 @@ def main():
             crumb=p["crumb"],
             intro_h2=p["intro_h2"],
             intro=p["intro"],
-            products_html=render_grids(p["products"]),
+            intro_before=p.get("intro_before", False),
+            products_html=render_grids(p["products"], hide_headings=p.get("hide_product_headings")),
             faq=p["faq"],
         )
         write_page(p["path"], html_out)

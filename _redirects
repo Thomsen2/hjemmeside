@@ -1,3 +1,7 @@
+# Æresportskilt.dk/bordkort → bordkort.dk (undgår duplicate content)
+/bordkort/        https://bordkort.dk/        301
+/bordkort/*       https://bordkort.dk/:splat  301
+
 # www → non-www (undgår duplicate content)
 https://www.bordkort.dk/*             https://bordkort.dk/:splat    301!
 https://www.bordkort.dk                 https://bordkort.dk/          301!

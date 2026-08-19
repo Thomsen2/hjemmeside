@@ -36,7 +36,7 @@
     }
 
     function activateSection(sectionId) {
-        if (!sectionId) return;
+        if (!sectionId || document.body.classList.contains('page-aesport-home')) return;
 
         if (sectionId === 'faq') {
             if (document.getElementById('faq')) {
@@ -143,11 +143,23 @@
 
     var hashId = (location.hash || '').replace(/^#/, '');
     if (hashId === 'bordkort') hashId = 'bordkort_speciale';
-    if (hashId && hashPages[hashId]) {
+    var aesportHomeHashes = {
+        forside: true,
+        faq: true,
+        'eget-design': true,
+        birkefiner: true,
+        egetrae: true,
+        version1: true,
+        version2: true,
+        bryllup: true,
+        vaabenskjold: true
+    };
+    var onAesportHome = document.body.classList.contains('page-aesport-home');
+    if (hashId && hashPages[hashId] && !(onAesportHome && aesportHomeHashes[hashId])) {
         location.replace(hashPages[hashId]);
         return;
     }
-    if (hashId && document.getElementById(hashId)) {
+    if (!document.body.classList.contains('page-bordkort') && !onAesportHome && hashId && document.getElementById(hashId)) {
         activateSection(hashId);
     }
 
@@ -235,6 +247,144 @@
             if (overlay) overlay.style.display = 'none';
         }
     });
+
+    var bordkortNavne = document.getElementById('navne');
+    var bordkortSpeciale = document.getElementById('speciale');
+    if (bordkortNavne && bordkortSpeciale && bordkortNavne.classList.contains('tab-section')) {
+        function syncBordkortCatalog() {
+            var hash = (location.hash || '#forside').replace(/^#/, '');
+            var isCatalog = hash === 'navne' || hash === 'speciale';
+            document.body.classList.toggle('bordkort-view-catalog', isCatalog);
+            document.body.classList.remove('hide-aesport-intro');
+            bordkortNavne.classList.toggle('active', hash === 'navne');
+            bordkortSpeciale.classList.toggle('active', hash === 'speciale');
+            document.querySelectorAll('#navLinks .nav-link[href^="#"]').forEach(function (link) {
+                var target = (link.getAttribute('href') || '#forside').slice(1);
+                link.classList.toggle('active', target === hash);
+            });
+            if (isCatalog) {
+                window.scrollTo({ top: nav ? nav.offsetTop : 0, behavior: 'smooth' });
+            } else {
+                var scrollTarget = document.getElementById(hash === 'forside' ? 'forside' : hash);
+                if (scrollTarget) {
+                    setTimeout(function () {
+                        scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 50);
+                } else if (hash === 'forside') {
+                    window.scrollTo({ top: nav ? nav.offsetTop : 0, behavior: 'smooth' });
+                }
+            }
+            closeNav();
+        }
+        if (!location.hash) {
+            history.replaceState(null, '', '#forside');
+        }
+        window.addEventListener('hashchange', syncBordkortCatalog);
+        document.querySelectorAll('#navLinks .nav-link[href^="#"], footer a[href^="#"]').forEach(function (link) {
+            link.addEventListener('click', function () {
+                setTimeout(syncBordkortCatalog, 0);
+            });
+        });
+        syncBordkortCatalog();
+    }
+
+    var aesportCatalogIds = ['birkefiner', 'egetrae', 'version1', 'version2', 'vaabenskjold', 'bryllup'];
+    var aesportBirkefiner = document.getElementById('birkefiner');
+    if (onAesportHome && aesportBirkefiner && aesportBirkefiner.classList.contains('tab-section')) {
+        function getAesportHash() {
+            var hash = (location.hash || '#forside').replace(/^#/, '');
+            return hash || 'forside';
+        }
+
+        function syncAesportHomeCatalog() {
+            var hash = getAesportHash();
+            var isCatalog = aesportCatalogIds.indexOf(hash) !== -1;
+
+            document.body.classList.remove('hide-aesport-intro');
+            document.body.classList.toggle('aesport-view-catalog', isCatalog);
+
+            document.querySelectorAll('.tab-section').forEach(function (section) {
+                section.classList.toggle('active', isCatalog && section.id === hash);
+            });
+
+            document.querySelectorAll('#navLinks .nav-link[href^="#"], header h1 a[href^="#"]').forEach(function (link) {
+                var target = (link.getAttribute('href') || '#forside').slice(1);
+                link.classList.toggle('active', target === hash);
+            });
+
+            closeNav();
+
+            requestAnimationFrame(function () {
+                if (isCatalog) {
+                    window.scrollTo({ top: nav ? nav.offsetTop : 0, behavior: 'smooth' });
+                    return;
+                }
+                var scrollTarget = document.getElementById(hash);
+                if (scrollTarget) {
+                    scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    window.scrollTo({ top: nav ? nav.offsetTop : 0, behavior: 'smooth' });
+                }
+            });
+        }
+
+        function navigateAesportHome(hash) {
+            var target = '#' + hash;
+            if (location.hash === target) {
+                syncAesportHomeCatalog();
+            } else {
+                location.hash = hash;
+            }
+        }
+
+        function resetAesportHomeForLeave() {
+            document.body.classList.remove('aesport-view-catalog', 'hide-aesport-intro');
+            document.querySelectorAll('.tab-section').forEach(function (section) {
+                section.classList.remove('active');
+            });
+            if (location.hash !== '#forside') {
+                history.replaceState(null, '', '#forside');
+                syncAesportHomeCatalog();
+            }
+        }
+
+        document.addEventListener('click', function (e) {
+            var link = e.target.closest('a[href^="#"]');
+            if (link) {
+                var href = link.getAttribute('href') || '';
+                if (href !== '#') {
+                    var hash = href.slice(1);
+                    if (aesportHomeHashes[hash] || document.getElementById(hash)) {
+                        e.preventDefault();
+                        navigateAesportHome(hash);
+                    }
+                }
+                return;
+            }
+            link = e.target.closest('a[href]');
+            if (!link) return;
+            var path = link.getAttribute('href') || '';
+            if (!path || path.charAt(0) === '#') return;
+            if (/^https?:\/\//i.test(path) && path.indexOf(location.origin) !== 0) return;
+            if (path.charAt(0) === '/' || path.indexOf(location.origin) === 0) {
+                resetAesportHomeForLeave();
+            }
+        }, true);
+
+        window.addEventListener('hashchange', syncAesportHomeCatalog);
+        window.addEventListener('popstate', syncAesportHomeCatalog);
+        window.addEventListener('pageshow', function (e) {
+            syncAesportHomeCatalog();
+            if (e.persisted) {
+                requestAnimationFrame(syncAesportHomeCatalog);
+            }
+        });
+
+        if (!location.hash || location.hash === '#') {
+            history.replaceState(null, '', '#forside');
+        }
+        syncAesportHomeCatalog();
+    }
 })();
 
 document.querySelectorAll('.shipping-toggle').forEach(function (toggle) {

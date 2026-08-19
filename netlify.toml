@@ -1,3 +1,16 @@
+# Æresportskilt.dk/bordkort → bordkort.dk (undgår duplicate content)
+[[redirects]]
+  from = "/bordkort/*"
+  to = "https://bordkort.dk/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/bordkort"
+  to = "https://bordkort.dk/"
+  status = 301
+  force = true
+
 # www → non-www (undgår duplicate content)
 [[redirects]]
   from = "https://www.bordkort.dk/*"
