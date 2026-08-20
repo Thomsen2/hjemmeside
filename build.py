@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=153"
+ASSET_CSS = "/styles.css?v=154"
 ASSET_JS = "/script.js?v=54"
 
 BORDKORT_OG_IMAGE = "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png"
@@ -327,7 +327,7 @@ def nav_html_bordkort(active: str, prefix: str = "") -> str:
                 </a>
                 <a href="{p}speciale/" class="{cls('speciale')}">
                     <span class="nav-icon nav-icon--spark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></span>
-                    Specielle motiver
+                    Specielle bordkort
                 </a>
                 <a href="{p}#eget-design" class="{cls('eget-design')}">
                     <span class="nav-icon nav-icon--spark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.5 5.5L19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5L12 3zM18.5 15.5l.8 2.7 2.7.8-2.7.8-.8 2.7-.8-2.7-2.7-.8 2.7-.8.8-2.7zM5.5 16.5l.6 2 2 .6-2 .6-.6 2-.6-2-2-.6 2-.6.6-2z"/></svg></span>
@@ -430,7 +430,7 @@ FOOTER = f"""    <footer>
 BORDKORT_FOOTER = f"""    <footer>
         <div class="container">
 {CONTACT_FOOTER}
-            <p>&copy; 2026 Bordkort.dk. Alle rettigheder forbeholdes. &mdash; <a href="/navne/">Navne bordkort</a> &mdash; <a href="/speciale/">Specielle motiver</a> &mdash; <a href="https://æresportskilt.dk/">Æresportskilte</a> &mdash; <a href="/om-os/">Om os</a></p>
+            <p>&copy; 2026 Bordkort.dk. Alle rettigheder forbeholdes. &mdash; <a href="/navne/">Navne bordkort</a> &mdash; <a href="/speciale/">Specielle bordkort</a> &mdash; <a href="https://æresportskilt.dk/">Æresportskilte</a> &mdash; <a href="/om-os/">Om os</a></p>
         </div>
     </footer>"""
 
@@ -856,7 +856,7 @@ def main():
         canonical="https://bordkort.dk/speciale/",
         kicker=True,
         kicker_brand="Bordkort.dk",
-        crumb="Specielle motiver",
+        crumb="Specielle bordkort",
         intro_h2="Specielle bordkort i træ",
         intro=[
             "Motivbordkort til børnefødselsdag, konfirmation og fest – fodbold, gaming, dyr og meget mere.",
