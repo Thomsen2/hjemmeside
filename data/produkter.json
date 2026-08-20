@@ -331,20 +331,20 @@
     },
     {
       "section": "egetrae",
-      "description": "Æresportskilt hjerte Egetræfiner uden dato (249 kr), Størrelse 31 x 33 cm",
-      "title": "Æresportskilt hjerte Egetræfiner uden dato",
-      "size": "Størrelse 31 x 33 cm",
+      "description": "Æresportskilt hjerte i Lys egetræ (249 kr), Størrelse 31 x 33 cm — version 3",
+      "title": "Æresportskilt hjerte i Lys egetræ",
+      "size": "Størrelse 31 x 33 cm — version 3",
       "price": "249,00 kr.",
       "images": [
         {
-          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/hjerte%20uden%20dato%20i%20egetr%C3%A6.JPG",
-          "alt": "Hjerte i egetræfiner uden dato",
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/hjerte-egetrae-version-3.png",
+          "alt": "Æresportskilt hjerte i egetræ med Tillykke",
           "hidden": false
         }
       ],
       "form_label": "Skriv dine ønsker til skiltet her",
       "mounting": true,
-      "id": "aeresportskilt-hjerte-egetraefiner-uden-dato",
+      "id": "aeresportskilt-hjerte-i-lys-egetrae-3",
       "form": "hjerte",
       "wood": "egetrae",
       "occasions": []
@@ -478,10 +478,10 @@
     },
     {
       "section": "version2",
-      "description": "Æresportskilt hjerte i Amerikansk mørk valnødfiner (399 kr), Størrelse 31 x 33 cm — version 1",
+      "description": "Æresportskilt hjerte i Amerikansk mørk valnødfiner (450 kr), Størrelse 31 x 33 cm — version 1",
       "title": "Æresportskilt hjerte i Amerikansk mørk valnødfiner",
       "size": "Størrelse 31 x 33 cm — version 1",
-      "price": "399,00 kr.",
+      "price": "450,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/amerikansk.jpg",

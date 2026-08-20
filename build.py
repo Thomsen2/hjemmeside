@@ -10,8 +10,8 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=147"
-ASSET_JS = "/script.js?v=52"
+ASSET_CSS = "/styles.css?v=153"
+ASSET_JS = "/script.js?v=54"
 
 BORDKORT_OG_IMAGE = "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png"
 BORDKORT_OG_ALT = "Personlige bordkort i træ på borddækning"
@@ -196,7 +196,7 @@ def nav_html(active: str) -> str:
                     Forside
                 </a>
                 <div class="nav-dropdown">
-                    <a href="/#birkefiner" class="{cls('hjerte')}">
+                    <a href="/#hjerte" class="{cls('hjerte')}">
                         <span class="nav-icon nav-icon--heart" aria-hidden="true">
                             <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.5-8.2C.7 9.8 2.2 6 5.6 6c1.9 0 3.2 1.1 4 2.2C10.4 7.1 11.7 6 13.6 6c3.4 0 4.9 3.8 3.1 6.8C19 16.6 12 21 12 21z"/></svg>
                             <span class="heart-bubbles" aria-hidden="true">

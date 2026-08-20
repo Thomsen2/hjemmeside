@@ -147,6 +147,7 @@
         forside: true,
         faq: true,
         'eget-design': true,
+        hjerte: true,
         birkefiner: true,
         egetrae: true,
         version1: true,
@@ -370,16 +371,25 @@
         syncBordkortCatalog();
     }
 
-    var aesportCatalogIds = ['birkefiner', 'egetrae', 'version1', 'version2', 'vaabenskjold', 'bryllup'];
-    var aesportBirkefiner = document.getElementById('birkefiner');
+    var aesportCatalogIds = ['hjerte', 'vaabenskjold', 'bryllup'];
+    var aesportBirkefiner = document.getElementById('hjerte');
     if (onAesportHome && aesportBirkefiner && aesportBirkefiner.classList.contains('tab-section')) {
         function getAesportHash() {
             var hash = (location.hash || '#forside').replace(/^#/, '');
+            hash = hash.split('?')[0].split('&')[0];
             return hash || 'forside';
         }
 
+        var legacyHeartHashes = { birkefiner: 'hjerte', egetrae: 'hjerte', version1: 'hjerte', version2: 'hjerte' };
+
         function syncAesportHomeCatalog() {
             var hash = getAesportHash();
+            if (legacyHeartHashes[hash]) {
+                hash = legacyHeartHashes[hash];
+                if (location.hash !== '#hjerte') {
+                    history.replaceState(null, '', '#hjerte');
+                }
+            }
             var isCatalog = aesportCatalogIds.indexOf(hash) !== -1;
             var isFaq = hash === 'faq';
             var isEgetDesign = hash === 'eget-design';
