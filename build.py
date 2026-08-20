@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=143"
+ASSET_CSS = "/styles.css?v=147"
 ASSET_JS = "/script.js?v=52"
 
 BORDKORT_OG_IMAGE = "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png"
@@ -372,11 +372,10 @@ def local_business_bordkort(*, url: str = "https://bordkort.dk/", page_id: str =
         "name": "Bordkort.dk",
         "url": url,
         "image": BORDKORT_OG_IMAGE,
-        "telephone": "+4520264102",
+        "email": "Thomsen2@gmail.com",
         "founder": {"@type": "Person", "name": "Bo Thomsen"},
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Ulspilsager 23",
             "postalCode": "2791",
             "addressLocality": "Dragør",
             "addressRegion": "Hovedstaden",
@@ -399,11 +398,13 @@ def bordkort_jsonld(faq: list[tuple[str, str]]) -> str:
     return json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False, indent=2)
 
 
-CONTACT_FOOTER = """            <p class="footer-contact">Bo Thomsen &middot; Ulspilsager 23, 2791 Dragør &middot; <a href="tel:+4520264102">Mobil 20 26 41 02</a></p>"""
+CONTACT_EMAIL = "Thomsen2@gmail.com"
 
-CONTACT_ABOUT = """            <p class="contact-detail">Bo Thomsen</p>
-            <p class="contact-detail">Ulspilsager 23, 2791 Dragør</p>
-            <p class="contact-detail">Mobil: <a href="tel:+4520264102">20 26 41 02</a></p>"""
+CONTACT_FOOTER = f"""            <p class="footer-contact">Bo Thomsen &middot; 2791 Dragør &middot; <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></p>"""
+
+CONTACT_ABOUT = f"""            <p class="contact-detail">Bo Thomsen</p>
+            <p class="contact-detail">2791 Dragør</p>
+            <p class="contact-detail">Mail: <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></p>"""
 
 ABOUT_AESPORT = "Hos Æresportskilt.dk skaber vi håndlavede æresportskilte med kærlighed til træhåndværket. Hvert skilt udføres i nøje udvalgte træsorter, hvor kvalitet og detaljer er i fokus. Vi tilbyder personlig service og skræddersyede løsninger, så dit skilt bliver unikt og holder i generationer."
 
