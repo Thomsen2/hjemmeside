@@ -25,6 +25,30 @@
   force = true
 
 [[redirects]]
+  from = "https://bordkort.dk/navne/"
+  to = "/bordkort-site/navne/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/navne"
+  to = "/bordkort-site/navne/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/speciale/"
+  to = "/bordkort-site/speciale/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/speciale"
+  to = "/bordkort-site/speciale/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "https://bordkort.dk/om-os/"
   to = "/bordkort-site/om-os/index.html"
   status = 200

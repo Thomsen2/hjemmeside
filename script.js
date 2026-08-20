@@ -127,9 +127,9 @@
 
     var hashPages = {
         gavekort: '/gavekort/',
-        bordkort: '/bordkort/',
-        bordkort_navne: '/bordkort/',
-        bordkort_speciale: '/bordkort/',
+        bordkort: 'https://bordkort.dk/',
+        bordkort_navne: 'https://bordkort.dk/navne/',
+        bordkort_speciale: 'https://bordkort.dk/speciale/',
         fodselstavle: '/fodselstavle/',
         andre_skilte: '/andre-skilte/',
         velkomst_skilt: '/velkomst-skilt/',
@@ -157,9 +157,7 @@
     var bordkortHomeHashes = {
         forside: true,
         faq: true,
-        'eget-design': true,
-        navne: true,
-        speciale: true
+        'eget-design': true
     };
     var onAesportHome = document.body.classList.contains('page-aesport-home');
     var onBordkortHome = document.body.classList.contains('page-bordkort');
@@ -258,7 +256,17 @@
 
     var bordkortNavne = document.getElementById('navne');
     var bordkortSpeciale = document.getElementById('speciale');
-    if (onBordkortHome && bordkortNavne && bordkortSpeciale && bordkortNavne.classList.contains('tab-section')) {
+    if (onBordkortHome && document.getElementById('forside')) {
+        var legacyHash = (location.hash || '').replace(/^#/, '');
+        if (legacyHash === 'navne') {
+            location.replace('/navne/');
+            return;
+        }
+        if (legacyHash === 'speciale') {
+            location.replace('/speciale/');
+            return;
+        }
+
         function getBordkortHash() {
             var hash = (location.hash || '#forside').replace(/^#/, '');
             return hash || 'forside';
@@ -266,13 +274,12 @@
 
         function syncBordkortHomeCatalog() {
             var hash = getBordkortHash();
-            var isCatalog = hash === 'navne' || hash === 'speciale';
             var isEgetDesign = hash === 'eget-design';
+            var isFaq = hash === 'faq';
 
-            document.body.classList.toggle('bordkort-view-catalog', isCatalog);
+            document.body.classList.remove('bordkort-view-catalog');
             document.body.classList.toggle('bordkort-view-eget-design', isEgetDesign);
-            bordkortNavne.classList.toggle('active', hash === 'navne');
-            bordkortSpeciale.classList.toggle('active', hash === 'speciale');
+            document.body.classList.toggle('bordkort-view-faq', isFaq);
 
             document.querySelectorAll('#navLinks .nav-link[href^="#"], header h1 a[href^="#"]').forEach(function (link) {
                 var target = (link.getAttribute('href') || '#forside').slice(1);
@@ -282,10 +289,6 @@
             closeNav();
 
             requestAnimationFrame(function () {
-                if (isCatalog) {
-                    window.scrollTo({ top: nav ? nav.offsetTop : 0, behavior: 'smooth' });
-                    return;
-                }
                 var scrollTarget = document.getElementById(hash);
                 if (scrollTarget) {
                     scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -378,9 +381,13 @@
         function syncAesportHomeCatalog() {
             var hash = getAesportHash();
             var isCatalog = aesportCatalogIds.indexOf(hash) !== -1;
+            var isFaq = hash === 'faq';
+            var isEgetDesign = hash === 'eget-design';
 
             document.body.classList.remove('hide-aesport-intro');
             document.body.classList.toggle('aesport-view-catalog', isCatalog);
+            document.body.classList.toggle('aesport-view-faq', isFaq);
+            document.body.classList.toggle('aesport-view-eget-design', isEgetDesign);
 
             document.querySelectorAll('.tab-section').forEach(function (section) {
                 section.classList.toggle('active', isCatalog && section.id === hash);

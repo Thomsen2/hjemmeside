@@ -10,8 +10,11 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=139"
-ASSET_JS = "/script.js?v=48"
+ASSET_CSS = "/styles.css?v=143"
+ASSET_JS = "/script.js?v=52"
+
+BORDKORT_OG_IMAGE = "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png"
+BORDKORT_OG_ALT = "Personlige bordkort i træ på borddækning"
 
 
 def esc(value) -> str:
@@ -309,7 +312,7 @@ def nav_html_bordkort(active: str, prefix: str = "") -> str:
                     </span>
                     Forside
                 </a>
-                <a href="{p}#navne" class="nav-link">
+                <a href="{p}navne/" class="{cls('navne')}">
                     <span class="nav-icon nav-icon--card" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 10h8M8 14h5"/></svg>
                         <span class="name-bubbles" aria-hidden="true">
@@ -322,7 +325,7 @@ def nav_html_bordkort(active: str, prefix: str = "") -> str:
                     </span>
                     Navne bordkort
                 </a>
-                <a href="{p}#speciale" class="nav-link">
+                <a href="{p}speciale/" class="{cls('speciale')}">
                     <span class="nav-icon nav-icon--spark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></span>
                     Specielle motiver
                 </a>
@@ -362,6 +365,40 @@ def faq_jsonld(items: list[tuple[str, str]]) -> str:
     return json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": entities}, ensure_ascii=False, indent=2)
 
 
+def local_business_bordkort(*, url: str = "https://bordkort.dk/", page_id: str = "https://bordkort.dk/#business") -> dict:
+    return {
+        "@type": "LocalBusiness",
+        "@id": page_id,
+        "name": "Bordkort.dk",
+        "url": url,
+        "image": BORDKORT_OG_IMAGE,
+        "telephone": "+4520264102",
+        "founder": {"@type": "Person", "name": "Bo Thomsen"},
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Ulspilsager 23",
+            "postalCode": "2791",
+            "addressLocality": "Dragør",
+            "addressRegion": "Hovedstaden",
+            "addressCountry": "DK",
+        },
+        "areaServed": {"@type": "Country", "name": "Danmark"},
+        "description": "Personlige bordkort i træ til bryllup og fest. Håndlavet i Dragør på Amager.",
+    }
+
+
+def bordkort_jsonld(faq: list[tuple[str, str]]) -> str:
+    faq_entity = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}}
+            for q, a in faq
+        ],
+    }
+    graph = [faq_entity, local_business_bordkort()]
+    return json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False, indent=2)
+
+
 CONTACT_FOOTER = """            <p class="footer-contact">Bo Thomsen &middot; Ulspilsager 23, 2791 Dragør &middot; <a href="tel:+4520264102">Mobil 20 26 41 02</a></p>"""
 
 CONTACT_ABOUT = """            <p class="contact-detail">Bo Thomsen</p>
@@ -392,7 +429,7 @@ FOOTER = f"""    <footer>
 BORDKORT_FOOTER = f"""    <footer>
         <div class="container">
 {CONTACT_FOOTER}
-            <p>&copy; 2026 Bordkort.dk. Alle rettigheder forbeholdes. &mdash; <a href="/#navne">Navne bordkort</a> &mdash; <a href="/#speciale">Specielle motiver</a> &mdash; <a href="https://æresportskilt.dk/">Æresportskilte</a> &mdash; <a href="om-os/">Om os</a></p>
+            <p>&copy; 2026 Bordkort.dk. Alle rettigheder forbeholdes. &mdash; <a href="/navne/">Navne bordkort</a> &mdash; <a href="/speciale/">Specielle motiver</a> &mdash; <a href="https://æresportskilt.dk/">Æresportskilte</a> &mdash; <a href="/om-os/">Om os</a></p>
         </div>
     </footer>"""
 
@@ -415,12 +452,14 @@ NETLIFY_FORM = """    <form name="bestilling" method="POST" data-netlify="true" 
     </form>"""
 
 
-def page_shell(*, slug, title, description, h1, canonical, kicker, crumb, intro_h2, intro, products_html, faq, extra_body="", site_name="Æresportskilt.dk", kicker_brand="Æresportskilt.dk", nav=None, footer=None, favicon="/favicon.svg", intro_before=False):
+def page_shell(*, slug, title, description, h1, canonical, kicker, crumb, intro_h2, intro, products_html, faq, extra_body="", site_name="Æresportskilt.dk", kicker_brand="Æresportskilt.dk", nav=None, footer=None, favicon="/favicon.svg", intro_before=False, og_image="", og_image_alt="", jsonld=""):
     url = canonical
     breadcrumb = ""
     if crumb:
-        breadcrumb = f'<p class="page-breadcrumb"><a href="/#forside">Forside</a> / {esc(crumb)}</p>'
-    kicker_html = f'<p class="site-kicker"><a href="/#forside">{esc(kicker_brand)}</a></p>' if kicker else ""
+        home_href = "/" if site_name == "Bordkort.dk" else "/#forside"
+        breadcrumb = f'<p class="page-breadcrumb"><a href="{home_href}">Forside</a> / {esc(crumb)}</p>'
+    kicker_home = "/" if site_name == "Bordkort.dk" else "/#forside"
+    kicker_html = f'<p class="site-kicker"><a href="{kicker_home}">{esc(kicker_brand)}</a></p>' if kicker else ""
     h1_html = f"<h1>{h1}</h1>" if slug == "home" else f"<h1>{esc(h1)}</h1>"
     nav_block = nav(slug) if nav else nav_html(slug)
     footer_block = footer if footer is not None else FOOTER
@@ -435,9 +474,15 @@ def page_shell(*, slug, title, description, h1, canonical, kicker, crumb, intro_
     </section>"""
     faq_html = faq_block(faq) if faq else ""
     schemas = []
-    if faq:
+    if jsonld:
+        schemas.append(f'    <script type="application/ld+json">\n{jsonld}\n    </script>')
+    elif faq:
         schemas.append(f'    <script type="application/ld+json">\n{faq_jsonld(faq)}\n    </script>')
     schema_html = "\n".join(schemas)
+    og_html = ""
+    if og_image:
+        og_html = f"""    <meta property="og:image" content="{esc(og_image)}">
+    <meta property="og:image:alt" content="{esc(og_image_alt or title)}">"""
     icon_links = ""
     if "bordkort" in favicon:
         icon_links = """    <link rel="icon" href="/favicon-bordkort.ico?v=3" sizes="any">
@@ -464,6 +509,7 @@ def page_shell(*, slug, title, description, h1, canonical, kicker, crumb, intro_
     <meta property="og:url" content="{esc(url)}">
     <meta property="og:title" content="{esc(title)}">
     <meta property="og:description" content="{esc(description)}">
+{og_html}
 {icon_links}
     <link rel="stylesheet" href="{ASSET_CSS}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -602,8 +648,8 @@ def main():
         dict(slug="andre-skilte", path="andre-skilte/index.html", title="Andre skilte i træ",
              description="Skræddersyede skilte i træ – kaffebar, velkomst og andre designs efter ønske.",
              h1="Andre skilte", canonical="https://æresportskilt.dk/andre-skilte/", kicker=True, crumb="Andre skilte",
-             intro_h2="Skilte i træ efter ønske",
-             intro=["Vi laver også andre skilte i træ end æresportskilte."],
+             intro_h2="",
+             intro=[],
              products=filter_products(lambda p: p["section"] == "andre_skilte"), faq=[]),
         dict(slug="velkomst-skilt", path="velkomst-skilt/index.html", title="Velkomstskilt i træ",
              description="Velkomstskilt i træ til festen. Personlig tekst, håndlavet i Dragør.",
@@ -690,8 +736,8 @@ def main():
 
     bordkort_omos = page_shell(
         slug="om-os",
-        title="Om os – Bordkort.dk",
-        description="Hos Bordkort.dk laver vi personlige bordkort i træ. Personlig service og afhentning i Dragør.",
+        title="Om os – Bordkort.dk | Dragør",
+        description="Hos Bordkort.dk laver vi personlige bordkort i træ i Dragør på Amager. Personlig service og afhentning efter aftale.",
         h1="Om os",
         canonical="https://bordkort.dk/om-os/",
         kicker=True,
@@ -703,27 +749,34 @@ def main():
         faq=[],
         extra_body=about_section(ABOUT_BORDKORT),
         site_name="Bordkort.dk",
-        nav=lambda slug: nav_html_bordkort(slug, prefix="/"),
+        nav=lambda slug: nav_html_bordkort(slug, prefix="../"),
         footer=BORDKORT_FOOTER,
         favicon="/favicon-bordkort.ico?v=3",
+        og_image=BORDKORT_OG_IMAGE,
+        og_image_alt=BORDKORT_OG_ALT,
+        jsonld=json.dumps(
+            {"@context": "https://schema.org", "@graph": [local_business_bordkort(url="https://bordkort.dk/om-os/", page_id="https://bordkort.dk/om-os/#business")]},
+            ensure_ascii=False,
+            indent=2,
+        ),
     )
     write_page("bordkort-site/om-os/index.html", bordkort_omos)
 
     bordkort_home = page_shell(
         slug="home",
-        title="Bordkort i træ – personlige navne og motiver til festen",
-        description="Personlige bordkort i træ til bryllup, konfirmation og fest. Navnebordkort fra 10 kr. og specielle motiver. Håndlavet i Dragør.",
+        title="Bordkort i træ til bryllup | Håndlavet i Dragør",
+        description="Personlige bordkort i træ til bryllup, konfirmation og fest på Amager. Navnebordkort fra 10 kr. og specielle motiver. Afhentning i Dragør.",
         h1='<a href="#forside">Bordkort i træ til fest og bryllup</a>',
         canonical="https://bordkort.dk/",
         kicker=False,
         crumb="",
         intro_h2="Personlige bordkort i træ",
         intro=[
-            "Hos Bordkort.dk laver vi personlige bordkort i træ til bryllup, konfirmation, fødselsdag og fest.",
+            "Hos Bordkort.dk laver vi personlige bordkort i træ til bryllup, konfirmation, fødselsdag og fest — håndlavet i Dragør på Amager.",
             "Vælg klassiske navnebordkort eller specielle motiver – fodbold, heste, gaming og meget mere. Hvert bordkort fremstilles på bestilling.",
-            "Afhentning i Dragør eller forsendelse. Se også æresportskilte på Æresportskilt.dk, hvis I skal have skilt til æresporten.",
+            "Gratis afhentning i Dragør efter aftale, eller forsendelse i hele Danmark. Se også æresportskilte på Æresportskilt.dk, hvis I skal have skilt til æresporten.",
         ],
-        products_html=render_grids(filter_products(lambda p: p["section"].startswith("bordkort"))),
+        products_html="",
         faq=BORDKORT_FAQ,
         extra_body="""    <section class="builder" id="eget-design">
         <div class="container">
@@ -756,11 +809,72 @@ def main():
         nav=nav_html_bordkort,
         footer=BORDKORT_FOOTER,
         favicon="/favicon-bordkort.ico?v=3",
+        og_image=BORDKORT_OG_IMAGE,
+        og_image_alt=BORDKORT_OG_ALT,
+        jsonld=bordkort_jsonld(BORDKORT_FAQ),
     )
     write_page("bordkort-site/index.html", bordkort_home)
     import subprocess
     import sys
     subprocess.run([sys.executable, str(ROOT / "_restructure_bordkort_home.py")], check=True)
+
+    bordkort_navne = page_shell(
+        slug="navne",
+        title="Navne bordkort i træ – personlige bordkort til fest | Dragør",
+        description="Klassiske navnebordkort i træ til bryllup og fest. Personlige bordkort fra 10 kr. Håndlavet i Dragør på Amager.",
+        h1="Navne bordkort i træ",
+        canonical="https://bordkort.dk/navne/",
+        kicker=True,
+        kicker_brand="Bordkort.dk",
+        crumb="Navne bordkort",
+        intro_h2="Personlige navne bordkort i træ",
+        intro=[
+            "Vælg mellem klassiske navnebordkort i birkefiner og andre designs. Hvert bordkort graveres med gæstens navn.",
+            "Afhentning i Dragør eller forsendelse i hele Danmark.",
+        ],
+        intro_before=True,
+        products_html=render_grids(
+            filter_products(lambda p: p["section"] == "bordkort_navne"),
+            hide_headings={"bordkort_navne"},
+        ),
+        faq=[],
+        site_name="Bordkort.dk",
+        nav=lambda slug: nav_html_bordkort("navne", prefix="../"),
+        footer=BORDKORT_FOOTER,
+        favicon="/favicon-bordkort.ico?v=3",
+        og_image=BORDKORT_OG_IMAGE,
+        og_image_alt=BORDKORT_OG_ALT,
+    )
+    write_page("bordkort-site/navne/index.html", bordkort_navne)
+
+    bordkort_speciale = page_shell(
+        slug="speciale",
+        title="Specielle bordkort i træ – motiver til fest | Dragør",
+        description="Specielle bordkort i træ med fodbold, gaming, heste og andre motiver. Fra 10 kr. Håndlavet i Dragør på Amager.",
+        h1="Specielle bordkort i træ",
+        canonical="https://bordkort.dk/speciale/",
+        kicker=True,
+        kicker_brand="Bordkort.dk",
+        crumb="Specielle motiver",
+        intro_h2="Specielle bordkort i træ",
+        intro=[
+            "Motivbordkort til børnefødselsdag, konfirmation og fest – fodbold, gaming, dyr og meget mere.",
+            "Afhentning i Dragør eller forsendelse i hele Danmark.",
+        ],
+        intro_before=True,
+        products_html=render_grids(
+            filter_products(lambda p: p["section"] == "bordkort_speciale"),
+            hide_headings={"bordkort_speciale"},
+        ),
+        faq=[],
+        site_name="Bordkort.dk",
+        nav=lambda slug: nav_html_bordkort("speciale", prefix="../"),
+        footer=BORDKORT_FOOTER,
+        favicon="/favicon-bordkort.ico?v=3",
+        og_image=BORDKORT_OG_IMAGE,
+        og_image_alt=BORDKORT_OG_ALT,
+    )
+    write_page("bordkort-site/speciale/index.html", bordkort_speciale)
 
     urls = [
         "https://æresportskilt.dk/",
@@ -779,6 +893,8 @@ def main():
         "https://æresportskilt.dk/eget-design/",
         "https://æresportskilt.dk/om-os/",
         "https://bordkort.dk/",
+        "https://bordkort.dk/navne/",
+        "https://bordkort.dk/speciale/",
         "https://bordkort.dk/om-os/",
     ]
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']

@@ -27,7 +27,7 @@ intro_block = intro_block.replace(
 )
 faq_block = faq_block.replace(
     '    <section class="faq-section" id="faq">',
-    '    <section class="faq-section bordkort-forside" id="faq">',
+    '    <section class="faq-section" id="faq">',
     1,
 )
 

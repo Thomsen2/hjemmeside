@@ -745,6 +745,19 @@ body {
     display: none !important;
 }
 
+.page-bordkort #faq {
+    display: none !important;
+    scroll-margin-top: 5.5rem;
+}
+
+.page-bordkort.bordkort-view-faq #faq {
+    display: block !important;
+}
+
+.page-bordkort.bordkort-view-faq .bordkort-forside {
+    display: none !important;
+}
+
 .page-aesport-home.aesport-view-catalog .aesport-forside {
     display: none !important;
 }
@@ -764,6 +777,32 @@ body {
 
 .page-aesport-home .aesport-forside {
     scroll-margin-top: 5.5rem;
+}
+
+.page-aesport-home #faq {
+    display: none !important;
+    scroll-margin-top: 5.5rem;
+}
+
+.page-aesport-home.aesport-view-faq #faq {
+    display: block !important;
+}
+
+.page-aesport-home.aesport-view-faq .aesport-forside {
+    display: none !important;
+}
+
+.page-aesport-home #eget-design {
+    display: none !important;
+    scroll-margin-top: 5.5rem;
+}
+
+.page-aesport-home.aesport-view-eget-design #eget-design {
+    display: block !important;
+}
+
+.page-aesport-home.aesport-view-eget-design .aesport-forside {
+    display: none !important;
 }
 
 .page-bordkort .tab-section:not(.active) {
