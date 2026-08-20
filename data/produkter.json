@@ -1313,32 +1313,10 @@
     },
     {
       "section": "bryllup",
-      "description": "Velkomstskilt i egetræ (400 kr), Egetræ",
-      "title": "Velkomstskilt i egetræ",
-      "size": "Egetræ",
-      "price": "400,00 kr.",
-      "images": [
-        {
-          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/velkomstskilt-egetrae-bryllup.png?v=2",
-          "alt": "Velkomstskilt i egetræ til bryllup",
-          "hidden": false
-        }
-      ],
-      "form_label": "Indtast tekst til velkomstskiltet",
-      "mounting": false,
-      "id": "velkomstskilt-i-egetrae-bryllup",
-      "form": "andet",
-      "wood": "egetrae",
-      "occasions": [
-        "bryllup"
-      ]
-    },
-    {
-      "section": "bryllup",
-      "description": "Velkomstskilt til bryllup i Egetræfiner (350 kr), mål ca. 78 x 45 cm",
+      "description": "Velkomstskilt til bryllup i Egetræfiner (400 kr), mål ca. 78 x 45 cm",
       "title": "Velkomstskilt til bryllup i Egetræfiner",
       "size": "mål ca. 78 x 45 cm",
-      "price": "350,00 kr.",
+      "price": "400,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/velkommen-bryllup.png",
