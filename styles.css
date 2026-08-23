@@ -1119,6 +1119,29 @@ body.hide-aesport-intro > .faq-section {
     cursor: zoom-in;
 }
 
+/* Hover-zoom på alle bordkort (175% = 75% større) */
+.product-card--bordkort {
+    position: relative;
+    z-index: 1;
+}
+
+.product-card--bordkort .product-card__media {
+    overflow: visible;
+    transition: transform 0.35s var(--ease), filter 0.35s var(--ease);
+}
+
+.product-card--bordkort .product-card__media:hover {
+    transform: scale(1.75) !important;
+    filter: drop-shadow(0 12px 28px rgba(26, 21, 16, 0.22)) !important;
+    z-index: 30 !important;
+    overflow: visible;
+}
+
+.product-card--bordkort:hover {
+    z-index: 30;
+    overflow: visible;
+}
+
 .product-card__title {
     font-family: var(--font-body);
     font-size: 0.92rem;
