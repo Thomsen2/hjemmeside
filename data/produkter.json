@@ -668,6 +668,31 @@
     },
     {
       "section": "bordkort_navne",
+      "description": "Bordkort – Bejdset i valnød - Milk (13 kr stk) (mål: 3,2 cm i højden 3mm tykke)",
+      "title": "Bordkort – Bejdset i valnød - Milk",
+      "size": "mål: 3,2 cm i højden 3mm tykke",
+      "price": "13,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/bejdset-valnod-milk.jpeg",
+          "alt": "Navne bordkort Milk bejdset i valnød",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/bejdset-valnod-milk%20chat.jpg",
+          "alt": "Bordkort Bejdset i valnød - Milk på borddækning",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-bejdset-valnod-milk",
+      "form": "andet",
+      "wood": "valnod",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_navne",
       "description": "Bordkort – Cute (15 kr stk) – fås i flere farver (mål: 3,2 cm i højden 3mm tykke)",
       "title": "Bordkort – Cute",
       "size": "mål: 3,2 cm i højden 3mm tykke",
@@ -693,19 +718,19 @@
     },
     {
       "section": "bordkort_navne",
-      "description": "Bordkort – Cute (15 kr stk) – fås i flere farver (mål: 3,2 cm i højden 3mm tykke)",
-      "title": "Bordkort – Cute",
+      "description": "Bordkort – Milk (15 kr stk) – fås i flere farver (mål: 3,2 cm i højden 3mm tykke)",
+      "title": "Bordkort – Milk",
       "size": "mål: 3,2 cm i højden 3mm tykke",
       "price": "15,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/navneskrift%20pastel.png",
-          "alt": "Farvet navne bordkort i træ",
+          "alt": "Farvet Milk navne bordkort i træ",
           "hidden": false
         },
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/navneskrift%20pastel%20chat.png",
-          "alt": "Farvet navne bordkort på bord",
+          "alt": "Farvet Milk navne bordkort på bord",
           "hidden": true
         }
       ],
@@ -913,10 +938,10 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Amerikansk fodbold (12 kr stk) (ca. mål 45x75mm)",
+      "description": "Bordkort – Amerikansk fodbold (13 kr stk) (ca. mål 45x75mm)",
       "title": "Bordkort – Amerikansk fodbold",
       "size": "ca. mål 45x75mm",
-      "price": "12,00 kr.",
+      "price": "13,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/Amerikansk%20fodbold.jpeg",
@@ -1188,10 +1213,10 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Roblox (12 kr stk) (ca. mål 64x70mm)",
+      "description": "Bordkort – Roblox (14 kr stk) (ca. mål 64x70mm)",
       "title": "Bordkort – Roblox",
       "size": "ca. mål 64x70mm",
-      "price": "12,00 kr.",
+      "price": "14,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/roblox.jpeg",

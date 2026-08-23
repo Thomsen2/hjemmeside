@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=162"
+ASSET_CSS = "/styles.css?v=168"
 ASSET_JS = "/script.js?v=54"
 
 BORDKORT_OG_IMAGE = "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png"
@@ -37,6 +37,13 @@ def form_label_for(product: dict) -> str:
     if section == "fodselstavle":
         return "Indtast navn, dato og vægt/længde"
     return "Indtast Navne, Datoer (2 stk), samt år"
+
+
+def form_placeholder_for(product: dict) -> str:
+    section = product.get("section", "")
+    if section.startswith("bordkort"):
+        return "Indtast alle de navne du ønsker"
+    return "Skriv dine ønsker til skiltet her..."
 
 
 def render_card(product: dict, first: bool = False) -> str:
@@ -78,7 +85,7 @@ def render_card(product: dict, first: bool = False) -> str:
                     <form class="sign-form">
                         <div class="form-group">
                             <label for="besked_{esc(pid)}">{esc(form_label_for(product))}</label>
-                            <textarea id="besked_{esc(pid)}" name="besked_{esc(pid)}" rows="3" placeholder="Skriv dine ønsker til skiltet her..."></textarea>
+                            <textarea id="besked_{esc(pid)}" name="besked_{esc(pid)}" rows="3" placeholder="{esc(form_placeholder_for(product))}"></textarea>
                         </div>
                         <label class="checkbox-label">
                             <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
