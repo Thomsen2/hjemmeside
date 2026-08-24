@@ -1133,13 +1133,18 @@ body.hide-aesport-intro > .faq-section {
 .product-card--bordkort .product-card__media:hover {
     transform: scale(1.75) !important;
     filter: drop-shadow(0 12px 28px rgba(26, 21, 16, 0.22)) !important;
-    z-index: 30 !important;
+    z-index: 5 !important;
     overflow: visible;
 }
 
 .product-card--bordkort:hover {
-    z-index: 30;
+    z-index: 5;
     overflow: visible;
+}
+
+.product-card--bordkort .product-card__order {
+    position: relative;
+    z-index: 6;
 }
 
 .product-card__title {

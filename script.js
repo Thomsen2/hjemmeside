@@ -530,7 +530,13 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
             return;
         }
 
-        var sectionTitle = this.closest('section').querySelector('h2').textContent.trim();
+        var sectionEl = this.closest('section');
+        var headingEl = sectionEl ? sectionEl.querySelector('h2') : null;
+        var sectionTitle = headingEl ? headingEl.textContent.trim() : '';
+        if (!sectionTitle) {
+            var pageHeading = document.querySelector('h1');
+            sectionTitle = pageHeading ? pageHeading.textContent.trim() : 'Bordkort';
+        }
         var card = this.closest('.product-card');
         var grid = this.closest('.builder-grid');
         var beskrivelse = '';
