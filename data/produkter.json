@@ -1338,6 +1338,106 @@
     },
     {
       "section": "bordkort_speciale",
+      "description": "Bordkort – Håndboldspiller (12 kr stk) (ca. mål 76x87mm)",
+      "title": "Bordkort – Håndboldspiller",
+      "size": "ca. mål 76x87mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/haandboldspiller.jpeg",
+          "alt": "Bordkort i træ formet som håndboldspiller",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/haandboldspiller%20chat.jpg",
+          "alt": "Bordkort håndboldspiller på borddækning",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-haandboldspiller",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Jagtriffel (12 kr stk) (ca. mål 115x26mm)",
+      "title": "Bordkort – Jagtriffel",
+      "size": "ca. mål 115x26mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/jagtriffel.jpeg",
+          "alt": "Bordkort i træ formet som jagtriffel",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/jagtriffel%20chat.jpg",
+          "alt": "Bordkort jagtriffel på borddækning",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-jagtriffel",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Bordtennis bat (12 kr stk) (ca. mål 79x46mm)",
+      "title": "Bordkort – Bordtennis bat",
+      "size": "ca. mål 79x46mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/bordtennis-bat.jpeg",
+          "alt": "Bordkort i træ formet som bordtennis bat",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/bordtennis-bat%20chat.jpg",
+          "alt": "Bordkort bordtennis bat på borddækning",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-bordtennis-bat",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
+      "description": "Bordkort – Floorball (12 kr stk) (ca. mål Ø 50 mm)",
+      "title": "Bordkort – Floorball",
+      "size": "ca. mål Ø 50 mm",
+      "price": "12,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/floorball.jpeg",
+          "alt": "Bordkort i træ formet som floorball",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/floorball%20chat.jpg",
+          "alt": "Bordkort floorball på borddækning",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-floorball",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "bordkort_speciale",
       "description": "Bordkort – Heste hjerte version 2 (12 kr stk) (ca. mål 54x61mm)",
       "title": "Bordkort – Heste hjerte version 2",
       "size": "ca. mål 54x61mm",
