@@ -679,7 +679,7 @@
           "hidden": false
         },
         {
-          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/bejdset-valnod-milk%20chat.jpg",
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/bejdset-valnod-milk%20chat.jpg?v=2",
           "alt": "Bordkort Bejdset i valnød - Milk på borddækning",
           "hidden": true
         }
@@ -1238,10 +1238,10 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Knallert (12 kr stk) (ca. mål 72x42mm)",
+      "description": "Bordkort – Knallert (14 kr stk) (ca. mål 72x42mm)",
       "title": "Bordkort – Knallert",
       "size": "ca. mål 72x42mm",
-      "price": "12,00 kr.",
+      "price": "14,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/knallert.jpeg",
