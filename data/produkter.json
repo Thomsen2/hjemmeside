@@ -251,8 +251,8 @@
     },
     {
       "section": "vaabenskjold",
-      "description": "Våbenskjold i birkefiner til konfirmanten (199 kr), Størrelse 31 x 33 cm",
-      "title": "Våbenskjold i birkefiner til konfirmanten",
+      "description": "Våbenskjold i birkefiner til konfirmanden (199 kr), Størrelse 31 x 33 cm",
+      "title": "Våbenskjold i birkefiner til konfirmanden",
       "size": "Størrelse 31 x 33 cm",
       "price": "199,00 kr.",
       "images": [
@@ -429,9 +429,14 @@
       "price": "249,00 kr.",
       "images": [
         {
-          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/lily%20og%20harald%20egetr%C3%A6.png",
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/lilly-og-harald-egetrae.jpg",
           "alt": "Skilt til æresport som våbenskjold i egetræ",
           "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/lily%20og%20harald%20egetr%C3%A6.png",
+          "alt": "Våbenskjold i egetræ i æresport",
+          "hidden": true
         }
       ],
       "form_label": "Skriv dine ønsker til skiltet her",
