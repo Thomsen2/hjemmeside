@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=183"
+ASSET_CSS = "/styles.css?v=186"
 ASSET_JS = "/script.js?v=55"
 
 BORDKORT_OG_IMAGE = "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png"
@@ -50,6 +50,7 @@ def render_card(product: dict, first: bool = False) -> str:
     pid = product["id"]
     section = product.get("section", "")
     bordkort_cls = " product-card--bordkort" if section.startswith("bordkort") else ""
+    zoom_cls = "" if section.startswith("gavekort") else " product-card--zoom"
     imgs = []
     for i, img in enumerate(product.get("images") or []):
         cls = "product-card__img sign-photo"
@@ -73,7 +74,7 @@ def render_card(product: dict, first: bool = False) -> str:
                             Tilføj monteringskit +20 kr (indeholder 2 klæbepuder + 2 strips)
                         </label>"""
     size = f'<p class="product-card__size">{esc(product["size"])}</p>' if product.get("size") else ""
-    return f"""            <article class="product-card product-card--{esc(pid)}{bordkort_cls}" data-beskrivelse="{esc(product.get('description') or product['title'])}">
+    return f"""            <article class="product-card product-card--{esc(pid)}{bordkort_cls}{zoom_cls}" data-beskrivelse="{esc(product.get('description') or product['title'])}">
                 <div class="product-card__media sign-preview">
                     {media}
                 </div>

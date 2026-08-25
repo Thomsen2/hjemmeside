@@ -1119,17 +1119,20 @@ body.hide-aesport-intro > .faq-section {
     cursor: zoom-in;
 }
 
-/* Hover-zoom på alle bordkort (175% = 75% større) */
+/* Hover-zoom på æresportskilte og bordkort (175% = 75% større) */
+.product-card--zoom,
 .product-card--bordkort {
     position: relative;
     z-index: 1;
 }
 
+.product-card--zoom .product-card__media,
 .product-card--bordkort .product-card__media {
     overflow: visible;
     transition: transform 0.35s var(--ease), filter 0.35s var(--ease);
 }
 
+.product-card--zoom .product-card__media:hover,
 .product-card--bordkort .product-card__media:hover {
     transform: scale(1.75) !important;
     filter: drop-shadow(0 12px 28px rgba(26, 21, 16, 0.22)) !important;
@@ -1137,11 +1140,13 @@ body.hide-aesport-intro > .faq-section {
     overflow: visible;
 }
 
+.product-card--zoom:hover,
 .product-card--bordkort:hover {
     z-index: 5;
     overflow: visible;
 }
 
+.product-card--zoom .product-card__order,
 .product-card--bordkort .product-card__order {
     position: relative;
     z-index: 6;
