@@ -1,13 +1,22 @@
-# Æresportskilt.dk/bordkort → bordkort.dk (undgår duplicate content)
+# Æresportskilt.dk/bordkort → bordkort.dk (én 301, ingen kæde).
+# _redirects behandles FØR netlify.toml, så samme regler skal også stå der med 301!.
+# /bordkort (uden slash) først: Pretty URLs 301'er ellers /bordkort → /bordkort/ før custom redirect.
+# /bordkort/ før /bordkort/*, ellers kan splat/mappen bordkort/index.html vinde (200).
 [[redirects]]
-  from = "/bordkort/*"
-  to = "https://bordkort.dk/:splat"
+  from = "/bordkort"
+  to = "https://bordkort.dk/"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/bordkort"
+  from = "/bordkort/"
   to = "https://bordkort.dk/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/bordkort/*"
+  to = "https://bordkort.dk/:splat"
   status = 301
   force = true
 
@@ -70,6 +79,18 @@
 [[redirects]]
   from = "https://bordkort.dk/index.html"
   to = "/bordkort-site/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/robots.txt"
+  to = "/bordkort-site/robots.txt"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/sitemap.xml"
+  to = "/bordkort-site/sitemap.xml"
   status = 200
   force = true
 

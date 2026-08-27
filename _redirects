@@ -1,6 +1,9 @@
-# Æresportskilt.dk/bordkort → bordkort.dk (undgår duplicate content)
-/bordkort/        https://bordkort.dk/        301
-/bordkort/*       https://bordkort.dk/:splat  301
+# Æresportskilt.dk/bordkort → bordkort.dk (én 301, ingen kæde).
+# 301! er påkrævet: uden force vinder mappen bordkort/index.html (200).
+# /bordkort uden slash SKAL stå først, ellers Pretty URLs 301'er til /bordkort/ først.
+/bordkort         https://bordkort.dk/        301!
+/bordkort/        https://bordkort.dk/        301!
+/bordkort/*       https://bordkort.dk/:splat  301!
 
 # www → non-www (undgår duplicate content)
 https://www.bordkort.dk/*             https://bordkort.dk/:splat    301!
