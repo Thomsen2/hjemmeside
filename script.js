@@ -580,6 +580,7 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
 
         var navnEl = this.querySelector('.shipping-fields input[id*="navn"]') || this.querySelector('input[id*="navn"]');
         var adresseEl = this.querySelector('.shipping-fields input[id*="adresse"]') || this.querySelector('input[id*="adresse"]');
+        var postnrEl = this.querySelector('.shipping-fields input[id*="postnr"]') || this.querySelector('input[id*="postnr"]');
         var mailEl = this.querySelector('.shipping-fields input[id*="mail"], .shipping-fields input[type="email"]') || this.querySelector('input[id*="mail"], input[type="email"]:not(.pickup-email)');
         var mobilEl = this.querySelector('.shipping-fields input[id*="mobil"], .shipping-fields input[type="tel"]') || this.querySelector('input[id*="mobil"], input[type="tel"]');
         var hasContactFields = !!(navnEl || mailEl || mobilEl);
@@ -587,6 +588,7 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
         if (shippingChecked || hasContactFields) {
             payload.navn = navnEl ? navnEl.value.trim() : '';
             payload.adresse = adresseEl ? adresseEl.value.trim() : '';
+            payload.postnr = postnrEl ? postnrEl.value.trim() : '';
             payload.mail = mailEl ? mailEl.value.trim() : '';
             payload.mobil = mobilEl ? mobilEl.value.trim() : '';
         }
@@ -600,8 +602,8 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
                 alert('Udfyld venligst din email til afhentning.');
                 return;
             }
-            if (shippingChecked && (!(payload.navn || '') || !(payload.mail || ''))) {
-                alert('Udfyld venligst navn og email til forsendelse.');
+            if (shippingChecked && (!(payload.navn || '') || !(payload.mail || '') || !(payload.postnr || ''))) {
+                alert('Udfyld venligst navn, email og postnr. og by til forsendelse.');
                 return;
             }
         } else if (!(payload.mail || '')) {
@@ -627,6 +629,7 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
             'Afhentnings-email': pickupChecked ? (payload.pickupEmail || '') : '',
             Navn: payload.navn || '',
             Adresse: payload.adresse || '',
+            'Postnr-by': payload.postnr || '',
             Mail: payload.mail || '',
             Mobil: payload.mobil || ''
         };

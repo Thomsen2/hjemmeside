@@ -10,8 +10,8 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=189"
-ASSET_JS = "/script.js?v=56"
+ASSET_CSS = "/styles.css?v=190"
+ASSET_JS = "/script.js?v=57"
 
 BORDKORT_OG_IMAGE = "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png"
 BORDKORT_OG_ALT = "Personlige bordkort i træ på borddækning"
@@ -110,6 +110,10 @@ def render_card(product: dict, first: bool = False) -> str:
                             <div class="form-group">
                                 <label for="adresse_{esc(pid)}">Adresse</label>
                                 <input type="text" id="adresse_{esc(pid)}" name="adresse_{esc(pid)}" placeholder="Din adresse">
+                            </div>
+                            <div class="form-group">
+                                <label for="postnr_{esc(pid)}">Postnr. og by</label>
+                                <input type="text" id="postnr_{esc(pid)}" name="postnr_{esc(pid)}" placeholder="Postnr. og by">
                             </div>
                             <div class="form-group">
                                 <label for="mail_{esc(pid)}">Mail</label>
@@ -458,6 +462,7 @@ NETLIFY_FORM = """    <form name="bestilling" method="POST" data-netlify="true" 
         <input type="email" name="Afhentnings-email">
         <input type="text" name="Navn">
         <input type="text" name="Adresse">
+        <input type="text" name="Postnr-by">
         <input type="email" name="Mail">
         <input type="tel" name="Mobil">
     </form>"""
