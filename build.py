@@ -11,7 +11,7 @@ DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8")
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
 ASSET_CSS = "/styles.css?v=189"
-ASSET_JS = "/script.js?v=55"
+ASSET_JS = "/script.js?v=56"
 
 BORDKORT_OG_IMAGE = "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png"
 BORDKORT_OG_ALT = "Personlige bordkort i træ på borddækning"

@@ -591,6 +591,24 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
             payload.mobil = mobilEl ? mobilEl.value.trim() : '';
         }
 
+        if (shippingToggle || pickupToggle) {
+            if (!pickupChecked && !shippingChecked) {
+                alert('Vælg afhentning i Dragør eller forsendelse, og udfyld kontaktinfo.');
+                return;
+            }
+            if (pickupChecked && !(payload.pickupEmail || '')) {
+                alert('Udfyld venligst din email til afhentning.');
+                return;
+            }
+            if (shippingChecked && (!(payload.navn || '') || !(payload.mail || ''))) {
+                alert('Udfyld venligst navn og email til forsendelse.');
+                return;
+            }
+        } else if (!(payload.mail || '')) {
+            alert('Udfyld venligst din email.');
+            return;
+        }
+
         var btn = this.querySelector('.btn-submit');
         btn.textContent = 'Sender...';
         btn.disabled = true;
