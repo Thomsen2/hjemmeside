@@ -10,8 +10,8 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=190"
-ASSET_JS = "/script.js?v=57"
+ASSET_CSS = "/styles.css?v=203"
+ASSET_JS = "/script.js?v=58"
 
 BORDKORT_OG_IMAGE = "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png"
 BORDKORT_OG_ALT = "Personlige bordkort i træ på borddækning"
@@ -43,6 +43,8 @@ def form_placeholder_for(product: dict) -> str:
     section = product.get("section", "")
     if section.startswith("bordkort"):
         return "Indtast alle de navne du ønsker"
+    if section == "gavekort":
+        return "Skriv dine ønsker til gavekortet her..."
     return "Skriv dine ønsker til skiltet her..."
 
 
@@ -74,6 +76,13 @@ def render_card(product: dict, first: bool = False) -> str:
                             Tilføj monteringskit +20 kr (indeholder 2 klæbepuder + 2 strips)
                         </label>"""
     size = f'<p class="product-card__size">{esc(product["size"])}</p>' if product.get("size") else ""
+    besked_field = ""
+    if section != "andre_skilte":
+        besked_field = f"""
+                        <div class="form-group">
+                            <label for="besked_{esc(pid)}">{esc(form_label_for(product))}</label>
+                            <textarea id="besked_{esc(pid)}" name="besked_{esc(pid)}" rows="3" placeholder="{esc(form_placeholder_for(product))}"></textarea>
+                        </div>"""
     return f"""            <article class="product-card product-card--{esc(pid)}{bordkort_cls}{zoom_cls}" data-beskrivelse="{esc(product.get('description') or product['title'])}">
                 <div class="product-card__media sign-preview">
                     {media}
@@ -83,11 +92,7 @@ def render_card(product: dict, first: bool = False) -> str:
                 <p class="product-card__price">{esc(product["price"])}</p>
                 <details class="product-card__order">
                     <summary>Bestil</summary>
-                    <form class="sign-form">
-                        <div class="form-group">
-                            <label for="besked_{esc(pid)}">{esc(form_label_for(product))}</label>
-                            <textarea id="besked_{esc(pid)}" name="besked_{esc(pid)}" rows="3" placeholder="{esc(form_placeholder_for(product))}"></textarea>
-                        </div>
+                    <form class="sign-form">{besked_field}
                         <label class="checkbox-label">
                             <input type="checkbox" name="pickup" value="Dragør" class="pickup-toggle">
                             Afhentning i Dragør (gratis)

@@ -1578,6 +1578,11 @@
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/kaffebar%20birkefiner.jpg",
           "alt": "Kaffebar-skilt i birkefiner",
           "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/kaffebar-birkefiner-miljoe.jpg",
+          "alt": "Kaffebar-skilt i birkefiner i køkken",
+          "hidden": true
         }
       ],
       "form_label": "Skriv dine ønsker til skiltet her",
@@ -1598,6 +1603,11 @@
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/kaffebar%20egetrae.jpg",
           "alt": "Kaffebar-skilt i egetræfiner",
           "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/kaffebar-egetrae-miljoe.jpg",
+          "alt": "Kaffebar-skilt i egetræ finer i køkken",
+          "hidden": true
         }
       ],
       "form_label": "Skriv dine ønsker til skiltet her",
@@ -1618,6 +1628,11 @@
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/kaffebar%20moerk.jpg",
           "alt": "Kaffebar-skilt i mørkbejdsede finer",
           "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/kaffebar-moerktbejdset-miljoe.jpg",
+          "alt": "Kaffebar-skilt i mørktbejdset finer i køkken",
+          "hidden": true
         }
       ],
       "form_label": "Skriv dine ønsker til skiltet her",
@@ -1655,7 +1670,7 @@
       "price": "",
       "images": [
         {
-          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/linus%20toilet%20brun.jpg",
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/linus%20toilet%20brun.jpg?v=2",
           "alt": "Toiletfigur i mahogni-MDF",
           "hidden": false
         }
@@ -1718,6 +1733,11 @@
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/vin-bar.png",
           "alt": "Vinbar-skilt i egetræfiner",
           "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/vin-bar-miljoe.jpg",
+          "alt": "Vin bar skilt i egetræfiner over vinskab",
+          "hidden": true
         }
       ],
       "form_label": "Skriv dine ønsker til skiltet her",
@@ -1725,6 +1745,56 @@
       "id": "vin-bar-skilt-i-egetraefiner-monteres-med-dobbelt-klaebende-",
       "form": "andet",
       "wood": "egetrae",
+      "occasions": []
+    },
+    {
+      "section": "andre_skilte",
+      "description": "Hyggehjørnet i egetræfiner, mål ca.: 39.5 x 9.5 cm, inkl dobbelt klæbende tape på bagsiden, pris 125 kr",
+      "title": "Hyggehjørnet i egetræfiner, mål ca.: 39.5 x 9.5 cm, inkl dobbelt klæbende tape på bagsiden, pris 125 kr",
+      "size": "",
+      "price": "",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/hyggehjornet.jpg",
+          "alt": "Hyggehjørnet skilt i træ",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/hyggehjornet-sofa.jpg",
+          "alt": "Hyggehjørnet skilt på væg over sofa",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "hyggehjornet",
+      "form": "andet",
+      "wood": "",
+      "occasions": []
+    },
+    {
+      "section": "andre_skilte",
+      "description": "Læsekrogen i birkefinerfiner, mål ca.: 39.5 x 10 cm, inkl dobbelt klæbende tape på bagsiden, pris 125 kr",
+      "title": "Læsekrogen i birkefinerfiner, mål ca.: 39.5 x 10 cm, inkl dobbelt klæbende tape på bagsiden, pris 125 kr",
+      "size": "",
+      "price": "",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/laesekrogen.jpg",
+          "alt": "Læsekrogen skilt i birkefiner",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/laesekrogen-miljoe.jpg",
+          "alt": "Læsekrogen skilt i læsehjørne",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "laesekrogen",
+      "form": "andet",
+      "wood": "birkefiner",
       "occasions": []
     },
     {

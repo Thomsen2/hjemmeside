@@ -517,7 +517,8 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        var besked = this.querySelector('textarea').value.trim();
+        var textarea = this.querySelector('textarea');
+        var besked = textarea ? textarea.value.trim() : '';
         var shippingToggle = this.querySelector('.shipping-toggle');
         var pickupToggle = this.querySelector('.pickup-toggle');
         var shippingChecked = shippingToggle ? shippingToggle.checked : false;
@@ -525,7 +526,7 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
         var mountingEl = this.querySelector('.mounting-toggle');
         var mountingChecked = mountingEl ? mountingEl.checked : false;
 
-        if (!besked) {
+        if (textarea && !besked) {
             alert('Udfyld venligst din besked.');
             return;
         }
