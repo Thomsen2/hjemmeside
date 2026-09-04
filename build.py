@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=204"
+ASSET_CSS = "/styles.css?v=206"
 ASSET_JS = "/script.js?v=59"
 
 BORDKORT_OG_IMAGE = "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png"
@@ -215,7 +215,7 @@ def nav_html(active: str) -> str:
                     Forside
                 </a>
                 <div class="nav-dropdown">
-                    <a href="/#hjerte" class="{cls('hjerte')}">
+                    <a href="/hjerte/" class="{cls('hjerte')}">
                         <span class="nav-icon nav-icon--heart" aria-hidden="true">
                             <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.5-8.2C.7 9.8 2.2 6 5.6 6c1.9 0 3.2 1.1 4 2.2C10.4 7.1 11.7 6 13.6 6c3.4 0 4.9 3.8 3.1 6.8C19 16.6 12 21 12 21z"/></svg>
                             <span class="heart-bubbles" aria-hidden="true">
@@ -230,7 +230,7 @@ def nav_html(active: str) -> str:
                     </a>
                 </div>
                 <div class="nav-dropdown">
-                    <a href="/#vaabenskjold" class="{cls('vaabenskjold')}">
+                    <a href="/vaabenskjold/" class="{cls('vaabenskjold')}">
                         <span class="nav-icon nav-icon--shield" aria-hidden="true">
                             <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.4 8.4-8 9.5C7.4 20.4 4 17 4 12V6l8-3z"/></svg>
                             <span class="shield-bubbles" aria-hidden="true">
@@ -287,7 +287,7 @@ def nav_html(active: str) -> str:
                     <span class="nav-icon nav-icon--spark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></span>
                     Andre skilte
                 </a>
-                <a href="/#bryllup" class="{cls('bryllup') if active in ('bryllup','kobberbryllup','soelvbryllup','guldbryllup') else 'nav-link'}">
+                <a href="/bryllup/" class="{cls('bryllup') if active in ('bryllup','kobberbryllup','soelvbryllup','guldbryllup') else 'nav-link'}">
                     <span class="nav-icon nav-icon--rings" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><circle cx="9" cy="13" r="5.5"/><circle cx="15" cy="11" r="5.5"/></svg>
                         <span class="ring-bubbles" aria-hidden="true">
@@ -300,7 +300,7 @@ def nav_html(active: str) -> str:
                     </span>
                     Bryllup
                 </a>
-                <a href="/#eget-design" class="{cls('eget-design')}">
+                <a href="/eget-design/" class="{cls('eget-design')}">
                     <span class="nav-icon nav-icon--spark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.5 5.5L19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5L12 3zM18.5 15.5l.8 2.7 2.7.8-2.7.8-.8 2.7-.8-2.7-2.7-.8 2.7-.8.8-2.7zM5.5 16.5l.6 2 2 .6-2 .6-.6 2-.6-2-2-.6 2-.6.6-2z"/></svg></span>
                     Få lavet dit helt eget design
                 </a>
@@ -442,7 +442,7 @@ def about_section(about_text: str) -> str:
 FOOTER = f"""    <footer>
         <div class="container">
 {CONTACT_FOOTER}
-            <p>&copy; 2026 Æresportskilt.dk. Alle rettigheder forbeholdes. &mdash; <a href="/hjerte/">Hjerte</a> &mdash; <a href="/vaabenskjold/">Våbenskjold</a> &mdash; <a href="/egetrae/">Egetræ</a> &mdash; <a href="/bryllup/">Bryllup</a> &mdash; <a href="/gavekort/">Gavekort</a> &mdash; <a href="https://bordkort.dk/">Bordkort</a> &mdash; <a href="/om-os/">Om os</a></p>
+            <p>&copy; 2026 Æresportskilt.dk. Alle rettigheder forbeholdes. &mdash; <a href="/hjerte/">Hjerte</a> &mdash; <a href="/vaabenskjold/">Våbenskjold</a> &mdash; <a href="/egetrae/">Egetræ</a> &mdash; <a href="/bryllup/">Bryllup</a> &mdash; <a href="/kobberbryllup/">Kobberbryllup</a> &mdash; <a href="/soelvbryllup/">Sølvbryllup</a> &mdash; <a href="/guldbryllup/">Guldbryllup</a> &mdash; <a href="/gavekort/">Gavekort</a> &mdash; <a href="https://bordkort.dk/">Bordkort</a> &mdash; <a href="/fodselstavle/">Fødselstavle</a> &mdash; <a href="/velkomst-skilt/">Velkomstskilt</a> &mdash; <a href="/andre-skilte/">Andre skilte</a> &mdash; <a href="/eget-design/">Eget design</a> &mdash; <a href="/om-os/">Om os</a></p>
         </div>
     </footer>"""
 
