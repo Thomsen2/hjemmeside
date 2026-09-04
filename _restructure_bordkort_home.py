@@ -58,14 +58,6 @@ text = text.replace(
 )
 
 text = text.replace("<body>", '<body class="page-bordkort">', 1)
-text = text.replace(
-    "<h1><a href=\"/\">Bordkort i træ til fest og bryllup</a></h1>",
-    '<h1><a href="#forside">Bordkort i træ til fest og bryllup</a></h1>',
-    1,
-)
-text = text.replace('href="/" class="nav-link active"', 'href="#forside" class="nav-link active"', 1)
-text = text.replace('href="/" class="nav-link active"', 'href="#forside" class="nav-link active"', 1)
-text = text.replace('href="/" class="nav-link active"', 'href="#forside" class="nav-link active"', 1)
 
 index.write_text(text, encoding="utf-8")
 print("bordkort-site/index.html restructured")

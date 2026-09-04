@@ -268,13 +268,27 @@
             return;
         }
 
-        function getBordkortHash() {
-            var hash = (location.hash || '#forside').replace(/^#/, '');
-            return hash || 'forside';
+        var bordkortHomeView = 'forside';
+
+        function getBordkortView() {
+            var hash = (location.hash || '').replace(/^#/, '');
+            if (hash) {
+                bordkortHomeView = hash;
+            }
+            return bordkortHomeView || 'forside';
+        }
+
+        function goToCleanBordkortHome() {
+            if (location.hash) {
+                history.replaceState(null, '', location.pathname + location.search);
+            }
         }
 
         function syncBordkortHomeCatalog() {
-            var hash = getBordkortHash();
+            var hash = getBordkortView();
+            if (hash === 'forside' || hash === 'faq') {
+                goToCleanBordkortHome();
+            }
             var isEgetDesign = hash === 'eget-design';
             var isFaq = hash === 'faq';
 
@@ -282,9 +296,16 @@
             document.body.classList.toggle('bordkort-view-eget-design', isEgetDesign);
             document.body.classList.toggle('bordkort-view-faq', isFaq);
 
-            document.querySelectorAll('#navLinks .nav-link[href^="#"], header h1 a[href^="#"]').forEach(function (link) {
-                var target = (link.getAttribute('href') || '#forside').slice(1);
-                link.classList.toggle('active', target === hash);
+            document.querySelectorAll('#navLinks .nav-link, header h1 a').forEach(function (link) {
+                var href = link.getAttribute('href') || '';
+                var isHome = href === '/' || href === '#forside' || href === '/#forside';
+                if (isHome) {
+                    link.classList.toggle('active', hash === 'forside');
+                    return;
+                }
+                if (href.charAt(0) === '#') {
+                    link.classList.toggle('active', href.slice(1) === hash);
+                }
             });
 
             closeNav();
@@ -300,6 +321,12 @@
         }
 
         function navigateBordkortHome(hash) {
+            bordkortHomeView = hash;
+            if (hash === 'forside' || hash === 'faq') {
+                goToCleanBordkortHome();
+                syncBordkortHomeCatalog();
+                return;
+            }
             var target = '#' + hash;
             if (location.hash === target) {
                 syncBordkortHomeCatalog();
@@ -310,14 +337,28 @@
 
         document.addEventListener('click', function (e) {
             var link = e.target.closest('a[href^="#"]');
-            if (!link || !document.body.contains(link)) return;
-            var href = link.getAttribute('href') || '';
-            if (href === '#') return;
-            var hash = href.slice(1);
-            if (bordkortHomeHashes[hash] || document.getElementById(hash)) {
-                e.preventDefault();
-                navigateBordkortHome(hash);
+            if (link) {
+                var href = link.getAttribute('href') || '';
+                if (href === '#') return;
+                var hash = href.slice(1);
+                if (bordkortHomeHashes[hash] || document.getElementById(hash)) {
+                    e.preventDefault();
+                    navigateBordkortHome(hash);
+                }
+                return;
             }
+            link = e.target.closest('a[href]');
+            if (!link) return;
+            try {
+                var dest = new URL(link.href, location.href);
+                if (dest.origin === location.origin && (dest.pathname === '/' || dest.pathname === '/index.html')) {
+                    var destHash = (dest.hash || '').replace(/^#/, '');
+                    if (!destHash || destHash === 'forside' || destHash === 'faq') {
+                        e.preventDefault();
+                        navigateBordkortHome(destHash || 'forside');
+                    }
+                }
+            } catch (err) {}
         }, true);
 
         window.addEventListener('hashchange', syncBordkortHomeCatalog);
@@ -329,13 +370,18 @@
             }
         });
 
-        if (!location.hash || location.hash === '#') {
-            history.replaceState(null, '', '#forside');
+        if (!location.hash || location.hash === '#' || location.hash === '#forside' || location.hash === '#faq') {
+            if (location.hash === '#faq') {
+                bordkortHomeView = 'faq';
+            }
+            if (location.hash) {
+                history.replaceState(null, '', location.pathname + location.search);
+            }
         }
         syncBordkortHomeCatalog();
     } else if (bordkortNavne && bordkortSpeciale && bordkortNavne.classList.contains('tab-section')) {
         function syncBordkortCatalog() {
-            var hash = (location.hash || '#forside').replace(/^#/, '');
+            var hash = (location.hash || '').replace(/^#/, '') || 'forside';
             var isCatalog = hash === 'navne' || hash === 'speciale';
             document.body.classList.toggle('bordkort-view-catalog', isCatalog);
             document.body.classList.remove('hide-aesport-intro');
@@ -359,8 +405,8 @@
             }
             closeNav();
         }
-        if (!location.hash) {
-            history.replaceState(null, '', '#forside');
+        if (location.hash === '#forside' || location.hash === '#') {
+            history.replaceState(null, '', location.pathname + location.search);
         }
         window.addEventListener('hashchange', syncBordkortCatalog);
         document.querySelectorAll('#navLinks .nav-link[href^="#"], footer a[href^="#"]').forEach(function (link) {
@@ -374,21 +420,35 @@
     var aesportCatalogIds = ['hjerte', 'vaabenskjold', 'bryllup'];
     var aesportBirkefiner = document.getElementById('hjerte');
     if (onAesportHome && aesportBirkefiner && aesportBirkefiner.classList.contains('tab-section')) {
-        function getAesportHash() {
-            var hash = (location.hash || '#forside').replace(/^#/, '');
-            hash = hash.split('?')[0].split('&')[0];
-            return hash || 'forside';
-        }
-
+        var aesportHomeView = 'forside';
         var legacyHeartHashes = { birkefiner: 'hjerte', egetrae: 'hjerte', version1: 'hjerte', version2: 'hjerte' };
 
-        function syncAesportHomeCatalog() {
-            var hash = getAesportHash();
+        function getAesportView() {
+            var hash = (location.hash || '').replace(/^#/, '');
+            hash = hash.split('?')[0].split('&')[0];
             if (legacyHeartHashes[hash]) {
                 hash = legacyHeartHashes[hash];
-                if (location.hash !== '#hjerte') {
-                    history.replaceState(null, '', '#hjerte');
-                }
+            }
+            if (hash) {
+                aesportHomeView = hash;
+            }
+            return aesportHomeView || 'forside';
+        }
+
+        function goToCleanAesportHome() {
+            if (location.hash) {
+                history.replaceState(null, '', location.pathname + location.search);
+            }
+        }
+
+        function syncAesportHomeCatalog() {
+            var raw = (location.hash || '').replace(/^#/, '').split('?')[0].split('&')[0];
+            if (legacyHeartHashes[raw] && location.hash !== '#hjerte') {
+                history.replaceState(null, '', '#hjerte');
+            }
+            var hash = getAesportView();
+            if (hash === 'forside' || hash === 'faq') {
+                goToCleanAesportHome();
             }
             var isCatalog = aesportCatalogIds.indexOf(hash) !== -1;
             var isFaq = hash === 'faq';
@@ -403,9 +463,16 @@
                 section.classList.toggle('active', isCatalog && section.id === hash);
             });
 
-            document.querySelectorAll('#navLinks .nav-link[href^="#"], header h1 a[href^="#"]').forEach(function (link) {
-                var target = (link.getAttribute('href') || '#forside').slice(1);
-                link.classList.toggle('active', target === hash);
+            document.querySelectorAll('#navLinks .nav-link, header h1 a').forEach(function (link) {
+                var href = link.getAttribute('href') || '';
+                var isHome = href === '/' || href === '#forside' || href === '/#forside';
+                if (isHome) {
+                    link.classList.toggle('active', hash === 'forside');
+                    return;
+                }
+                if (href.charAt(0) === '#') {
+                    link.classList.toggle('active', href.slice(1) === hash);
+                }
             });
 
             closeNav();
@@ -425,6 +492,12 @@
         }
 
         function navigateAesportHome(hash) {
+            aesportHomeView = hash;
+            if (hash === 'forside' || hash === 'faq') {
+                goToCleanAesportHome();
+                syncAesportHomeCatalog();
+                return;
+            }
             var target = '#' + hash;
             if (location.hash === target) {
                 syncAesportHomeCatalog();
@@ -434,14 +507,10 @@
         }
 
         function resetAesportHomeForLeave() {
-            document.body.classList.remove('aesport-view-catalog', 'hide-aesport-intro');
+            document.body.classList.remove('aesport-view-catalog', 'aesport-view-faq', 'aesport-view-eget-design', 'hide-aesport-intro');
             document.querySelectorAll('.tab-section').forEach(function (section) {
                 section.classList.remove('active');
             });
-            if (location.hash !== '#forside') {
-                history.replaceState(null, '', '#forside');
-                syncAesportHomeCatalog();
-            }
         }
 
         document.addEventListener('click', function (e) {
@@ -462,6 +531,17 @@
             var path = link.getAttribute('href') || '';
             if (!path || path.charAt(0) === '#') return;
             if (/^https?:\/\//i.test(path) && path.indexOf(location.origin) !== 0) return;
+            try {
+                var dest = new URL(link.href, location.href);
+                if (dest.origin === location.origin && (dest.pathname === '/' || dest.pathname === '/index.html')) {
+                    var destHash = (dest.hash || '').replace(/^#/, '');
+                    if (!destHash || destHash === 'forside' || destHash === 'faq') {
+                        e.preventDefault();
+                        navigateAesportHome(destHash || 'forside');
+                        return;
+                    }
+                }
+            } catch (err) {}
             if (path.charAt(0) === '/' || path.indexOf(location.origin) === 0) {
                 resetAesportHomeForLeave();
             }
@@ -476,8 +556,13 @@
             }
         });
 
-        if (!location.hash || location.hash === '#') {
-            history.replaceState(null, '', '#forside');
+        if (!location.hash || location.hash === '#' || location.hash === '#forside' || location.hash === '#faq') {
+            if (location.hash === '#faq') {
+                aesportHomeView = 'faq';
+            }
+            if (location.hash) {
+                history.replaceState(null, '', location.pathname + location.search);
+            }
         }
         syncAesportHomeCatalog();
     }

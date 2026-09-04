@@ -77,7 +77,6 @@ for old, new in replacements:
     text = text.replace(old, new, 1)
 
 text = text.replace("<body>", '<body class="page-aesport-home">', 1)
-text = text.replace('            <h1><a href="/">Æresportskilt til bryllup og fest</a></h1>', '            <h1><a href="#forside">Æresportskilt til bryllup og fest</a></h1>', 1)
 text = text.replace('/styles.css?v=117', '/styles.css?v=121')
 text = text.replace('/script.js?v=38', '/script.js?v=42')
 

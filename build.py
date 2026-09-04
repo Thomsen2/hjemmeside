@@ -10,8 +10,8 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=207"
-ASSET_JS = "/script.js?v=59"
+ASSET_CSS = "/styles.css?v=208"
+ASSET_JS = "/script.js?v=61"
 
 BORDKORT_OG_IMAGE = "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png"
 BORDKORT_OG_ALT = "Personlige bordkort i træ på borddækning"
@@ -208,7 +208,7 @@ def nav_html(active: str) -> str:
                 <span></span><span></span><span></span>
             </button>
             <div class="nav-links" id="navLinks">
-                <a href="/#forside" class="nav-link">
+                <a href="/" class="nav-link">
                     <span class="nav-icon nav-icon--heart" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-9.5-8.2C.7 9.8 2.2 6 5.6 6c1.9 0 3.2 1.1 4 2.2C10.4 7.1 11.7 6 13.6 6c3.4 0 4.9 3.8 3.1 6.8C19 16.6 12 21 12 21z"/></svg>
                     </span>
@@ -325,7 +325,7 @@ def nav_html_bordkort(active: str, prefix: str = "") -> str:
                 <span></span><span></span><span></span>
             </button>
             <div class="nav-links" id="navLinks">
-                <a href="{p}#forside" class="{cls('home')}">
+                <a href="{p}" class="{cls('home')}">
                     <span class="nav-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><path d="M4 10.5L12 4l8 6.5V19a1.5 1.5 0 0 1-1.5 1.5H15v-5.5H9V20.5H5.5A1.5 1.5 0 0 1 4 19V10.5z"/></svg>
                     </span>
@@ -477,9 +477,9 @@ def page_shell(*, slug, title, description, h1, canonical, kicker, crumb, intro_
     url = canonical
     breadcrumb = ""
     if crumb:
-        home_href = "/" if site_name == "Bordkort.dk" else "/#forside"
+        home_href = "/"
         breadcrumb = f'<p class="page-breadcrumb"><a href="{home_href}">Forside</a> / {esc(crumb)}</p>'
-    kicker_home = "/" if site_name == "Bordkort.dk" else "/#forside"
+    kicker_home = "/"
     kicker_html = f'<p class="site-kicker"><a href="{kicker_home}">{esc(kicker_brand)}</a></p>' if kicker else ""
     h1_html = f"<h1>{h1}</h1>" if slug == "home" else f"<h1>{esc(h1)}</h1>"
     nav_block = nav(slug) if nav else nav_html(slug)
@@ -789,7 +789,7 @@ def main():
         slug="home",
         title="Bordkort i træ til bryllup | Håndlavet i Dragør",
         description="Personlige bordkort i træ til bryllup, konfirmation og fest på Amager. Navnebordkort fra 10 kr. og specielle motiver. Afhentning i Dragør.",
-        h1='<a href="#forside">Bordkort i træ til fest og bryllup</a>',
+        h1='<a href="/">Bordkort i træ til fest og bryllup</a>',
         canonical="https://bordkort.dk/",
         kicker=False,
         crumb="",
