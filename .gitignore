@@ -6,8 +6,17 @@ __pycache__/
 hentede billder/
 .env
 .env.*
+!.env.example
 _r2_creds.tmp
 _r2_migrate.py
+
+# Google Search Console OAuth + lokale dataudtræk
+**/client_secret*.json
+**/credentials.json
+**/token.json
+search-console/.secrets/
+search-console/data/**/*.json
+search-console/data/history/
 
 # Local Netlify folder
 .netlify

@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=206"
+ASSET_CSS = "/styles.css?v=207"
 ASSET_JS = "/script.js?v=59"
 
 BORDKORT_OG_IMAGE = "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png"
@@ -586,7 +586,9 @@ def main():
     hearts = filter_products(lambda p: p["form"] == "hjerte" and not p["section"].startswith("bordkort"))
     shields = filter_products(lambda p: p["form"] == "vaabenskjold")
     oak = filter_products(lambda p: p["wood"] == "egetrae" and p["form"] in ("hjerte", "vaabenskjold"))
-    signs = filter_products(lambda p: p["form"] in ("hjerte", "vaabenskjold"))
+    signs = filter_products(
+        lambda p: p["form"] in ("hjerte", "vaabenskjold") and not p["section"].startswith("bordkort")
+    )
     wedding = filter_products(lambda p: p["section"] == "bryllup" or (p["form"] == "hjerte" and p["wood"] == "egetrae"))
     copper = filter_products(lambda p: "kobber" in (p["title"] + p["description"]).lower() or p["form"] in ("hjerte", "vaabenskjold"))
     # keep copper page focused: prefer named copper + mixed signs but not 40 items
@@ -907,21 +909,16 @@ def main():
         "https://æresportskilt.dk/kobberbryllup/",
         "https://æresportskilt.dk/guldbryllup/",
         "https://æresportskilt.dk/gavekort/",
-        "https://æresportskilt.dk/bordkort/",
         "https://æresportskilt.dk/fodselstavle/",
         "https://æresportskilt.dk/andre-skilte/",
         "https://æresportskilt.dk/velkomst-skilt/",
         "https://æresportskilt.dk/eget-design/",
         "https://æresportskilt.dk/om-os/",
-        "https://bordkort.dk/",
-        "https://bordkort.dk/navne/",
-        "https://bordkort.dk/speciale/",
-        "https://bordkort.dk/om-os/",
     ]
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for i, loc in enumerate(urls):
         pri = "1.0" if i == 0 else "0.8"
-        sitemap.append(f"  <url><loc>{loc}</loc><lastmod>2026-08-19</lastmod><changefreq>weekly</changefreq><priority>{pri}</priority></url>")
+        sitemap.append(f"  <url><loc>{loc}</loc><lastmod>2026-09-04</lastmod><changefreq>weekly</changefreq><priority>{pri}</priority></url>")
     sitemap.append("</urlset>")
     (ROOT / "sitemap.xml").write_text("\n".join(sitemap) + "\n", encoding="utf-8")
     print("wrote sitemap.xml")
