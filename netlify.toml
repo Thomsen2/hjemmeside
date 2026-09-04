@@ -69,6 +69,163 @@
   status = 200
   force = true
 
+[[redirects]]
+  from = "https://bordkort.dk/bryllup/"
+  to = "/bordkort-site/bryllup/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/bryllup"
+  to = "/bordkort-site/bryllup/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/konfirmation/"
+  to = "/bordkort-site/konfirmation/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/konfirmation"
+  to = "/bordkort-site/konfirmation/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/eget-design/"
+  to = "/bordkort-site/eget-design/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/eget-design"
+  to = "/bordkort-site/eget-design/index.html"
+  status = 200
+  force = true
+
+# Æresport-only stier på bordkort.dk skal ikke vise æresportskilt-sider.
+[[redirects]]
+  from = "https://bordkort.dk/hjerte/"
+  to = "https://æresportskilt.dk/hjerte/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/hjerte"
+  to = "https://æresportskilt.dk/hjerte/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/vaabenskjold"
+  to = "https://æresportskilt.dk/vaabenskjold/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/vaabenskjold/"
+  to = "https://æresportskilt.dk/vaabenskjold/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/egetrae"
+  to = "https://æresportskilt.dk/egetrae/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/egetrae/"
+  to = "https://æresportskilt.dk/egetrae/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/soelvbryllup"
+  to = "https://æresportskilt.dk/soelvbryllup/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/soelvbryllup/"
+  to = "https://æresportskilt.dk/soelvbryllup/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/kobberbryllup"
+  to = "https://æresportskilt.dk/kobberbryllup/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/kobberbryllup/"
+  to = "https://æresportskilt.dk/kobberbryllup/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/guldbryllup"
+  to = "https://æresportskilt.dk/guldbryllup/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/guldbryllup/"
+  to = "https://æresportskilt.dk/guldbryllup/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/gavekort"
+  to = "https://æresportskilt.dk/gavekort/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/gavekort/"
+  to = "https://æresportskilt.dk/gavekort/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/fodselstavle"
+  to = "https://æresportskilt.dk/fodselstavle/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/fodselstavle/"
+  to = "https://æresportskilt.dk/fodselstavle/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/andre-skilte"
+  to = "https://æresportskilt.dk/andre-skilte/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/andre-skilte/"
+  to = "https://æresportskilt.dk/andre-skilte/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/velkomst-skilt"
+  to = "https://æresportskilt.dk/velkomst-skilt/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://bordkort.dk/velkomst-skilt/"
+  to = "https://æresportskilt.dk/velkomst-skilt/"
+  status = 301
+  force = true
+
 # Host-rewrite skal force=true, ellers vinder root index.html (æresportskilt).
 [[redirects]]
   from = "https://bordkort.dk/"

@@ -9,6 +9,44 @@
 https://www.bordkort.dk/*             https://bordkort.dk/:splat    301!
 https://www.bordkort.dk                 https://bordkort.dk/          301!
 
+# Bordkort-sider (200! så root-filer som /bryllup/index.html ikke vinder).
+https://bordkort.dk/navne/            /bordkort-site/navne/index.html           200!
+https://bordkort.dk/navne             /bordkort-site/navne/index.html           200!
+https://bordkort.dk/speciale/         /bordkort-site/speciale/index.html        200!
+https://bordkort.dk/speciale          /bordkort-site/speciale/index.html        200!
+https://bordkort.dk/bryllup/          /bordkort-site/bryllup/index.html         200!
+https://bordkort.dk/bryllup           /bordkort-site/bryllup/index.html         200!
+https://bordkort.dk/konfirmation/     /bordkort-site/konfirmation/index.html    200!
+https://bordkort.dk/konfirmation      /bordkort-site/konfirmation/index.html    200!
+https://bordkort.dk/eget-design/      /bordkort-site/eget-design/index.html     200!
+https://bordkort.dk/eget-design       /bordkort-site/eget-design/index.html     200!
+https://bordkort.dk/om-os/            /bordkort-site/om-os/index.html           200!
+https://bordkort.dk/om-os             /bordkort-site/om-os/index.html           200!
+https://bordkort.dk/sitemap.xml       /bordkort-site/sitemap.xml                200!
+https://bordkort.dk/robots.txt        /bordkort-site/robots.txt                 200!
+
+# Æresport-only stier på bordkort.dk skal ikke vise æresportskilt-sider.
+https://bordkort.dk/hjerte/           https://æresportskilt.dk/hjerte/           301!
+https://bordkort.dk/hjerte            https://æresportskilt.dk/hjerte/           301!
+https://bordkort.dk/vaabenskjold/     https://æresportskilt.dk/vaabenskjold/     301!
+https://bordkort.dk/vaabenskjold      https://æresportskilt.dk/vaabenskjold/     301!
+https://bordkort.dk/egetrae/          https://æresportskilt.dk/egetrae/          301!
+https://bordkort.dk/egetrae           https://æresportskilt.dk/egetrae/          301!
+https://bordkort.dk/soelvbryllup/     https://æresportskilt.dk/soelvbryllup/     301!
+https://bordkort.dk/soelvbryllup      https://æresportskilt.dk/soelvbryllup/     301!
+https://bordkort.dk/kobberbryllup/    https://æresportskilt.dk/kobberbryllup/    301!
+https://bordkort.dk/kobberbryllup     https://æresportskilt.dk/kobberbryllup/    301!
+https://bordkort.dk/guldbryllup/      https://æresportskilt.dk/guldbryllup/      301!
+https://bordkort.dk/guldbryllup       https://æresportskilt.dk/guldbryllup/      301!
+https://bordkort.dk/gavekort/         https://æresportskilt.dk/gavekort/         301!
+https://bordkort.dk/gavekort          https://æresportskilt.dk/gavekort/         301!
+https://bordkort.dk/fodselstavle/     https://æresportskilt.dk/fodselstavle/     301!
+https://bordkort.dk/fodselstavle      https://æresportskilt.dk/fodselstavle/     301!
+https://bordkort.dk/andre-skilte/     https://æresportskilt.dk/andre-skilte/     301!
+https://bordkort.dk/andre-skilte      https://æresportskilt.dk/andre-skilte/     301!
+https://bordkort.dk/velkomst-skilt/   https://æresportskilt.dk/velkomst-skilt/   301!
+https://bordkort.dk/velkomst-skilt    https://æresportskilt.dk/velkomst-skilt/   301!
+
 # Bordkort.dk viser sin egen forside (samme stil, andet fokus).
 # 200! er påkrævet: uden force serverer Netlify den eksisterende /index.html
 # (æresportskilt-forsiden) og ignorerer rewriten.
