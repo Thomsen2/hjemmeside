@@ -105,124 +105,125 @@
   status = 200
   force = true
 
-# Æresport-only stier på bordkort.dk skal ikke vise æresportskilt-sider.
+# Æresport-only stier på bordkort.dk: 301 til punycode-host.
+# Unicode-æ i Location giver Netlify 400 i stedet for 301.
 [[redirects]]
   from = "https://bordkort.dk/hjerte/"
-  to = "https://æresportskilt.dk/hjerte/"
+  to = "https://xn--resportskilt-5cb.dk/hjerte/"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://bordkort.dk/hjerte"
-  to = "https://æresportskilt.dk/hjerte/"
+  to = "https://xn--resportskilt-5cb.dk/hjerte/"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://bordkort.dk/vaabenskjold"
-  to = "https://æresportskilt.dk/vaabenskjold/"
+  to = "https://xn--resportskilt-5cb.dk/vaabenskjold/"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://bordkort.dk/vaabenskjold/"
-  to = "https://æresportskilt.dk/vaabenskjold/"
+  to = "https://xn--resportskilt-5cb.dk/vaabenskjold/"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://bordkort.dk/egetrae"
-  to = "https://æresportskilt.dk/egetrae/"
+  to = "https://xn--resportskilt-5cb.dk/egetrae/"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://bordkort.dk/egetrae/"
-  to = "https://æresportskilt.dk/egetrae/"
+  to = "https://xn--resportskilt-5cb.dk/egetrae/"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://bordkort.dk/soelvbryllup"
-  to = "https://æresportskilt.dk/soelvbryllup/"
+  to = "https://xn--resportskilt-5cb.dk/soelvbryllup/"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://bordkort.dk/soelvbryllup/"
-  to = "https://æresportskilt.dk/soelvbryllup/"
+  to = "https://xn--resportskilt-5cb.dk/soelvbryllup/"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://bordkort.dk/kobberbryllup"
-  to = "https://æresportskilt.dk/kobberbryllup/"
+  to = "https://xn--resportskilt-5cb.dk/kobberbryllup/"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://bordkort.dk/kobberbryllup/"
-  to = "https://æresportskilt.dk/kobberbryllup/"
+  to = "https://xn--resportskilt-5cb.dk/kobberbryllup/"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://bordkort.dk/guldbryllup"
-  to = "https://æresportskilt.dk/guldbryllup/"
+  to = "https://xn--resportskilt-5cb.dk/guldbryllup/"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://bordkort.dk/guldbryllup/"
-  to = "https://æresportskilt.dk/guldbryllup/"
+  to = "https://xn--resportskilt-5cb.dk/guldbryllup/"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://bordkort.dk/gavekort"
-  to = "https://æresportskilt.dk/gavekort/"
+  to = "https://xn--resportskilt-5cb.dk/gavekort/"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://bordkort.dk/gavekort/"
-  to = "https://æresportskilt.dk/gavekort/"
+  to = "https://xn--resportskilt-5cb.dk/gavekort/"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://bordkort.dk/fodselstavle"
-  to = "https://æresportskilt.dk/fodselstavle/"
+  to = "https://xn--resportskilt-5cb.dk/fodselstavle/"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://bordkort.dk/fodselstavle/"
-  to = "https://æresportskilt.dk/fodselstavle/"
+  to = "https://xn--resportskilt-5cb.dk/fodselstavle/"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://bordkort.dk/andre-skilte"
-  to = "https://æresportskilt.dk/andre-skilte/"
+  to = "https://xn--resportskilt-5cb.dk/andre-skilte/"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://bordkort.dk/andre-skilte/"
-  to = "https://æresportskilt.dk/andre-skilte/"
+  to = "https://xn--resportskilt-5cb.dk/andre-skilte/"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://bordkort.dk/velkomst-skilt"
-  to = "https://æresportskilt.dk/velkomst-skilt/"
+  to = "https://xn--resportskilt-5cb.dk/velkomst-skilt/"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://bordkort.dk/velkomst-skilt/"
-  to = "https://æresportskilt.dk/velkomst-skilt/"
+  to = "https://xn--resportskilt-5cb.dk/velkomst-skilt/"
   status = 301
   force = true
 
@@ -235,8 +236,8 @@
 
 [[redirects]]
   from = "https://bordkort.dk/index.html"
-  to = "/bordkort-site/index.html"
-  status = 200
+  to = "https://bordkort.dk/"
+  status = 301
   force = true
 
 [[redirects]]

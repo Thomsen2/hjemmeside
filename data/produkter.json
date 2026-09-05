@@ -635,12 +635,12 @@
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute.jpeg",
-          "alt": "Navne bordkort i birkefiner",
+          "alt": "Personligt bordkort i træ med navn",
           "hidden": false
         },
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png",
-          "alt": "Navne bordkort i træ på borddækning",
+          "alt": "Bordkort i træ med navn til bryllup på borddækning",
           "hidden": true
         }
       ],
@@ -660,12 +660,12 @@
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/milk.jpeg",
-          "alt": "Navne bordkort i birkefiner",
+          "alt": "Personligt bordkort i træ med navn",
           "hidden": false
         },
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/milk%20chat.png",
-          "alt": "Navne bordkort i træ på bord",
+          "alt": "Bordkort i træ med navn til bryllup på borddækning",
           "hidden": true
         }
       ],
@@ -685,12 +685,12 @@
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/bejdset-valnod-milk.jpeg",
-          "alt": "Navne bordkort Milk bejdset i valnød",
+          "alt": "Personligt bordkort i træ med navn i valnød",
           "hidden": false
         },
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/bejdset-valnod-milk%20chat.jpg?v=2",
-          "alt": "Bordkort Bejdset i valnød - Milk på borddækning",
+          "alt": "Bordkort i træ med navn til bryllup på borddækning",
           "hidden": true
         }
       ],
@@ -710,12 +710,12 @@
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/navneskrift.png",
-          "alt": "Personligt navne bordkort i træ",
+          "alt": "Personligt bordkort i træ med navn",
           "hidden": false
         },
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/navneskrift%20chat.png",
-          "alt": "Personligt navne bordkort på borddækning",
+          "alt": "Bordkort i træ med navn til bryllup på borddækning",
           "hidden": true
         }
       ],
@@ -735,12 +735,12 @@
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/navneskrift%20pastel.png",
-          "alt": "Farvet Milk navne bordkort i træ",
+          "alt": "Farvet personligt bordkort i træ med navn",
           "hidden": false
         },
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/navneskrift%20pastel%20chat.png",
-          "alt": "Farvet Milk navne bordkort på bord",
+          "alt": "Bordkort i træ med navn til bryllup på borddækning",
           "hidden": true
         }
       ],
@@ -760,7 +760,7 @@
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/3d-printet-bordkort.png",
-          "alt": "3D-printet navne bordkort",
+          "alt": "Personligt 3D-printet bordkort i træ med navn",
           "hidden": false
         }
       ],
@@ -773,14 +773,14 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Headset (12 kr stk) (mål: 6 x 6 cm)",
-      "title": "Bordkort – Headset",
+      "description": "Bordkort med headset i træ (12 kr stk) (mål: 6 x 6 cm)",
+      "title": "Bordkort med headset i træ",
       "size": "mål: 6 x 6 cm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/headset.jpeg",
-          "alt": "Bordkort i træ med headset",
+          "alt": "Bordkort med headset i træ",
           "hidden": false
         },
         {
@@ -798,14 +798,14 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Controller (12 kr stk) (mål: 7,5 x 4,5 cm)",
-      "title": "Bordkort – Controller",
+      "description": "Bordkort med controller i træ (12 kr stk) (mål: 7,5 x 4,5 cm)",
+      "title": "Bordkort med controller i træ",
       "size": "mål: 7,5 x 4,5 cm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/Controller.jpeg",
-          "alt": "Bordkort i træ med controller",
+          "alt": "Bordkort med controller i træ",
           "hidden": false
         },
         {
@@ -823,14 +823,14 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Fodbold (12 kr stk) (ca. mål ø.54mm)",
-      "title": "Bordkort – Fodbold",
+      "description": "Bordkort med fodbold i træ (12 kr stk) (ca. mål ø.54mm)",
+      "title": "Bordkort med fodbold i træ",
       "size": "ca. mål ø.54mm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/fodbold.jpeg",
-          "alt": "Bordkort i træ med fodbold",
+          "alt": "Bordkort med fodbold i træ",
           "hidden": false
         },
         {
@@ -848,14 +848,14 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Fodboldtrøje (12 kr stk) (mål ca. 6.5 x 8 cm)",
-      "title": "Bordkort – Fodboldtrøje",
+      "description": "Bordkort med fodboldtrøje i træ (12 kr stk) (mål ca. 6.5 x 8 cm)",
+      "title": "Bordkort med fodboldtrøje i træ",
       "size": "mål ca. 6.5 x 8 cm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/fodboldtroeje.png",
-          "alt": "Bordkort i træ med fodboldtrøje",
+          "alt": "Bordkort med fodboldtrøje i træ",
           "hidden": false
         },
         {
@@ -873,19 +873,19 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Wanted (12 kr stk) (ca. mål 48x69mm)",
-      "title": "Bordkort – Wanted",
+      "description": "Bordkort med Wanted-motiv i træ (12 kr stk) (ca. mål 48x69mm)",
+      "title": "Bordkort med Wanted-motiv i træ",
       "size": "ca. mål 48x69mm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/wanted.jpeg",
-          "alt": "Bordkort i træ med Wanted-design",
+          "alt": "Bordkort med Wanted-motiv i træ",
           "hidden": false
         },
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/wanted%20chat.png",
-          "alt": "Bordkort med Wanted-design på bord",
+          "alt": "Bordkort med Wanted-motiv på bord",
           "hidden": true
         }
       ],
@@ -898,14 +898,14 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Cowboy hat (12 kr stk) (ca. mål 42x78mm)",
-      "title": "Bordkort – Cowboy hat",
+      "description": "Bordkort med cowboyhat i træ (12 kr stk) (ca. mål 42x78mm)",
+      "title": "Bordkort med cowboyhat i træ",
       "size": "ca. mål 42x78mm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cowboyhat.jpeg",
-          "alt": "Bordkort i træ med cowboyhat",
+          "alt": "Bordkort med cowboyhat i træ",
           "hidden": false
         },
         {
@@ -923,14 +923,14 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – fodboldstøvle (10 kr stk) (ca. 60 x 25 mm)",
-      "title": "Bordkort – fodboldstøvle",
+      "description": "Bordkort med fodboldstøvle i træ (10 kr stk) (ca. 60 x 25 mm)",
+      "title": "Bordkort med fodboldstøvle i træ",
       "size": "ca. 60 x 25 mm",
       "price": "10,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/st%C3%B8vle.jpeg",
-          "alt": "Bordkort i træ med fodboldstøvle",
+          "alt": "Bordkort med fodboldstøvle i træ",
           "hidden": false
         },
         {
@@ -948,14 +948,14 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Amerikansk fodbold (13 kr stk) (ca. mål 45x75mm)",
-      "title": "Bordkort – Amerikansk fodbold",
+      "description": "Bordkort med amerikansk fodbold i træ (13 kr stk) (ca. mål 45x75mm)",
+      "title": "Bordkort med amerikansk fodbold i træ",
       "size": "ca. mål 45x75mm",
       "price": "13,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/Amerikansk%20fodbold.jpeg",
-          "alt": "Bordkort i træ med amerikansk fodbold",
+          "alt": "Bordkort med amerikansk fodbold i træ",
           "hidden": false
         },
         {
@@ -973,14 +973,14 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Babytrøje (12 kr stk) (ca. mål 50x61mm)",
-      "title": "Bordkort – Babytrøje",
+      "description": "Bordkort med babytrøje i træ (12 kr stk) (ca. mål 50x61mm)",
+      "title": "Bordkort med babytrøje i træ",
       "size": "ca. mål 50x61mm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/babytr%C3%B8je.jpeg",
-          "alt": "Bordkort i træ med babytrøje",
+          "alt": "Bordkort med babytrøje i træ",
           "hidden": false
         },
         {
@@ -998,14 +998,14 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Basket net (13 kr stk) (ca. mål 60x53mm)",
-      "title": "Bordkort – Basket net",
+      "description": "Bordkort med basketnet i træ (13 kr stk) (ca. mål 60x53mm)",
+      "title": "Bordkort med basketnet i træ",
       "size": "ca. mål 60x53mm",
       "price": "13,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/basket%20net.jpeg",
-          "alt": "Bordkort i træ med basketnet",
+          "alt": "Bordkort med basketnet i træ",
           "hidden": false
         },
         {
@@ -1023,14 +1023,14 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Basketball (12 kr stk) (ca. mål ø.54mm)",
-      "title": "Bordkort – Basketball",
+      "description": "Bordkort med basketball i træ (12 kr stk) (ca. mål ø.54mm)",
+      "title": "Bordkort med basketball i træ",
       "size": "ca. mål ø.54mm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/basketball%202.jpeg",
-          "alt": "Bordkort i træ med basketball",
+          "alt": "Bordkort med basketball i træ",
           "hidden": false
         },
         {
@@ -1048,14 +1048,14 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Hestehjerte (12 kr stk) (ca. mål 54x61mm)",
-      "title": "Bordkort – Hestehjerte",
+      "description": "Bordkort med hestehjerte i træ (12 kr stk) (ca. mål 54x61mm)",
+      "title": "Bordkort med hestehjerte i træ",
       "size": "ca. mål 54x61mm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/hestehjerte%20version%201.jpeg",
-          "alt": "Bordkort i træ med hestehjerte",
+          "alt": "Bordkort med hestehjerte i træ",
           "hidden": false
         },
         {
@@ -1073,14 +1073,14 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Fod (12 kr stk) (ca. mål 61x36mm)",
-      "title": "Bordkort – Fod",
+      "description": "Bordkort med fod i træ (12 kr stk) (ca. mål 61x36mm)",
+      "title": "Bordkort med fod i træ",
       "size": "ca. mål 61x36mm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/fod.jpeg",
-          "alt": "Bordkort i træ med fod",
+          "alt": "Bordkort med fod i træ",
           "hidden": false
         },
         {
@@ -1098,14 +1098,14 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Håndbold (12 kr stk) (ca. mål ø.54mm)",
-      "title": "Bordkort – Håndbold",
+      "description": "Bordkort med håndbold i træ (12 kr stk) (ca. mål ø.54mm)",
+      "title": "Bordkort med håndbold i træ",
       "size": "ca. mål ø.54mm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/h%C3%A5ndbold.jpeg",
-          "alt": "Bordkort i træ med håndbold",
+          "alt": "Bordkort med håndbold i træ",
           "hidden": false
         },
         {
@@ -1123,14 +1123,14 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Sut (12 kr stk) (ca. mål 51x40mm)",
-      "title": "Bordkort – Sut",
+      "description": "Bordkort med sut i træ (12 kr stk) (ca. mål 51x40mm)",
+      "title": "Bordkort med sut i træ",
       "size": "ca. mål 51x40mm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/sut2.jpeg",
-          "alt": "Bordkort i træ med sut",
+          "alt": "Bordkort med sut i træ",
           "hidden": false
         },
         {
@@ -1148,14 +1148,14 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Hockey (12 kr stk) (ca. mål 66x62mm)",
-      "title": "Bordkort – Hockey",
+      "description": "Bordkort med hockey i træ (12 kr stk) (ca. mål 66x62mm)",
+      "title": "Bordkort med hockey i træ",
       "size": "ca. mål 66x62mm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/hockey.jpeg",
-          "alt": "Bordkort i træ med hockey",
+          "alt": "Bordkort med hockey i træ",
           "hidden": false
         },
         {
@@ -1173,14 +1173,14 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Krondyr (12 kr stk) (ca. mål 78x54mm)",
-      "title": "Bordkort – Krondyr",
+      "description": "Bordkort med krondyr i træ (12 kr stk) (ca. mål 78x54mm)",
+      "title": "Bordkort med krondyr i træ",
       "size": "ca. mål 78x54mm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/krondyr.jpeg",
-          "alt": "Bordkort i træ med krondyr",
+          "alt": "Bordkort med krondyr i træ",
           "hidden": false
         },
         {
@@ -1198,14 +1198,14 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Skytte (12 kr stk) (ca. mål 59x97mm)",
-      "title": "Bordkort – Skytte",
+      "description": "Bordkort med skytte i træ (12 kr stk) (ca. mål 59x97mm)",
+      "title": "Bordkort med skytte i træ",
       "size": "ca. mål 59x97mm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/skytte.jpeg",
-          "alt": "Bordkort i træ med skytte",
+          "alt": "Bordkort med skytte i træ",
           "hidden": false
         },
         {
@@ -1223,19 +1223,19 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Roblox (14 kr stk) (ca. mål 64x70mm)",
-      "title": "Bordkort – Roblox",
+      "description": "Bordkort med Roblox-motiv i træ (14 kr stk) (ca. mål 64x70mm)",
+      "title": "Bordkort med Roblox-motiv i træ",
       "size": "ca. mål 64x70mm",
       "price": "14,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/roblox.jpeg",
-          "alt": "Bordkort i træ med Roblox-figur",
+          "alt": "Bordkort med Roblox-motiv i træ",
           "hidden": false
         },
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/roblox%20chat.png",
-          "alt": "Bordkort med Roblox-figur på bord",
+          "alt": "Bordkort med Roblox-motiv på bord",
           "hidden": true
         }
       ],
@@ -1248,14 +1248,14 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Knallert (14 kr stk) (ca. mål 72x42mm)",
-      "title": "Bordkort – Knallert",
+      "description": "Bordkort med knallert i træ (14 kr stk) (ca. mål 72x42mm)",
+      "title": "Bordkort med knallert i træ",
       "size": "ca. mål 72x42mm",
       "price": "14,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/knallert.jpeg",
-          "alt": "Bordkort i træ med knallert",
+          "alt": "Bordkort med knallert i træ",
           "hidden": false
         },
         {
@@ -1273,14 +1273,14 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Scooter (14 kr stk) (ca. mål 45x65mm)",
-      "title": "Bordkort – Scooter",
+      "description": "Bordkort med scooter i træ (14 kr stk) (ca. mål 45x65mm)",
+      "title": "Bordkort med scooter i træ",
       "size": "ca. mål 45x65mm",
       "price": "14,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/scooter.jpeg",
-          "alt": "Bordkort i træ med scooter",
+          "alt": "Bordkort med scooter i træ",
           "hidden": false
         },
         {
@@ -1298,19 +1298,19 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Badmintonbold (12 kr stk) (ca. mål 55x67mm)",
-      "title": "Bordkort – Badmintonbold",
+      "description": "Bordkort med badminton i træ (12 kr stk) (ca. mål 55x67mm)",
+      "title": "Bordkort med badminton i træ",
       "size": "ca. mål 55x67mm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/badmintonbold.jpeg",
-          "alt": "Bordkort i træ formet som badmintonbold",
+          "alt": "Bordkort med badminton i træ",
           "hidden": false
         },
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/badmintonbold%20chat.jpg",
-          "alt": "Bordkort badmintonbold på borddækning",
+          "alt": "Bordkort med badminton på bord",
           "hidden": true
         }
       ],
@@ -1323,19 +1323,19 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Fodboldspiller (12 kr stk) (ca. mål 90x65mm)",
-      "title": "Bordkort – Fodboldspiller",
+      "description": "Bordkort med fodboldspiller i træ (12 kr stk) (ca. mål 90x65mm)",
+      "title": "Bordkort med fodboldspiller i træ",
       "size": "ca. mål 90x65mm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/fodboldspiller.jpeg",
-          "alt": "Bordkort i træ formet som fodboldspiller",
+          "alt": "Bordkort med fodboldspiller i træ",
           "hidden": false
         },
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/fodboldspiller%20chat.jpg",
-          "alt": "Bordkort fodboldspiller på borddækning",
+          "alt": "Bordkort med fodboldspiller på bord",
           "hidden": true
         }
       ],
@@ -1348,19 +1348,19 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Håndboldspiller (12 kr stk) (ca. mål 76x87mm)",
-      "title": "Bordkort – Håndboldspiller",
+      "description": "Bordkort med håndboldspiller i træ (12 kr stk) (ca. mål 76x87mm)",
+      "title": "Bordkort med håndboldspiller i træ",
       "size": "ca. mål 76x87mm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/haandboldspiller.jpeg",
-          "alt": "Bordkort i træ formet som håndboldspiller",
+          "alt": "Bordkort med håndboldspiller i træ",
           "hidden": false
         },
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/haandboldspiller%20chat.jpg",
-          "alt": "Bordkort håndboldspiller på borddækning",
+          "alt": "Bordkort med håndboldspiller på bord",
           "hidden": true
         }
       ],
@@ -1373,19 +1373,19 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Jagtriffel (12 kr stk) (ca. mål 115x26mm)",
-      "title": "Bordkort – Jagtriffel",
+      "description": "Bordkort med jagtriffel i træ (12 kr stk) (ca. mål 115x26mm)",
+      "title": "Bordkort med jagtriffel i træ",
       "size": "ca. mål 115x26mm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/jagtriffel.jpeg",
-          "alt": "Bordkort i træ formet som jagtriffel",
+          "alt": "Bordkort med jagtriffel i træ",
           "hidden": false
         },
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/jagtriffel%20chat.jpg",
-          "alt": "Bordkort jagtriffel på borddækning",
+          "alt": "Bordkort med jagtriffel på bord",
           "hidden": true
         }
       ],
@@ -1398,19 +1398,19 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Bordtennis bat (12 kr stk) (ca. mål 79x46mm)",
-      "title": "Bordkort – Bordtennis bat",
+      "description": "Bordkort med bordtennisbat i træ (12 kr stk) (ca. mål 79x46mm)",
+      "title": "Bordkort med bordtennisbat i træ",
       "size": "ca. mål 79x46mm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/bordtennis-bat.jpeg",
-          "alt": "Bordkort i træ formet som bordtennis bat",
+          "alt": "Bordkort med bordtennisbat i træ",
           "hidden": false
         },
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/bordtennis-bat%20chat.jpg",
-          "alt": "Bordkort bordtennis bat på borddækning",
+          "alt": "Bordkort med bordtennisbat på bord",
           "hidden": true
         }
       ],
@@ -1423,19 +1423,19 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Floorball (12 kr stk) (ca. mål Ø 50 mm)",
-      "title": "Bordkort – Floorball",
+      "description": "Bordkort med floorball i træ (12 kr stk) (ca. mål Ø 50 mm)",
+      "title": "Bordkort med floorball i træ",
       "size": "ca. mål Ø 50 mm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/floorball.jpeg",
-          "alt": "Bordkort i træ formet som floorball",
+          "alt": "Bordkort med floorball i træ",
           "hidden": false
         },
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/floorball%20chat.jpg",
-          "alt": "Bordkort floorball på borddækning",
+          "alt": "Bordkort med floorball på bord",
           "hidden": true
         }
       ],
@@ -1448,14 +1448,14 @@
     },
     {
       "section": "bordkort_speciale",
-      "description": "Bordkort – Heste hjerte version 2 (12 kr stk) (ca. mål 54x61mm)",
-      "title": "Bordkort – Heste hjerte version 2",
+      "description": "Bordkort med hestehjerte i træ – version 2 (12 kr stk) (ca. mål 54x61mm)",
+      "title": "Bordkort med hestehjerte i træ – version 2",
       "size": "ca. mål 54x61mm",
       "price": "12,00 kr.",
       "images": [
         {
           "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/heste%20hjerte%20version%202.jpeg",
-          "alt": "Bordkort i træ med hestehjerte",
+          "alt": "Bordkort med hestehjerte i træ – version 2",
           "hidden": false
         },
         {

@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=209"
+ASSET_CSS = "/styles.css?v=216"
 ASSET_JS = "/script.js?v=61"
 
 BORDKORT_OG_IMAGE = "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png"
@@ -343,7 +343,7 @@ def nav_html_bordkort(active: str, prefix: str = "") -> str:
                             <span class="nb">Ava</span>
                         </span>
                     </span>
-                    Navne bordkort
+                    Bordkort med navn
                 </a>
                 <a href="{p}speciale/" class="{cls('speciale')}">
                     <span class="nav-icon nav-icon--spark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></span>
@@ -414,11 +414,18 @@ def bordkort_jsonld(faq: list[tuple[str, str]]) -> str:
             for q, a in faq
         ],
     }
-    graph = [faq_entity, local_business_bordkort()]
+    website = {
+        "@type": "WebSite",
+        "name": "Bordkort.dk",
+        "url": "https://bordkort.dk/",
+        "description": "Personlige bordkort i træ til bryllup, konfirmation og fest. Håndlavet i Dragør.",
+        "publisher": {"@id": "https://bordkort.dk/#business"},
+    }
+    graph = [website, faq_entity, local_business_bordkort()]
     return json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False, indent=2)
 
 
-def bordkort_landing_jsonld(*, url: str, name: str, description: str, crumb: str, faq: list[tuple[str, str]]) -> str:
+def bordkort_landing_jsonld(*, url: str, name: str, description: str, crumb: str, faq: list[tuple[str, str]], include_business: bool = False) -> str:
     graph: list[dict] = []
     if faq:
         graph.append(
@@ -430,6 +437,8 @@ def bordkort_landing_jsonld(*, url: str, name: str, description: str, crumb: str
                 ],
             }
         )
+    if include_business:
+        graph.append(local_business_bordkort(url=url, page_id=f"{url.rstrip('/')}/#business"))
     graph.append(
         {
             "@type": "CollectionPage",
@@ -461,12 +470,25 @@ CONTACT_ABOUT = f"""            <p class="contact-detail">Bo Thomsen</p>
 
 ABOUT_AESPORT = "Hos Æresportskilt.dk skaber vi håndlavede æresportskilte med kærlighed til træhåndværket. Hvert skilt udføres i nøje udvalgte træsorter, hvor kvalitet og detaljer er i fokus. Vi tilbyder personlig service og skræddersyede løsninger, så dit skilt bliver unikt og holder i generationer."
 
-ABOUT_BORDKORT = "Hos Bordkort.dk laver vi personlige bordkort i træ til bryllup, konfirmation og fest. Hvert bordkort fremstilles på bestilling med fokus på kvalitet og detaljer. Vi tilbyder personlig service – og laver også æresportskilte på Æresportskilt.dk."
+ABOUT_BORDKORT = "På Bordkort.dk laver vi personlige bordkort i træ til bryllup, konfirmation, fødselsdag og andre festlige lejligheder. Bordkortene fremstilles efter bestilling, så de kan tilpasses den enkelte fest og gæsternes navne."
 
 def about_section(about_text: str) -> str:
     return f"""    <section class="about">
         <div class="container">
             <p class="about-text">{about_text}</p>
+            <h2 style="margin-top:2rem">Kontakt</h2>
+            <p>Har du spørgsmål? Kontakt os på:</p>
+{CONTACT_ABOUT}
+        </div>
+    </section>"""
+
+
+def about_section_bordkort() -> str:
+    return f"""    <section class="about">
+        <div class="container">
+            <h2>Personlige bordkort i træ lavet i Dragør</h2>
+            <p class="about-text">{ABOUT_BORDKORT}</p>
+            <p>Vi arbejder med forskellige designs, træsorter og motiver, så du kan finde bordkort, der passer til netop din borddækning. Se blandt andet vores <a href="/navne/">bordkort med navn</a>, <a href="/bryllup/">bordkort til bryllup</a> og <a href="/speciale/">specielle bordkort</a>.</p>
             <h2 style="margin-top:2rem">Kontakt</h2>
             <p>Har du spørgsmål? Kontakt os på:</p>
 {CONTACT_ABOUT}
@@ -483,7 +505,7 @@ FOOTER = f"""    <footer>
 BORDKORT_FOOTER = f"""    <footer>
         <div class="container">
 {CONTACT_FOOTER}
-            <p>&copy; 2026 Bordkort.dk. Alle rettigheder forbeholdes. &mdash; <a href="/navne/">Navne bordkort</a> &mdash; <a href="/speciale/">Specielle bordkort</a> &mdash; <a href="/bryllup/">Bryllup</a> &mdash; <a href="/konfirmation/">Konfirmation</a> &mdash; <a href="/eget-design/">Eget design</a> &mdash; <a href="https://æresportskilt.dk/">Æresportskilte</a> &mdash; <a href="/om-os/">Om os</a></p>
+            <p>&copy; 2026 Bordkort.dk. Alle rettigheder forbeholdes. &mdash; <a href="/navne/">Bordkort med navn</a> &mdash; <a href="/speciale/">Specielle bordkort</a> &mdash; <a href="/bryllup/">Bordkort til bryllup</a> &mdash; <a href="/konfirmation/">Bordkort til konfirmation</a> &mdash; <a href="/eget-design/">Specialdesignede bordkort</a> &mdash; <a href="https://æresportskilt.dk/">Æresportskilte</a> &mdash; <a href="/om-os/">Om os</a></p>
         </div>
     </footer>"""
 
@@ -507,7 +529,14 @@ NETLIFY_FORM = """    <form name="bestilling" method="POST" data-netlify="true" 
     </form>"""
 
 
-def page_shell(*, slug, title, description, h1, canonical, kicker, crumb, intro_h2, intro, products_html, faq, extra_body="", site_name="Æresportskilt.dk", kicker_brand="Æresportskilt.dk", nav=None, footer=None, favicon="/favicon.svg", intro_before=False, og_image="", og_image_alt="", jsonld=""):
+def format_intro_para(p) -> str:
+    """Plain strings are escaped; dicts with html= pass through for internal links."""
+    if isinstance(p, dict) and "html" in p:
+        return f'            <p>{p["html"]}</p>'
+    return f"            <p>{esc(p)}</p>"
+
+
+def page_shell(*, slug, title, description, h1, canonical, kicker, crumb, intro_h2, intro, products_html, faq, extra_body="", site_name="Æresportskilt.dk", kicker_brand="Æresportskilt.dk", nav=None, footer=None, favicon="/favicon.svg", intro_before=False, og_image="", og_image_alt="", jsonld="", intro_html_extra=""):
     url = canonical
     breadcrumb = ""
     if crumb:
@@ -519,13 +548,15 @@ def page_shell(*, slug, title, description, h1, canonical, kicker, crumb, intro_
     nav_block = nav(slug) if nav else nav_html(slug)
     footer_block = footer if footer is not None else FOOTER
     intro_html = ""
-    if intro:
-        paras = "\n".join(f"            <p>{esc(p)}</p>" for p in intro)
+    if intro or intro_html_extra:
+        paras = "\n".join(format_intro_para(p) for p in intro) if intro else ""
+        if paras:
+            paras += "\n"
         heading = f"            <h2>{esc(intro_h2)}</h2>\n" if intro_h2 else ""
+        extra = f"{intro_html_extra}\n" if intro_html_extra else ""
         intro_html = f"""    <section class="intro">
         <div class="container">
-{heading}{paras}
-        </div>
+{heading}{paras}{extra}        </div>
     </section>"""
     faq_html = faq_block(faq) if faq else ""
     schemas = []
@@ -793,8 +824,8 @@ def main():
 
     bordkort_omos = page_shell(
         slug="om-os",
-        title="Om os – Bordkort.dk | Dragør",
-        description="Hos Bordkort.dk laver vi personlige bordkort i træ i Dragør på Amager. Personlig service og afhentning efter aftale.",
+        title="Om Bordkort.dk | Personlige bordkort i træ",
+        description="Læs om Bordkort.dk og vores personlige bordkort i træ. Vi laver bordkort til bryllup, konfirmation og fest og holder til i Dragør.",
         h1="Om os",
         canonical="https://bordkort.dk/om-os/",
         kicker=True,
@@ -804,41 +835,45 @@ def main():
         intro=[],
         products_html="",
         faq=[],
-        extra_body=about_section(ABOUT_BORDKORT),
+        extra_body=about_section_bordkort(),
         site_name="Bordkort.dk",
         nav=lambda slug: nav_html_bordkort("om-os", prefix="../"),
         footer=BORDKORT_FOOTER,
         favicon="/favicon-bordkort.ico?v=3",
         og_image=BORDKORT_OG_IMAGE,
         og_image_alt=BORDKORT_OG_ALT,
-        jsonld=json.dumps(
-            {"@context": "https://schema.org", "@graph": [local_business_bordkort(url="https://bordkort.dk/om-os/", page_id="https://bordkort.dk/om-os/#business")]},
-            ensure_ascii=False,
-            indent=2,
+        jsonld=bordkort_landing_jsonld(
+            url="https://bordkort.dk/om-os/",
+            name="Om Bordkort.dk",
+            description="Læs om Bordkort.dk og vores personlige bordkort i træ. Vi laver bordkort til bryllup, konfirmation og fest og holder til i Dragør.",
+            crumb="Om os",
+            faq=[],
+            include_business=True,
         ),
     )
     write_page("bordkort-site/om-os/index.html", bordkort_omos)
 
     bordkort_home = page_shell(
         slug="home",
-        title="Bordkort i træ til bryllup | Håndlavet i Dragør",
-        description="Personlige bordkort i træ til bryllup, konfirmation og fest på Amager. Navnebordkort fra 10 kr. og specielle motiver. Afhentning i Dragør.",
+        title="Bordkort i træ med navn til bryllup og fest | Bordkort.dk",
+        description="Personlige bordkort i træ med navn til bryllup, konfirmation og fest. Håndlavede bordkort i forskellige designs – lavet i Dragør.",
         h1='<a href="/">Bordkort i træ til fest og bryllup</a>',
         canonical="https://bordkort.dk/",
         kicker=False,
         crumb="",
-        intro_h2="Personlige bordkort i træ",
+        intro_h2="Personlige bordkort med navn",
         intro=[
-            "Hos Bordkort.dk laver vi personlige bordkort i træ til bryllup, konfirmation, fødselsdag og fest — håndlavet i Dragør på Amager.",
-            "Vælg klassiske navnebordkort eller specielle motiver – fodbold, heste, gaming og meget mere. Hvert bordkort fremstilles på bestilling.",
-            "Gratis afhentning i Dragør efter aftale, eller forsendelse i hele Danmark for 55kr. Se også æresportskilte på Æresportskilt.dk, hvis I skal have skilt til æresporten.",
+            "Gør borddækningen personlig med bordkort i træ med navn til hver af dine gæster. Vi laver personlige navnebordkort til bryllup, konfirmation, fødselsdag og andre festlige lejligheder. Vælg mellem forskellige designs og træsorter, og få gæstens navn skåret direkte i bordkortet.",
+            {"html": 'Se vores udvalg af <a href="/navne/">bordkort med navn</a>.'},
+            {"html": 'Skal du holde bryllup eller konfirmation? Se også vores <a href="/konfirmation/">bordkort til konfirmation</a> og <a href="/speciale/">specielle bordkort</a> med motiver.'},
+            {"html": 'Har du brug for noget helt særligt, laver vi også <a href="/eget-design/">specialdesignede bordkort</a>. Gratis afhentning i Dragør efter aftale, eller forsendelse i hele Danmark for 55 kr.'},
         ],
         products_html="",
         faq=BORDKORT_FAQ,
         extra_body="""    <section class="builder" id="eget-design">
         <div class="container">
             <h2 class="no-divider">Få lavet dit helt eget design</h2>
-            <p class="section-desc">Har I et tema, et logo eller et motiv, I ikke finder her? Beskriv ønsket, så laver vi et forslag og en pris.</p>
+            <p class="section-desc">Har I et tema, et logo eller et motiv, I ikke finder her? Beskriv ønsket, så laver vi et forslag og en pris. Du kan også gå direkte til siden for <a href="/eget-design/">specialdesignede bordkort</a>.</p>
             <div class="form-area" style="max-width:520px;margin:0 auto">
                 <form class="sign-form">
                     <div class="form-group">
@@ -882,19 +917,20 @@ def main():
     ]
     bordkort_navne = page_shell(
         slug="navne",
-        title="Navne bordkort i træ – personlige bordkort med navn",
-        description="Personlige navnebordkort i træ med gæstens navn. Klassiske bordkort til bryllup og fest fra 10 kr. Håndlavet i Dragør.",
-        h1="Navne bordkort i træ",
+        title="Bordkort med navn i træ | Personlige navnebordkort",
+        description="Personlige bordkort med navn i træ til bryllup, konfirmation og fest. Vælg mellem forskellige designs og træsorter og få gæstens navn skåret i bordkortet.",
+        h1="Bordkort med navn i træ",
         canonical="https://bordkort.dk/navne/",
         kicker=True,
         kicker_brand="Bordkort.dk",
-        crumb="Navne bordkort",
-        intro_h2="Personlige udskårne navnebordkort i træ",
+        crumb="Bordkort med navn",
+        intro_h2="Personlige bordkort med navn",
         intro=[
-            "Klassiske navnebordkort i træ gør borddækningen personlig. Hvert kort udskæres med gæstens navn og står ved kuverten – et lille minde, gæsterne kan tage med hjem.",
-            "Vi laver navnebordkort i birkefiner, bejdset valnød og farvede udgaver. Cute og Milk er de mest valgte modeller. Prisen starter ved 10 kr. stykket.",
-            "Skriv navnene i formularen ved den model, I vælger. I kan afhente i Dragør eller få bordkortene sendt. Se også specielle motiver, hvis festen har et tema.",
+            "Vores bordkort med navn bliver lavet personligt til hver gæst og passer perfekt til bryllup, konfirmation, fødselsdag og andre festlige lejligheder. Vælg mellem forskellige designs og træsorter, og få skåret gæstens navn direkte i bordkortet.",
         ],
+        intro_html_extra="""            <h2>Bordkort med navn til bryllup og fest</h2>
+            <p>Personlige bordkort med navn giver borddækningen et flot og personligt udtryk. Vælg det design, der passer til festen, og bestil et bordkort til hver af dine gæster.</p>
+            <p>Skal du holde konfirmation? Se vores <a href="/konfirmation/">bordkort til konfirmation</a>.</p>""",
         intro_before=True,
         products_html=render_grids(
             filter_products(lambda p: p["section"] == "bordkort_navne"),
@@ -909,9 +945,9 @@ def main():
         og_image_alt=BORDKORT_OG_ALT,
         jsonld=bordkort_landing_jsonld(
             url="https://bordkort.dk/navne/",
-            name="Navne bordkort i træ",
-            description="Personlige navnebordkort i træ med gæstens navn. Klassiske bordkort til bryllup og fest fra 10 kr. Håndlavet i Dragør.",
-            crumb="Navne bordkort",
+            name="Bordkort med navn i træ",
+            description="Personlige bordkort med navn i træ til bryllup, konfirmation og fest. Vælg mellem forskellige designs og træsorter og få gæstens navn skåret i bordkortet.",
+            crumb="Bordkort med navn",
             faq=navne_faq,
         ),
     )
@@ -924,8 +960,8 @@ def main():
     ]
     bordkort_speciale = page_shell(
         slug="speciale",
-        title="Specielle bordkort i træ – motiver til fest og konfirmation",
-        description="Specielle bordkort i træ med fodbold, gaming, heste og andre motiver. Fra 10 kr. Håndlavet i Dragør til konfirmation og fest.",
+        title="Specielle bordkort i træ | Bordkort med motiver",
+        description="Specielle bordkort i træ med forskellige motiver til fest og konfirmation. Motivbordkort med gæstens navn – håndlavet i Dragør.",
         h1="Specielle bordkort i træ",
         canonical="https://bordkort.dk/speciale/",
         kicker=True,
@@ -933,9 +969,9 @@ def main():
         crumb="Specielle bordkort",
         intro_h2="Motivbordkort til tema og interesser",
         intro=[
-            "Specielle bordkort er skåret som et motiv – fodbold, controller, hest, cowboyhat og meget mere. De passer til konfirmation, børnefødselsdag og tema-fester, hvor bordkortet skal matche interessen.",
+            "Her finder du specielle bordkort i træ med forskellige motiver. Vælg et motiv, der passer til festen, konfirmanden, hobbyen eller temaet, og gør borddækningen personlig.",
             "Hvert kort graveres med gæstens navn. De fleste motiver koster 12 kr. stykket. Målene står ved hver model.",
-            "Finder I ikke det helt rigtige motiv, så skriv i «eget design» og få lavet et helt unikt. I kan afhente i Dragør eller få sendt i hele Danmark.",
+            {"html": 'Passer bordkortene til konfirmation? Se også vores side med <a href="/konfirmation/">bordkort til konfirmation</a>. Finder du ikke det rigtige motiv, laver vi <a href="/eget-design/">specialdesignede bordkort</a>.'},
         ],
         intro_before=True,
         products_html=render_grids(
@@ -952,7 +988,7 @@ def main():
         jsonld=bordkort_landing_jsonld(
             url="https://bordkort.dk/speciale/",
             name="Specielle bordkort i træ",
-            description="Specielle bordkort i træ med fodbold, gaming, heste og andre motiver. Fra 10 kr. Håndlavet i Dragør til konfirmation og fest.",
+            description="Specielle bordkort i træ med forskellige motiver til fest og konfirmation. Motivbordkort med gæstens navn – håndlavet i Dragør.",
             crumb="Specielle bordkort",
             faq=speciale_faq,
         ),
@@ -966,19 +1002,22 @@ def main():
     ]
     bordkort_bryllup = page_shell(
         slug="bryllup",
-        title="Bordkort til bryllup i træ – personlige navnebordkort",
-        description="Bordkort til bryllup i træ med gæstens navn. Klassiske navnebordkort fra 10 kr. Håndlavet i Dragør. Afhentning eller forsendelse.",
+        title="Bordkort til bryllup i træ | Personlige bordkort med navn",
+        description="Personlige bordkort til bryllup i træ med gæsternes navne. Vælg mellem forskellige designs og gør bryllupsbordet personligt.",
         h1="Bordkort til bryllup",
         canonical="https://bordkort.dk/bryllup/",
         kicker=True,
         kicker_brand="Bordkort.dk",
-        crumb="Bryllup",
+        crumb="Bordkort til bryllup",
         intro_h2="Personlige navnebordkort til bryllupsbordet",
         intro=[
             "Bordkort til bryllup i træ giver kuverten et personligt præg. Gæsten finder sin plads, og kortet kan tages med hjem som minde fra dagen.",
             "De fleste brudepar vælger klassiske navnebordkort – Cute eller Milk – i birkefiner eller bejdset valnød. Navnet graveres, så det matcher resten af borddækningen.",
             "Skriv gæstelisten i formularen. Bestil i god tid, eller skriv hvis det haster. Afhentning i Dragør er gratis. Forsendelse koster 55 kr.",
         ],
+        intro_html_extra="""            <h2>Personlige bordkort med navn til bryllup</h2>
+            <p>Gør bryllupsbordet personligt med <a href="/navne/">bordkort med navn</a> til alle gæsterne. Vores bordkort i træ fremstilles med gæsternes navne og kan bruges som en flot del af borddækningen.</p>
+            <p>Se vores udvalg af <a href="/navne/">personlige bordkort med navn</a>.</p>""",
         intro_before=True,
         products_html=render_grids(
             filter_products(lambda p: p["section"] == "bordkort_navne"),
@@ -994,8 +1033,8 @@ def main():
         jsonld=bordkort_landing_jsonld(
             url="https://bordkort.dk/bryllup/",
             name="Bordkort til bryllup",
-            description="Bordkort til bryllup i træ med gæstens navn. Klassiske navnebordkort fra 10 kr. Håndlavet i Dragør. Afhentning eller forsendelse.",
-            crumb="Bryllup",
+            description="Personlige bordkort til bryllup i træ med gæsternes navne. Vælg mellem forskellige designs og gør bryllupsbordet personligt.",
+            crumb="Bordkort til bryllup",
             faq=bryllup_faq,
         ),
     )
@@ -1008,19 +1047,22 @@ def main():
     ]
     bordkort_konfirmation = page_shell(
         slug="konfirmation",
-        title="Bordkort til konfirmation i træ – motiver med navn",
-        description="Bordkort til konfirmation i træ. Fodbold, gaming, heste og andre motiver med gæstens navn. Fra 10 kr. Håndlavet i Dragør.",
+        title="Bordkort til konfirmation i træ | Personlige bordkort",
+        description="Personlige bordkort til konfirmation i træ. Vælg mellem forskellige motiver og designs, og få lavet bordkort med konfirmandens og gæsternes navne.",
         h1="Bordkort til konfirmation",
         canonical="https://bordkort.dk/konfirmation/",
         kicker=True,
         kicker_brand="Bordkort.dk",
-        crumb="Konfirmation",
+        crumb="Bordkort til konfirmation",
         intro_h2="Motivbordkort der matcher konfirmandens interesser",
         intro=[
             "Bordkort til konfirmation i træ kan formes som det, konfirmanden går op i – fodbold, gaming, heste, håndbold og meget mere. Navnet graveres på, så gæsterne både finder pladsen og får et minde med hjem.",
             "De fleste motiver koster 12 kr. stykket. Klassiske navnebordkort kan også bruges, hvis festen skal være mere stilren.",
             "Vælg model, skriv navnene, og send forespørgslen. Afhentning i Dragør eller forsendelse i hele Danmark.",
         ],
+        intro_html_extra="""            <h2>Personlige bordkort med navn til konfirmation</h2>
+            <p>Giv konfirmationsbordet et personligt udtryk med <a href="/navne/">bordkort med navn</a>. Vælg mellem vores forskellige designs og motiver, så bordkortene passer til konfirmandens interesser og temaet for festen.</p>
+            <p>Se også vores <a href="/navne/">personlige bordkort med navn</a> og vores udvalg af <a href="/speciale/">specielle bordkort</a>.</p>""",
         intro_before=True,
         products_html=render_grids(
             filter_products(lambda p: p["section"] == "bordkort_speciale"),
@@ -1036,8 +1078,8 @@ def main():
         jsonld=bordkort_landing_jsonld(
             url="https://bordkort.dk/konfirmation/",
             name="Bordkort til konfirmation",
-            description="Bordkort til konfirmation i træ. Fodbold, gaming, heste og andre motiver med gæstens navn. Fra 10 kr. Håndlavet i Dragør.",
-            crumb="Konfirmation",
+            description="Personlige bordkort til konfirmation i træ. Vælg mellem forskellige motiver og designs, og få lavet bordkort med konfirmandens og gæsternes navne.",
+            crumb="Bordkort til konfirmation",
             faq=konfirmation_faq,
         ),
     )
@@ -1050,18 +1092,18 @@ def main():
     ]
     bordkort_eget = page_shell(
         slug="eget-design",
-        title="Få lavet dit eget bordkort-design i træ",
-        description="Specialdesignet bordkort i træ efter jeres tema, logo eller motiv. Send en forespørgsel, så laver vi et forslag og en pris. Håndlavet i Dragør.",
+        title="Specialdesignede bordkort i træ | Eget design",
+        description="Få lavet specialdesignede bordkort i træ efter eget ønske. Vi kan lave bordkort med eget motiv, logo, figur eller anden form.",
         h1="Få lavet dit eget design",
         canonical="https://bordkort.dk/eget-design/",
         kicker=True,
         kicker_brand="Bordkort.dk",
         crumb="Eget design",
-        intro_h2="Bordkort efter jeres tema eller logo",
+        intro_h2="Specialdesignede bordkort efter eget ønske",
         intro=[
-            "Finder I ikke det rigtige motiv blandt de færdige modeller, laver vi et bordkort efter jeres ønske. Det kan være et tema, et logo eller en figur, der passer til festen.",
-            "Skriv motiver, navne, antal og anledning i formularen. Vi vender tilbage med et forslag og en pris, inden vi går i gang.",
-            "Bordkortene fremstilles på bestilling i Dragør. I kan afhente efter aftale eller få dem sendt.",
+            "Vi kan lave personlige bordkort i træ efter dit eget design. Få lavet bordkort med eget motiv, logo, figur eller anden form, så de passer til netop din fest.",
+            "Har du en idé til et særligt bordkort, hjælper vi med at gøre idéen til et færdigt design. Specialdesignede bordkort kan tilpasses efter tema, motiv eller personlig stil.",
+            {"html": 'Se også vores færdige <a href="/navne/">bordkort med navn</a> og <a href="/speciale/">specielle bordkort</a>, hvis du hellere vil vælge blandt eksisterende modeller.'},
         ],
         intro_before=True,
         products_html="""    <section class="builder" id="eget-design">
@@ -1100,8 +1142,8 @@ def main():
         og_image_alt=BORDKORT_OG_ALT,
         jsonld=bordkort_landing_jsonld(
             url="https://bordkort.dk/eget-design/",
-            name="Få lavet dit eget design",
-            description="Specialdesignet bordkort i træ efter jeres tema, logo eller motiv. Send en forespørgsel, så laver vi et forslag og en pris. Håndlavet i Dragør.",
+            name="Specialdesignede bordkort i træ",
+            description="Få lavet specialdesignede bordkort i træ efter eget ønske. Vi kan lave bordkort med eget motiv, logo, figur eller anden form.",
             crumb="Eget design",
             faq=eget_faq,
         ),
@@ -1127,7 +1169,7 @@ def main():
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for i, loc in enumerate(urls):
         pri = "1.0" if i == 0 else "0.8"
-        sitemap.append(f"  <url><loc>{loc}</loc><lastmod>2026-09-04</lastmod><changefreq>weekly</changefreq><priority>{pri}</priority></url>")
+        sitemap.append(f"  <url><loc>{loc}</loc><lastmod>2026-09-05</lastmod><changefreq>weekly</changefreq><priority>{pri}</priority></url>")
     sitemap.append("</urlset>")
     (ROOT / "sitemap.xml").write_text("\n".join(sitemap) + "\n", encoding="utf-8")
     print("wrote sitemap.xml")
@@ -1145,7 +1187,7 @@ def main():
     for i, loc in enumerate(bordkort_urls):
         pri = "1.0" if i == 0 else "0.8"
         bk_sitemap.append(
-            f"  <url><loc>{loc}</loc><lastmod>2026-09-04</lastmod><changefreq>weekly</changefreq><priority>{pri}</priority></url>"
+            f"  <url><loc>{loc}</loc><lastmod>2026-09-05</lastmod><changefreq>weekly</changefreq><priority>{pri}</priority></url>"
         )
     bk_sitemap.append("</urlset>")
     (ROOT / "bordkort-site" / "sitemap.xml").write_text("\n".join(bk_sitemap) + "\n", encoding="utf-8")
