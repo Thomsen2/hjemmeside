@@ -794,7 +794,8 @@
       "id": "bordkort-headset",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Personligt bordkort i træ med headset-motiv – populært til gaming og konfirmation."
     },
     {
       "section": "bordkort_speciale",
@@ -819,7 +820,8 @@
       "id": "bordkort-controller",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Personligt bordkort i træ formet som en controller, ideelt til gaming-interesserede gæster."
     },
     {
       "section": "bordkort_speciale",
@@ -844,7 +846,8 @@
       "id": "bordkort-fodbold",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Personligt bordkort i træ med fodboldmotiv, som passer godt til en fodboldinteresseret gæst eller konfirmand."
     },
     {
       "section": "bordkort_speciale",
@@ -869,7 +872,8 @@
       "id": "bordkort-fodboldtroeje",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ med fodboldtrøje-motiv til fodboldfans og sportstema."
     },
     {
       "section": "bordkort_speciale",
@@ -894,7 +898,8 @@
       "id": "bordkort-wanted",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ med Wanted-motiv – et sjovt og personligt tema til bordet."
     },
     {
       "section": "bordkort_speciale",
@@ -919,7 +924,8 @@
       "id": "bordkort-cowboy-hat",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ formet som cowboyhat til western-tema eller personlig stil."
     },
     {
       "section": "bordkort_speciale",
@@ -944,7 +950,8 @@
       "id": "bordkort-fodboldstoevle",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ formet som en fodboldstøvle – et sportsmotiv til festen."
     },
     {
       "section": "bordkort_speciale",
@@ -969,7 +976,8 @@
       "id": "bordkort-amerikansk-fodbold",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ med amerikansk fodbold-motiv til tema og interesser."
     },
     {
       "section": "bordkort_speciale",
@@ -994,7 +1002,8 @@
       "id": "bordkort-babytroeje",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ med babytrøje-motiv – et blødt og personligt udtryk."
     },
     {
       "section": "bordkort_speciale",
@@ -1019,7 +1028,8 @@
       "id": "bordkort-basket-net",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ med basketnet-motiv til basketball-interesserede gæster."
     },
     {
       "section": "bordkort_speciale",
@@ -1044,7 +1054,8 @@
       "id": "bordkort-basketball",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ med basketball-motiv til sport og konfirmation."
     },
     {
       "section": "bordkort_speciale",
@@ -1069,7 +1080,8 @@
       "id": "bordkort-hestehjerte",
       "form": "hjerte",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ med hestehjerte-motiv til hesteinteresserede gæster."
     },
     {
       "section": "bordkort_speciale",
@@ -1094,7 +1106,8 @@
       "id": "bordkort-fod",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ formet som en fod – et sjovt og genkendeligt motiv."
     },
     {
       "section": "bordkort_speciale",
@@ -1119,7 +1132,8 @@
       "id": "bordkort-haandbold",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ med håndboldmotiv – populært til konfirmation og sportstema."
     },
     {
       "section": "bordkort_speciale",
@@ -1144,7 +1158,8 @@
       "id": "bordkort-sut",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ formet som en sut – et lille og personligt motiv."
     },
     {
       "section": "bordkort_speciale",
@@ -1169,7 +1184,8 @@
       "id": "bordkort-hockey",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ med hockeymotiv til sportsinteresserede gæster."
     },
     {
       "section": "bordkort_speciale",
@@ -1194,7 +1210,8 @@
       "id": "bordkort-krondyr",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ med krondyr-motiv til natur- og jagtinteresse."
     },
     {
       "section": "bordkort_speciale",
@@ -1219,7 +1236,8 @@
       "id": "bordkort-skytte",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ med skytte-motiv til skyde- og jagtinteresse."
     },
     {
       "section": "bordkort_speciale",
@@ -1244,7 +1262,8 @@
       "id": "bordkort-roblox",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ med Roblox-motiv til gaming-tema."
     },
     {
       "section": "bordkort_speciale",
@@ -1269,7 +1288,8 @@
       "id": "bordkort-knallert",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ med knallert-motiv til et personligt og sjovt tema."
     },
     {
       "section": "bordkort_speciale",
@@ -1294,7 +1314,8 @@
       "id": "bordkort-scooter",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ med scooter-motiv til unge gæster og tema-fester."
     },
     {
       "section": "bordkort_speciale",
@@ -1319,7 +1340,8 @@
       "id": "bordkort-badmintonbold",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ med badmintonmotiv til sportsinteresserede gæster."
     },
     {
       "section": "bordkort_speciale",
@@ -1344,7 +1366,8 @@
       "id": "bordkort-fodboldspiller",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ med fodboldspiller-motiv til gæster med fodbold som interesse."
     },
     {
       "section": "bordkort_speciale",
@@ -1369,7 +1392,8 @@
       "id": "bordkort-haandboldspiller",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ med håndboldspiller-motiv til håndboldfans."
     },
     {
       "section": "bordkort_speciale",
@@ -1394,7 +1418,8 @@
       "id": "bordkort-jagtriffel",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ med jagtriffel-motiv til jagtinteresse."
     },
     {
       "section": "bordkort_speciale",
@@ -1419,7 +1444,8 @@
       "id": "bordkort-bordtennis-bat",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ formet som bordtennisbat til sportstema."
     },
     {
       "section": "bordkort_speciale",
@@ -1444,7 +1470,8 @@
       "id": "bordkort-floorball",
       "form": "andet",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ med floorball-motiv til sportsinteresserede gæster."
     },
     {
       "section": "bordkort_speciale",
@@ -1469,7 +1496,8 @@
       "id": "bordkort-heste-hjerte-version-2",
       "form": "hjerte",
       "wood": "",
-      "occasions": []
+      "occasions": [],
+      "blurb": "Bordkort i træ med hestehjerte-motiv til hesteinteresserede gæster."
     },
     {
       "section": "fodselstavle",
