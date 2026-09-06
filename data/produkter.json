@@ -772,6 +772,31 @@
       "occasions": []
     },
     {
+      "section": "bordkort_navne",
+      "description": "Bordkort – Atma (10 kr stk i Birkefiner) (mål: 3,2 cm i højden 3mm tykke)",
+      "title": "Bordkort – Atma",
+      "size": "mål: 3,2 cm i højden 3mm tykke",
+      "price": "10,00 kr.",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/bordkort-atma.jpg",
+          "alt": "Personligt bordkort i træ med navn – skrifttype Atma",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/bordkort-atma-miljoe.jpg",
+          "alt": "Bordkort i træ med navn Atma på borddækning",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "bordkort-atma",
+      "form": "andet",
+      "wood": "birkefiner",
+      "occasions": []
+    },
+    {
       "section": "bordkort_speciale",
       "description": "Bordkort med headset i træ (12 kr stk) (mål: 6 x 6 cm)",
       "title": "Bordkort med headset i træ",

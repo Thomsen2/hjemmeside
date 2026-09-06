@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=219"
+ASSET_CSS = "/styles.css?v=222"
 ASSET_JS = "/script.js?v=61"
 
 BORDKORT_OG_IMAGE = "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png"
@@ -76,6 +76,16 @@ def render_card(product: dict, first: bool = False) -> str:
                             Tilføj monteringskit +20 kr (indeholder 2 klæbepuder + 2 strips)
                         </label>"""
     size = f'<p class="product-card__size">{esc(product["size"])}</p>' if product.get("size") else ""
+    material = ""
+    if section.startswith("bordkort"):
+        wood = product.get("wood") or ""
+        if "3d" in pid:
+            mat_label = "3D-print"
+        elif wood == "valnod":
+            mat_label = "Valnød"
+        else:
+            mat_label = "Birkefiner"
+        material = f'\n                <p class="product-card__size">Materiale: {esc(mat_label)}</p>'
     blurb = ""
     if product.get("blurb"):
         blurb = f'\n                <p class="product-card__blurb">{esc(product["blurb"])}</p>'
@@ -91,7 +101,7 @@ def render_card(product: dict, first: bool = False) -> str:
                     {media}
                 </div>
                 <h3 class="product-card__title">{esc(product["title"])}</h3>
-                {size}{blurb}
+                {size}{material}{blurb}
                 <p class="product-card__price">{esc(product["price"])}</p>
                 <details class="product-card__order">
                     <summary>Bestil</summary>
