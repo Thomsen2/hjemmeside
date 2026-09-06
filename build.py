@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=222"
+ASSET_CSS = "/styles.css?v=223"
 ASSET_JS = "/script.js?v=61"
 
 BORDKORT_OG_IMAGE = "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png"
@@ -86,6 +86,9 @@ def render_card(product: dict, first: bool = False) -> str:
         else:
             mat_label = "Birkefiner"
         material = f'\n                <p class="product-card__size">Materiale: {esc(mat_label)}</p>'
+    finish = ""
+    if product.get("finish"):
+        finish = f'\n                <p class="product-card__size">{esc(product["finish"])}</p>'
     blurb = ""
     if product.get("blurb"):
         blurb = f'\n                <p class="product-card__blurb">{esc(product["blurb"])}</p>'
@@ -101,7 +104,7 @@ def render_card(product: dict, first: bool = False) -> str:
                     {media}
                 </div>
                 <h3 class="product-card__title">{esc(product["title"])}</h3>
-                {size}{material}{blurb}
+                {size}{material}{finish}{blurb}
                 <p class="product-card__price">{esc(product["price"])}</p>
                 <details class="product-card__order">
                     <summary>Bestil</summary>
