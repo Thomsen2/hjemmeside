@@ -1826,6 +1826,31 @@
       "occasions": []
     },
     {
+      "section": "andre_skilte",
+      "description": "Vinoteket i birkefiner, mål ca.: 39.5 x 9.5 cm, inkl dobbelt klæbende tape på bagsiden, pris 125 kr",
+      "title": "Vinoteket i birkefiner, mål ca.: 39.5 x 9.5 cm, inkl dobbelt klæbende tape på bagsiden, pris 125 kr",
+      "size": "",
+      "price": "",
+      "images": [
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/vinoteket-birkefiner.png",
+          "alt": "Vinoteket skilt i birkefiner",
+          "hidden": false
+        },
+        {
+          "src": "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/vinoteket-birkefiner-miljoe.jpg",
+          "alt": "Vinoteket skilt i birkefiner over vinskab",
+          "hidden": true
+        }
+      ],
+      "form_label": "Skriv dine ønsker til skiltet her",
+      "mounting": false,
+      "id": "vinoteket-birkefiner",
+      "form": "andet",
+      "wood": "birkefiner",
+      "occasions": []
+    },
+    {
       "section": "velkomst_skilt",
       "description": "Velkomstskilt i Egetræfiner (350 kr), mål ca. 78 x 45 cm",
       "title": "Velkomstskilt i Egetræfiner",
