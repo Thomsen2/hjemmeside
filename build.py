@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=223"
+ASSET_CSS = "/styles.css?v=225"
 ASSET_JS = "/script.js?v=61"
 
 BORDKORT_OG_IMAGE = "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png"
@@ -556,7 +556,7 @@ def format_intro_para(p) -> str:
     return f"            <p>{esc(p)}</p>"
 
 
-def page_shell(*, slug, title, description, h1, canonical, kicker, crumb, intro_h2, intro, products_html, faq, extra_body="", site_name="Æresportskilt.dk", kicker_brand="Æresportskilt.dk", nav=None, footer=None, favicon="/favicon.svg", intro_before=False, og_image="", og_image_alt="", jsonld="", intro_html_extra=""):
+def page_shell(*, slug, title, description, h1, canonical, kicker, crumb, intro_h2, intro, products_html, faq, extra_body="", site_name="Æresportskilt.dk", kicker_brand="Æresportskilt.dk", nav=None, footer=None, favicon="/favicon.svg", intro_before=False, og_image="", og_image_alt="", jsonld="", intro_html_extra="", intro_class=""):
     url = canonical
     breadcrumb = ""
     if crumb:
@@ -574,7 +574,8 @@ def page_shell(*, slug, title, description, h1, canonical, kicker, crumb, intro_
             paras += "\n"
         heading = f"            <h2>{esc(intro_h2)}</h2>\n" if intro_h2 else ""
         extra = f"{intro_html_extra}\n" if intro_html_extra else ""
-        intro_html = f"""    <section class="intro">
+        intro_cls = f"intro {intro_class}".strip()
+        intro_html = f"""    <section class="{intro_cls}">
         <div class="container">
 {heading}{paras}{extra}        </div>
     </section>"""
@@ -1119,6 +1120,7 @@ def main():
         kicker=True,
         kicker_brand="Bordkort.dk",
         crumb="Eget design",
+        intro_class="intro--copy",
         intro_h2="Specialdesignede bordkort efter eget ønske",
         intro=[
             "Vi kan lave personlige bordkort i træ efter dit eget design. Få lavet bordkort med eget motiv, logo, figur eller anden form, så de passer til netop din fest.",
