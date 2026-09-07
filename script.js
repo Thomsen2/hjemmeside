@@ -598,6 +598,33 @@ document.querySelectorAll('.pickup-toggle').forEach(function (toggle) {
     });
 });
 
+function showSiteMessage(message) {
+    var dialog = document.getElementById('siteDialog');
+    if (!dialog) {
+        dialog = document.createElement('div');
+        dialog.id = 'siteDialog';
+        dialog.className = 'site-dialog';
+        dialog.innerHTML = '<div class="site-dialog__box" role="dialog" aria-modal="true" aria-labelledby="siteDialogMsg">' +
+            '<p id="siteDialogMsg"></p>' +
+            '<button type="button" class="btn-submit site-dialog__ok">OK</button>' +
+            '</div>';
+        document.body.appendChild(dialog);
+        function closeDialog() {
+            dialog.classList.remove('is-open');
+        }
+        dialog.querySelector('.site-dialog__ok').addEventListener('click', closeDialog);
+        dialog.addEventListener('click', function (ev) {
+            if (ev.target === dialog) closeDialog();
+        });
+        document.addEventListener('keydown', function (ev) {
+            if (ev.key === 'Escape' && dialog.classList.contains('is-open')) closeDialog();
+        });
+    }
+    dialog.querySelector('#siteDialogMsg').textContent = message;
+    dialog.classList.add('is-open');
+    dialog.querySelector('.site-dialog__ok').focus();
+}
+
 document.querySelectorAll('.sign-form').forEach(function (form) {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -612,7 +639,7 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
         var mountingChecked = mountingEl ? mountingEl.checked : false;
 
         if (textarea && !besked) {
-            alert('Udfyld venligst din besked.');
+            showSiteMessage('Udfyld venligst din besked.');
             return;
         }
 
@@ -627,7 +654,11 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
         var grid = this.closest('.builder-grid');
         var beskrivelse = '';
         var imgEl = null;
-        if (card) {
+        var egetBordkort = this.querySelector('[name*="eget_design_bordkort"]');
+        if (egetBordkort) {
+            sectionTitle = 'Specialdesignede bordkort';
+            beskrivelse = 'Forespørgsel på Specialdesignede bordkort';
+        } else if (card) {
             beskrivelse = (card.getAttribute('data-beskrivelse') || '').trim();
             if (!beskrivelse) {
                 var t = card.querySelector('.product-card__title');
@@ -680,19 +711,19 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
 
         if (shippingToggle || pickupToggle) {
             if (!pickupChecked && !shippingChecked) {
-                alert('Vælg afhentning i Dragør eller forsendelse, og udfyld alle felter.');
+                showSiteMessage('Vælg afhentning i Dragør eller forsendelse, og udfyld alle felter.');
                 return;
             }
             if (pickupChecked && !(payload.pickupEmail || '')) {
-                alert('Udfyld venligst din email til afhentning.');
+                showSiteMessage('Udfyld venligst din email til afhentning.');
                 return;
             }
             if (shippingChecked && (!(payload.navn || '') || !(payload.adresse || '') || !(payload.postnr || '') || !(payload.mail || '') || !(payload.mobil || ''))) {
-                alert('Udfyld venligst alle felter til forsendelse (navn, adresse, postnr. og by, mail og mobil).');
+                showSiteMessage('Udfyld venligst alle felter til forsendelse (navn, adresse, postnr. og by, mail og mobil).');
                 return;
             }
         } else if (!(payload.navn || '') || !(payload.mail || '') || !(payload.mobil || '')) {
-            alert('Udfyld venligst alle felter (navn, mail og mobil).');
+            showSiteMessage('Udfyld venligst alle felter (navn, mail og mobil).');
             return;
         }
 
@@ -700,13 +731,18 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
         btn.textContent = 'Sender...';
         btn.disabled = true;
 
+        var subjectLine = egetBordkort
+            ? 'FORESPØRGSEL: Specialdesignede bordkort'
+            : 'Ny forespørgsel: ' + (beskrivelse || sectionTitle);
         var emailBody = {
             'form-name': 'bestilling',
             'bot-field': '',
-            subject: 'Ny forespørgsel: ' + (beskrivelse || sectionTitle),
+            subject: subjectLine,
             Produkt: sectionTitle,
             Beskrivelse: beskrivelse || sectionTitle,
-            Besked: besked,
+            Besked: egetBordkort
+                ? 'FORESPØRGSEL PÅ SPECIALDESIGNDE BORDKORT\n\n' + besked
+                : besked,
             'Billede-eksempel': billedeUrl,
             Afhentning: pickupChecked ? 'Ja (Dragør)' : 'Nej',
             Forsendelse: shippingChecked ? 'Ja (55 kr)' : 'Nej',
@@ -726,16 +762,16 @@ document.querySelectorAll('.sign-form').forEach(function (form) {
         })
         .then(function (resp) {
             if (resp.ok) {
-                alert('Tak! Din forespørgsel er sendt. Hold øje med din mail, for bekræftelse af design og betaling');
+                showSiteMessage('Tak! Din forespørgsel er sendt. Hold øje med din mail, for bekræftelse af design og betaling');
                 btn.closest('form').querySelectorAll('textarea, input[type="text"], input[type="email"], input[type="tel"]').forEach(function (el) { el.value = ''; });
                 btn.closest('form').querySelectorAll('input[type="checkbox"]').forEach(function (el) { el.checked = false; });
                 btn.closest('form').querySelectorAll('.shipping-fields, .pickup-fields').forEach(function (el) { el.classList.remove('visible'); });
             } else {
-                alert('Fejl: Kunne ikke sende forespørgslen. Prøv igen.');
+                showSiteMessage('Fejl: Kunne ikke sende forespørgslen. Prøv igen.');
             }
         })
         .catch(function (err) {
-            alert('Der opstod en fejl: ' + err.message);
+            showSiteMessage('Der opstod en fejl: ' + err.message);
         })
         .finally(function () {
             btn.textContent = 'Send forespørgsel';
