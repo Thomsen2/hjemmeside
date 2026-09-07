@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=225"
+ASSET_CSS = "/styles.css?v=231"
 ASSET_JS = "/script.js?v=61"
 
 BORDKORT_OG_IMAGE = "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png"
@@ -522,6 +522,13 @@ FOOTER = f"""    <footer>
         </div>
     </footer>"""
 
+BORDKORT_HEADER_NOTE = (
+    "For at bestille, indtast de navne, du ønsker, i indtastningsfeltet. "
+    "Det kan tage op til 14 dage at lave, da hvert enkelt bordkort, produceres fra bunden af."
+)
+BORDKORT_BESTILLING_HTML = f"""            <h3>Bestilling</h3>
+            <p>{BORDKORT_HEADER_NOTE}</p>"""
+
 BORDKORT_FOOTER = f"""    <footer>
         <div class="container">
 {CONTACT_FOOTER}
@@ -657,7 +664,7 @@ BORDKORT_FAQ = [
     ("Hvad er et bordkort i træ?", "Et bordkort i træ er et lille, personligt skilt med gæstens navn – eller et motiv – som står ved kuverten. Det gør borddækningen mere personlig og er et minde, gæsterne kan tage med hjem."),
     ("Hvad koster bordkort?", "Klassiske navnebordkort starter ved 10 kr. stykket. Specielle motiver koster typisk 12 kr. stykket. Prisen står ved hver model."),
     ("Kan I lave et særligt motiv?", "Ja. Har I et tema til festen – sport, dyr, gaming eller noget helt andet – så skriv det på siden eget design, så laver vi et forslag."),
-    ("Hvordan bestiller jeg?", "Vælg en model, skriv navnene og send forespørgslen. I kan afhente i Dragør eller få bordkortene sendt."),
+    ("Hvordan bestiller jeg?", "Vælg en model, skriv navnene og send forespørgslen. Der kan gå op til 14 dage, fra bestilling er modtaget, til de er klar til, I kan afhente i Dragør eller få bordkortene sendt."),
 ]
 
 
@@ -951,7 +958,8 @@ def main():
         ],
         intro_html_extra="""            <h2>Bordkort med navn til fest</h2>
             <p>Personlige bordkort med navn giver borddækningen et flot og personligt udtryk. Vælg det design, der passer til festen, og bestil et bordkort til hver af dine gæster.</p>
-            <p>Skal du holde konfirmation? Se vores <a href="/konfirmation/">bordkort til konfirmation</a>.</p>""",
+            <p>Skal du holde konfirmation? Se vores <a href="/konfirmation/">bordkort til konfirmation</a>.</p>
+""" + BORDKORT_BESTILLING_HTML,
         intro_before=True,
         products_html=render_grids(
             filter_products(lambda p: p["section"] == "bordkort_navne"),
@@ -994,6 +1002,7 @@ def main():
             "Hvert kort graveres med gæstens navn. De fleste motiver koster 12 kr. stykket. Målene står ved hver model.",
             {"html": 'Passer bordkortene til konfirmation? Se vores <a href="/konfirmation/">bordkort til konfirmation</a>. Foretrækker du klassiske modeller, kan du se vores <a href="/navne/">bordkort med navn</a>. Finder du ikke det rigtige motiv, laver vi <a href="/eget-design/">specialdesignede bordkort</a>.'},
         ],
+        intro_html_extra=BORDKORT_BESTILLING_HTML,
         intro_before=True,
         products_html=render_grids(
             filter_products(lambda p: p["section"] == "bordkort_speciale"),
@@ -1109,7 +1118,7 @@ def main():
     eget_faq = [
         ("Hvad kan I lave som eget design?", "Et motiv, et logo, en særlig form eller en tekst, I ikke finder blandt de færdige modeller. Skriv ønsket, så vender vi tilbage med et forslag."),
         ("Hvad koster et specialdesign?", "Prisen afhænger af motiv, antal og materiale. Vi giver en pris, når vi har set ønsket."),
-        ("Hvor lang tid tager et eget design?", "Først laver vi et forslag. Når I har godkendt, producerer vi bordkortene. Skriv datoen, hvis festen nærmer sig."),
+        ("Hvor lang tid tager et eget design?", "Først laver vi et forslag. Når I har godkendt, producerer vi bordkortene – det kan tage op til 14 dage. Skriv datoen, hvis festen nærmer sig."),
     ]
     bordkort_eget = page_shell(
         slug="eget-design",
