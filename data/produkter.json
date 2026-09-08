@@ -3,49 +3,49 @@
     "birkefiner": {
       "id": "birkefiner",
       "h2": "Birkefiner",
-      "note": "Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ",
+      "note": "Husk alt træ er forskelligt, dvs. træåre, nuancer osv varierer for hvert stykke træ",
       "intro": [],
       "class": "builder tab-section active"
     },
     "vaabenskjold": {
       "id": "vaabenskjold",
       "h2": "Våbenskjold",
-      "note": "Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ",
+      "note": "Husk alt træ er forskelligt, dvs. træåre, nuancer osv varierer for hvert stykke træ",
       "intro": [],
       "class": "builder tab-section"
     },
     "egetrae": {
       "id": "egetrae",
       "h2": "Egetræ",
-      "note": "Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ",
+      "note": "Husk alt træ er forskelligt, dvs. træåre, nuancer osv varierer for hvert stykke træ",
       "intro": [],
       "class": "builder tab-section"
     },
     "egetrae_v2": {
       "id": "egetrae_v2",
       "h2": "Egetræ — Våbenskjold",
-      "note": "Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ",
+      "note": "Husk alt træ er forskelligt, dvs. træåre, nuancer osv varierer for hvert stykke træ",
       "intro": [],
       "class": "builder tab-section"
     },
     "version1": {
       "id": "version1",
       "h2": "Finer i bejdset valnød",
-      "note": "Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ",
+      "note": "Husk alt træ er forskelligt, dvs. træåre, nuancer osv varierer for hvert stykke træ",
       "intro": [],
       "class": "builder tab-section"
     },
     "version1_v2": {
       "id": "version1_v2",
       "h2": "Våbenskjold – Finer i bejdset valnød",
-      "note": "Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ",
+      "note": "Husk alt træ er forskelligt, dvs. træåre, nuancer osv varierer for hvert stykke træ",
       "intro": [],
       "class": "builder tab-section"
     },
     "version2": {
       "id": "version2",
       "h2": "Amerikansk mørk valnødfiner",
-      "note": "Husk alt træ er forskelligt, dvs. træåre osv varierer for hvert stykke træ",
+      "note": "Husk alt træ er forskelligt, dvs. træåre, nuancer osv varierer for hvert stykke træ",
       "intro": [],
       "class": "builder tab-section"
     },
