@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / "data" / "produkter.json").read_text(encoding="utf-8"))
 PRODUCTS = DATA["products"]
 SECTIONS = DATA["sections"]
-ASSET_CSS = "/styles.css?v=235"
+ASSET_CSS = "/styles.css?v=236"
 ASSET_JS = "/script.js?v=63"
 
 BORDKORT_OG_IMAGE = "https://pub-a65460f11bff4b4c9a65a6943613a5ef.r2.dev/cute%20chat.png"
@@ -504,7 +504,7 @@ def about_section_bordkort() -> str:
         <div class="container">
             <h2>Personlige bordkort i træ lavet i Dragør</h2>
             <p class="about-text">{ABOUT_BORDKORT}</p>
-            <p>Bagkort.dk drives af Bo Thomsen fra Dragør på Amager. Vi laver personlige bordkort i træ – både klassiske navnebordkort og specielle motiver – og tilbyder personlig service fra forespørgsel til færdige kort.</p>
+            <p>Bordkort.dk drives af Bo Thomsen fra Dragør på Amager. Vi laver personlige bordkort i træ – både klassiske navnebordkort og specielle motiver – og tilbyder personlig service fra forespørgsel til færdige kort.</p>
             <p>Hvert bordkort fremstilles efter bestilling. Du vælger design og træsort, og vi skærer gæstens navn eller motiv, så kortene passer til netop din fest. Udvalget spænder fra enkle navnebordkort til motivbordkort og specialdesignede løsninger efter eget ønske.</p>
             <p>Vi arbejder med forskellige designs, træsorter og motiver, så du kan finde bordkort, der passer til din borddækning. Du kan afhente i Dragør efter aftale eller få bordkortene sendt.</p>
             <p>Uanset om du vælger navnebordkort, motivbordkort eller et specialdesign, laver vi kortene individuelt, så de matcher gæstelisten og festen.</p>
